@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", "Noto Sans Thai", Arial, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #030504;
+  color: white;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.16) 10%, transparent 26%),
+    radial-gradient(circle at 72% 78%, rgba(29, 244, 188, 0.9), transparent 22%),
+    radial-gradient(circle at 28% 72%, rgba(255, 102, 82, 0.7), transparent 26%),
+    linear-gradient(135deg, rgba(29, 244, 188, 0.26), rgba(88, 115, 255, 0.28), rgba(255, 154, 61, 0.18));
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  box-shadow: inset 16px 18px 30px rgba(255, 255, 255, 0.12), inset -18px -20px 34px rgba(0, 0, 0, 0.54), 0 0 34px rgba(29, 244, 188, 0.22);
+  opacity: 0.86;
+  pointer-events: none;
+}
+
+.wireframe {
+  background-image:
+    linear-gradient(rgba(25, 167, 255, 0.7) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 167, 255, 0.7) 1px, transparent 1px);
+  background-size: 12px 12px;
+  mask-image: linear-gradient(to top, black, transparent 92%);
+}
+
+@keyframes phone-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-38%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes phone-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(38%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.phone-slide-left {
+  opacity: 0;
+  transform: translateX(-38%) scale(0.96);
+  will-change: transform, opacity;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease;
+}
+
+.phone-slide-right {
+  opacity: 0;
+  transform: translateX(38%) scale(0.96);
+  will-change: transform, opacity;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease;
+}
+
+.phones-in-view .phone-slide-left {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.phones-in-view .phone-slide-right {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  transition-delay: 120ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-slide-left,
+  .phone-slide-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
