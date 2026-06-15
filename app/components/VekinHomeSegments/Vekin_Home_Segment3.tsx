@@ -15,7 +15,7 @@ export default function Vekin_Home_Segment3() {
 
 				<div className="absolute left-[80%] top-[10%] z-40 w-[40%] -translate-x-1/2">
 					<a href="/auditor" target="_blank" rel="noopener noreferrer" className="block border-none bg-transparent p-0 cursor-pointer">
-						<img src="/VEKIN Resource all Product/VEKIN 5/3D_Energy_Auditor.png" alt="One Click" className="h-auto w-full object-contain" />
+						<img src="/VEKIN Resource all Product/VEKIN 5/3D_Energy_Auditor.png" alt="One Click" className=" h-auto w-full object-contain transition-all duration-300 hover:scale-110"/>
 					</a>
 				</div>
 
