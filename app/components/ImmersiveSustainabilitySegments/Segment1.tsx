@@ -25,19 +25,16 @@ export default function Segment1() {
     <>
 <>
   {/* VIDEO SECTION */}
-  <section className="w-full bg-white h-auto aspect-video sm:h-[370px] md:h-[520px]">
-    <video
-      className="h-full w-full object-cover"
-      src="/videos/vekin-video.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-      controls
-    >
-      Your browser does not support the video tag.
-    </video>
-  </section>
+<section className="w-full bg-white">
+  <div className="relative w-full aspect-video">
+    <iframe
+      src="https://vekinth-my.sharepoint.com/personal/wanut_vekin_tech/_layouts/15/embed.aspx?UniqueId=32e6a16d-c9cb-4ebc-a2dc-377e9fcea712&nav=%7B%22playbackOptions%22%3A%7B%22startTimeInSeconds%22%3A0%7D%7D&embed=%7B%22af%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+      title="Vekin Video"
+      allowFullScreen
+      className="absolute inset-0 w-full h-full border-0"
+    />
+  </div>
+</section>
 
   {/* SECOND SECTION: NOW SPANNING FULL SCREEN WIDTH */}
   {/* Changed max-w-[1180px] to w-full so background/bubbles span across the entire screen */}

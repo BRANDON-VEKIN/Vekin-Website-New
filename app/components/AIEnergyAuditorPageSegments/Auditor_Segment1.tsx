@@ -18,19 +18,14 @@ export default function AuditorSegment1() {
 	return (
 <section
   aria-label="AI Auditor Hero"
-  className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black"
+  className="relative w-full overflow-hidden bg-black"
 >
-  {/* BACKGROUND VIDEO */}
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="absolute inset-0 h-full w-full object-cover"
-  >
-    <source src="/VEKIN Resource all Product/VEKIN 3/Auditor_Video1.mp4" type="video/mp4" />
-    {/* คุณสามารถเพิ่ม source สำรองกรณีเบราว์เซอร์ไม่รองรับ mp4 หรือใส่รูปภาพสำรองได้ที่นี่ */}
-  </video>
+  <iframe
+    src="https://vekinth-my.sharepoint.com/personal/wanut_vekin_tech/_layouts/15/embed.aspx?UniqueId=315b4039-c3b5-4b01-86c6-5c2efa32a1df&embed=%7B%22af%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+    title="Auditor Video"
+    allowFullScreen
+    className="w-full aspect-video border-0"
+  />
 </section>
 	);
 }
