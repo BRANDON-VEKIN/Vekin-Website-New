@@ -34,7 +34,7 @@ export default function Segment6() {
       </div>
 
       {/* EXPLANATORY CARD COMPONENT */}
-      <div className="self-end max-w-[700px] w-full bg-neutral-900/90 lg:bg-white/85 text-white lg:text-black p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/5 lg:border-none backdrop-blur-md">
+      <div className="self-end max-w-[700px] w-full bg-neutral-900/90 lg:bg-white/30 text-white lg:text-black p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/5 lg:border-none backdrop-blur-md">
         <h3 className="mb-2 text-xl sm:text-2xl font-black tracking-tight text-emerald-400 lg:text-neutral-900">
           Carbon Neutrality
         </h3>

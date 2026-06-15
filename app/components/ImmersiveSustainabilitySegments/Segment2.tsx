@@ -243,7 +243,9 @@ export default function Segment2() {
   return (
     <section className="relative mx-auto w-full max-w-[1180px] px-4 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24 lg:pt-28 overflow-hidden">
       <h2 className="text-[clamp(2.4rem,8vw,4.5rem)] font-extralight tracking-tight leading-tight text-white">
-        {copy.title.split(" ")[0]} <span className="font-semibold text-emerald-400">{copy.title.split(" ")[1] || ""}</span>
+        <span className="font-semibold text-white">
+          {copy.title}
+        </span>
       </h2>
       <p className="mx-auto mt-4 max-w-[760px] whitespace-pre-line text-[clamp(1rem,4vw,1.35rem)] font-light leading-relaxed text-slate-300 sm:mt-6">
         {copy.description}

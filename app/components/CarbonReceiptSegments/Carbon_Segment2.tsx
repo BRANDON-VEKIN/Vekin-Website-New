@@ -25,7 +25,7 @@ export default function CarbonSegment1() {
                 as="h1"
                 th="สำหรับทุกธุรกรรมที่ขับเคลื่อนด้วยเทคโนโลยีบล็อก"
                 en="FOR EVERY TRANSACTION POWERED BY BLOCKCHAIN TECHNOLOGY"
-                className="bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight"
+                className="bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-transparent text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight"
             />
 
             <a

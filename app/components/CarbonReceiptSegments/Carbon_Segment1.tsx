@@ -39,7 +39,7 @@ export default function CarbonSegment1() {
           as="h1"
           th="ขับเคลื่อนอนาคตของโลจิสติกส์และพลังงานด้วยโซลูชันที่ยั่งยืน"
           en="DRIVING THE FUTURE OF LOGISTICS AND ENERGY WITH SUSTAINABLE SOLUTIONS"
-          className="bg-gradient-to-r from-blue-500 to-green-400 bg-clip-text text-transparent
+          className="bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-transparent
                      text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight"
         />
 

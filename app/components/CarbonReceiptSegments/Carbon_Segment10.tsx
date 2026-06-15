@@ -42,8 +42,10 @@ export default function CarbonSegment10() {
                         rel="noopener noreferrer"
                         className="mt-8"
                     >
-                        <button className=" text-[#258974] rounded-full border border-grey px-8 py-3 text-black font-semibold shadow-lg transition hover:scale-105">
-                            TRY IT NOW
+                        <button
+                        className="rounded-full bg-gradient-to-r from-[#00464F] to-[#53BC81] px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                        >
+                        TRY IT NOW
                         </button>
                     </a>
                 </div>
