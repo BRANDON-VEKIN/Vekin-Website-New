@@ -3,7 +3,6 @@ import Home_Segment1 from "../components/VekinHomeSegments/Vekin_Home_Segment1";
 import Home_Segment2 from "../components/VekinHomeSegments/Vekin_Home_Segment2";
 import Home_Segment3 from "../components/VekinHomeSegments/Vekin_Home_Segment3";
 import Home_Segment4 from "../components/VekinHomeSegments/Vekin_Home_Segment4";
-import Home_Segment5 from "../components/VekinHomeSegments/Vekin_Home_Segment5";
 import Home_Segment6 from "../components/VekinHomeSegments/Vekin_Home_Segment6";
 import Home_Segment7 from "../components/VekinHomeSegments/Vekin_Home_Segment7";
 
