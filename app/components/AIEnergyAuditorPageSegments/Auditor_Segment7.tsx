@@ -19,36 +19,36 @@ export default function AuditorSegment7() {
     () => [
       {
         bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG1.png",
-		    phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img1.png",
+        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img1.png",
         stepLabel: language === "th" ? "ขั้นตอนที่ 1" : "1st Step",
         title:
           language === "th"
             ? "ประเมินฐานพลังงานอย่างแม่นยำ"
             : "Accurate Energy Baseline Assessment",
         body: language === "th" ? "ข้อความตัวอย่าง" : "Fake text",
-        phoneGlow: "from-cyan-300/70 via-sky-400/60 to-blue-600/70",
+        phoneGlow: "from-cyan-500/40 via-sky-500/30 to-blue-600/40",
       },
       {
         bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG2.png",
-		    phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img2.png",
+        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img2.png",
         stepLabel: language === "th" ? "ขั้นตอนที่ 2" : "2nd Step",
         title:
           language === "th"
             ? "ค้นหาตัวเลือกและข้อเสนอที่ดีที่สุดจากการสนับสนุนทางการเงิน"
             : "Find the Best Choice & Financial Support Opportunities",
         body: language === "th" ? "ข้อความตัวอย่าง" : "Fake text",
-        phoneGlow: "from-emerald-300/70 via-teal-400/60 to-cyan-500/70",
+        phoneGlow: "from-emerald-500/40 via-teal-500/30 to-cyan-500/40",
       },
       {
         bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG3.png",
-		    phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img3.png",
+        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img3.png",
         stepLabel: language === "th" ? "ขั้นตอนที่ 3" : "3rd Step",
         title:
           language === "th"
             ? "ROI ที่แม่นยำผ่าน AI Energy Auditor (การประหยัด)"
             : "Accurate ROI through AI Energy Auditor (Saving)",
         body: language === "th" ? "ข้อความตัวอย่าง" : "Fake text",
-        phoneGlow: "from-amber-300/70 via-orange-400/60 to-rose-500/70",
+        phoneGlow: "from-amber-500/40 via-orange-500/30 to-rose-600/40",
       },
     ],
     [language]
@@ -90,94 +90,104 @@ export default function AuditorSegment7() {
   }
 
   return (
-  <section
-    aria-labelledby="auditor-protocol"
-    className="relative w-full overflow-hidden"
-  >
-    {/* Background */}
-    <img
-      src={activeStep.bg}
-      alt="Future Bangkok background"
-      className="block w-full min-h-[800px] object-cover md:min-h-0"
-    />
+    <section
+      aria-labelledby="auditor-protocol"
+      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center bg-neutral-950"
+    >
+      {/* Background Section Layer */}
+      <img
+        src={activeStep.bg}
+        alt="Future Bangkok background"
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+      />
 
-    <div className="absolute inset-0 bg-black/20" />
+      {/* Dark Dimmer Backdrop Tint */}
+      <div className="absolute inset-0 bg-black/40 lg:bg-black/20 pointer-events-none" />
 
-    <div className="absolute inset-0 flex items-center">
-      <div
-        className="
-          mx-auto
-          grid
-          w-full
-          max-w-7xl
-          grid-cols-1
-          items-center
-          gap-8
-          px-4
-          py-12
-          sm:px-6
-          lg:grid-cols-[0.9fr_1.1fr]
-          lg:gap-12
-          lg:px-10
-        "
-      >
-        {/* PHONE */}
-        <div className="flex justify-center lg:justify-start">
-          <div
-            className="
-              relative
-              w-64
-              touch-pan-y
-              select-none
-              transition-transform
-              duration-500
-              ease-out
-              sm:w-80
-              lg:w-[28rem]
-            "
-            onPointerDown={handlePointerDown}
-            onPointerUp={handlePointerUp}
-            onPointerCancel={() => {
-              pointerStartX.current = null;
-            }}
-            onPointerLeave={() => {
-              pointerStartX.current = null;
-            }}
-          >
-            <div className="absolute inset-0 -z-10 rounded-[3.1rem] bg-black/35 blur-3xl" />
+      {/* Main Dynamic Container Frame */}
+      <div className="relative lg:absolute lg:inset-0 z-10 flex items-center w-full h-full py-12 md:py-20 lg:py-0 overflow-y-auto lg:overflow-visible">
+        <div
+          className="
+            mx-auto
+            grid
+            w-full
+            max-w-7xl
+            grid-cols-1
+            items-center
+            gap-10
+            px-6
+            sm:px-10
+            lg:grid-cols-[1fr_1.1fr]
+            lg:gap-16
+          "
+        >
+          {/* CONTAINER FOR IPHONE MOCKUP */}
+          <div className="flex justify-center lg:justify-start order-1 w-full h-full items-center py-4 sm:py-8 lg:py-12">
+            <div
+              className="
+                relative
+                w-full
+                xs:w-[260px]
+                sm:w-[310px]
+                lg:w-[350px]
+                xl:w-[380px]
+                aspect-[9/19.5]
+                max-h-[68vh] md:max-h-[72vh] lg:max-h-[78vh]
+                touch-pan-y
+                select-none
+              "
+              onPointerDown={handlePointerDown}
+              onPointerUp={handlePointerUp}
+              onPointerCancel={() => {
+                pointerStartX.current = null;
+              }}
+              onPointerLeave={() => {
+                pointerStartX.current = null;
+              }}
+            >
+              {/* Dynamic Fluid Glow Ambient Backlight Effect */}
+              <div
+                className={`absolute inset-4 -z-10 rounded-[3rem] bg-gradient-to-tr ${activeStep.phoneGlow} opacity-100 blur-[45px] sm:blur-[60px] transition-all duration-700 ease-in-out`}
+              />
 
-            <div className="relative overflow-hidden rounded-[3rem] border-[10px] border-slate-950 bg-slate-900 p-[0.4rem] shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
-              <div className="relative h-[32rem] overflow-hidden rounded-[2.35rem] sm:h-[42rem]">
+              {/* iPhone Steel Chassis Rim with Surgical Stainless Steel Sheen */}
+              <div className="relative w-full h-full overflow-hidden rounded-[2.5rem] sm:rounded-[3.25rem] bg-gradient-to-b from-slate-800 via-zinc-900 to-neutral-950 p-[7px] sm:p-[9px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] ring-1 ring-white/15">
+                
+                {/* Ultra Thin Display Mask Rim */}
+                <div className="relative w-full h-full overflow-hidden rounded-[2.05rem] sm:rounded-[2.7rem] bg-neutral-950 ring-2 ring-black/80">
+                  
+                  {/* Phone Screen Graphical Render Output Canvas */}
+                  <img
+                    src={activeStep.phoneImage}
+                    alt="Application Dashboard Display Frame"
+                    className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out"
+                  />
 
-                <img
-                  src={activeStep.phoneImage}
-                  alt="Phone Background"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
+                  {/* Anti-Glare Soft Screen Reflection Polish Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none mix-blend-overlay" />
 
-                <div className="absolute inset-0 bg-black/10" />
+                  {/* iPhone Dynamic Island Interface Element */}
+                  <div className="absolute left-1/2 top-2.5 sm:top-3.5 z-30 h-4 w-20 sm:h-5 sm:w-26 -translate-x-1/2 rounded-full bg-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-end px-2.5">
+                    {/* TrueDepth Camera Lens Array Reflection */}
+                    <div className="h-1 sm:h-1.5 w-1 sm:w-1.5 rounded-full bg-[#111318] border border-neutral-800/80 shadow-[inset_0_0_2px_rgba(0,167,155,0.3)]" />
+                  </div>
 
-                {/* Notch */}
-                <div className="absolute left-1/2 top-3 z-20 h-6 w-28 -translate-x-1/2 rounded-full bg-black/90 sm:w-36" />
+                  {/* Bottom Home Indicator Bar */}
+                  <div className="absolute bottom-1.5 left-1/2 z-30 h-1 w-24 sm:w-28 -translate-x-1/2 rounded-full bg-white/40 pointer-events-none" />
 
-                <div className="absolute left-4 top-4 z-20 h-3 w-3 rounded-full border border-white/15 bg-black/90" />
-                <div className="absolute right-4 top-4 z-20 h-3 w-3 rounded-full border border-white/15 bg-black/90" />
-
-                <div className="relative z-10 flex h-full flex-col rounded-[1.8rem] p-4 pt-10 text-white">
-                  <div className="flex-1" />
-
-                  <div className="mb-4">
-                    <div className="rounded-full border border-white/20 bg-black/40 p-2 backdrop-blur-md">
-                      <div className="grid grid-cols-3 gap-2">
+                  {/* Interactive Dashboard Step Control Segment Deck */}
+                  <div className="absolute bottom-5 left-3 right-3 sm:bottom-6 sm:left-4 sm:right-4 z-20">
+                    <div className="rounded-xl sm:rounded-2xl border border-white/10 bg-black/40 p-1.5 sm:p-2 backdrop-blur-xl shadow-lg ring-1 ring-black/10">
+                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                         {steps.map((step, index) => (
                           <button
                             key={step.stepLabel}
                             type="button"
                             onClick={() => handleStepButtonClick(index)}
-                            className={`rounded-full px-2 py-2 text-[10px] font-semibold uppercase tracking-[0.15em] transition sm:px-3 sm:text-[11px] ${
+                            className={`rounded-lg sm:rounded-xl px-1.5 py-1.5 sm:py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-300 ${
                               index === activeIndex
-                                ? "bg-white text-slate-950"
-                                : "bg-white/10 text-white hover:bg-white/20"
+                                ? "bg-white text-slate-950 shadow-md scale-[1.02]"
+                                : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
                             }`}
                           >
                             {index + 1}
@@ -191,47 +201,47 @@ export default function AuditorSegment7() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* CONTENT */}
-        <div className="text-white">
-          <div
-            className="
-              w-full
-              max-w-xl
-              rounded-3xl
-              border
-              border-white/15
-              bg-black/55
-              p-5
-              shadow-2xl
-              backdrop-blur-md
-              sm:p-8
-              lg:p-10
-            "
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/75 sm:text-sm sm:tracking-[0.4em]">
-              {language === "th" ? "โปรโตคอลของเรา" : "OUR PROTOCOL"}
-            </p>
-
-            <p className="mt-4 text-2xl font-extrabold uppercase leading-none sm:text-3xl">
-              {activeStep.stepLabel}
-            </p>
-
-            <h2
-              id="auditor-protocol"
-              className="mt-4 text-xl font-bold leading-tight sm:text-3xl lg:text-4xl"
+          {/* SIDE INFORMATION CARD LOGIC */}
+          <div className="text-white flex justify-center lg:justify-start order-2 w-full">
+            <div
+              className="
+                w-full
+                max-w-xl
+                rounded-2xl
+                sm:rounded-3xl
+                border
+                border-white/15
+                bg-black/65
+                p-5
+                sm:p-8
+                lg:p-10
+                shadow-2xl
+                backdrop-blur-md
+              "
             >
-              {activeStep.title}
-            </h2>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75 sm:text-xs sm:tracking-[0.4em]">
+                {language === "th" ? "โปรโตคอลของเรา" : "OUR PROTOCOL"}
+              </p>
 
-            <p className="mt-4 text-xs leading-relaxed text-white/90 sm:text-base">
-              {activeStep.body}
-            </p>
+              <p className="mt-2 sm:mt-4 text-xl font-extrabold uppercase leading-none sm:text-3xl text-[#00A79B]">
+                {activeStep.stepLabel}
+              </p>
+
+              <h2
+                id="auditor-protocol"
+                className="mt-2 sm:mt-4 text-lg font-bold leading-tight sm:text-2xl lg:text-4xl"
+              >
+                {activeStep.title}
+              </h2>
+
+              <p className="mt-3 sm:mt-4 text-xs leading-relaxed text-white/80 sm:text-base">
+                {activeStep.body}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }
