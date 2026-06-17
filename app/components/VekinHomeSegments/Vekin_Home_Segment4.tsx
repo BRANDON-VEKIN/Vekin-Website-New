@@ -64,7 +64,7 @@ export default function Vekin_Home_Segment4() {
                 </div>
 
                 {/* CLICKABLE IMAGE (E-Carbon Receipt) */}
-                <Link href="/carbon_receipt">
+                <Link href="/new_ec">
                     <img
                         src="/VEKIN Resource all Product/VEKIN 5/E_CARBON_RECEIPT.png"
                         alt="E Carbon Receipt"
