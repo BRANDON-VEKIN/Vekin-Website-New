@@ -41,10 +41,10 @@ export default function DAPSegment3_1() {
     <div className="relative z-10 w-full max-w-5xl flex flex-col gap-12">
     
         {/* HEADER & IMAGE DIV - UPDATED TO 2-COLUMN ROW */}
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 border-b border-gray-100 pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-5 items-center gap-6 border-b border-gray-100 pb-6">
             
-            {/* COLUMN 1: CONCEPT TEXT */}
-            <div>
+            {/* LEFT COLUMN: CONCEPT TEXT (Takes up 2/5 or 40% space on desktop) */}
+            <div className="md:col-span-2">
                 <LocalizedText 
                     as="h2"
                     en="Concept" 
@@ -53,32 +53,35 @@ export default function DAPSegment3_1() {
                 />
             </div>
             
-            {/* COLUMN 2: NEW TEXT DIRECTION + IMAGE */}
-<div className="flex items-center justify-start md:justify-end gap-4 md:gap-6 w-full md:w-auto">
-    {/* ENLARGED WORKFLOW CONTAINER */}
-    <div className="flex items-center justify-between gap-8 md:gap-12 text-xl md:text-3xl font-bold text-gray-800 px-8 py-6 md:px-12 md:py-8 rounded-2xl border border-gray-100 shadow-md bg-white w-full md:max-w-2xl">
-        
-        {/* LEFT COLUMN: AI ALLOCATE + SUBTEXT */}
-        <div className="flex flex-col items-center text-center flex-1">
-            <LocalizedText en="AI ALLOCATE DATA" th="การจัดสรรข้อมูลด้วย AI" />
-            <LocalizedText 
-                as="span" 
-                en="*DATA SOURCE MANAGEMENT" 
-                th="*การจัดการแหล่งที่มาข้อมูล" 
-                className="text-xs md:text-base text-gray-400 font-medium tracking-wider mt-2"
-            />
-        </div>
+            {/* RIGHT COLUMN: WORKFLOW CARD CONTAINER (Takes up 3/5 or 60% space on desktop) */}
+            <div className="md:col-span-3 flex items-center justify-start md:justify-end w-full">
+                {/* ENLARGED WORKFLOW CONTAINER */}
+                {/* Adjusted padding from px-12 to px-4 sm:px-8 md:px-10 to save container core space */}
+                <div className="flex items-center justify-between gap-4 md:gap-8 text-gray-800 px-4 py-6 sm:px-8 md:px-10 md:py-8 rounded-2xl border border-gray-100 shadow-md bg-white w-full">
+                    
+                    {/* LEFT INNER COLUMN: AI ALLOCATE + SUBTEXT */}
+                    {/* Added fluid text scaling: text-sm -> sm:text-lg -> md:text-xl -> lg:text-2xl */}
+                    <div className="flex flex-col items-center text-center flex-1 whitespace-nowrap text-sm sm:text-lg md:text-xl lg:text-2xl font-bold">
+                        <LocalizedText en="AI ALLOCATE DATA" th="การจัดสรรข้อมูลด้วย AI" />
+                        <LocalizedText 
+                            as="span" 
+                            en="*DATA SOURCE MANAGEMENT" 
+                            th="*การจัดการแหล่งที่มาข้อมูล" 
+                            className="text-[10px] sm:text-xs md:text-sm text-gray-400 font-medium tracking-wider mt-1.5"
+                        />
+                    </div>
 
-        {/* LARGE CONNECTING ARROW */}
-        <span className="text-[#258974] font-extrabold text-3xl md:text-5xl self-center mb-6">➔</span>
+                    {/* LARGE CONNECTING ARROW */}
+                    <span className="text-[#258974] font-extrabold text-2xl sm:text-3xl md:text-4xl self-center mb-4">➔</span>
 
-        {/* RIGHT COLUMN: ESG DATA HUB */}
-        <div className="flex flex-col items-center text-center flex-1 self-start">
-            <LocalizedText en="ESG DATA HUB" th="ศูนย์รวมข้อมูล ESG" />
-        </div>
-        
-    </div>
-</div>
+                    {/* RIGHT INNER COLUMN: ESG DATA HUB */}
+                    {/* Kept text-nowrap but matched the fluid text scaler framework here */}
+                    <div className="flex flex-col items-center text-center flex-1 whitespace-nowrap text-sm sm:text-lg md:text-xl lg:text-2xl font-bold">
+                        <LocalizedText en="ESG DATA HUB" th="ศูนย์รวมข้อมูล ESG" />
+                    </div>
+                    
+                </div>
+            </div>
         </div>
         
         {/* TIMELINE WRAPPER */}
