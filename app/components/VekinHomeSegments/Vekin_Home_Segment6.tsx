@@ -9,18 +9,31 @@ function srcOf(img: any) {
 export default function Vekin_Home_Segment6() {
 
 	return (
-		<section className="w-full">
-			<div className="relative w-full">
-				<img src="/VEKIN Resource all Product/VEKIN 5/Home_BG6.png" alt="DAP background" className="block h-auto w-full object-contain" />
+	<section className="w-full">
+		<div className="relative w-full">
+			{/* Main Background Image */}
+			<img 
+				src="/VEKIN Resource all Product/VEKIN 5/Home_BG6.png" 
+				alt="DAP background" 
+				className="block h-auto w-full object-contain" 
+			/>
 
-				<div className="absolute left-[15%] top-[5%] z-40 w-[24%] -translate-x-1/2">
-					<a href="/dap_new" target="_blank" rel="noopener noreferrer" className="block border-none bg-transparent p-0 cursor-pointer">
-						<img src="/VEKIN Resource all Product/VEKIN 5/3D_DAP_Main.png" alt="One Click" className="h-auto w-full object-contain" />
-					</a>
-				</div>
-
-
+			{/* Absolute Link Container Wrapper - Added Tailwind 'group' class to catch broad container hovers */}
+			<div className="absolute left-[15%] top-[5%] z-40 w-[24%] -translate-x-1/2 group">
+				<a 
+					href="/dap_new" 
+					target="_blank" 
+					rel="noopener noreferrer" 
+					className="block border-none bg-transparent p-0 cursor-pointer"
+				>
+					<img 
+						src="/VEKIN Resource all Product/VEKIN 5/3D_DAP_Main.png" 
+						alt="One Click" 
+						className="h-auto w-full object-contain transition-all duration-300 ease-out transform group-hover:scale-105 group-hover:-translate-y-2 group-hover:brightness-110" 
+					/>
+				</a>
 			</div>
-		</section>
+		</div>
+	</section>
 	);
 }

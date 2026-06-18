@@ -169,7 +169,7 @@ export default function DAPSegment2() {
                             </button>
                         ))}
 
-                        {/* SEE MORE LINK BUTTON */}
+                        {/* SEE MORE LINK BUTTON */}githu
                         <a 
                             href="/dap_more" 
                             className="text-lg sm:text-xl md:text-2xl font-bold text-slate-400 hover:text-emerald-300 transition-all duration-150 flex items-center lg:hover:translate-x-1 underline decoration-dotted underline-offset-4"
