@@ -39,13 +39,21 @@ export default function AuditorSegment13() {
         </div>
 
         {/* Icons row */}
-        <div className="flex flex-wrap items-center gap-3 md:gap-4">
-          {["Icon", "Icon", "Icon"].map((item, i) => (
+<div className="flex flex-wrap items-center gap-4 md:gap-6">
+          {[
+            "/VEKIN Resource all Product/VEKIN 3/Cert1.png",
+            "/VEKIN Resource all Product/VEKIN 3/Cert2.png",
+            "/VEKIN Resource all Product/VEKIN 3/Cert3.png"
+          ].map((src, i) => (
             <div
               key={i}
-              className="flex h-14 w-14 md:h-20 md:w-20 items-center justify-center rounded-xl border border-white/40 bg-white/10 text-[10px] uppercase tracking-[0.2em] text-white/70"
+              className="flex h-40 w-40 md:h-48 md:w-48 items-center justify-center"
             >
-              {item}
+              <img 
+                src={src} 
+                alt={`Certification Badge ${i + 1}`} 
+                className="h-full w-full object-contain opacity-95"
+              />
             </div>
           ))}
         </div>

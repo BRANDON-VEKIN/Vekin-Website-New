@@ -23,8 +23,6 @@ export default function AuditorPage() {
       <AuditorSegment2 />
       <AuditorSegment3 />
       <AuditorSegment4 />
-      <AuditorSegment5 />
-      <AuditorSegment6 />
       <AuditorSegment7 />
       <AuditorSegment8 />
       <AuditorSegment9 />
