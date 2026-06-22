@@ -4,7 +4,7 @@ import React from "react";
 import { useSiteLanguage } from "./siteLanguage";
 
 type LocalizedTextProps = {
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   th?: React.ReactNode;
   en?: React.ReactNode;
   className?: string;

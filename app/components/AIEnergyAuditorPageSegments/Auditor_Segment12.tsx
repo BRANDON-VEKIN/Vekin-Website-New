@@ -1,28 +1,7 @@
 import React from "react";
 
-type LocalizedTextProps = {
-  as?: React.ElementType;
-  th: string;
-  en: string;
-  className?: string;
-};
+import LocalizedText from "../LocalizedText";
 
-function LocalizedText({
-  as: Component = "div",
-  th,
-  en,
-  className,
-}: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
-
-  return (
-    <Component className={className}>
-      {isThai ? th : en}
-    </Component>
-  );
-}
 
 
 export default function AuditorSegment12() {
@@ -51,17 +30,18 @@ export default function AuditorSegment12() {
           className="text-2xl sm:text-3xl md:text-5xl font-semibold uppercase leading-tight"
         />
 
-        {/* Placeholder block */}
-        <div className="flex justify-center md:justify-start">
-          <div className="h-24 w-24 sm:h-28 sm:w-28 md:h-36 md:w-36 rounded-2xl border border-white/40 bg-white/10 backdrop-blur-sm flex items-center justify-center text-xs uppercase tracking-[0.25em] text-white/70 text-center">
-            <LocalizedText as="span" th="รูปภาพตัวอย่าง" en="Image Placeholder" />
-          </div>
-        </div>
+          <LocalizedText
+          as="h3"
+          th="วิธีการของเรา"
+          en="Our Methodology"
+          className="text-2xl sm:text-3xl md:text-5xl font-semibold uppercase leading-tight"
+        />
+
 
         <LocalizedText
           as="p"
-          th="ข้อความตัวอย่าง"
-          en="Fake text"
+          th="ระเบียบวิธีของ VEKIN ใช้ระบบ Hybrid Neuro-Symbolic AI ที่ได้รับสิทธิบัตรในการวิเคราะห์ข้อมูล Big Data จากแหล่งข้อมูล IoT และดาวเทียมแบบ 100% ด้วยการรวม Knowledge Graphs เข้ากับมาตรฐาน ISO ระดับโลกและ Neural Networks ทำให้เราบรรลุความแม่นยำสูงถึง 95% แบบเรียลไทม์ พร้อมจัดเก็บข้อมูลอย่างปลอดภัยบน Blockchain มอบโครงสร้างพื้นฐานดิจิทัลแห่งความไว้วางใจที่โปร่งใสและพร้อมสำหรับการตรวจสอบ"
+          en="VEKIN’s methodology utilizes a patented Hybrid Neuro-Symbolic AI to analyze 100% of Big Data from IoT and satellite sources. By integrating Knowledge Graphs with global ISO standards and Neural Networks, we achieve 95% accuracy in real-time. Secured on blockchain, this provides a transparent, audit-grade digital trust infrastructure."
           className="text-sm sm:text-base md:text-lg max-w-xl"
         />
       </div>

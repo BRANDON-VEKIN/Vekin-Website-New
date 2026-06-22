@@ -25,7 +25,7 @@ export default function AuditorSegment7() {
           language === "th"
             ? "ประเมินฐานพลังงานอย่างแม่นยำ"
             : "Accurate Energy Baseline Assessment",
-        body: language === "th" ? "ข้อความตัวอย่าง" : "Fake text",
+        body: language === "th" ? "การประเมินฐานข้อมูลพลังงานที่แม่นยำของ VEKIN ใช้ Hybrid Neuro-Symbolic AI สิทธิบัตรเฉพาะ เพื่อวิเคราะห์ข้อมูล IoT แบบ 100% ด้วยความแม่นยำสูงถึง 95% ระบบนี้เปลี่ยนการประมาณการแบบเดิมเป็นการทวนสอบแบบเรียลไทม์เพื่อสร้างฐานข้อมูลที่มีความน่าเชื่อถือสูง ข้อมูลเชิงลึกเหล่านี้จะเปลี่ยนข้อมูลการใช้พลังงานให้เป็นสินทรัพย์ดิจิทัลที่ธนาคารยอมรับ ช่วยปลดล็อกโอกาสในการเข้าถึงสินเชื่อสีเขียวและตลาดซื้อขายคาร์บอนระดับพรีเมียมได้ในทันที" : "VEKIN’s Accurate Energy Baseline Assessment utilizes patented Hybrid Neuro-Symbolic AI to analyze 100% of IoT data with 95% probabilistic accuracy. This replaces manual estimates with real-time verification to establish high-integrity baselines. These insights transform energy consumption metrics into bankable digital assets, unlocking immediate access to green loans and premium carbon markets.",
         phoneGlow: "from-cyan-500/40 via-sky-500/30 to-blue-600/40",
       },
       {
@@ -36,7 +36,7 @@ export default function AuditorSegment7() {
           language === "th"
             ? "ค้นหาตัวเลือกและข้อเสนอที่ดีที่สุดจากการสนับสนุนทางการเงิน"
             : "Find the Best Choice & Financial Support Opportunities",
-        body: language === "th" ? "ข้อความตัวอย่าง" : "Fake text",
+        body: language === "th" ? "VEKIN ช่วยคุณค้นหาทางเลือกที่ดีที่สุดด้วยระบบ AI แกนคู่ (Dual-Core AI) ที่ทำหน้าที่เป็นทั้งที่ปรึกษาเชิงกลยุทธ์และผู้ทวนสอบอิสระ 'โครงสร้างพื้นฐานแห่งความไว้วางใจ' นี้เปลี่ยนข้อมูลสิ่งแวดล้อมให้เป็นสินทรัพย์ที่ธนาคารยอมรับ ช่วยเปิดโอกาสในการเข้าถึงแหล่งเงินทุนและการสนับสนุนทางการเงิน เช่น สินเชื่อสีเขียวและกองทุนเพื่อสภาพภูมิอากาศ พร้อมแผนสมัครสมาชิกที่ยืดหยุ่นเพื่อตอบโจทย์ทุกองค์กรอย่างคุ้มค่าและมีความน่าเชื่อถือสูง" : "VEKIN helps you Find the Best Choice through its dual-core AI, acting as either a strategic consultant or an independent verifier. This 'Trust Infrastructure' transforms environmental data into bankable assets, unlocking Financial Support Opportunities like green loans and climate finance. Flexible subscription tiers ensure a high-integrity, cost-effective fit for any organization.",
         phoneGlow: "from-emerald-500/40 via-teal-500/30 to-cyan-500/40",
       },
       {
@@ -47,7 +47,7 @@ export default function AuditorSegment7() {
           language === "th"
             ? "ROI ที่แม่นยำผ่าน AI Energy Auditor (การประหยัด)"
             : "Accurate ROI through AI Energy Auditor (Saving)",
-        body: language === "th" ? "ข้อความตัวอย่าง" : "Fake text",
+        body: language === "th" ? "AI Energy Auditor ของ VEKIN ช่วยเพิ่มผลตอบแทนสูงสุด (ROI) โดยการแทนที่การทวนสอบแบบเดิมด้วยระบบอัตโนมัติแบบเรียลไทม์ ซึ่งช่วยลดต้นทุนการดำเนินงานลงกว่า 80% ด้วยนวัตกรรม AI สิทธิบัตรเฉพาะที่มีความแม่นยำสูงถึง 95% ระบบจะเปลี่ยนข้อมูลพลังงานให้เป็นสินทรัพย์ดิจิทัลที่ธนาคารยอมรับเพื่อเปิดทางเข้าถึงเงินทุนเพื่อสภาพภูมิอากาศได้ทันที โครงสร้างพื้นฐานอัจฉริยะนี้ช่วยขจัดความสูญเสียทางเศรษฐกิจแบบเดิมๆ มอบการประหยัดที่มีความน่าเชื่อถือสูงในทุกโครงการสีเขียว" : "VEKIN’s AI Energy Auditor maximizes ROI by replacing manual verification with real-time automation, slashing operational costs by 80%. Utilizing patented AI with 95% accuracy, it transforms energy data into bankable assets, unlocking immediate access to climate finance. This intelligent infrastructure eliminates traditional economic losses, delivering high-integrity savings for every green initiative.",
         phoneGlow: "from-amber-500/40 via-orange-500/30 to-rose-600/40",
       },
     ],

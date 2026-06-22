@@ -1,26 +1,5 @@
-type LocalizedTextProps = {
-  as?: React.ElementType;
-  th: string;
-  en: string;
-  className?: string;
-};
+import LocalizedText from "../LocalizedText";
 
-function LocalizedText({
-  as: Component = "div",
-  th,
-  en,
-  className,
-}: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
-
-  return (
-    <Component className={className}>
-      {isThai ? th : en}
-    </Component>
-  );
-}
 
 
 export default function AuditorSegment10() {
@@ -50,8 +29,8 @@ export default function AuditorSegment10() {
 
           <LocalizedText
             as="p"
-            th="ข้อความตัวอย่าง"
-            en="Fake text"
+            th="การตรวจสอบแบบดั้งเดิมต้องพึ่งพากระบวนการและประมาณการแบบทำมือที่ล่าช้า ซึ่งมักใช้เวลานานหลายเดือน การทำงานที่แยกส่วนเหล่านี้ต้องใช้แรงงานจำนวนมาก มีต้นทุนสูง และเสี่ยงต่อความผิดพลาดจากมนุษย์หรือการฟอกเขียว (Greenwashing) ส่งผลให้องค์กรต้องเผชิญกับความสูญเสียทางเศรษฐกิจที่รุนแรง และยากที่จะขยายขอบเขตการรายงานผลท่ามกลางข้อกำหนดด้านกฎระเบียบระดับโลกที่มีความซับซ้อนเพิ่มขึ้นเรื่อยๆ"
+            en="Traditional auditing relies on slow, manual processes and estimates that often take months to complete. These siloed operations are labor-intensive, costly, and prone to human error or greenwashing risks. Organizations face significant economic losses and struggle to scale reporting as global regulatory requirements become increasingly complex."
             className="mt-4 text-sm sm:text-base md:text-lg"
           />
         </div>

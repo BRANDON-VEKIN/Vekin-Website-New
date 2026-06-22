@@ -1,28 +1,5 @@
 import React from "react";
-
-type LocalizedTextProps = {
-  as?: React.ElementType;
-  th: string;
-  en: string;
-  className?: string;
-};
-
-function LocalizedText({
-  as: Component = "div",
-  th,
-  en,
-  className,
-}: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
-
-  return (
-    <Component className={className}>
-      {isThai ? th : en}
-    </Component>
-  );
-}
+import LocalizedText from "../LocalizedText";
 
 export default function AuditorSegment3() {
   return (

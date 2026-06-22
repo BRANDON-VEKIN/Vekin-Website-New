@@ -1,28 +1,5 @@
 import React from "react";
-
-type LocalizedTextProps = {
-  as?: React.ElementType;
-  th: string;
-  en: string;
-  className?: string;
-};
-
-function LocalizedText({
-  as: Component = "div",
-  th,
-  en,
-  className,
-}: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
-
-  return (
-    <Component className={className}>
-      {isThai ? th : en}
-    </Component>
-  );
-}
+import LocalizedText from "../LocalizedText";
 
 export default function AuditorSegment4() {
   return (
@@ -79,8 +56,8 @@ export default function AuditorSegment4() {
 
           <LocalizedText
             as="p"
-            th="ข้อความตัวอย่าง"
-            en="Fake text"
+            th={`AI Carbon Auditor ของ VEKIN คือนวัตกรรมเครื่องมือ "Digital VVB" (Validation and Verification Body) ระดับปฏิวัติวงการ ที่ถูกออกแบบมาเพื่อปิดช่องว่างความเชื่อมั่น (Trust Gap) ในตลาดคาร์บอน โดยการเปลี่ยนกระบวนการตรวจสอบแบบเดิมที่ล่าช้าให้เป็นโครงสร้างพื้นฐานดิจิทัลอัตโนมัติที่สอดคล้องตามมาตรฐาน ISO ด้วยขุมพลังของ Hybrid Neuro-Symbolic Framework ระบบได้บูรณาการ Knowledge Graphs ที่ฝังตัวด้วยกฎเกณฑ์มาตรฐาน ISO ระดับโลก (เช่น ISO 14064, 14065 และ 17029) เข้ากับ Neural Networks เพื่อวิเคราะห์ข้อมูล IoT และดาวเทียมได้แบบ 100% พร้อมความแม่นยำเชิงความน่าจะเป็นถึง 95% เทคโนโลยีที่พลิกโฉมนี้ช่วยลดระยะเวลาการตรวจสอบจากเดิมที่ต้องใช้เวลาหลายเดือนให้เหลือเพียงแบบเรียลไทม์ พร้อมลดต้นทุนการดำเนินงานลงกว่า 80% ทำให้การทวนสอบที่มีความน่าเชื่อถือสูงเป็นสิ่งที่เข้าถึงได้ง่ายสำหรับทุกโครงการสีเขียว ด้วยการจัดเก็บทุกจุดข้อมูลอย่างปลอดภัยบนบัญชีแยกประเภท Blockchain ผ่าน "Carbon Receipt" ระบบ AI Auditor จึงช่วยขจัดความผิดพลาดจากมนุษย์และความเสี่ยงในการฟอกเขียว (Greenwashing) ได้อย่างเด็ดขาด พร้อมเปลี่ยนข้อมูลสิ่งแวดล้อมให้เป็นสินทรัพย์ดิจิทัลที่ธนาคารยอมรับ (Bankable Digital Assets) เพื่อปลดล็อกโอกาสในการเข้าถึงเงินทุนเพื่อการเปลี่ยนแปลงสภาพภูมิอากาศ (Climate Finance), สินเชื่อสีเขียว (Green Loans) และตลาดซื้อขายคาร์บอนระดับสากลได้ในทันที`}
+            en={`VEKIN’s AI Carbon Auditor is a revolutionary "Digital VVB" (Validation and Verification Body) engine designed to solve the trust gap in carbon markets by replacing slow, manual processes with an ISO-compliant, automated digital infrastructure. Powered by a Hybrid Neuro-Symbolic Framework, it integrates Knowledge Graphs embedded with global ISO rules (such as ISO 14064, 14065, and 17029) and Neural Networks to analyze 100% of IoT and satellite data with 95% probabilistic accuracy. This disruptive technology reduces traditional audit cycles from months to real-time while slashing operational costs by 80%, making high-integrity verification accessible for all green initiatives. By securing every data point on a blockchain ledger via a "Carbon Receipt," the AI Auditor effectively eliminates human error and greenwashing risks, transforming static environmental data into bankable digital assets that unlock immediate access to climate finance, green loans, and premium international carbon trading markets.`}
             className="
               mt-4
               text-xs

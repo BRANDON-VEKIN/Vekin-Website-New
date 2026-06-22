@@ -85,10 +85,10 @@ export default function AuditorSegment6() {
 					/>
 
 					<LocalizedText
-						as="p"
-						th="เนื้อหาข้อความตัวอย่างสำหรับการวิเคราะห์ การรายงาน และข้อมูลเชิงลักษณะของแดชบอร์ด การ์ดนี้มีไว้เพื่อสรุปข้อมูลประสิทธิภาพพลังงาน ตัวชี้วัดสำคัญ และไฮไลต์การดำเนินงานในรูปแบบที่กระชับ"
-						en="Placeholder text content for analytics, reporting, and dashboard style insights. This card is intended to summarize energy performance data, key KPIs, and operational highlights in a concise format."
-						className="
+							as="p"
+							th={`AI Energy Auditor ของ VEKIN ใช้ Hybrid Neuro-Symbolic Framework วิเคราะห์ข้อมูล IoT และดาวเทียมแบบ 100% ด้วยความแม่นยำสูงถึง 95% ระบบนี้ช่วยทวนสอบโครงการพลังงานหมุนเวียนแบบเรียลไทม์ พร้อมลดเวลาการตรวจสอบและตัดต้นทุนการดำเนินงานลงกว่า 80% ข้อมูลทั้งหมดจะถูกจัดเก็บอย่างปลอดภัยบน Blockchain ผ่าน "Carbon Receipt" เพื่อขจัดความเสี่ยงในการฟอกเขียวและเปลี่ยนข้อมูลให้เป็นสินทรัพย์ดิจิทัลที่ธนาคารยอมรับ ช่วยให้องค์กรเพิ่มประสิทธิภาพพลังงานพร้อมปลดล็อกโอกาสในการเข้าถึงเงินทุนเพื่อสิ่งแวดล้อมและตลาดซื้อขายคาร์บอนระดับสากลได้ทันที`}
+							en={`VEKIN’s AI Energy Auditor utilizes a patented Hybrid Neuro-Symbolic Framework to analyze 100% of IoT and satellite data with 95% probabilistic accuracy. This disruptive engine automates renewable energy project validation in real-time, reducing traditional audit cycles and cutting operational costs by 80%. By securing all data points on a blockchain ledger via a "Carbon Receipt," the platform eliminates greenwashing risks and transforms complex data into bankable digital assets. Ultimately, this "Trust Infrastructure" optimizes efficiency while unlocking immediate access to climate finance, green loans, and premium international carbon markets.`}
+							className="
 							mt-4
 							text-xs
 							leading-relaxed

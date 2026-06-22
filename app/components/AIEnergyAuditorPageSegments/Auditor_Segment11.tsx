@@ -1,26 +1,5 @@
-type LocalizedTextProps = {
-  as?: React.ElementType;
-  th: string;
-  en: string;
-  className?: string;
-};
+import LocalizedText from "../LocalizedText";
 
-function LocalizedText({
-  as: Component = "div",
-  th,
-  en,
-  className,
-}: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
-
-  return (
-    <Component className={className}>
-      {isThai ? th : en}
-    </Component>
-  );
-}
 
 
 export default function AuditorSegment11() {
@@ -47,8 +26,8 @@ export default function AuditorSegment11() {
 
           <LocalizedText
             as="p"
-            th="ข้อความตัวอย่าง"
-            en="Fake text"
+            th="AI Carbon Auditor ของ VEKIN เปลี่ยนการทวนสอบให้เป็นแบบเรียลไทม์อัตโนมัติ ช่วยลดต้นทุนการดำเนินงานลงกว่า 80% ด้วยนวัตกรรม AI สิทธิบัตรเฉพาะที่วิเคราะห์ข้อมูลแบบ 100% ด้วยความแม่นยำสูงถึง 95% พร้อมขจัดความเสี่ยงเรื่องการฟอกเขียว การจัดเก็บข้อมูลอย่างปลอดภัยบน Blockchain ช่วยเปลี่ยนตัวชี้วัดด้านสิ่งแวดล้อมให้เป็นสินทรัพย์ดิจิทัลที่ธนาคารยอมรับ เพื่อปลดล็อกโอกาสในการเข้าถึงสินเชื่อสีเขียวและเงินทุนเพื่อสภาพภูมิอากาศระดับสากลได้ในทันที"
+            en="VEKIN’s AI Carbon Auditor automates verification into real-time, slashing operational costs by 80%. Utilizing patented AI, it analyzes 100% of data with 95% accuracy while eliminating greenwashing. By securing data on blockchain, it transforms environmental metrics into bankable digital assets, unlocking immediate access to green loans and international climate finance."
             className="mt-4 text-sm sm:text-base md:text-lg"
           />
         </div>
