@@ -1,20 +1,23 @@
+"use client";
+
 import React from "react";
+import { useSiteLanguage } from "../siteLanguage";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
-
-function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTextProps) {
-    const isThai =
-        typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th");
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
+const copy = {
+    th: {
+        title: "ขับเคลื่อนอนาคตของโลจิสติกส์และพลังงานด้วยโซลูชันที่ยั่งยืน",
+        description: "บันทึกทุกธุรกรรมเครดิตคาร์บอนผ่านบันทึกที่ได้รับการตรวจสอบโดยบล็อกเชน เพื่อให้มั่นใจถึงการตรวจสอบย้อนกลับและลดความซับซ้อนของภาระผูกพันในการรายงานด้านสิ่งแวดล้อมของคุณ",
+    },
+    en: {
+        title: "DRIVING THE FUTURE OF LOGISTICS AND ENERGY WITH SUSTAINABLE SOLUTIONS",
+        description: "DOCUMENT EVERY CARBON CREDIT TRANSACTION THROUGH A BLOCKCHAIN-VERIFIED RECORD, ENSURING TRACEABILITY AND SIMPLIFYING YOUR ENVIRONMENTAL REPORTING OBLIGATIONS.",
+    },
+} as const;
 
 export default function CarbonSegment1() {
+    const { language } = useSiteLanguage();
+    const text = copy[language];
+
     return (
 <section
   aria-label="Carbon Receipt"
@@ -35,20 +38,16 @@ export default function CarbonSegment1() {
       
       <div className="w-full md:w-1/2 space-y-6">
 
-        <LocalizedText
-          as="h1"
-          th="ขับเคลื่อนอนาคตของโลจิสติกส์และพลังงานด้วยโซลูชันที่ยั่งยืน"
-          en="DRIVING THE FUTURE OF LOGISTICS AND ENERGY WITH SUSTAINABLE SOLUTIONS"
+        <h1
           className="bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-transparent
                      text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight"
-        />
+        >
+          {text.title}
+        </h1>
 
-        <LocalizedText
-          as="p"
-          th="บันทึกทุกธุรกรรมเครดิตคาร์บอนผ่านบันทึกที่ได้รับการตรวจสอบโดยบล็อกเชน เพื่อให้มั่นใจถึงการตรวจสอบย้อนกลับและลดความซับซ้อนของภาระผูกพันในการรายงานด้านสิ่งแวดล้อมของคุณ"
-          en="DOCUMENT EVERY CARBON CREDIT TRANSACTION THROUGH A BLOCKCHAIN-VERIFIED RECORD, ENSURING TRACEABILITY AND SIMPLIFYING YOUR ENVIROMENTAL REPORTING OBLIGATIONS."
-          className="text-white/80 text-sm sm:text-base max-w-2xl"
-        />
+        <p className="text-white/80 text-sm sm:text-base max-w-2xl">
+          {text.description}
+        </p>
 
       </div>
 

@@ -2,25 +2,8 @@
 
 import React, { useState } from "react";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
+import LocalizedText from "../LocalizedText";
 
-function LocalizedText({
-    as: Component = "div",
-    th,
-    en,
-    className,
-}: LocalizedTextProps) {
-    const isThai =
-        typeof navigator !== "undefined" &&
-        navigator.language.toLowerCase().startsWith("th");
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
 
 export default function DAPSegment3_1() {
     const [active, setActive] = useState(0);

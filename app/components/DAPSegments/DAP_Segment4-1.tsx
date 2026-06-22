@@ -2,21 +2,8 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import Link from "next/link";
+import { useSiteLanguage } from "../siteLanguage";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
-
-function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTextProps) {
-    const isThai =
-        typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th");
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
 
 const slideData = [
     {
@@ -61,6 +48,7 @@ const slideData = [
 function SliderContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
+    const { language } = useSiteLanguage();
     const [currentIdx, setCurrentIdx] = useState(0);
 
     useEffect(() => {
@@ -115,20 +103,14 @@ function SliderContent() {
                             </div>
 
                             {/* Title */}
-                            <LocalizedText 
-                                as="h1" 
-                                en={activeSlide.title.en} 
-                                th={activeSlide.title.th} 
-                                className="text-xl sm:text-2xl md:text-4xl font-extrabold tracking-wide text-white drop-shadow-sm"
-                            />
+                            <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold tracking-wide text-white drop-shadow-sm">
+                                {activeSlide.title[language]}
+                            </h1>
 
                             {/* Subtitle */}
-                            <LocalizedText 
-                                as="p" 
-                                en={activeSlide.subtitle.en} 
-                                th={activeSlide.subtitle.th} 
-                                className="text-white/70 text-xs sm:text-sm md:text-base mt-1 md:mt-2 mb-4 md:mb-8"
-                            />
+                            <p className="text-white/70 text-xs sm:text-sm md:text-base mt-1 md:mt-2 mb-4 md:mb-8">
+                                {activeSlide.subtitle[language]}
+                            </p>
 
                             {/* Aligned Checkbox List */}
                             <div className="flex flex-col gap-2 sm:gap-4 mt-2 md:mt-4 items-start">
@@ -137,12 +119,9 @@ function SliderContent() {
                                         <div className="flex h-4 w-4 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-[10px] sm:text-xs font-bold shadow-sm">
                                             ✓
                                         </div>
-                                        <LocalizedText 
-                                            as="span"
-                                            en={feat.en}
-                                            th={feat.th}
-                                            className="text-white/90 text-xs sm:text-sm md:text-base font-medium"
-                                        />
+                                        <span className="text-white/90 text-xs sm:text-sm md:text-base font-medium">
+                                            {feat[language]}
+                                        </span>
                                     </div>
                                 ))}
                             </div>

@@ -3,19 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
-
-function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTextProps) {
-    const isThai =
-        typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th");
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
+import LocalizedText from "../LocalizedText";
+import { useSiteLanguage } from "../siteLanguage";
 
 const mockIcons = [
     { 
@@ -62,6 +51,8 @@ const mockIcons = [
 
 export default function DAPSegment4() {
     const [activeModal, setActiveModal] = useState<number | null>(null);
+    const { language } = useSiteLanguage();
+    const isThai = language === "th";
 
     return (
         <section className="relative min-h-screen md:h-[180vh] w-full flex flex-col overflow-hidden bg-white">
@@ -104,51 +95,51 @@ export default function DAPSegment4() {
                                     
                                     {/* Container 1 */}
                                     <Link 
-                                        href="dap/segment4-1" 
+                                        href="/dap/segment4-1" 
                                         className="w-[85%] shrink-0 snap-center bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 flex flex-col justify-between text-center"
                                     >
                                         <div>
                                             <img src="/VEKIN Resource all Product/VEKIN 4/icon1.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"/>
-                                            <p className="text-white font-bold text-sm tracking-wide">AI ALLOCATES DATA &rarr;</p>
-                                            <p className="text-white/70 text-[11px] mb-2">Data Source Management</p>
+                                            <p className="text-white font-bold text-sm tracking-wide">{isThai ? "เอไอจัดสรรข้อมูล" : "AI ALLOCATES DATA"} &rarr;</p>
+                                            <p className="text-white/70 text-[11px] mb-2">{isThai ? "การจัดการแหล่งที่มาข้อมูล" : "Data Source Management"}</p>
                                         </div>
                                         <div className="flex flex-col gap-1 items-start text-left bg-black/10 p-2 rounded-lg">
-                                            <span className="text-white/90 text-xs font-medium">✓ Sustainability Team</span>
-                                            <span className="text-white/90 text-xs font-medium">✓ Data Team</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ทีมงานความยั่งยืน" : "Sustainability Team"}</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ทีมข้อมูล" : "Data Team"}</span>
                                         </div>
                                     </Link>
 
                                     {/* Container 2 */}
                                     <Link 
-                                        href="dap/segment4-1" 
+                                        href="/dap/segment4-1" 
                                         className="w-[85%] shrink-0 snap-center bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 flex flex-col justify-between text-center"
                                     >
                                         <div>
                                             <img src="/VEKIN Resource all Product/VEKIN 4/icon2.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"/>
-                                            <p className="text-white font-bold text-sm tracking-wide">DYNAMIC DASHBOARD &rarr;</p>
-                                            <p className="text-white/70 text-[11px] mb-2">Customized data viewing</p>
+                                            <p className="text-white font-bold text-sm tracking-wide">{isThai ? "แดชบอร์ดอัจฉริยะ" : "DYNAMIC DASHBOARD"} &rarr;</p>
+                                            <p className="text-white/70 text-[11px] mb-2">{isThai ? "ปรับแต่งมุมมองข้อมูลได้" : "Customized data viewing"}</p>
                                         </div>
                                         <div className="flex flex-col gap-1 items-start text-left bg-black/10 p-2 rounded-lg w-full">
-                                            <span className="text-white/90 text-xs font-medium">✓ BU Reps</span>
-                                            <span className="text-white/90 text-xs font-medium">✓ Project Managers</span>
-                                            <span className="text-white/90 text-xs font-medium">✓ Vendor</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ตัวแทนหน่วยงานธุรกิจ" : "BU Reps"}</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ผู้จัดการโครงการ" : "Project Managers"}</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ผู้ขาย" : "Vendor"}</span>
                                         </div>
                                     </Link>
 
                                     {/* Container 3 */}
                                     <Link 
-                                        href="dap/segment4-1" 
+                                        href="/dap/segment4-1" 
                                         className="w-[85%] shrink-0 snap-center bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 flex flex-col justify-between text-center"
                                     >
                                         <div>
                                             <img src="/VEKIN Resource all Product/VEKIN 4/icon3.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"/>
-                                            <p className="text-white font-bold text-sm tracking-wide">OCR-RPA &rarr;</p>
-                                            <p className="text-white/70 text-[11px] mb-2">Multi-tech support</p>
+                                            <p className="text-white font-bold text-sm tracking-wide">{isThai ? "ระบบ OCR-RPA" : "OCR-RPA"} &rarr;</p>
+                                            <p className="text-white/70 text-[11px] mb-2">{isThai ? "รองรับเทคโนโลยีที่หลากหลาย" : "Multi-tech support"}</p>
                                         </div>
                                         <div className="flex flex-col gap-1 items-start text-left bg-black/10 p-2 rounded-lg w-full">
-                                            <span className="text-white/90 text-xs font-medium">✓ Facility Managers</span>
-                                            <span className="text-white/90 text-xs font-medium">✓ Vendors</span>
-                                            <span className="text-white/90 text-xs font-medium">✓ Dealer</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ผู้จัดการอาคาร" : "Facility Managers"}</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ผู้ขาย" : "Vendors"}</span>
+                                            <span className="text-white/90 text-xs font-medium">✓ {isThai ? "ตัวแทนจำหน่าย" : "Dealer"}</span>
                                         </div>
                                     </Link>
                                 </div>
@@ -156,10 +147,12 @@ export default function DAPSegment4() {
                                 {/* MOBILE VIEW ONLY: METHODOLOGY TEXT */}
                                 <div className="md:hidden mt-2 mb-6">
                                     <h3 className="text-white font-black text-2xl tracking-tight mb-3">
-                                        OUR METHODOLOGY
+                                        {isThai ? "ระเบียบวิธีของเรา" : "OUR METHODOLOGY"}
                                     </h3>
                                     <p className="text-white/80 text-xs leading-relaxed font-medium max-w-xs">
-                                        Our unified environmental engineering pipeline transforms raw operation data into standard compliance reports. By managing multi-layered ingestion pathways with granular security, organizations scale past traditional carbon audit overhead.
+                                        {isThai
+                                            ? "ระบบวิศวกรรมสิ่งแวดล้อมแบบรวมศูนย์ของเราเปลี่ยนข้อมูลการดำเนินงานดิบให้เป็นรายงานตามมาตรฐาน ด้วยการจัดการเส้นทางการรับข้อมูลหลายชั้นพร้อมความปลอดภัยละเอียด องค์กรจึงลดภาระการตรวจสอบคาร์บอนแบบเดิมได้"
+                                            : "Our unified environmental engineering pipeline transforms raw operation data into standard compliance reports. By managing multi-layered ingestion pathways with granular security, organizations scale past traditional carbon audit overhead."}
                                     </p>
                                 </div>
                             </div>
@@ -175,23 +168,23 @@ export default function DAPSegment4() {
                     <div className="flex flex-row items-stretch justify-center gap-6">
                         {/* Container 1 */}
                         <Link 
-                            href="dap/segment4-1" 
+                            href="/dap/segment4-1" 
                             className="flex-1 min-w-[260px] bg-[#00B7A3]/30 hover:bg-white/30 border border-white/30 backdrop-blur-lg rounded-2xl p-5 shadow-lg transition-all duration-200 active:scale-[0.98] group text-center flex flex-col items-center justify-between"
                         >
                             <div className="flex flex-col items-center w-full">
                                 <div className="mb-3">
                                     <img src="/VEKIN Resource all Product/VEKIN 4/icon1.png" alt="" className="h-24 w-auto object-contain mx-auto"/>
                                 </div>
-                                <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">AI ALLOCATES DATA &rarr;</p>
-                                <p className="text-white/70 text-sm mt-1 mb-4">Data Source Management</p>
+                                <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">{isThai ? "เอไอจัดสรรข้อมูล" : "AI ALLOCATES DATA"} &rarr;</p>
+                                <p className="text-white/70 text-sm mt-1 mb-4">{isThai ? "การจัดการแหล่งที่มาข้อมูล" : "Data Source Management"}</p>
                                 <div className="flex flex-col gap-2.5 mt-2 mx-auto w-fit items-start">
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">Sustainability Team</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ทีมงานความยั่งยืน" : "Sustainability Team"}</span>
                                     </div>
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">Data Team</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ทีมข้อมูล" : "Data Team"}</span>
                                     </div>
                                 </div>
                             </div>
@@ -199,27 +192,27 @@ export default function DAPSegment4() {
 
                         {/* Container 2 */}
                         <Link 
-                            href="dap/segment4-1" 
+                            href="/dap/segment4-1" 
                             className="flex-1 min-w-[260px] bg-[#E8FDF4]/30 hover:bg-white/30 border border-white/30 backdrop-blur-lg rounded-2xl p-5 shadow-lg transition-all duration-200 active:scale-[0.98] group text-center flex flex-col items-center justify-between"
                         >
                             <div className="flex flex-col items-center w-full">
                                 <div className="mb-3">
                                     <img src="/VEKIN Resource all Product/VEKIN 4/icon2.png" alt="" className="h-24 w-auto object-contain mx-auto"/>
                                 </div>
-                                <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">DYNAMIC DASHBOARD &rarr;</p>
-                                <p className="text-white/70 text-sm mt-1 mb-4">Able to customize data viewing</p>
+                                <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">{isThai ? "แดชบอร์ดอัจฉริยะ" : "DYNAMIC DASHBOARD"} &rarr;</p>
+                                <p className="text-white/70 text-sm mt-1 mb-4">{isThai ? "สามารถปรับแต่งมุมมองข้อมูลได้" : "Able to customize data viewing"}</p>
                                 <div className="flex flex-col gap-2.5 mt-2 mx-auto w-fit items-start">
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">BU Reps</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ตัวแทนหน่วยงานธุรกิจ" : "BU Reps"}</span>
                                     </div>
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">Project Managers</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ผู้จัดการโครงการ" : "Project Managers"}</span>
                                     </div>
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">Vendor</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ผู้ขาย" : "Vendor"}</span>
                                     </div>
                                 </div>
                             </div>
@@ -227,27 +220,27 @@ export default function DAPSegment4() {
 
                         {/* Container 3 */}
                         <Link 
-                            href="dap/segment4-1" 
+                            href="/dap/segment4-1" 
                             className="flex-1 min-w-[260px] bg-[#01AA71]/30 hover:bg-white/30 border border-white/30 backdrop-blur-lg rounded-2xl p-5 shadow-lg transition-all duration-200 active:scale-[0.98] group text-center flex flex-col items-center justify-between"
                         >
                             <div className="flex flex-col items-center w-full">
                                 <div className="mb-3">
                                     <img src="/VEKIN Resource all Product/VEKIN 4/icon3.png" alt="" className="h-24 w-auto object-contain mx-auto"/>
                                 </div>
-                                <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">OCR-RPA &rarr;</p>
-                                <p className="text-white/70 text-sm mt-1 mb-4">Supports a variety of technologies</p>
+                                <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">{isThai ? "ระบบ OCR-RPA" : "OCR-RPA"} &rarr;</p>
+                                <p className="text-white/70 text-sm mt-1 mb-4">{isThai ? "รองรับเทคโนโลยีที่หลากหลาย" : "Supports a variety of technologies"}</p>
                                 <div className="flex flex-col gap-2.5 mt-2 mx-auto w-fit items-start">
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">Facility Managers</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ผู้จัดการอาคาร" : "Facility Managers"}</span>
                                     </div>
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">Vendors</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ผู้ขาย" : "Vendors"}</span>
                                     </div>
                                     <div className="flex items-center gap-2.5">
                                         <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-xs font-bold shadow-sm">✓</div>
-                                        <span className="text-white/90 text-sm font-medium leading-5">Dealer</span>
+                                        <span className="text-white/90 text-sm font-medium leading-5">{isThai ? "ตัวแทนจำหน่าย" : "Dealer"}</span>
                                     </div>
                                 </div>
                             </div>
@@ -257,10 +250,12 @@ export default function DAPSegment4() {
                     {/* DESKTOP VIEW ONLY: Methodology block aligned left directly underneath the cards */}
                     <div className="w-full max-w-md self-start pl-4 mt-2">
                         <h3 className="text-white font-black text-3xl tracking-tight mb-3">
-                            OUR METHODOLOGY
+                            {isThai ? "ระเบียบวิธีของเรา" : "OUR METHODOLOGY"}
                         </h3>
                         <p className="text-white/90 text-sm leading-relaxed font-medium">
-                            Our unified environmental engineering pipeline transforms raw operation data into standard compliance reports. By managing multi-layered ingestion pathways with granular security, organizations scale past traditional carbon audit overhead.
+                            {isThai
+                                ? "ระบบวิศวกรรมสิ่งแวดล้อมแบบรวมศูนย์ของเราเปลี่ยนข้อมูลการดำเนินงานดิบให้เป็นรายงานตามมาตรฐาน ด้วยการจัดการเส้นทางการรับข้อมูลหลายชั้นพร้อมความปลอดภัยละเอียด องค์กรจึงลดภาระการตรวจสอบคาร์บอนแบบเดิมได้"
+                                : "Our unified environmental engineering pipeline transforms raw operation data into standard compliance reports. By managing multi-layered ingestion pathways with granular security, organizations scale past traditional carbon audit overhead."}
                         </p>
                     </div>
 

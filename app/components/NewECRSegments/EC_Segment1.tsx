@@ -2,10 +2,12 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useSiteLanguage } from "../siteLanguage";
 
 export default function ECSegment1() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
+    const { language } = useSiteLanguage();
 
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 1024px)");
@@ -19,8 +21,7 @@ export default function ECSegment1() {
         return () => mediaQuery.removeEventListener("change", handleResize);
     }, []);
 
-    const isThai =
-        typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th");
+    const isThai = language === "th";
 
     const { scrollYProgress } = useScroll({
         target: containerRef,

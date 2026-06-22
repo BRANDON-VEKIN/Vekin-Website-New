@@ -2,23 +2,7 @@
 
 import React, { useState } from "react";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
-
-function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTextProps) {
-    const [isThai, setIsThai] = React.useState(false);
-    React.useEffect(() => {
-        if (typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th")) {
-            setIsThai(true);
-        }
-    }, []);
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
+import LocalizedText from "../LocalizedText";
 
 type SlideId = "event" | "dashboard" | "report" | "receipts";
 

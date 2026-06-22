@@ -2,23 +2,8 @@
 
 import React from "react";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
+import LocalizedText from "../LocalizedText";
 
-function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTextProps) {
-    const [isThai, setIsThai] = React.useState(false);
-    React.useEffect(() => {
-        if (typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th")) {
-            setIsThai(true);
-        }
-    }, []);
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
 
 interface WorkspaceCard {
     id: string;
