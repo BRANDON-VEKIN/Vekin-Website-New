@@ -24,12 +24,12 @@ export default function AuditorPage() {
       <AuditorSegment3 />
       <AuditorSegment4 />
       <AuditorSegment7 />
-      <AuditorSegment8 />
       <AuditorSegment9 />
       <AuditorSegment10 />
       <AuditorSegment11 />
       <AuditorSegment12 />
       <AuditorSegment13 />
+      <AuditorSegment8 />
       <AuditorSegment14 />
       <AuditorSegment15 />
     </>

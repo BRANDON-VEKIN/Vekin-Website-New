@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useSiteLanguage } from "../siteLanguage";
 
 type LocalizedTextProps = {
   as?: React.ElementType;
@@ -15,64 +16,48 @@ function LocalizedText({
   en,
   className,
 }: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
+  const { language } = useSiteLanguage();
 
   return (
     <Component className={className}>
-      {isThai ? th : en}
+      {language === "th" ? th : en}
     </Component>
   );
 }
 
-const tabs = [
-  { 
-    th: "ประสบการณ์ 5 ปี", 
-    en: "5 Years of Experience",
-    modalContent: {
-      titleTh: "ประสบการณ์ก้าวไกลของเรา",
-      titleEn: "Our 5-Year Journey",
-      descTh: "ตลอดระยะเวลา 5 ปีที่ผ่านมา เราได้พัฒนาและส่งมอบนวัตกรรมระบบตรวจสอบที่มีเสถียรภาพและได้รับความไว้วางใจระดับมาตรฐานสากลอย่างต่อเนื่อง",
-      descEn: "Over the past 5 years, we have continuously developed and delivered robust auditing innovations that are trusted across international standards."
-    }
-  },
-  { 
-    th: "250 ไซต์", 
-    en: "250 Sites",
-    modalContent: {
-      titleTh: "ความสำเร็จในกว่า 250 พื้นที่ใช้งาน",
-      titleEn: "Trusted Across 250+ Sites",
-      descTh: "ระบบของเราติดตั้งและดูแลระบบออดิตเสร็จสิ้นสมบูรณ์ไปแล้วมากกว่า 250 ไซต์งานทั่วประเทศ ครอบคลุมอุตสาหกรรมขนาดเล็กไปจนถึงรัฐวิสาหกิจขนาดใหญ่",
-      descEn: "Our systems have been successfully deployed and maintained across more than 250 active sites nationwide, covering everything from small industries to massive enterprises."
-    }
-  },
-  { 
-    th: "ข่าวล่าสุด", 
-    en: "Latest News",
-    modalContent: {
-      titleTh: "อัปเดตข่าวสารล่าสุด",
-      titleEn: "Latest News Update",
-      descTh: "ติดตามข่าวสาร การประกาศอัปเดตสถาปัตยกรรมระบบเวอร์ชันใหม่ และกิจกรรมความร่วมมือทางเทคโนโลยีประจำเดือนนี้ได้ที่นี่",
-      descEn: "Stay tuned for monthly announcements, architectural upgrades to our versioned platform, and strategic technology ecosystem partnerships."
-    }
-  },
-  { 
-    th: "โซเชียลมีเดีย", 
-    en: "Social Media",
-    modalContent: {
-      titleTh: "ช่องทางการติดตาม",
-      titleEn: "Follow Us On Social Media",
-      descTh: "เชื่อมต่อกับเราผ่านช่องทางโซเชียลมีเดียต่างๆ เพื่อรับชมวิดีโอแนะนำฟีเจอร์การใช้งาน บทความเจาะลึก และพูดคุยกับวิศวกรผู้เชี่ยวชาญ",
-      descEn: "Connect with us across our social media platforms to explore feature walkthroughs, engineering deep dives, and live community discussions."
-    }
-  },
+const milestones = [
+  { th: "ประสบการณ์มากกว่า 5 ปี", en: "5+ Years of Experience" },
+  { th: "การอัปเดตเทคโนโลยี 22 ครั้ง", en: "22 Technology Updates" },
+  { th: "มากกว่า 250 ไซต์งาน", en: "250 Sites" },
+  { th: "ลงนาม MOU ล่าสุดกับการไฟฟ้านครหลวง (MEA)", en: "Latest MOU with MEA" },
 ];
 
-type TabType = typeof tabs[number];
+const successStories = [
+  {
+    src: "/VEKIN Resource all Product/VEKIN 3/Event_1.png",
+    titleTh: "สสารก่อกวน",
+    titleEn: "Disruptive Matter",
+    descTh: "VEKIN นำเสนอกระบวนการที่พลิกโฉมวงการเพื่อความยั่งยืนผ่าน AI Carbon Auditor ของตน เครื่องมือ Digital VVB นี้เข้ามาแทนที่การตรวจสอบด้วยตนเองที่ช้าและยุ่งยาก ด้วยการตรวจสอบอัตโนมัติแบบเรียลไทม์ ช่วยลดต้นทุนการดำเนินงานแบบดั้งเดิมลงได้ถึง 80%",
+    descEn: "VEKIN provides a disruptive process for sustainability through its AI Carbon Auditor. This Digital VVB engine replaces slow, manual audits with real-time automated verification, reducing traditional operational costs by 80%"
+  },
+  {
+    src: "/VEKIN Resource all Product/VEKIN 3/Event_2.png",
+    titleTh: "นักพัฒนาแอปผู้เชี่ยวชาญ",
+    titleEn: "Expert App Devs",
+    descTh: "ในปี 2023 Expert App Devs ได้จัดงานอีเวนต์ด้านเทคโนโลยีเป็นเวลาหนึ่งเดือนในดูไบ โดยจัดแสดงโซลูชันการพัฒนาแอปพลิเคชันบนมือถือและสร้างเครือข่ายกับพันธมิตรระดับโลกในงาน GITEX Global",
+    descEn: "Expert App Devs hosted a month-long tech event in Dubai in 2023, showcasing mobile development solutions and networking with global partners at GITEX Global."
+  },
+  {
+    src: "/VEKIN Resource all Product/VEKIN 3/Event_3.png",
+    titleTh: "งานเอ็กซ์โป 2030",
+    titleEn: "EXPO 2030",
+    descTh: "งาน Expo 2030 เป็นงานมหกรรมโลกครั้งใหญ่ที่จะจัดขึ้นที่ริยาด ประเทศซาอุดีอาระเบีย โดยจะเปิดตัวในวันที่ 1 ตุลาคม 2030 เพื่อเน้นย้ำถึงความเป็นเอกภาพของโลก เทคโนโลยีสีเขียว และนวัตกรรมแห่งอนาคต",
+    descEn: "Expo 2030 is a massive World Expo in Riyadh, Saudi Arabia, launching on October 1, 2030, highlighting global unity, green technology, and future innovations."
+  }
+];
 
 export default function AuditorSegment8() {
-  const [activeTab, setActiveTab] = useState<TabType | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <section className="relative w-full overflow-hidden bg-black text-white">
@@ -89,26 +74,24 @@ export default function AuditorSegment8() {
       {/* Content Wrapper */}
       <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8">
 
-        {/* Interactive Pills - Kept tightly grouped in top right */}
+        {/* Milestone Pills Display */}
         <div className="flex flex-wrap justify-end gap-2 md:gap-3 z-10">
-          {tabs.map((tab, index) => (
-            <button
-              key={tab.en}
-              onClick={() => setActiveTab(tab)}
+          {milestones.map((item, index) => (
+            <div
+              key={item.en}
               className="
-                cursor-pointer
-                transition-all duration-200 hover:scale-105 active:scale-95
                 rounded-full
                 border border-white/40
                 bg-black/45
-                px-3 py-2
-                text-[10px]
+                px-3 py-1.5
+                text-[9px]
                 font-medium
                 uppercase
                 tracking-[0.12em]
                 text-white
                 backdrop-blur-sm
                 sm:px-4
+                sm:py-2
                 sm:text-xs
                 md:px-5
                 md:py-3
@@ -116,74 +99,110 @@ export default function AuditorSegment8() {
               "
               style={{ opacity: 1 - index * 0.07 }}
             >
-              <LocalizedText
-                as="span"
-                th={tab.th}
-                en={tab.en}
-              />
-            </button>
+              <LocalizedText as="span" th={item.th} en={item.en} />
+            </div>
           ))}
         </div>
 
-        {/* Centered Vertically / Aligned Left Title Block */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-6 md:p-8 pointer-events-none">
-          <LocalizedText
-            as="h2"
-            th="ความสำเร็จของเรา"
-            en="OUR SUCCESS"
+        {/* CLICKABLE TITLE BLOCK */}
+        <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-6 md:p-8">
+          <button
+            onClick={() => setIsOpen(true)}
             className="
-              max-w-4xl
-              font-bold
-              tracking-tight
-              leading-none
-              text-4xl
-              sm:text-6xl
-              md:text-8xl
-              lg:text-[10rem]
+              group
+              text-left
+              cursor-pointer
+              outline-none
+              transition-transform
+              duration-300
+              hover:scale-[1.01]
+              active:scale-95
+              z-10
             "
-          />
+          >
+            <LocalizedText
+              as="h2"
+              th="ความสำเร็จของเรา"
+              en="OUR SUCCESS"
+              className="
+                max-w-4xl
+                font-bold
+                tracking-tight
+                leading-none
+                text-4xl
+                sm:text-6xl
+                md:text-8xl
+                lg:text-[10rem]
+                text-white
+                group-hover:text-emerald-400
+                transition-colors
+                duration-300
+              "
+            />
+          </button>
         </div>
 
-        {/* Empty bottom element to preserve the justify-between spacing layout engine */}
+        {/* Layout Spacing Spacer */}
         <div className="w-full h-2 pointer-events-none" />
       </div>
 
-      {/* Modal Overlay Component */}
-      {activeTab && (
-        <div 
-          className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md transition-opacity duration-300"
-          onClick={() => setActiveTab(null)}
+      {/* FULLY RESPONSIVE SIDE-BY-SIDE MODAL */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-opacity duration-300 animate-in fade-in"
+          onClick={() => setIsOpen(false)}
         >
-          <div 
+          <div
             className="
-              relative w-full max-w-lg rounded-2xl border border-white/20 
-              bg-neutral-900/90 p-6 shadow-2xl text-white 
-              animate-in fade-in zoom-in-95 duration-200
+              relative w-full max-w-7xl md:w-[92vw] lg:w-full rounded-2xl md:rounded-3xl border border-white/10 
+              bg-neutral-950/95 p-5 sm:p-8 md:p-10 lg:p-12 shadow-2xl text-white
+              animate-in fade-in zoom-in-95 duration-200 max-h-[85vh] overflow-y-auto
             "
             onClick={(e) => e.stopPropagation()}
           >
-            <button 
-              onClick={() => setActiveTab(null)}
-              className="absolute right-4 top-4 text-white/60 hover:text-white text-xl p-1 transition-colors"
+            {/* Close Button Layout Target */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute right-4 top-4 md:right-6 md:top-6 h-9 w-9 md:h-10 md:w-10 flex items-center justify-center rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-all text-sm md:text-base z-20"
               aria-label="Close modal"
             >
               ✕
             </button>
 
-            <div className="mt-2 space-y-4">
-              <LocalizedText 
-                as="h3" 
-                th={activeTab.modalContent.titleTh} 
-                en={activeTab.modalContent.titleEn} 
-                className="text-xl font-bold tracking-tight sm:text-2xl text-emerald-400"
-              />
-              <LocalizedText 
-                as="p" 
-                th={activeTab.modalContent.descTh} 
-                en={activeTab.modalContent.descEn} 
-                className="text-sm sm:text-base text-neutral-300 leading-relaxed"
-              />
+            {/* Response Column Matrix (Stacked on mobile viewports, Grid rows on desktop screen scopes) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10 mt-6 md:mt-4">
+              {successStories.map((story, i) => (
+                <div key={i} className="flex flex-col gap-4 md:gap-5 last:border-0 max-md:border-b max-md:border-white/10 max-md:pb-6">
+                  
+                  {/* Aspect Locked Responsive Card Images Frame */}
+                  <div className="flex h-48 sm:h-64 md:h-52 lg:h-72 xl:h-80 w-full items-center justify-center rounded-xl md:rounded-2xl bg-white/5 overflow-hidden border border-white/5 shadow-inner">
+                    <img
+                      src={story.src}
+                      alt={`Story Visual ${i + 1}`}
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Responsive Bottom Text Block */}
+                  <div className="space-y-1.5 md:space-y-2 px-0.5">
+                    <LocalizedText
+                      as="h3"
+                      th={story.titleTh}
+                      en={story.titleEn}
+                      className="text-lg md:text-base lg:text-xl font-bold text-emerald-400 tracking-tight"
+                    />
+                    <LocalizedText
+                      as="p"
+                      th={story.descTh}
+                      en={story.descEn}
+                      className="text-xs sm:text-sm md:text-[13px] lg:text-sm text-neutral-300 leading-relaxed font-normal"
+                    />
+                  </div>
+
+                </div>
+              ))}
             </div>
+
           </div>
         </div>
       )}
