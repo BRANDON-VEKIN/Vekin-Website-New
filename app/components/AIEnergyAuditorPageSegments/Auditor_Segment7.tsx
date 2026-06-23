@@ -126,12 +126,13 @@ export default function AuditorSegment7() {
             <div
               className="
                 relative
-                w-[min(68vw,250px)]
-                sm:w-[310px]
-                lg:w-[350px]
-                xl:w-[380px]
-                aspect-[9/19.5]
-                max-h-[52vh] sm:max-h-[62vh] md:max-h-[72vh] lg:max-h-[78vh]
+                w-[min(58vw,220px)]
+                sm:w-[270px]
+                md:w-[300px]
+                lg:w-[320px]
+                xl:w-[340px]
+                aspect-[9/21]
+                max-h-[58vh] sm:max-h-[70vh] md:max-h-[76vh] lg:max-h-[82vh]
                 touch-pan-y
                 select-none
               "
@@ -146,47 +147,52 @@ export default function AuditorSegment7() {
             >
               {/* Dynamic Fluid Glow Ambient Backlight Effect */}
               <div
-                className={`absolute inset-4 -z-10 rounded-[3rem] bg-gradient-to-tr ${activeStep.phoneGlow} opacity-100 blur-[45px] sm:blur-[60px] transition-all duration-700 ease-in-out`}
+                className={`absolute -inset-5 -z-20 rounded-[4rem] bg-gradient-to-tr ${activeStep.phoneGlow} opacity-80 blur-[42px] transition-all duration-700 ease-in-out sm:-inset-7 sm:blur-[70px]`}
               />
+              <div className="absolute -inset-2 -z-10 rounded-[3.4rem] bg-white/10 blur-sm" />
 
               {/* iPhone Steel Chassis Rim with Surgical Stainless Steel Sheen */}
-              <div className="relative w-full h-full overflow-hidden rounded-[2.5rem] sm:rounded-[3.25rem] bg-gradient-to-b from-slate-800 via-zinc-900 to-neutral-950 p-[7px] sm:p-[9px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85)] ring-1 ring-white/15">
+              <div className="relative h-full w-full overflow-visible rounded-[2.35rem] bg-[linear-gradient(135deg,#f8fafc_0%,#64748b_10%,#111827_32%,#030712_58%,#94a3b8_86%,#f8fafc_100%)] p-[5px] shadow-[0_26px_80px_-20px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.22),inset_0_1px_0_rgba(255,255,255,0.65)] transition-transform duration-500 hover:scale-[1.015] sm:rounded-[2.95rem] sm:p-[7px]">
+                <div className="absolute -left-1.5 top-[23%] h-12 w-1 rounded-l-full bg-gradient-to-b from-slate-200 via-slate-500 to-slate-900 shadow-[inset_-1px_0_1px_rgba(255,255,255,0.55)] sm:h-16" />
+                <div className="absolute -right-1.5 top-[30%] h-20 w-1 rounded-r-full bg-gradient-to-b from-slate-200 via-slate-500 to-slate-900 shadow-[inset_1px_0_1px_rgba(255,255,255,0.45)] sm:h-24" />
+                <div className="absolute inset-[3px] rounded-[2.15rem] bg-gradient-to-b from-white/25 via-transparent to-black/25 pointer-events-none sm:rounded-[2.7rem]" />
                 
                 {/* Ultra Thin Display Mask Rim */}
-                <div className="relative w-full h-full overflow-hidden rounded-[2.05rem] sm:rounded-[2.7rem] bg-neutral-950 ring-2 ring-black/80">
+                <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-neutral-950 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08),inset_0_0_28px_rgba(0,0,0,0.95)] ring-1 ring-black/90 sm:rounded-[2.55rem]">
                   
                   {/* Phone Screen Graphical Render Output Canvas */}
                   <img
                     src={activeStep.phoneImage}
                     alt="Application Dashboard Display Frame"
-                    className="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out"
+                    className="absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out"
                   />
 
                   {/* Anti-Glare Soft Screen Reflection Polish Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none mix-blend-overlay" />
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_0%,rgba(255,255,255,0.24),transparent_34%),linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.12)_18%,transparent_36%,transparent_100%)] mix-blend-screen" />
+                  <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10 sm:rounded-[2.55rem]" />
 
                   {/* iPhone Dynamic Island Interface Element */}
-                  <div className="absolute left-1/2 top-2.5 sm:top-3.5 z-30 h-4 w-20 sm:h-5 sm:w-26 -translate-x-1/2 rounded-full bg-black shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-end px-2.5">
+                  <div className="absolute left-1/2 top-2.5 z-30 flex h-4 w-20 -translate-x-1/2 items-center justify-end rounded-full bg-black/95 px-2.5 shadow-[0_1px_5px_rgba(255,255,255,0.12),inset_0_1px_1px_rgba(255,255,255,0.18)] sm:top-3.5 sm:h-5 sm:w-24">
                     {/* TrueDepth Camera Lens Array Reflection */}
-                    <div className="h-1 sm:h-1.5 w-1 sm:w-1.5 rounded-full bg-[#111318] border border-neutral-800/80 shadow-[inset_0_0_2px_rgba(0,167,155,0.3)]" />
+                    <div className="h-1 w-1 rounded-full border border-neutral-700/80 bg-[#101318] shadow-[inset_0_0_2px_rgba(0,167,155,0.45),0_0_5px_rgba(0,167,155,0.18)] sm:h-1.5 sm:w-1.5" />
                   </div>
 
                   {/* Bottom Home Indicator Bar */}
-                  <div className="absolute bottom-1.5 left-1/2 z-30 h-1 w-24 sm:w-28 -translate-x-1/2 rounded-full bg-white/40 pointer-events-none" />
+                  <div className="pointer-events-none absolute bottom-2 left-1/2 z-30 h-1 w-20 -translate-x-1/2 rounded-full bg-white/55 shadow-[0_0_12px_rgba(255,255,255,0.22)] sm:w-28" />
 
                   {/* Interactive Dashboard Step Control Segment Deck */}
-                  <div className="absolute bottom-5 left-3 right-3 sm:bottom-6 sm:left-4 sm:right-4 z-20">
-                    <div className="rounded-xl sm:rounded-2xl border border-white/10 bg-black/40 p-1.5 sm:p-2 backdrop-blur-xl shadow-lg ring-1 ring-black/10">
-                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
+                  <div className="absolute bottom-5 left-4 right-4 z-20 sm:bottom-7 sm:left-5 sm:right-5">
+                    <div className="rounded-2xl border border-white/15 bg-black/35 p-1.5 shadow-[0_12px_28px_rgba(0,0,0,0.45)] ring-1 ring-black/20 backdrop-blur-2xl sm:p-2">
+                      <div className="grid grid-cols-3 gap-1.5">
                         {steps.map((step, index) => (
                           <button
                             key={step.stepLabel}
                             type="button"
                             onClick={() => handleStepButtonClick(index)}
-                            className={`rounded-lg sm:rounded-xl px-1.5 py-1.5 sm:py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-300 ${
+                            className={`rounded-xl px-1.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.1em] transition-all duration-300 sm:py-2 sm:text-[10px] ${
                               index === activeIndex
-                                ? "bg-white text-slate-950 shadow-md scale-[1.02]"
-                                : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+                                ? "bg-[#00A79B] text-white shadow-[0_0_18px_rgba(0,167,155,0.45)] scale-[1.03]"
+                                : "bg-white/8 text-white/75 hover:bg-white/15 hover:text-white"
                             }`}
                           >
                             {index + 1}
