@@ -66,7 +66,7 @@ export default function AuditorSegment8() {
       <img
         src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG6.png"
         alt="Auditor background"
-        className="block w-full min-h-[500px] object-cover md:min-h-0"
+        className="block w-full min-h-[540px] object-cover sm:min-h-[580px] md:min-h-0"
       />
 
       <div className="absolute inset-0 bg-black/10" />
@@ -75,7 +75,7 @@ export default function AuditorSegment8() {
       <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8">
 
         {/* Milestone Pills Display */}
-        <div className="flex flex-wrap justify-end gap-2 md:gap-3 z-10">
+        <div className="z-10 flex max-h-[36%] flex-wrap justify-end gap-2 overflow-y-auto md:max-h-none md:gap-3 md:overflow-visible">
           {milestones.map((item, index) => (
             <div
               key={item.en}
@@ -83,8 +83,8 @@ export default function AuditorSegment8() {
                 rounded-full
                 border border-white/40
                 bg-black/45
-                px-3 py-1.5
-                text-[9px]
+                px-2.5 py-1.5
+                text-[8px]
                 font-medium
                 uppercase
                 tracking-[0.12em]
@@ -105,7 +105,7 @@ export default function AuditorSegment8() {
         </div>
 
         {/* CLICKABLE TITLE BLOCK */}
-        <div className="absolute inset-0 flex flex-col justify-center items-start p-4 sm:p-6 md:p-8">
+        <div className="absolute inset-0 flex flex-col justify-center items-start p-4 pt-24 sm:p-6 md:p-8">
           <button
             onClick={() => setIsOpen(true)}
             className="
@@ -149,14 +149,14 @@ export default function AuditorSegment8() {
       {/* FULLY RESPONSIVE SIDE-BY-SIDE MODAL */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md transition-opacity duration-300 animate-in fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-3 backdrop-blur-md transition-opacity duration-300 animate-in fade-in sm:p-4"
           onClick={() => setIsOpen(false)}
         >
           <div
             className="
               relative w-full max-w-7xl md:w-[92vw] lg:w-full rounded-2xl md:rounded-3xl border border-white/10 
-              bg-neutral-950/95 p-5 sm:p-8 md:p-10 lg:p-12 shadow-2xl text-white
-              animate-in fade-in zoom-in-95 duration-200 max-h-[85vh] overflow-y-auto
+              bg-neutral-950/95 p-4 pt-12 sm:p-8 md:p-10 lg:p-12 shadow-2xl text-white
+              animate-in fade-in zoom-in-95 duration-200 max-h-[88vh] overflow-y-auto
             "
             onClick={(e) => e.stopPropagation()}
           >
@@ -170,12 +170,12 @@ export default function AuditorSegment8() {
             </button>
 
             {/* Response Column Matrix (Stacked on mobile viewports, Grid rows on desktop screen scopes) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-10 mt-6 md:mt-4">
+            <div className="grid grid-cols-1 gap-6 md:mt-4 md:grid-cols-3 md:gap-6 lg:gap-10">
               {successStories.map((story, i) => (
                 <div key={i} className="flex flex-col gap-4 md:gap-5 last:border-0 max-md:border-b max-md:border-white/10 max-md:pb-6">
                   
                   {/* Aspect Locked Responsive Card Images Frame */}
-                  <div className="flex h-48 sm:h-64 md:h-52 lg:h-72 xl:h-80 w-full items-center justify-center rounded-xl md:rounded-2xl bg-white/5 overflow-hidden border border-white/5 shadow-inner">
+                  <div className="flex h-44 sm:h-64 md:h-52 lg:h-72 xl:h-80 w-full items-center justify-center rounded-xl md:rounded-2xl bg-white/5 overflow-hidden border border-white/5 shadow-inner">
                     <img
                       src={story.src}
                       alt={`Story Visual ${i + 1}`}

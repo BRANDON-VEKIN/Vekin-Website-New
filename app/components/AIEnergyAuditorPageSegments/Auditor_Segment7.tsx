@@ -92,7 +92,7 @@ export default function AuditorSegment7() {
   return (
     <section
       aria-labelledby="auditor-protocol"
-      className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center bg-neutral-950"
+      className="relative w-full min-h-screen overflow-hidden bg-neutral-950"
     >
       {/* Background Section Layer */}
       <img
@@ -105,7 +105,7 @@ export default function AuditorSegment7() {
       <div className="absolute inset-0 bg-black/40 lg:bg-black/20 pointer-events-none" />
 
       {/* Main Dynamic Container Frame */}
-      <div className="relative lg:absolute lg:inset-0 z-10 flex items-center w-full h-full py-12 md:py-20 lg:py-0 overflow-y-auto lg:overflow-visible">
+      <div className="relative lg:absolute lg:inset-0 z-10 flex items-center w-full min-h-screen py-10 md:py-20 lg:py-0 overflow-y-auto lg:overflow-visible">
         <div
           className="
             mx-auto
@@ -114,25 +114,24 @@ export default function AuditorSegment7() {
             max-w-7xl
             grid-cols-1
             items-center
-            gap-10
-            px-6
+            gap-6
+            px-4
             sm:px-10
             lg:grid-cols-[1fr_1.1fr]
             lg:gap-16
           "
         >
           {/* CONTAINER FOR IPHONE MOCKUP */}
-          <div className="flex justify-center lg:justify-start order-1 w-full h-full items-center py-4 sm:py-8 lg:py-12">
+          <div className="flex justify-center lg:justify-start order-1 w-full h-full items-center py-2 sm:py-8 lg:py-12">
             <div
               className="
                 relative
-                w-full
-                xs:w-[260px]
+                w-[min(68vw,250px)]
                 sm:w-[310px]
                 lg:w-[350px]
                 xl:w-[380px]
                 aspect-[9/19.5]
-                max-h-[68vh] md:max-h-[72vh] lg:max-h-[78vh]
+                max-h-[52vh] sm:max-h-[62vh] md:max-h-[72vh] lg:max-h-[78vh]
                 touch-pan-y
                 select-none
               "
@@ -213,9 +212,13 @@ export default function AuditorSegment7() {
                 border
                 border-white/15
                 bg-black/65
-                p-5
+                max-h-[44vh]
+                overflow-y-auto
+                p-4
                 sm:p-8
                 lg:p-10
+                lg:max-h-none
+                lg:overflow-visible
                 shadow-2xl
                 backdrop-blur-md
               "
@@ -224,18 +227,18 @@ export default function AuditorSegment7() {
                 {language === "th" ? "โปรโตคอลของเรา" : "OUR PROTOCOL"}
               </p>
 
-              <p className="mt-2 sm:mt-4 text-xl font-extrabold uppercase leading-none sm:text-3xl text-[#00A79B]">
+              <p className="mt-2 sm:mt-4 text-lg font-extrabold uppercase leading-none sm:text-3xl text-[#00A79B]">
                 {activeStep.stepLabel}
               </p>
 
               <h2
                 id="auditor-protocol"
-                className="mt-2 sm:mt-4 text-lg font-bold leading-tight sm:text-2xl lg:text-4xl"
+                className="mt-2 sm:mt-4 text-base font-bold leading-tight sm:text-2xl lg:text-4xl"
               >
                 {activeStep.title}
               </h2>
 
-              <p className="mt-3 sm:mt-4 text-xs leading-relaxed text-white/80 sm:text-base">
+              <p className="mt-3 sm:mt-4 text-xs leading-relaxed text-white/80 sm:text-sm lg:text-base">
                 {activeStep.body}
               </p>
             </div>

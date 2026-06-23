@@ -24,7 +24,7 @@ export default function AuditorSegment1() {
     src="https://vekinth-my.sharepoint.com/personal/wanut_vekin_tech/_layouts/15/embed.aspx?UniqueId=315b4039-c3b5-4b01-86c6-5c2efa32a1df&embed=%7B%22af%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
     title="Auditor Video"
     allowFullScreen
-    className="w-full aspect-video border-0"
+    className="block w-full min-h-[260px] border-0 object-cover sm:min-h-[360px] md:aspect-video md:min-h-0"
   />
 </section>
 	);

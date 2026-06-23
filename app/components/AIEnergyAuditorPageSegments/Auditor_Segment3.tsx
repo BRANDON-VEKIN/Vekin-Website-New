@@ -11,20 +11,23 @@ export default function AuditorSegment3() {
     <img
       src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG3.png"
       alt="AI Energy Auditor Background"
-      className="block w-full min-h-[650px] object-cover md:min-h-0"
+      className="block w-full min-h-[680px] object-cover sm:min-h-[640px] md:min-h-0"
     />
 
     {/* Dark Overlay */}
     <div className="absolute inset-0 bg-black/30" />
 
     {/* Content */}
-    <div className="absolute inset-0 flex items-center justify-center lg:justify-end">
+    <div className="absolute inset-0 flex items-center justify-center px-4 py-8 lg:justify-end lg:px-0 lg:py-0">
       <div
         className="
           w-full
+          max-h-[86vh]
+          overflow-y-auto
+          rounded-xl
           bg-black/70
           px-5
-          py-8
+          py-6
 
           sm:px-8
           sm:py-10
@@ -33,6 +36,9 @@ export default function AuditorSegment3() {
 
           lg:max-w-[50%]
           lg:h-full
+          lg:max-h-none
+          lg:overflow-visible
+          lg:rounded-none
           lg:flex
           lg:items-center
           lg:px-16

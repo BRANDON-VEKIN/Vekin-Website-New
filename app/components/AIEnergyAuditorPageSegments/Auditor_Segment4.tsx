@@ -11,20 +11,23 @@ export default function AuditorSegment4() {
     <img
       src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG4.png"
       alt="Isometric city background"
-      className="block w-full min-h-[650px] object-cover md:min-h-0"
+      className="block w-full min-h-[720px] object-cover sm:min-h-[680px] md:min-h-0"
     />
 
     {/* Dark Overlay */}
     <div className="absolute inset-0 bg-black/30" />
 
     {/* Content */}
-    <div className="absolute inset-0 flex items-center justify-center lg:justify-start">
+    <div className="absolute inset-0 flex items-center justify-center px-4 py-8 lg:justify-start lg:px-0 lg:py-0">
       <div
         className="
           w-full
+          max-h-[86vh]
+          overflow-y-auto
+          rounded-xl
           bg-black/70
           px-5
-          py-8
+          py-6
 
           sm:px-8
           sm:py-10
@@ -33,6 +36,9 @@ export default function AuditorSegment4() {
 
           lg:max-w-[50%]
           lg:h-full
+          lg:max-h-none
+          lg:overflow-visible
+          lg:rounded-none
           lg:flex
           lg:items-center
           lg:px-16
@@ -44,7 +50,7 @@ export default function AuditorSegment4() {
             th="AI AUDITOR FOR CARBON FOOTPRINT"
             en="AI AUDITOR FOR CARBON FOOTPRINT"
             className="
-              text-2xl
+              text-xl
               font-extrabold
               leading-tight
 
