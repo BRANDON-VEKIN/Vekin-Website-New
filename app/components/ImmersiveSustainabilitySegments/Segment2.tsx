@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function Segment2() {
@@ -241,18 +242,35 @@ export default function Segment2() {
   }
 
   return (
-    <section className="relative mx-auto w-full max-w-[1180px] px-4 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24 lg:pt-28 overflow-hidden">
-      <h2 className="text-[clamp(2.4rem,8vw,4.5rem)] font-extralight tracking-tight leading-tight text-white">
-        <span className="font-semibold text-white">
-          {copy.title}
-        </span>
-      </h2>
-      <p className="mx-auto mt-4 max-w-[760px] whitespace-pre-line text-[clamp(1rem,4vw,1.35rem)] font-light leading-relaxed text-slate-300 sm:mt-6">
-        {copy.description}
-      </p>
+    <motion.section
+      initial={{ opacity: 0, y: 120 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+      className="relative mx-auto w-full max-w-[1180px] px-4 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24 lg:pt-28 overflow-hidden transform-gpu"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 48 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.45 }}
+        transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <h2 className="text-[clamp(2.4rem,8vw,4.5rem)] font-extralight tracking-tight leading-tight text-white">
+          <span className="font-semibold text-white">
+            {copy.title}
+          </span>
+        </h2>
+        <p className="mx-auto mt-4 max-w-[760px] whitespace-pre-line text-[clamp(1rem,4vw,1.35rem)] font-light leading-relaxed text-slate-300 sm:mt-6">
+          {copy.description}
+        </p>
+      </motion.div>
 
       {/* Slider view shell container */}
-      <div 
+      <motion.div 
+        initial={{ opacity: 0, y: 64 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 1.25, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
         className="relative mt-6 sm:mt-12 overflow-hidden pb-10 sm:pb-0"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -294,7 +312,7 @@ export default function Segment2() {
             />
           ))}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
