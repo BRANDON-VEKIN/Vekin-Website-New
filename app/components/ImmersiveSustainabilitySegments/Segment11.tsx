@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function Segment11() {
@@ -20,7 +21,14 @@ export default function Segment11() {
   }[language];
 
   return (
-    <section id="contact" className="relative min-h-[560px] overflow-hidden bg-black sm:min-h-[720px] lg:min-h-[900px]">
+    <motion.section
+      id="contact"
+      initial={{ opacity: 0, y: 72 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+      className="relative min-h-[560px] overflow-hidden bg-black transform-gpu sm:min-h-[720px] lg:min-h-[900px]"
+    >
       <img
         src="/VEKIN Resource all Product/VEKIN 1/IS_BG9.png"
         alt="Children creating a miniature sustainable environment together"
@@ -50,6 +58,6 @@ export default function Segment11() {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

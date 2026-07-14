@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Bubble from "../Bubble";
 import { companyCards } from "../homeData";
 import { useSiteLanguage } from "../siteLanguage";
@@ -8,7 +9,13 @@ export default function Segment10() {
   const { language } = useSiteLanguage();
 
   return (
-<section className="relative overflow-hidden bg-black px-5 py-20 text-center text-white sm:px-8 sm:py-32">
+<motion.section
+  initial={{ opacity: 0, y: 72 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.12 }}
+  transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+  className="relative overflow-hidden bg-black px-5 py-20 text-center text-white transform-gpu sm:px-8 sm:py-32"
+>
   {/* Ambient Background Blur Elements */}
   <Bubble className="-left-40 bottom-10 h-80 w-80 opacity-60 pointer-events-none" />
   <Bubble className="-right-20 top-8 h-44 w-44 opacity-70 sm:h-56 sm:w-56 pointer-events-none" />
@@ -81,6 +88,6 @@ export default function Segment10() {
       </a>
     </div>
   </div>
-</section>
+</motion.section>
   );
 }

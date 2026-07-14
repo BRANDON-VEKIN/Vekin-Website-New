@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function Segment7() {
@@ -19,7 +20,13 @@ export default function Segment7() {
   }[language] || { th: {}, en: {} };
 
   return (
-    <section className="bg-black relative">
+    <motion.section
+      initial={{ opacity: 0, y: 72 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+      className="bg-black relative overflow-hidden transform-gpu"
+    >
       <h2 className="sr-only">{copy.srLabel}</h2>
 
       <div className="relative w-full">
@@ -44,6 +51,6 @@ export default function Segment7() {
           
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

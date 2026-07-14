@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Bubble from "../Bubble";
 import { useSiteLanguage } from "../siteLanguage";
 
@@ -34,7 +35,13 @@ export default function Segment9() {
   }[language];
 
   return (
-<section className="relative overflow-hidden bg-black px-4 pb-20 pt-20 text-center text-white sm:px-8 sm:pb-36 sm:pt-32">
+<motion.section
+  initial={{ opacity: 0, y: 72 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.12 }}
+  transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+  className="relative overflow-hidden bg-black px-4 pb-20 pt-20 text-center text-white transform-gpu sm:px-8 sm:pb-36 sm:pt-32"
+>
   {/* Ambient background bubble */}
   <Bubble className="-left-28 top-12 h-60 w-60 opacity-60 sm:-left-20 sm:h-80 sm:w-80" />
 
@@ -96,6 +103,6 @@ export default function Segment9() {
       />
     </div>
   </div>
-</section>
+</motion.section>
   );
 }

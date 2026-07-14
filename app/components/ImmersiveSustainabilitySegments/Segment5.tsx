@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { eventCards } from "../homeData";
 import { useSiteLanguage } from "../siteLanguage";
@@ -14,7 +15,13 @@ export default function Segment5() {
   ];
 
   return (
-    <section className="relative bg-black w-full overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0, y: 72 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+      className="relative bg-black w-full overflow-hidden transform-gpu"
+    >
       {/* RESPONSIVE GRID ENGINE */}
       <div className="grid grid-cols-1 sm:grid-cols-3 min-h-0 h-auto sm:min-h-[720px] lg:min-h-[780px]">
         {eventCards.map((card, index) => (
@@ -49,6 +56,6 @@ export default function Segment5() {
           </Link>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
