@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
+import { useSiteLanguage } from "../siteLanguage";
 
 type LocalizedTextProps = {
   as?: React.ElementType;
@@ -8,19 +11,34 @@ type LocalizedTextProps = {
   className?: string;
 };
 
+const thaiTextOverrides: Record<string, string> = {
+  "CARBON ACCOUNTING COVERAGE": "ขอบเขตการบัญชีคาร์บอน",
+  "Scope 1, 2, and 3 Emissions Intelligence":
+    "ข้อมูลอัจฉริยะสำหรับการปล่อยคาร์บอน Scope 1, 2 และ 3",
+  "Unify operational, energy, and value-chain data into one verified carbon view.":
+    "รวมข้อมูลการดำเนินงาน พลังงาน และห่วงโซ่คุณค่า ให้เป็นมุมมองคาร์บอนเดียวที่ตรวจสอบได้",
+  "Scope 1": "Scope 1",
+  "Direct emissions from owned or controlled operations.":
+    "การปล่อยโดยตรงจากการดำเนินงานที่องค์กรเป็นเจ้าของหรือควบคุม",
+  "Scope 2": "Scope 2",
+  "Purchased electricity and energy-related emissions.":
+    "การปล่อยจากไฟฟ้าที่ซื้อมาและการใช้พลังงานที่เกี่ยวข้อง",
+  "Scope 3": "Scope 3",
+  "Value-chain emissions across suppliers, logistics, and use.":
+    "การปล่อยตลอดห่วงโซ่คุณค่า ครอบคลุมซัพพลายเออร์ โลจิสติกส์ และการใช้งาน",
+};
+
 function LocalizedText({
   as: Component = "div",
   th,
   en,
   className,
 }: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
+  const { language } = useSiteLanguage();
 
   return (
     <Component className={className}>
-      {isThai ? th : en}
+      {language === "th" ? thaiTextOverrides[en] ?? th : en}
     </Component>
   );
 }
@@ -28,23 +46,23 @@ function LocalizedText({
 const scopes = [
   {
     number: "01",
-    titleTh: "à¸‚à¸­à¸šà¹€à¸‚à¸• 1",
+    titleTh: "Scope 1",
     titleEn: "Scope 1",
-    descTh: "à¸à¸²à¸£à¸›à¸¥à¹ˆà¸­à¸¢à¸—à¸²à¸‡à¸•à¸£à¸‡à¸ˆà¸²à¸à¸à¸´à¸ˆà¸à¸£à¸£à¸¡à¸‚à¸­à¸‡à¸­à¸‡à¸„à¹Œà¸à¸£",
+    descTh: "การปล่อยโดยตรงจากการดำเนินงานที่องค์กรเป็นเจ้าของหรือควบคุม",
     descEn: "Direct emissions from owned or controlled operations.",
   },
   {
     number: "02",
-    titleTh: "à¸‚à¸­à¸šà¹€à¸‚à¸• 2",
+    titleTh: "Scope 2",
     titleEn: "Scope 2",
-    descTh: "à¸à¸²à¸£à¸›à¸¥à¹ˆà¸­à¸¢à¸ˆà¸²à¸à¸žà¸¥à¸±à¸‡à¸‡à¸²à¸™à¹„à¸Ÿà¸Ÿà¹‰à¸²à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­à¸¡à¸²à¹ƒà¸Šà¹‰",
+    descTh: "การปล่อยจากไฟฟ้าที่ซื้อมาและการใช้พลังงานที่เกี่ยวข้อง",
     descEn: "Purchased electricity and energy-related emissions.",
   },
   {
     number: "03",
-    titleTh: "à¸‚à¸­à¸šà¹€à¸‚à¸• 3",
+    titleTh: "Scope 3",
     titleEn: "Scope 3",
-    descTh: "à¸à¸²à¸£à¸›à¸¥à¹ˆà¸­à¸¢à¸—à¸µà¹ˆà¹€à¸à¸´à¸”à¸‚à¸¶à¹‰à¸™à¸•à¸¥à¸­à¸”à¸«à¹ˆà¸§à¸‡à¹‚à¸‹à¹ˆà¸„à¸¸à¸“à¸„à¹ˆà¸²",
+    descTh: "การปล่อยตลอดห่วงโซ่คุณค่า ครอบคลุมซัพพลายเออร์ โลจิสติกส์ และการใช้งาน",
     descEn: "Value-chain emissions across suppliers, logistics, and use.",
   },
 ];
@@ -79,13 +97,13 @@ export default function AuditorSegment5() {
             />
             <LocalizedText
               as="h2"
-              th="à¸„à¸£à¸­à¸šà¸„à¸¥à¸¸à¸¡à¸à¸²à¸£à¸›à¸¥à¹ˆà¸­à¸¢à¸„à¸²à¸£à¹Œà¸šà¸­à¸™à¸—à¸±à¹‰à¸‡ 3 à¸‚à¸­à¸šà¹€à¸‚à¸•"
+              th="ข้อมูลอัจฉริยะสำหรับการปล่อยคาร์บอน Scope 1, 2 และ 3"
               en="Scope 1, 2, and 3 Emissions Intelligence"
               className="mt-3 text-3xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl md:text-7xl"
             />
             <LocalizedText
               as="p"
-              th="à¸£à¸§à¸¡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ˆà¸²à¸à¸à¸´à¸ˆà¸à¸£à¸£à¸¡ à¸žà¸¥à¸±à¸‡à¸‡à¸²à¸™ à¹à¸¥à¸°à¸«à¹ˆà¸§à¸‡à¹‚à¸‹à¹ˆà¸„à¸¸à¸“à¸„à¹ˆà¸²à¹€à¸žà¸·à¹ˆà¸­à¸ªà¸£à¹‰à¸²à¸‡à¸ à¸²à¸žà¸£à¸§à¸¡à¸„à¸²à¸£à¹Œà¸šà¸­à¸™à¸—à¸µà¹ˆà¸•à¸£à¸§à¸ˆà¸ªà¸­à¸šà¹„à¸”à¹‰"
+              th="รวมข้อมูลการดำเนินงาน พลังงาน และห่วงโซ่คุณค่า ให้เป็นมุมมองคาร์บอนเดียวที่ตรวจสอบได้"
               en="Unify operational, energy, and value-chain data into one verified carbon view."
               className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-white/78 sm:text-base md:text-lg"
             />

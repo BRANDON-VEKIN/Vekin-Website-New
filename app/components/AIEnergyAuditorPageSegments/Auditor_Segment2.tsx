@@ -41,25 +41,25 @@ const businessTypes = [
   {
     icon: "/VEKIN Resource all Product/VEKIN 3/money.png",
     alt: "Financial Institutions and Banks",
-    th: "à¸ªà¸–à¸²à¸šà¸±à¸™à¸à¸²à¸£à¹€à¸‡à¸´à¸™à¹à¸¥à¸°à¸˜à¸™à¸²à¸„à¸²à¸£",
+    th: "สถาบันการเงินและธนาคาร",
     en: "Financial Institutions and Banks",
   },
   {
     icon: "/VEKIN Resource all Product/VEKIN 3/investment.png",
     alt: "Eco-Friendly Product Manufacturers",
-    th: "à¸œà¸¹à¹‰à¸œà¸¥à¸´à¸•à¸ªà¸´à¸™à¸„à¹‰à¸²à¹€à¸žà¸·à¹ˆà¸­à¸ªà¸´à¹ˆà¸‡à¹à¸§à¸”à¸¥à¹‰à¸­à¸¡",
+    th: "ผู้ผลิตสินค้าที่เป็นมิตรต่อสิ่งแวดล้อม",
     en: "Eco-Friendly Product Manufacturers",
   },
   {
     icon: "/VEKIN Resource all Product/VEKIN 3/benefits.png",
     alt: "Sustainable Agriculture",
-    th: "à¹€à¸à¸©à¸•à¸£à¸à¸£à¸£à¸¡à¸¢à¸±à¹ˆà¸‡à¸¢à¸·à¸™",
+    th: "เกษตรกรรมยั่งยืน",
     en: "Sustainable Agriculture",
   },
   {
     icon: "/VEKIN Resource all Product/VEKIN 3/recycle.png",
     alt: "Renewable Energy Providers",
-    th: "à¸œà¸¹à¹‰à¹ƒà¸«à¹‰à¸šà¸£à¸´à¸à¸²à¸£à¸žà¸¥à¸±à¸‡à¸‡à¸²à¸™à¸«à¸¡à¸¸à¸™à¹€à¸§à¸µà¸¢à¸™",
+    th: "ผู้ให้บริการพลังงานหมุนเวียน",
     en: "Renewable Energy Providers",
   },
 ];
@@ -92,13 +92,13 @@ export default function AuditorSegment2() {
             />
             <LocalizedText
               as="h2"
-              th="à¸˜à¸¸à¸£à¸à¸´à¸ˆà¸—à¸µà¹ˆà¹€à¸«à¸¡à¸²à¸°à¸ªà¸¡à¸à¸±à¸š VEKIN"
+              th="ธุรกิจที่เหมาะกับ VEKIN"
               en="SUITABLE BUSINESS FOR VEKIN"
               className="mt-3 text-3xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl md:text-7xl"
             />
             <LocalizedText
               as="p"
-              th="à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸žà¸¥à¸±à¸‡à¸‡à¸²à¸™à¹ƒà¸«à¹‰à¹€à¸›à¹‡à¸™à¸„à¸§à¸²à¸¡à¹„à¸”à¹‰à¹€à¸›à¸£à¸µà¸¢à¸šà¸—à¸µà¹ˆà¸•à¸£à¸§à¸ˆà¸ªà¸­à¸šà¹„à¸”à¹‰à¸ªà¸³à¸«à¸£à¸±à¸šà¸˜à¸¸à¸£à¸à¸´à¸ˆà¸—à¸µà¹ˆà¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¹€à¸•à¸´à¸šà¹‚à¸•à¸­à¸¢à¹ˆà¸²à¸‡à¸¢à¸±à¹ˆà¸‡à¸¢à¸·à¸™"
+              th="เปลี่ยนข้อมูลพลังงานให้เป็นความได้เปรียบที่ตรวจสอบได้ สำหรับองค์กรที่พร้อมเติบโตอย่างยั่งยืนและน่าเชื่อถือ"
               en="Turn energy data into verifiable advantage for organizations ready to grow with trusted sustainability."
               className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-white/78 sm:text-base md:text-lg"
             />
