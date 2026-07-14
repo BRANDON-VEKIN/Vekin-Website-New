@@ -1,10 +1,11 @@
 import React from "react";
 
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 
 export default function AuditorSegment15() {
   return (
-<section className="relative w-full overflow-hidden bg-black text-white min-h-[400px] sm:min-h-[500px] md:min-h-0 flex items-center justify-center">
+<BidirectionalScrollReveal className="relative w-full overflow-hidden bg-black text-white min-h-[400px] sm:min-h-[500px] md:min-h-0 flex items-center justify-center" amount={0.24} duration={1} offset={52}>
   {/* Background Image: Changed to absolute object-cover so it behaves like a true background on tiny screens */}
   <img
     src="/VEKIN Resource all Product/VEKIN 3/BKK_Park_2.jpg"
@@ -45,6 +46,6 @@ export default function AuditorSegment15() {
       </div>
     </div>
   </div>
-</section>
+</BidirectionalScrollReveal>
   );
 }

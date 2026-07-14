@@ -1,10 +1,11 @@
 import LocalizedText from "../LocalizedText";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 
 
 
 export default function AuditorSegment10() {
   return (
-  <section className="relative w-full overflow-hidden bg-black text-white">
+  <BidirectionalScrollReveal className="relative w-full overflow-hidden bg-black text-white" amount={0.2} duration={1.08} offset={64}>
     <img
       src="/VEKIN Resource all Product/VEKIN 3/Human.png"
       alt="Human background"
@@ -36,6 +37,6 @@ export default function AuditorSegment10() {
         </div>
       </div>
     </div>
-  </section>
+  </BidirectionalScrollReveal>
   );
 }

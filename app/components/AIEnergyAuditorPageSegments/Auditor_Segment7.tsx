@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useRef, useState } from "react";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
 type Step = {
@@ -55,8 +56,10 @@ export default function AuditorSegment7() {
   );
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [previousBg, setPreviousBg] = useState<string | null>(null);
   const pointerStartX = useRef<number | null>(null);
   const activeStep = steps[activeIndex];
+  const progressPercent = ((activeIndex + 1) / steps.length) * 100;
 
   function goToNextStep() {
     setActiveIndex((current) => (current + 1) % steps.length);
@@ -85,24 +88,56 @@ export default function AuditorSegment7() {
     }
   }
 
-  function handleStepButtonClick(index: number) {
+  function changeStep(index: number) {
+    if (index === activeIndex) return;
+    setPreviousBg(activeStep.bg);
     setActiveIndex(index);
   }
 
+  function handleStepButtonClick(index: number) {
+    changeStep(index);
+  }
+
   return (
-    <section
+    <BidirectionalScrollReveal
       aria-labelledby="auditor-protocol"
       className="relative w-full min-h-screen overflow-hidden bg-neutral-950"
+      amount={0.18}
+      duration={1.15}
+      offset={72}
     >
-      {/* Background Section Layer */}
+      <style>{`
+        @keyframes auditorBgFadeIn {
+          from { opacity: 0; transform: scale(1.025); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes auditorBgFadeOut {
+          from { opacity: 1; transform: scale(1); }
+          to { opacity: 0; transform: scale(1.02); }
+        }
+      `}</style>
+
+      {previousBg && (
+        <img
+          key={previousBg}
+          src={previousBg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover pointer-events-none animate-[auditorBgFadeOut_700ms_ease-out_forwards]"
+          onAnimationEnd={() => setPreviousBg(null)}
+        />
+      )}
+
       <img
+        key={activeStep.bg}
         src={activeStep.bg}
         alt="Future Bangkok background"
-        className="absolute inset-0 h-full w-full object-cover pointer-events-none"
+        className="absolute inset-0 h-full w-full object-cover pointer-events-none animate-[auditorBgFadeIn_700ms_ease-out_forwards]"
       />
 
-      {/* Dark Dimmer Backdrop Tint */}
-      <div className="absolute inset-0 bg-black/40 lg:bg-black/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.82),rgba(0,0,0,0.44)_46%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_28%,rgba(68,229,208,0.22),transparent_30%),radial-gradient(circle_at_72%_62%,rgba(14,165,233,0.18),transparent_34%)] pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black to-transparent pointer-events-none" />
 
       {/* Main Dynamic Container Frame */}
       <div className="relative lg:absolute lg:inset-0 z-10 flex items-center w-full min-h-screen py-10 md:py-20 lg:py-0 overflow-y-auto lg:overflow-visible">
@@ -212,45 +247,79 @@ export default function AuditorSegment7() {
             <div
               className="
                 w-full
-                max-w-xl
-                rounded-2xl
-                sm:rounded-3xl
+                max-w-2xl
+                rounded-[8px]
                 border
                 border-white/15
-                bg-black/65
+                bg-black/68
                 max-h-[44vh]
                 overflow-y-auto
-                p-4
+                p-5
                 sm:p-8
                 lg:p-10
                 lg:max-h-none
                 lg:overflow-visible
-                shadow-2xl
+                shadow-[0_28px_90px_rgba(0,0,0,0.42)]
                 backdrop-blur-md
               "
             >
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75 sm:text-xs sm:tracking-[0.4em]">
+              <p className="inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
                 {language === "th" ? "โปรโตคอลของเรา" : "OUR PROTOCOL"}
               </p>
 
-              <p className="mt-2 sm:mt-4 text-lg font-extrabold uppercase leading-none sm:text-3xl text-[#00A79B]">
+              <p className="mt-5 text-lg font-black uppercase leading-none text-[#44e5d0] sm:text-3xl">
                 {activeStep.stepLabel}
               </p>
 
               <h2
                 id="auditor-protocol"
-                className="mt-2 sm:mt-4 text-base font-bold leading-tight sm:text-2xl lg:text-4xl"
+                className="mt-3 text-2xl font-black uppercase leading-[0.98] tracking-tight sm:text-4xl lg:text-5xl"
               >
                 {activeStep.title}
               </h2>
 
-              <p className="mt-3 sm:mt-4 text-xs leading-relaxed text-white/80 sm:text-sm lg:text-base">
+              <p className="mt-4 text-xs leading-relaxed text-white/78 sm:text-sm lg:text-base">
                 {activeStep.body}
               </p>
+
+              <div className="mt-6">
+                <div className="mb-3 flex items-center justify-between text-[10px] font-black uppercase tracking-[0.16em] text-white/50">
+                  <span>{language === "th" ? "Progress" : "Progress"}</span>
+                  <span>{activeIndex + 1} / {steps.length}</span>
+                </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-[#44e5d0] shadow-[0_0_20px_rgba(68,229,208,0.55)] transition-all duration-500"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6 hidden grid-cols-3 gap-3 lg:grid">
+                {steps.map((step, index) => (
+                  <button
+                    key={step.stepLabel}
+                    type="button"
+                    onClick={() => handleStepButtonClick(index)}
+                    className={`rounded-[8px] border px-3 py-3 text-left transition-all duration-300 ${
+                      index === activeIndex
+                        ? "border-[#44e5d0]/70 bg-[#44e5d0]/12 text-white shadow-[0_14px_35px_rgba(68,229,208,0.12)]"
+                        : "border-white/12 bg-white/[0.05] text-white/58 hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
+                    }`}
+                  >
+                    <span className="block text-[10px] font-black uppercase tracking-[0.14em]">
+                      0{index + 1}
+                    </span>
+                    <span className="mt-1 block text-xs font-bold leading-tight">
+                      {step.title}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </BidirectionalScrollReveal>
   );
 }

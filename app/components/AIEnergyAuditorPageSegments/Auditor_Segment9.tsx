@@ -1,9 +1,10 @@
 import React from "react";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 
 export default function AuditorSegment9() {
   return (
-<section className="relative w-full overflow-hidden bg-black text-white">
+<BidirectionalScrollReveal className="relative w-full overflow-hidden bg-black text-white" amount={0.2} duration={1.08} offset={64}>
 
   {/* Background */}
   <img
@@ -103,6 +104,6 @@ export default function AuditorSegment9() {
     </div>
   </div>
 
-</section>
+</BidirectionalScrollReveal>
   );
 }

@@ -1,12 +1,13 @@
 import React from "react";
 
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 
 
 
 export default function AuditorSegment12() {
   return (
-<section className="relative w-full overflow-hidden bg-black text-white">
+<BidirectionalScrollReveal className="relative w-full overflow-hidden bg-black text-white" amount={0.2} duration={1.08} offset={64}>
   <img
     src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG8.png"
     alt="River City background"
@@ -47,6 +48,6 @@ export default function AuditorSegment12() {
       </div>
     </div>
   </div>
-</section>
+</BidirectionalScrollReveal>
   );
 }

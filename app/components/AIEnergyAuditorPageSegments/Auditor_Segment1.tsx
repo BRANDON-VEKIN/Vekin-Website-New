@@ -1,4 +1,5 @@
 import React from "react";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 
 type LocalizedTextProps = {
 	as?: React.ElementType;
@@ -16,16 +17,20 @@ function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTe
 
 export default function AuditorSegment1() {
 	return (
-<section
+<BidirectionalScrollReveal
   aria-label="AI Auditor Hero"
   className="relative w-full overflow-hidden bg-black"
+  amount={0.18}
+  duration={1.05}
+  offset={56}
 >
   <iframe
-    src="https://vekinth-my.sharepoint.com/personal/wanut_vekin_tech/_layouts/15/embed.aspx?UniqueId=315b4039-c3b5-4b01-86c6-5c2efa32a1df&embed=%7B%22af%22%3Atrue%2C%22ust%22%3Atrue%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+    src="https://www.youtube.com/embed/p8qgCuxA-Tc?autoplay=1&mute=1&loop=1&playlist=p8qgCuxA-Tc&playsinline=1&controls=0&disablekb=1&modestbranding=1&rel=0"
     title="Auditor Video"
     allowFullScreen
-    className="block w-full min-h-[260px] border-0 object-cover sm:min-h-[360px] md:aspect-video md:min-h-0"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    className="pointer-events-none block w-full min-h-[260px] border-0 object-cover sm:min-h-[360px] md:aspect-video md:min-h-0"
   />
-</section>
+</BidirectionalScrollReveal>
 	);
 }

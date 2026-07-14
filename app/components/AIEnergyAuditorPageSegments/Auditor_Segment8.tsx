@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
 type LocalizedTextProps = {
@@ -60,7 +61,7 @@ export default function AuditorSegment8() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="relative w-full overflow-hidden bg-black text-white">
+    <BidirectionalScrollReveal className="relative w-full overflow-hidden bg-black text-white" amount={0.2} duration={1.08} offset={64}>
 
       {/* Background Image */}
       <img
@@ -206,6 +207,6 @@ export default function AuditorSegment8() {
           </div>
         </div>
       )}
-    </section>
+    </BidirectionalScrollReveal>
   );
 }

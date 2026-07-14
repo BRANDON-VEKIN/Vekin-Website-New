@@ -1,4 +1,5 @@
 import React from "react";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 
 export default function ClientCarousel() {
@@ -20,7 +21,7 @@ export default function ClientCarousel() {
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
-    <section className="w-full bg-white py-14 text-slate-900 sm:py-20 md:py-28 overflow-hidden">
+    <BidirectionalScrollReveal className="w-full bg-white py-14 text-slate-900 sm:py-20 md:py-28 overflow-hidden" amount={0.2} duration={1.08} offset={64}>
       {/* Self-contained CSS Animation injected directly into the TSX */}
       <style>{`
         @keyframes inlineMarquee {
@@ -64,6 +65,6 @@ export default function ClientCarousel() {
           ))}
         </div>
       </div>
-    </section>
+    </BidirectionalScrollReveal>
   );
 }
