@@ -34,14 +34,14 @@ const productLinks: ProductLinkItem[] = [
     href: "/auditor",
     src: `${assetBase}/EA.png`,
     className:
-      "left-[73%] top-[46.4%] w-[40%] max-w-[500px] -translate-x-1/2 sm:left-[73%] sm:top-[40%] sm:w-[35%]",
+      "left-[77%] top-[38.5%] w-[40%] max-w-[500px] -translate-x-1/2 sm:left-[73%] sm:top-[40%] sm:w-[35%]",
   },
   {
     label: "E-Carbon Receipt",
     href: "/new_ec",
     src: `${assetBase}/E_CARBON_RECEIPT.png`,
     className:
-      "left-[50%] top-[65.8%] w-[30%] max-w-[500px] -translate-x-1/2 sm:left-[49%] sm:top-[65.5%] sm:w-[25%]",
+      "left-[42%] top-[65.8%] w-[30%] max-w-[500px] -translate-x-1/2 sm:left-[49%] sm:top-[65.5%] sm:w-[25%]",
   },
   {
     label: "DAP Main",
@@ -58,35 +58,35 @@ const storyBlocks = [
     subtitle: "WHEN YOUR BUSINESS BEGINS",
     body: "You don't have to wait until you're big to take carbon seriously. With one click, even the smallest business can generate verified carbon reports, laying a foundation for future funding, credibility, and long-term growth.",
     className:
-      "left-[52%] top-[13.1%] w-[82%] text-center sm:left-[69%] sm:top-[13.3%] sm:w-[52%] sm:text-left",
+      "left-[70%] top-[13.1%] w-[60%] text-center sm:left-[69%] sm:top-[13.3%] sm:w-[52%] sm:text-left",
   },
   {
     title: "WHEN YOUR BRAND STEPS INTO THE SPOTLIGHT",
     subtitle: "START TO SHOW. MAKE YOUR IMPACT VISIBLE.",
     body: "From pop-up booths to national events, carbon matters. Immersive Sustainability lets you track emissions before, during, and after every event, making your brand's actions measurable, visible, and unforgettable.",
     className:
-      "left-[45%] top-[29.4%] w-[82%] text-left sm:left-[32%] sm:top-[31%] sm:w-[52%]",
+      "left-[45%] top-[31.5%] w-[82%] text-left sm:left-[32%] sm:top-[31%] sm:w-[52%]",
   },
   {
     title: "WHEN YOUR FACTORY RAMPS UP",
     subtitle: "START TO OPTIMIZE. TURN ENERGY INTO ADVANTAGE.",
     body: "As operations grow, costs follow. Our AI Energy Auditor reads electricity flows, detects energy leaks, and reveals carbon hotspots, so you can cut emissions and bills without cutting growth.",
     className:
-      "left-[57%] top-[52.9%] w-[82%] text-right sm:left-[58%] sm:top-[53.5%] sm:w-[50%]",
+      "left-[57%] top-[53.5%] w-[82%] text-right sm:left-[58%] sm:top-[53.5%] sm:w-[50%]",
   },
   {
     title: "WHEN YOUR LOGISTICS NETWORK SCALES",
     subtitle: "START BUILDING TRUST. EVERY RECEIPT TELLS A STORY.",
     body: "Each shipment carries more than goods, it carries emissions. E-Carbon Receipt tracks every fuel transaction and stores it on blockchain, giving you tamper-proof proof that builds trust across supply chains, regulators, and partners.",
     className:
-      "left-[50%] top-[70.2%] w-[84%] text-left sm:left-[45%] sm:top-[72%] sm:w-[60%]",
+      "left-[48%] top-[71.7%] w-[84%] text-left sm:left-[45%] sm:top-[72%] sm:w-[60%]",
   },
   {
     title: "WHEN CARBON BECOMES CORE TO STRATEGY",
     subtitle: "START TO LEAD. LET DATA DRIVE YOUR DECISIONS.",
     body: "Growth brings complexity. DAP Main brings clarity. Unify all your carbon data into one dashboard, track progress, stay compliant, and turn every emission insight into competitive edge.",
     className:
-      "left-[50%] top-[90.8%] w-[82%] text-center sm:left-[46%] sm:top-[90%] sm:w-[62%] sm:text-left",
+      "left-[50%] top-[90%] w-[82%] text-center sm:left-[46%] sm:top-[90%] sm:w-[62%] sm:text-left",
   },
 ] as const;
 
@@ -169,13 +169,13 @@ function StoryCopy({ block, index }: { block: StoryBlock; index: number }) {
           isVisible ? "translate-x-0 opacity-100" : `${slideFrom} opacity-0`
         }`}
       >
-        <h2 className="text-[clamp(0.8rem,2.7vw,3rem)] font-black leading-[0.92]">
+        <h2 className="text-[0.55rem] font-black leading-[0.92] sm:text-[clamp(0.8rem,2.7vw,3rem)]">
           {block.title}
         </h2>
-        <p className="mt-[0.5%] text-[clamp(0.58rem,1.25vw,1.25rem)] font-black uppercase leading-tight">
+        <p className="mt-[0.5%] text-[0.42rem] font-black uppercase leading-tight sm:text-[clamp(0.58rem,1.25vw,1.25rem)]">
           {block.subtitle}
         </p>
-        <p className="mt-[1.1%] text-[clamp(0.45rem,0.72vw,0.8rem)] font-bold uppercase leading-snug tracking-[0.02em] text-[#55575a]">
+        <p className="mt-[1.1%] text-[0.32rem] font-bold uppercase leading-snug tracking-[0.02em] text-[#55575a] sm:text-[clamp(0.45rem,0.72vw,0.8rem)]">
           {block.body}
         </p>
       </div>
@@ -253,14 +253,14 @@ export default function Vekin_Home_Full1() {
         <img
           src={`${assetBase}/Ship2.png`}
           alt="Cargo ship"
-          className="absolute left-[67%] top-[56.4%] z-20 w-[40%] max-w-[550px] object-contain sm:left-[76%] sm:top-[53.5%] sm:w-[70%]"
+          className="absolute left-[75%] top-[55.5%] z-20 w-[30%] max-w-[550px] object-contain sm:left-[76%] sm:top-[53.5%] sm:w-[70%]"
           style={{ animation: "vekinShipBob 3.2s ease-in-out infinite" }}
         />
 
         <img
           src={`${assetBase}/Drone.png`}
           alt="Drone"
-          className="absolute left-[15%] top-[52.3%] z-20 w-[40%] max-w-[550px] object-contain sm:left-[18%] sm:top-[50%] sm:w-[70%]"
+          className="absolute left-[15%] top-[48%] z-20 w-[30%] max-w-[550px] object-contain sm:left-[18%] sm:top-[50%] sm:w-[70%]"
           style={{ animation: "vekinDroneBob 2.8s ease-in-out infinite" }}
         />
 
