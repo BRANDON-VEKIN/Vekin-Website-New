@@ -5,47 +5,55 @@ import LocalizedText from "../LocalizedText";
 
 export default function AuditorSegment15() {
   return (
-<BidirectionalScrollReveal className="relative w-full overflow-hidden bg-black text-white min-h-[400px] sm:min-h-[500px] md:min-h-0 flex items-center justify-center" amount={0.24} duration={1} offset={52}>
-  {/* Background Image: Changed to absolute object-cover so it behaves like a true background on tiny screens */}
-  <img
-    src="/VEKIN Resource all Product/VEKIN 3/BKK_Park_2.jpg"
-    alt="Bangkok Park background"
-    className="absolute inset-0 w-full h-full object-cover md:relative md:block md:h-auto"
-  />
+    <BidirectionalScrollReveal
+      className="relative w-full overflow-hidden bg-black text-white"
+      amount={0.24}
+      duration={1}
+      offset={52}
+    >
+      <img
+        src="/VEKIN Resource all Product/VEKIN 3/BKK_Park_2.jpg"
+        alt="Bangkok Park background"
+        className="block w-full min-h-[560px] object-cover object-center sm:min-h-[620px] md:min-h-0 md:h-auto"
+      />
 
-  {/* Background Tint Overlay for better text readability */}
-  <div className="absolute inset-0 bg-black/30 md:hidden" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.26),rgba(0,0,0,0.72)),radial-gradient(circle_at_50%_28%,rgba(68,229,208,0.24),transparent_34%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black to-transparent" />
 
-  {/* Text Wrapper */}
-  <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-10 w-full">
-    <div className="bg-black/60 md:bg-black/50 w-full py-8 md:py-14 px-4 sm:px-6 md:px-12 backdrop-blur-sm md:backdrop-blur-none">
-      <div className="mx-auto max-w-7xl space-y-6 md:space-y-8 text-center">
-        
-        {/* Responsive Text Size: Added text-xl base for mobile devices */}
-        <LocalizedText 
-          as="h3" 
-          th="การลงทุนที่เชื่อถือได้ด้วย AI Energy Auditor ที่ไว้วางใจได้" 
-          en="Trusted Investment with AI Energy Auditor which can be trusted" 
-          className="mx-auto max-w-4xl text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight px-2" 
-        />
+      <div className="absolute inset-0 z-10 flex w-full items-center justify-center px-4 py-16 sm:px-6 md:px-10">
+        <div className="mx-auto max-w-5xl rounded-[8px] border border-white/15 bg-black/68 p-5 text-center shadow-[0_28px_90px_rgba(0,0,0,0.42)] backdrop-blur-md sm:p-8 md:p-12">
+          <div className="mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
+            Ready For Verified Growth
+          </div>
 
-        {/* Buttons: Clean stack on mobile, horizontal row on tablet/desktop */}
-        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap w-full max-w-xs mx-auto sm:max-w-none">
-          <a
-            href="/package"
-            className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-slate-200"
-          >
-            <LocalizedText as="span" th="แพ็กเกจ" en="Package" />
-          </a>
-          
-          <button className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-green-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-600">
-            <LocalizedText as="span" th="เพิ่ม LINE ผ่าน QR Code" en="Add LINE via QR Code" />
-          </button>
+          <LocalizedText
+            as="h3"
+            th="à¸à¸²à¸£à¸¥à¸‡à¸—à¸¸à¸™à¸—à¸µà¹ˆà¹€à¸Šà¸·à¹ˆà¸­à¸–à¸·à¸­à¹„à¸”à¹‰à¸”à¹‰à¸§à¸¢ AI Energy Auditor"
+            en="Make Every Energy Investment Verifiable"
+            className="mx-auto max-w-4xl text-3xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl md:text-6xl"
+          />
+
+          <LocalizedText
+            as="p"
+            th="à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸žà¸¥à¸±à¸‡à¸‡à¸²à¸™à¹ƒà¸«à¹‰à¹€à¸›à¹‡à¸™à¸«à¸¥à¸±à¸à¸à¸²à¸™à¸—à¸µà¹ˆà¹€à¸Šà¸·à¹ˆà¸­à¸–à¸·à¸­à¹„à¸”à¹‰ à¸žà¸£à¹‰à¸­à¸¡à¸›à¸¥à¸”à¸¥à¹‡à¸­à¸à¹€à¸‡à¸´à¸™à¸—à¸¸à¸™à¸ªà¸µà¹€à¸‚à¸µà¸¢à¸§à¹à¸¥à¸°à¹‚à¸­à¸à¸²à¸ªà¸„à¸²à¸£à¹Œà¸šà¸­à¸™"
+            en="Turn energy data into trusted proof for savings, green finance, and carbon opportunities."
+            className="mx-auto mt-5 max-w-2xl text-sm font-medium leading-relaxed text-white/72 sm:text-base md:text-lg"
+          />
+
+          <div className="mx-auto mt-8 flex w-full max-w-xl flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="/package"
+              className="inline-flex w-full items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-black uppercase tracking-[0.08em] text-black transition hover:bg-slate-200 sm:w-auto"
+            >
+              <LocalizedText as="span" th="à¹à¸žà¹‡à¸à¹€à¸à¸ˆ" en="View Package" />
+            </a>
+
+            <button className="inline-flex w-full items-center justify-center rounded-full bg-[#10b981] px-7 py-3.5 text-sm font-black uppercase tracking-[0.08em] text-white transition hover:bg-[#0ea371] sm:w-auto">
+              <LocalizedText as="span" th="à¹€à¸žà¸´à¹ˆà¸¡ LINE à¸œà¹ˆà¸²à¸™ QR Code" en="Add LINE via QR Code" />
+            </button>
+          </div>
         </div>
-
       </div>
-    </div>
-  </div>
-</BidirectionalScrollReveal>
+    </BidirectionalScrollReveal>
   );
 }
