@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const assetBase = "/VEKIN Resource all Product/VEKIN 5";
 
@@ -58,7 +58,7 @@ const storyBlocks = [
     subtitle: "WHEN YOUR BUSINESS BEGINS",
     body: "You don't have to wait until you're big to take carbon seriously. With one click, even the smallest business can generate verified carbon reports, laying a foundation for future funding, credibility, and long-term growth.",
     className:
-      "left-[50%] top-[13.1%] w-[82%] text-center sm:left-[65%] sm:top-[13.3%] sm:w-[54%] sm:text-left",
+      "left-[52%] top-[13.1%] w-[82%] text-center sm:left-[69%] sm:top-[13.3%] sm:w-[52%] sm:text-left",
   },
   {
     title: "WHEN YOUR BRAND STEPS INTO THE SPOTLIGHT",
@@ -89,6 +89,8 @@ const storyBlocks = [
       "left-[50%] top-[90.8%] w-[82%] text-center sm:left-[46%] sm:top-[90%] sm:w-[62%] sm:text-left",
   },
 ] as const;
+
+type StoryBlock = (typeof storyBlocks)[number];
 
 function ProductLink({
   label,
@@ -127,6 +129,57 @@ function ProductLink({
     >
       {image}
     </Link>
+  );
+}
+
+function StoryCopy({ block, index }: { block: StoryBlock; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const slideFrom = index % 2 === 0 ? "translate-x-8" : "-translate-x-8";
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: "0px 0px -18% 0px",
+        threshold: 0.2,
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`absolute z-20 -translate-x-1/2 text-[#6d6e71] ${block.className}`}
+    >
+      <div
+        className={`transition duration-700 ease-out ${
+          isVisible ? "translate-x-0 opacity-100" : `${slideFrom} opacity-0`
+        }`}
+      >
+        <h2 className="text-[clamp(0.8rem,2.7vw,3rem)] font-black leading-[0.92]">
+          {block.title}
+        </h2>
+        <p className="mt-[0.5%] text-[clamp(0.58rem,1.25vw,1.25rem)] font-black uppercase leading-tight">
+          {block.subtitle}
+        </p>
+        <p className="mt-[1.1%] text-[clamp(0.45rem,0.72vw,0.8rem)] font-bold uppercase leading-snug tracking-[0.02em] text-[#55575a]">
+          {block.body}
+        </p>
+      </div>
+    </div>
   );
 }
 
@@ -193,21 +246,8 @@ export default function Vekin_Home_Full1() {
           </p>
         </div>
 
-        {storyBlocks.map((block) => (
-          <div
-            key={block.title}
-            className={`absolute z-20 -translate-x-1/2 text-[#6d6e71] ${block.className}`}
-          >
-            <h2 className="text-[clamp(0.8rem,2.7vw,3rem)] font-black leading-[0.92]">
-              {block.title}
-            </h2>
-            <p className="mt-[0.5%] text-[clamp(0.58rem,1.25vw,1.25rem)] font-black uppercase leading-tight">
-              {block.subtitle}
-            </p>
-            <p className="mt-[1.1%] text-[clamp(0.45rem,0.72vw,0.8rem)] font-bold uppercase leading-snug tracking-[0.02em] text-[#55575a]">
-              {block.body}
-            </p>
-          </div>
+        {storyBlocks.map((block, index) => (
+          <StoryCopy key={block.title} block={block} index={index} />
         ))}
 
         <img
