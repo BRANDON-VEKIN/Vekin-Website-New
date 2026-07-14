@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function Segment6() {
@@ -20,11 +21,9 @@ export default function Segment6() {
   }[language] || { th: {}, en: {} }; // Fallback protection
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 72 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+    <BidirectionalScrollReveal
+      amount={0.12}
+      duration={1.35}
       className="bg-black py-10 sm:py-16 overflow-hidden transform-gpu"
     >
       {/* OUTER CONTAINER: Breaks out of parents to span the entire screen edge-to-edge */}
@@ -46,7 +45,7 @@ export default function Segment6() {
           <motion.div
             initial={{ opacity: 0, x: -42 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 1.05, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-[720px] text-left"
           >
@@ -60,7 +59,7 @@ export default function Segment6() {
           <motion.div
             initial={{ opacity: 0, x: 52, y: 28 }}
             whileInView={{ opacity: 1, x: 0, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 1.15, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-[700px] self-end overflow-hidden rounded-xl border border-emerald-200/80 bg-white p-6 text-slate-950 shadow-[0_28px_80px_rgba(0,0,0,0.32)] sm:p-8 lg:p-10"
           >
@@ -97,6 +96,6 @@ export default function Segment6() {
 
         </div>
       </div>
-    </motion.section>
+    </BidirectionalScrollReveal>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import Bubble from "../Bubble";
 import { useSiteLanguage } from "../siteLanguage";
 
@@ -35,11 +35,9 @@ export default function Segment9() {
   }[language];
 
   return (
-<motion.section
-  initial={{ opacity: 0, y: 72 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.12 }}
-  transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+<BidirectionalScrollReveal
+  amount={0.12}
+  duration={1.35}
   className="relative overflow-hidden bg-black px-4 pb-20 pt-20 text-center text-white transform-gpu sm:px-8 sm:pb-36 sm:pt-32"
 >
   {/* Ambient background bubble */}
@@ -103,6 +101,6 @@ export default function Segment9() {
       />
     </div>
   </div>
-</motion.section>
+</BidirectionalScrollReveal>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import Bubble from "../Bubble";
 import SectionCopy from "../SectionCopy";
 import { useSiteLanguage } from "../siteLanguage";
@@ -40,11 +41,9 @@ export default function Segment1() {
 
   {/* SECOND SECTION: NOW SPANNING FULL SCREEN WIDTH */}
   {/* Changed max-w-[1180px] to w-full so background/bubbles span across the entire screen */}
-  <motion.section
-    initial={{ opacity: 0, y: 72 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.12 }}
-    transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+  <BidirectionalScrollReveal
+    amount={0.12}
+    duration={1.35}
     className="relative w-full min-h-[480px] pt-16 text-center sm:pt-[110px] md:min-h-[680px] md:pt-[145px] overflow-hidden bg-black transform-gpu"
   >
     
@@ -83,7 +82,7 @@ export default function Segment1() {
     <motion.div
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.45 }}
+      viewport={{ once: false, amount: 0.45 }}
       transition={{ duration: 1.15, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
       className="relative mx-auto max-w-[1180px] px-6 sm:px-8"
     >
@@ -93,7 +92,7 @@ export default function Segment1() {
       </SectionCopy>
     </motion.div>
 
-  </motion.section>
+  </BidirectionalScrollReveal>
 </>
     </>
   );

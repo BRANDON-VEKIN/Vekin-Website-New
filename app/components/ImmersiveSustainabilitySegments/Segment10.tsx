@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import Bubble from "../Bubble";
 import { companyCards } from "../homeData";
 import { useSiteLanguage } from "../siteLanguage";
@@ -9,11 +9,9 @@ export default function Segment10() {
   const { language } = useSiteLanguage();
 
   return (
-<motion.section
-  initial={{ opacity: 0, y: 72 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.12 }}
-  transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+<BidirectionalScrollReveal
+  amount={0.12}
+  duration={1.35}
   className="relative overflow-hidden bg-black px-5 py-20 text-center text-white transform-gpu sm:px-8 sm:py-32"
 >
   {/* Ambient Background Blur Elements */}
@@ -88,6 +86,6 @@ export default function Segment10() {
       </a>
     </div>
   </div>
-</motion.section>
+</BidirectionalScrollReveal>
   );
 }

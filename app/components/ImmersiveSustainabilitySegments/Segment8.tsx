@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function Segment8() {
@@ -20,11 +20,9 @@ export default function Segment8() {
   }[language] || { th: {}, en: {} };
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 72 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+    <BidirectionalScrollReveal
+      amount={0.12}
+      duration={1.35}
       className="bg-black relative overflow-hidden transform-gpu"
     >
       <h2 className="sr-only">{copy.srLabel}</h2>
@@ -69,6 +67,6 @@ export default function Segment8() {
         {/* MOBILE COMPLEMENTARY BACKGROUND BACKING: Ensures consistent dark mode styling on phone screens */}
         <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900 to-black z-0 md:hidden pointer-events-none" />
       </div>
-    </motion.section>
+    </BidirectionalScrollReveal>
   );
 }

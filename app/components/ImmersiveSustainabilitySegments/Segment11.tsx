@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function Segment11() {
@@ -21,12 +21,10 @@ export default function Segment11() {
   }[language];
 
   return (
-    <motion.section
+    <BidirectionalScrollReveal
       id="contact"
-      initial={{ opacity: 0, y: 72 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+      amount={0.12}
+      duration={1.35}
       className="relative min-h-[560px] overflow-hidden bg-black transform-gpu sm:min-h-[720px] lg:min-h-[900px]"
     >
       <img
@@ -58,6 +56,6 @@ export default function Segment11() {
           </a>
         </div>
       </div>
-    </motion.section>
+    </BidirectionalScrollReveal>
   );
 }

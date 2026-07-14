@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import ScrollRevealPhones from "../../ScrollRevealPhones";
 import { useSiteLanguage } from "../siteLanguage";
 
@@ -12,11 +13,9 @@ export default function Segment4() {
   }[language];
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 72 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+    <BidirectionalScrollReveal
+      amount={0.12}
+      duration={1.35}
       className="relative mx-auto min-h-[760px] max-w-[1180px] overflow-hidden px-5 pb-8 pt-16 text-center transform-gpu sm:min-h-[930px] sm:px-8 sm:pt-20 lg:min-h-[1040px] lg:px-10"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-[#030504] via-[#030504]/55 to-transparent sm:h-44" />
@@ -24,7 +23,7 @@ export default function Segment4() {
       <motion.div
         initial={{ opacity: 0, y: 44 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.22 }}
+        viewport={{ once: false, amount: 0.22 }}
         transition={{ duration: 1.15, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
         className="relative z-20 mx-auto max-w-[980px]"
       >
@@ -37,6 +36,6 @@ export default function Segment4() {
       </motion.div>
 
       <ScrollRevealPhones />
-    </motion.section>
+    </BidirectionalScrollReveal>
   );
 }
