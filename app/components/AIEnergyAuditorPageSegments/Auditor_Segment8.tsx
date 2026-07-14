@@ -11,6 +11,25 @@ type LocalizedTextProps = {
   className?: string;
 };
 
+const thaiTextOverrides: Record<string, string> = {
+  "5+ Years of Experience": "ประสบการณ์มากกว่า 5 ปี",
+  "22 Technology Updates": "อัปเดตเทคโนโลยี 22 ครั้ง",
+  "250 Sites": "มากกว่า 250 ไซต์งาน",
+  "Latest MOU with MEA": "MOU ล่าสุดกับการไฟฟ้านครหลวง (MEA)",
+  "OUR SUCCESS": "ความสำเร็จของเรา",
+  "View Success Stories": "ดูผลงานความสำเร็จ",
+  "Success That Builds Trust": "ความสำเร็จที่สร้างความเชื่อมั่น",
+  "Disruptive Matter": "นวัตกรรมที่เปลี่ยนเกม",
+  "VEKIN provides a disruptive process for sustainability through its AI Carbon Auditor, replacing slow manual audits with real-time automated verification.":
+    "VEKIN นำเสนอกระบวนการเพื่อความยั่งยืนผ่าน AI Carbon Auditor ที่เข้ามาแทนการตรวจสอบด้วยมือที่ล่าช้า ด้วยการตรวจสอบอัตโนมัติแบบเรียลไทม์",
+  "Expert App Devs": "ผู้เชี่ยวชาญด้านการพัฒนาแอป",
+  "Expert App Devs hosted a month-long tech event in Dubai, showcasing mobile solutions and connecting with global partners at GITEX Global.":
+    "Expert App Devs จัดงานเทคโนโลยีในดูไบเป็นเวลาหนึ่งเดือน เพื่อนำเสนอโซลูชันบนมือถือและเชื่อมต่อกับพันธมิตรระดับโลกในงาน GITEX Global",
+  "EXPO 2030": "EXPO 2030",
+  "Expo 2030 highlights global unity, green technology, and future innovation at a massive World Expo in Riyadh.":
+    "Expo 2030 เป็นงานมหกรรมโลกขนาดใหญ่ที่กรุงริยาด เน้นความร่วมมือระดับโลก เทคโนโลยีสีเขียว และนวัตกรรมแห่งอนาคต",
+};
+
 function LocalizedText({
   as: Component = "div",
   th,
@@ -21,7 +40,7 @@ function LocalizedText({
 
   return (
     <Component className={className}>
-      {language === "th" ? th : en}
+      {language === "th" ? thaiTextOverrides[en] ?? th : en}
     </Component>
   );
 }

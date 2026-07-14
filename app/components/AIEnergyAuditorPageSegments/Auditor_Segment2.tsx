@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
+import { useSiteLanguage } from "../siteLanguage";
 
 type LocalizedTextProps = {
   as?: React.ElementType;
@@ -8,19 +11,28 @@ type LocalizedTextProps = {
   className?: string;
 };
 
+const thaiTextOverrides: Record<string, string> = {
+  "AI ENERGY AUDITOR ECOSYSTEM": "ระบบนิเวศ AI Energy Auditor",
+  "SUITABLE BUSINESS FOR VEKIN": "ธุรกิจที่เหมาะกับ VEKIN",
+  "Turn energy data into verifiable advantage for organizations ready to grow with trusted sustainability.":
+    "เปลี่ยนข้อมูลพลังงานให้เป็นความได้เปรียบที่ตรวจสอบได้ สำหรับองค์กรที่พร้อมเติบโตอย่างยั่งยืนและน่าเชื่อถือ",
+  "Financial Institutions and Banks": "สถาบันการเงินและธนาคาร",
+  "Eco-Friendly Product Manufacturers": "ผู้ผลิตสินค้าที่เป็นมิตรต่อสิ่งแวดล้อม",
+  "Sustainable Agriculture": "เกษตรกรรมยั่งยืน",
+  "Renewable Energy Providers": "ผู้ให้บริการพลังงานหมุนเวียน",
+};
+
 function LocalizedText({
   as: Component = "div",
   th,
   en,
   className,
 }: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    navigator.language.toLowerCase().startsWith("th");
+  const { language } = useSiteLanguage();
 
   return (
     <Component className={className}>
-      {isThai ? th : en}
+      {language === "th" ? thaiTextOverrides[en] ?? th : en}
     </Component>
   );
 }

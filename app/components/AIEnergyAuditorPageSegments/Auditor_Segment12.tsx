@@ -4,9 +4,24 @@ import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 
 const methodLayers = [
-  { title: "IoT + Satellite", body: "Full source coverage" },
-  { title: "ISO Knowledge Graph", body: "Rules mapped into logic" },
-  { title: "Neural Intelligence", body: "Real-time confidence scoring" },
+  {
+    titleTh: "IoT + ดาวเทียม",
+    titleEn: "IoT + Satellite",
+    bodyTh: "ครอบคลุมแหล่งข้อมูลครบถ้วน",
+    bodyEn: "Full source coverage",
+  },
+  {
+    titleTh: "ISO Knowledge Graph",
+    titleEn: "ISO Knowledge Graph",
+    bodyTh: "แปลงกฎมาตรฐานเป็นตรรกะตรวจสอบ",
+    bodyEn: "Rules mapped into logic",
+  },
+  {
+    titleTh: "Neural Intelligence",
+    titleEn: "Neural Intelligence",
+    bodyTh: "ให้คะแนนความเชื่อมั่นแบบเรียลไทม์",
+    bodyEn: "Real-time confidence scoring",
+  },
 ];
 
 export default function AuditorSegment12() {
@@ -71,18 +86,24 @@ export default function AuditorSegment12() {
           <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {methodLayers.map((layer, index) => (
               <div
-                key={layer.title}
+                key={layer.titleEn}
                 className="group rounded-[8px] border border-white/12 bg-white/[0.07] p-4 shadow-[0_14px_35px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-1 hover:border-[#44e5d0]/60 hover:bg-white/[0.11]"
               >
                 <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#44e5d0]">
                   Layer 0{index + 1}
                 </p>
-                <p className="mt-3 text-base font-black uppercase leading-tight text-white">
-                  {layer.title}
-                </p>
-                <p className="mt-2 text-xs font-semibold leading-relaxed text-white/58">
-                  {layer.body}
-                </p>
+                <LocalizedText
+                  as="p"
+                  th={layer.titleTh}
+                  en={layer.titleEn}
+                  className="mt-3 text-base font-black uppercase leading-tight text-white"
+                />
+                <LocalizedText
+                  as="p"
+                  th={layer.bodyTh}
+                  en={layer.bodyEn}
+                  className="mt-2 text-xs font-semibold leading-relaxed text-white/58"
+                />
               </div>
             ))}
           </div>

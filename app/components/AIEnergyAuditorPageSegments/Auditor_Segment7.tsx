@@ -60,6 +60,42 @@ export default function AuditorSegment7() {
   const pointerStartX = useRef<number | null>(null);
   const activeStep = steps[activeIndex];
   const progressPercent = ((activeIndex + 1) / steps.length) * 100;
+  const displaySteps = [
+    {
+      stepLabel: language === "th" ? "ขั้นตอนที่ 1" : "1st Step",
+      title:
+        language === "th"
+          ? "ประเมินฐานข้อมูลพลังงานอย่างแม่นยำ"
+          : "Accurate Energy Baseline Assessment",
+      body:
+        language === "th"
+          ? "VEKIN ใช้ Hybrid Neuro-Symbolic AI เพื่อวิเคราะห์ข้อมูล IoT ได้ครบถ้วนพร้อมความแม่นยำสูง ช่วยแทนที่การประมาณค่าแบบเดิมด้วยการตรวจสอบแบบเรียลไทม์ สร้างฐานข้อมูลพลังงานที่น่าเชื่อถือ และเปลี่ยนข้อมูลการใช้พลังงานให้เป็นสินทรัพย์ดิจิทัลที่พร้อมต่อยอดสู่สินเชื่อสีเขียวและตลาดคาร์บอนคุณภาพสูง"
+          : "VEKIN's Accurate Energy Baseline Assessment utilizes patented Hybrid Neuro-Symbolic AI to analyze 100% of IoT data with 95% probabilistic accuracy. This replaces manual estimates with real-time verification to establish high-integrity baselines. These insights transform energy consumption metrics into bankable digital assets, unlocking immediate access to green loans and premium carbon markets.",
+    },
+    {
+      stepLabel: language === "th" ? "ขั้นตอนที่ 2" : "2nd Step",
+      title:
+        language === "th"
+          ? "ค้นหาทางเลือกและโอกาสสนับสนุนทางการเงินที่เหมาะที่สุด"
+          : "Find the Best Choice & Financial Support Opportunities",
+      body:
+        language === "th"
+          ? "VEKIN ช่วยค้นหาทางเลือกที่เหมาะสมผ่านระบบ Dual-Core AI ซึ่งทำหน้าที่ได้ทั้งที่ปรึกษาเชิงกลยุทธ์และผู้ตรวจสอบอิสระ โครงสร้างความน่าเชื่อถือนี้ช่วยเปลี่ยนข้อมูลสิ่งแวดล้อมให้เป็นสินทรัพย์ที่สถาบันการเงินยอมรับ พร้อมเปิดโอกาสสู่สินเชื่อสีเขียว เงินทุนด้านสภาพภูมิอากาศ และแผนบริการที่ยืดหยุ่นสำหรับแต่ละองค์กร"
+          : "VEKIN helps you Find the Best Choice through its dual-core AI, acting as either a strategic consultant or an independent verifier. This 'Trust Infrastructure' transforms environmental data into bankable assets, unlocking Financial Support Opportunities like green loans and climate finance. Flexible subscription tiers ensure a high-integrity, cost-effective fit for any organization.",
+    },
+    {
+      stepLabel: language === "th" ? "ขั้นตอนที่ 3" : "3rd Step",
+      title:
+        language === "th"
+          ? "คำนวณ ROI ที่แม่นยำผ่าน AI Energy Auditor"
+          : "Accurate ROI through AI Energy Auditor (Saving)",
+      body:
+        language === "th"
+          ? "AI Energy Auditor ของ VEKIN ช่วยเพิ่มผลตอบแทนจากการลงทุนโดยแทนที่การตรวจสอบแบบ manual ด้วยระบบอัตโนมัติแบบเรียลไทม์ ลดต้นทุนการดำเนินงานได้มากกว่า 80% ใช้ AI ที่แม่นยำสูงเพื่อเปลี่ยนข้อมูลพลังงานให้เป็นสินทรัพย์ที่ใช้ต่อยอดสู่เงินทุนด้านสภาพภูมิอากาศได้ พร้อมส่งมอบการประหยัดที่ตรวจสอบได้สำหรับทุกโครงการสีเขียว"
+          : "VEKIN's AI Energy Auditor maximizes ROI by replacing manual verification with real-time automation, slashing operational costs by 80%. Utilizing patented AI with 95% accuracy, it transforms energy data into bankable assets, unlocking immediate access to climate finance. This intelligent infrastructure eliminates traditional economic losses, delivering high-integrity savings for every green initiative.",
+    },
+  ];
+  const activeDisplayStep = displaySteps[activeIndex];
 
   function goToNextStep() {
     setActiveIndex((current) => (current + 1) % steps.length);
@@ -268,18 +304,18 @@ export default function AuditorSegment7() {
               </p>
 
               <p className="mt-5 text-lg font-black uppercase leading-none text-[#44e5d0] sm:text-3xl">
-                {activeStep.stepLabel}
+                {activeDisplayStep.stepLabel}
               </p>
 
               <h2
                 id="auditor-protocol"
                 className="mt-3 text-2xl font-black uppercase leading-[0.98] tracking-tight sm:text-4xl lg:text-5xl"
               >
-                {activeStep.title}
+                {activeDisplayStep.title}
               </h2>
 
               <p className="mt-4 text-xs leading-relaxed text-white/78 sm:text-sm lg:text-base">
-                {activeStep.body}
+                {activeDisplayStep.body}
               </p>
 
               <div className="mt-6">
@@ -296,7 +332,7 @@ export default function AuditorSegment7() {
               </div>
 
               <div className="mt-6 hidden grid-cols-3 gap-3 lg:grid">
-                {steps.map((step, index) => (
+                {displaySteps.map((step, index) => (
                   <button
                     key={step.stepLabel}
                     type="button"
