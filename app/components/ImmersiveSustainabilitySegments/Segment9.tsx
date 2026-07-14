@@ -1,7 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
-import Bubble from "../Bubble";
 import { useSiteLanguage } from "../siteLanguage";
 
 const impactMetrics = [
@@ -41,14 +41,27 @@ export default function Segment9() {
   className="relative overflow-hidden bg-black px-4 pb-20 pt-20 text-center text-white transform-gpu sm:px-8 sm:pb-36 sm:pt-32"
 >
   {/* Ambient background bubble */}
-  <Bubble className="-left-28 top-12 h-60 w-60 opacity-60 sm:-left-20 sm:h-80 sm:w-80" />
+  <motion.img
+    src="/VEKIN Resource all Product/VEKIN 1/Group.png"
+    alt=""
+    animate={{ y: [0, -18, 0], x: [0, 10, 0], scale: [1, 1.04, 1] }}
+    transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+    whileHover={{ scale: 1.08, rotate: -3 }}
+    className="pointer-events-auto absolute -left-24 top-10 z-0 w-56 opacity-55 sm:-left-20 sm:top-8 sm:w-80 lg:-left-10 lg:top-14 lg:w-[380px]"
+  />
 
   <div className="relative z-10 mx-auto max-w-[1120px]">
     {/* Heading */}
-    <h2 className="text-[clamp(2.5rem,8vw,5.5rem)] font-black tracking-tight leading-[1.1] sm:leading-[1.04]">
+    <motion.h2
+      initial={{ opacity: 0, y: 42 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.45 }}
+      transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      className="text-[clamp(2.5rem,8vw,5.5rem)] font-black tracking-tight leading-[1.1] sm:leading-[1.04]"
+    >
       <span className="block text-ember">{copy.title1}</span>
       <span className="mt-2 block text-white sm:mt-4">{copy.title2}</span>
-    </h2>
+    </motion.h2>
 
     {/* Impact Metrics Grid */}
     <div className="mx-auto mt-12 grid max-w-[940px] grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-3 sm:gap-0">
@@ -56,8 +69,12 @@ export default function Segment9() {
         const [lineOne, lineTwo, value, unit] = metric[language];
 
         return (
-          <div
+          <motion.div
             key={value}
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.4 }}
+            transition={{ duration: 0.9, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
             className={`flex flex-col items-center justify-between px-4 py-4 sm:px-8 sm:py-0
               ${index > 0 ? "border-t border-white/10 pt-8 sm:border-l-2 sm:border-t-0 sm:border-white/80" : ""}
             `}
@@ -82,24 +99,36 @@ export default function Segment9() {
                 {unit}
               </p>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>
 
     {/* Body Copy */}
-    <p className="mx-auto mt-12 max-w-[760px] px-2 text-[clamp(1rem,2.2vw,1.25rem)] leading-relaxed text-white/80 sm:mt-20">
+    <motion.p
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.45 }}
+      transition={{ duration: 1, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+      className="mx-auto mt-12 max-w-[760px] px-2 text-[clamp(1rem,2.2vw,1.25rem)] leading-relaxed text-white/80 sm:mt-20"
+    >
       {copy.body}
-    </p>
+    </motion.p>
 
     {/* Feature Image */}
-    <div className="mx-auto mt-12 max-w-[1080px] overflow-hidden rounded-2xl border border-white/10 sm:mt-24 sm:rounded-[24px]">
+    <motion.div
+      initial={{ opacity: 0, y: 44, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.24 }}
+      transition={{ duration: 1.05, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
+      className="mx-auto mt-12 max-w-[1080px] overflow-hidden rounded-2xl border border-white/10 sm:mt-24 sm:rounded-[24px]"
+    >
       <img
         src="/VEKIN Resource all Product/VEKIN 1/island_img.png"
         alt="Green island landscape representing carbon impact"
         className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
       />
-    </div>
+    </motion.div>
   </div>
 </BidirectionalScrollReveal>
   );

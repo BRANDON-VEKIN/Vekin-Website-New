@@ -86,10 +86,17 @@ export default function Segment1() {
       transition={{ duration: 1.15, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
       className="relative mx-auto max-w-[1180px] px-6 sm:px-8"
     >
-      <SectionCopy eyebrow={copy.eyebrow} title={copy.title}>
-        <p className="text-sm sm:text-base md:text-xl text-slate-700 leading-relaxed max-w-3xl mx-auto">{copy.lead}</p>
-        <p className="mt-4 sm:mt-5 text-xs sm:text-sm md:text-base text-slate-500 leading-relaxed max-w-3xl mx-auto">{copy.detail}</p>
-      </SectionCopy>
+      <div className="relative mx-auto max-w-[820px] overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.04] px-4 py-8 shadow-[0_28px_100px_rgba(16,185,129,0.12)] backdrop-blur-sm sm:px-8 sm:py-10">
+        <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/75 to-transparent" />
+        <SectionCopy eyebrow={copy.eyebrow} title={copy.title}>
+          <p className="mx-auto max-w-3xl text-base font-semibold leading-relaxed text-white sm:text-lg md:text-2xl md:leading-10">
+            {copy.lead}
+          </p>
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-white/78 sm:mt-5 sm:text-base md:text-lg md:leading-8">
+            {copy.detail}
+          </p>
+        </SectionCopy>
+      </div>
     </motion.div>
 
   </BidirectionalScrollReveal>

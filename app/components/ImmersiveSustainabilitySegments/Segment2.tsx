@@ -10,7 +10,16 @@ export default function Segment2() {
   
   // Clean, modern frame class with subtle glassmorphism and smooth mobile-to-desktop padding
   const slideFrameClass =
-    "mx-auto mt-4 w-full max-w-[1120px] min-h-0 lg:min-h-[780px] xl:min-h-[820px] overflow-hidden rounded-[32px] bg-gradient-to-b from-white/[0.05] to-white/[0.01] border border-white/10 px-4 py-6 sm:py-12 shadow-2xl relative sm:px-8 lg:px-10";
+    "mx-auto mt-4 w-full max-w-[1120px] min-h-0 lg:min-h-[780px] xl:min-h-[820px] overflow-hidden rounded-[8px] border border-emerald-200/15 bg-[radial-gradient(circle_at_18%_18%,rgba(16,185,129,0.18),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.015))] px-4 py-6 shadow-[0_32px_120px_rgba(0,0,0,0.48)] backdrop-blur-sm relative sm:px-8 sm:py-12 lg:px-10";
+
+  const slideSurfaceClass =
+    "rounded-[8px] border border-white/20 bg-white/[0.96] p-5 text-slate-950 shadow-[0_20px_60px_rgba(0,0,0,0.22)] sm:p-6";
+
+  const darkPanelClass =
+    "rounded-[8px] border border-emerald-100/10 bg-slate-950/72 p-5 text-white shadow-[0_20px_70px_rgba(0,0,0,0.28)]";
+
+  const badgeClass =
+    "mb-3 inline-flex items-center rounded-[8px] border border-emerald-300/20 bg-emerald-400/10 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-200";
 
   const copy = {
     th: {
@@ -77,46 +86,49 @@ export default function Segment2() {
     (
       <div className="px-1 py-2 sm:px-4" key="slide-1">
         <div className={slideFrameClass}>
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-emerald-200/70 to-transparent" />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-300/10 blur-3xl" />
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             
             {/* ANIMAL IMAGE CARD FRAME - Hidden on mobile, shows on desktop */}
             <div className="hidden lg:block relative mx-auto h-[650px] w-full max-w-[430px] lg:mx-0 order-2 lg:order-1">
+              <div className="absolute bottom-10 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full border border-emerald-200/10 bg-emerald-300/10 blur-xl" />
               <img
                 src="/VEKIN Resource all Product/VEKIN 1/Tiger.png"
                 alt="Tiger emerging from phone"
-                className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain lg:w-[500px] lg:max-w-none lg:left-[48%] transition-transform duration-300 hover:scale-105"
+                className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain drop-shadow-[0_30px_55px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:scale-[1.03] lg:w-[500px] lg:max-w-none lg:left-[48%]"
               />
             </div>
 
             {/* CONTENT FRAME */}
             <div className="relative z-20 mx-auto w-full max-w-[680px] text-left order-1 lg:order-2">
               <div className="text-center lg:text-left">
-                <span className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full mb-3">Zoo AI Feature</span>
-                <h3 className="text-[clamp(2.2rem,6vw,3.5rem)] font-light tracking-tight text-white/95">
+                <span className={badgeClass}>Zoo AI Feature</span>
+                <h3 className="text-[clamp(2.2rem,6vw,3.65rem)] font-semibold tracking-normal text-white">
                   {copy.slide1Title}
                 </h3>
               </div>
 
-              <article className="mt-5 rounded-2xl bg-white/90 p-5 text-slate-900 border border-white/20 shadow-lg transition-all duration-300 hover:bg-white">
-                <p className="text-[clamp(1rem,4vw,1.15rem)] font-extrabold text-emerald-950 leading-tight">{copy.slide1Lead}</p>
+              <article className={`${slideSurfaceClass} mt-5`}>
+                <p className="text-[clamp(1.05rem,4vw,1.3rem)] font-extrabold text-emerald-950 leading-tight">{copy.slide1Lead}</p>
                 <p className="mt-3 text-sm sm:text-base text-slate-700 leading-relaxed">{copy.slide1Body}</p>
               </article>
 
-              <article className="mt-4 rounded-2xl bg-slate-900/60 p-5 text-white border border-white/10 shadow-xl">
+              <article className={`${darkPanelClass} mt-4`}>
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-[1fr_200px] sm:items-center">
-                  <h4 className="text-xl font-bold text-emerald-400 text-center sm:text-left">{copy.tigerTitle}</h4>
-                  <div className="grid h-[86px] w-full max-w-[200px] mx-auto sm:mx-0 place-items-end bg-emerald-950/50 border border-emerald-500/20 p-3 rounded-xl backdrop-blur-sm">
+                  <h4 className="text-xl font-bold text-emerald-200 text-center sm:text-left">{copy.tigerTitle}</h4>
+                  <div className="grid h-[86px] w-full max-w-[200px] mx-auto sm:mx-0 place-items-end bg-emerald-950/50 border border-emerald-300/20 p-3 rounded-[8px] backdrop-blur-sm">
                     <div className="h-12 w-full bg-[linear-gradient(150deg,transparent_0_12%,#10b981_13%_22%,transparent_23%_28%,#10b981_29%_100%)] opacity-80" />
-                    <p className="-mt-9 place-self-center text-lg font-black text-emerald-400">45%</p>
+                    <p className="-mt-9 place-self-center text-lg font-black text-emerald-200">45%</p>
                   </div>
                 </div>
 
                 <div className="mt-4 border-t border-white/10 pt-4">
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">{copy.details}</p>
                   <div className="mt-2.5 w-full space-y-2 text-xs sm:text-sm text-slate-300">
-                    <span className="block leading-relaxed bg-white/5 p-2 rounded-lg border border-white/5">{copy.speed}</span>
-                    <span className="block leading-relaxed bg-white/5 p-2 rounded-lg border border-white/5">{copy.residence}</span>
-                    <span className="block leading-relaxed bg-white/5 p-2 rounded-lg border border-white/5">{copy.behavior}</span>
+                    <span className="block leading-relaxed bg-white/[0.06] p-2.5 rounded-[8px] border border-white/5">{copy.speed}</span>
+                    <span className="block leading-relaxed bg-white/[0.06] p-2.5 rounded-[8px] border border-white/5">{copy.residence}</span>
+                    <span className="block leading-relaxed bg-white/[0.06] p-2.5 rounded-[8px] border border-white/5">{copy.behavior}</span>
                   </div>
                 </div>
               </article>
@@ -129,37 +141,40 @@ export default function Segment2() {
     (
       <div className="px-1 py-2 sm:px-4" key="slide-2">
         <div className={slideFrameClass}>
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-emerald-200/70 to-transparent" />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-300/10 blur-3xl" />
           <div className="grid items-start gap-8 lg:grid-cols-[42%_58%] lg:gap-12">
             
             {/* ANIMAL IMAGE CARD FRAME - Hidden on mobile, shows on desktop */}
             <div className="hidden lg:block relative mx-auto h-[650px] w-full max-w-[430px] lg:mx-0 order-2 lg:order-1">
+              <div className="absolute bottom-10 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full border border-emerald-200/10 bg-emerald-300/10 blur-xl" />
               <img
                 src="/VEKIN Resource all Product/VEKIN 1/Deer.png"
                 alt="Deer emerging from phone frame"
-                className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain lg:w-[500px] lg:max-w-none lg:left-[48%] transition-transform duration-300 hover:scale-105"
+                className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain drop-shadow-[0_30px_55px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:scale-[1.03] lg:w-[500px] lg:max-w-none lg:left-[48%]"
               />
             </div>
 
             <div className="mx-auto w-full text-left order-1 lg:order-2">
               <div className="text-center lg:text-left">
-                <span className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full mb-3">Live Eco Matrix</span>
-                <h3 className="text-[clamp(2rem,6vw,3.5rem)] font-light tracking-tight text-white/95 leading-tight">
+                <span className={badgeClass}>Live Eco Matrix</span>
+                <h3 className="text-[clamp(2rem,6vw,3.65rem)] font-semibold tracking-normal text-white leading-tight">
                   {copy.slide2Title1} <br className="hidden lg:inline" /> {copy.slide2Title2}
                 </h3>
               </div>
 
-              <article className="mt-5 rounded-2xl bg-white/90 p-5 text-slate-900 border border-white/20 shadow-lg transition-all duration-300 hover:bg-white">
-                <p className="text-[clamp(1rem,4vw,1.15rem)] font-extrabold text-emerald-950 leading-tight">{copy.slide2Lead}</p>
+              <article className={`${slideSurfaceClass} mt-5`}>
+                <p className="text-[clamp(1.05rem,4vw,1.3rem)] font-extrabold text-emerald-950 leading-tight">{copy.slide2Lead}</p>
                 <p className="mt-3 text-sm sm:text-base text-slate-700 leading-relaxed">{copy.slide2Body}</p>
               </article>
 
               <div className="mt-5 grid gap-4 grid-cols-1 sm:grid-cols-2 max-w-[840px]">
-                <div className="flex flex-col items-center justify-center p-3 bg-slate-950/40 rounded-xl border border-white/10 shadow-xl group">
-                  <img src="/VEKIN Resource all Product/VEKIN 1/electric.png" alt="Electrical energy" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-lg object-contain transition duration-300 group-hover:scale-102" />
+                <div className="flex flex-col items-center justify-center p-3 bg-slate-950/62 rounded-[8px] border border-white/10 shadow-xl group">
+                  <img src="/VEKIN Resource all Product/VEKIN 1/electric.png" alt="Electrical energy" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-[8px] object-contain transition duration-300 group-hover:scale-[1.02]" />
                   <span className="text-[11px] font-medium tracking-wider text-slate-400 mt-2 uppercase">Zone Grid Power</span>
                 </div>
-                <div className="flex flex-col items-center justify-center p-3 bg-slate-950/40 rounded-xl border border-white/10 shadow-xl group">
-                  <img src="/VEKIN Resource all Product/VEKIN 1/transport.png" alt="Internal transport" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-lg object-contain transition duration-300 group-hover:scale-102" />
+                <div className="flex flex-col items-center justify-center p-3 bg-slate-950/62 rounded-[8px] border border-white/10 shadow-xl group">
+                  <img src="/VEKIN Resource all Product/VEKIN 1/transport.png" alt="Internal transport" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-[8px] object-contain transition duration-300 group-hover:scale-[1.02]" />
                   <span className="text-[11px] font-medium tracking-wider text-slate-400 mt-2 uppercase">Internal Fleet Logistics</span>
                 </div>
               </div>
@@ -172,28 +187,31 @@ export default function Segment2() {
     (
       <div className="px-1 py-2 sm:px-4" key="slide-3">
         <div className={slideFrameClass}>
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-emerald-200/70 to-transparent" />
+          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-300/10 blur-3xl" />
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
 
             {/* ANIMAL IMAGE CARD FRAME - Hidden on mobile, shows on desktop */}
             <div className="hidden lg:block relative mx-auto h-[650px] w-full max-w-[430px] lg:mx-0 order-2 lg:order-1">
+              <div className="absolute bottom-10 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full border border-emerald-200/10 bg-emerald-300/10 blur-xl" />
               <img
                 src="/VEKIN Resource all Product/VEKIN 1/Giraffe.png"
                 alt="Giraffe"
-                className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain lg:w-[500px] lg:max-w-none lg:left-[48%] transition-transform duration-300 hover:scale-105"
+                className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain drop-shadow-[0_30px_55px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:scale-[1.03] lg:w-[500px] lg:max-w-none lg:left-[48%]"
               />
             </div>
 
             <div className="relative z-20 mx-auto w-full max-w-[680px] text-left order-1 lg:order-2">
               <div className="text-center lg:text-left">
-                <span className="inline-block px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 rounded-full mb-3">Green Intelligence</span>
-                <h3 className="text-[clamp(2rem,6vw,3.5rem)] font-light tracking-tight text-white/95">
+                <span className={badgeClass}>Green Intelligence</span>
+                <h3 className="text-[clamp(2rem,6vw,3.65rem)] font-semibold tracking-normal text-white">
                   {copy.slide3Title}
                 </h3>
               </div>
 
               <div className="mt-5 flex flex-col gap-4">
-                <article className="rounded-2xl bg-white/90 p-5 text-slate-900 border border-white/20 shadow-lg transition-all duration-300 hover:bg-white">
-                  <p className="text-[clamp(1rem,4vw,1.15rem)] font-extrabold text-emerald-950 leading-tight">
+                <article className={slideSurfaceClass}>
+                  <p className="text-[clamp(1.05rem,4vw,1.3rem)] font-extrabold text-emerald-950 leading-tight">
                     {copy.slide3Lead}
                   </p>
                   <p className="mt-3 text-sm sm:text-base text-slate-700 leading-relaxed">
@@ -201,13 +219,13 @@ export default function Segment2() {
                   </p>
                 </article>
 
-                <div className="rounded-2xl bg-slate-900/60 p-5 text-white border border-white/10 shadow-xl">
+                <div className={darkPanelClass}>
                   <p className="font-bold text-[14px] text-emerald-400 tracking-wide border-b border-white/10 pb-2 mb-3">
                     {copy.slide3CardTitle}
                   </p>
                   <ul className="list-none space-y-2.5 text-xs sm:text-sm text-slate-300">
                     {copy.slide3Bullets.map((bullet, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 bg-white/5 p-2.5 rounded-xl border border-white/5">
+                      <li key={idx} className="flex items-start gap-2.5 bg-white/[0.06] p-2.5 rounded-[8px] border border-white/5">
                         <span className="text-emerald-400 mt-0.5">✔</span>
                         <span className="leading-relaxed">{bullet}</span>
                       </li>
@@ -247,20 +265,24 @@ export default function Segment2() {
       amount={0.3}
       duration={1.6}
       offset={120}
-      className="relative mx-auto w-full max-w-[1180px] px-4 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24 lg:pt-28 overflow-hidden transform-gpu"
+      className="relative mx-auto w-full max-w-[1180px] px-4 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24 lg:pt-28 overflow-visible transform-gpu"
     >
+      <div className="pointer-events-none absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-500/[0.08] blur-3xl" />
       <motion.div
         initial={{ opacity: 0, y: 48 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.45 }}
         transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10"
       >
-        <h2 className="text-[clamp(2.4rem,8vw,4.5rem)] font-extralight tracking-tight leading-tight text-white">
-          <span className="font-semibold text-white">
-            {copy.title}
-          </span>
+        <p className="mx-auto mb-3 inline-flex rounded-[8px] border border-emerald-300/20 bg-white/[0.04] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-200">
+          LINE OA Cero + Smart Dashboard
+        </p>
+        <h2 className="text-[clamp(2.4rem,8vw,4.7rem)] font-semibold tracking-normal leading-tight text-white">
+          {copy.title}
         </h2>
-        <p className="mx-auto mt-4 max-w-[760px] whitespace-pre-line text-[clamp(1rem,4vw,1.35rem)] font-light leading-relaxed text-slate-300 sm:mt-6">
+        <div className="mx-auto mt-4 h-px w-28 bg-gradient-to-r from-transparent via-emerald-300/80 to-transparent" />
+        <p className="mx-auto mt-4 max-w-[760px] whitespace-pre-line text-[clamp(1rem,4vw,1.35rem)] font-medium leading-relaxed text-white/78 sm:mt-6">
           {copy.description}
         </p>
       </motion.div>
@@ -271,24 +293,27 @@ export default function Segment2() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.25 }}
         transition={{ duration: 1.25, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-        className="relative mt-6 sm:mt-12 overflow-hidden pb-10 sm:pb-0"
+        className="relative mt-6 sm:mt-12 overflow-visible pb-12 sm:pb-0"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <div className="flex w-full transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${index * 100}%)` }}>
-          {slides.map((slide, i) => (
-            <div key={i} className="w-full flex-shrink-0">
-              {slide}
-            </div>
-          ))}
+        <div className="overflow-hidden">
+          <div className="flex w-full transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${index * 100}%)` }}>
+            {slides.map((slide, i) => (
+              <div key={i} className="w-full flex-shrink-0">
+                {slide}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Premium Frosted Glass Previous Button */}
         <button 
           onClick={prev} 
           aria-label={language === "th" ? "ก่อนหน้า" : "Previous"} 
-          className="absolute left-2 top-[45%] sm:top-1/2 z-30 -translate-y-1/2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white text-2xl shadow-xl transition hover:bg-white/20 active:scale-95 sm:left-4"
+          className="absolute left-1 top-[45%] z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-[0px] text-white shadow-xl backdrop-blur-md transition hover:border-emerald-200/40 hover:bg-emerald-300/15 active:scale-95 sm:top-1/2 sm:h-12 sm:w-12 md:-left-4 lg:-left-8 xl:-left-12"
         >
+          <span className="text-2xl leading-none">&lt;</span>
           ‹
         </button>
         
@@ -296,8 +321,9 @@ export default function Segment2() {
         <button 
           onClick={next} 
           aria-label={language === "th" ? "ถัดไป" : "Next"} 
-          className="absolute right-2 top-[45%] sm:top-1/2 z-30 -translate-y-1/2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white text-2xl shadow-xl transition hover:bg-white/20 active:scale-95 sm:right-4"
+          className="absolute right-1 top-[45%] z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-[0px] text-white shadow-xl backdrop-blur-md transition hover:border-emerald-200/40 hover:bg-emerald-300/15 active:scale-95 sm:top-1/2 sm:h-12 sm:w-12 md:-right-4 lg:-right-8 xl:-right-12"
         >
+          <span className="text-2xl leading-none">&gt;</span>
           ›
         </button>
 
@@ -308,7 +334,7 @@ export default function Segment2() {
               key={i}
               onClick={() => setIndex(i)}
               aria-label={(language === "th" ? "ไปยังสไลด์ที่ " : "Go to slide ") + (i + 1)}
-              className={`h-1.5 transition-all duration-300 rounded-full ${i === index ? "w-8 bg-emerald-400" : "w-2.5 bg-white/20"}`}
+              className={`h-1.5 transition-all duration-300 rounded-full ${i === index ? "w-9 bg-emerald-300 shadow-[0_0_18px_rgba(110,231,183,0.45)]" : "w-2.5 bg-white/25 hover:bg-white/[0.45]"}`}
             />
           ))}
         </div>

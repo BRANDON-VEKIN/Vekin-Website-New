@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
@@ -28,16 +29,16 @@ export default function Segment8() {
       <h2 className="sr-only">{copy.srLabel}</h2>
 
       {/* MOBILE: Flex stack layout | DESKTOP: Traditional absolute layer anchor */}
-      <div className="relative w-full flex flex-col md:block">
+      <div className="relative w-full flex flex-col bg-black md:block">
         
-        {/* BACKGROUND IMAGE FRAME */}
-        <div className="absolute inset-0 z-0 w-full h-full hidden md:block">
-          <img
-            src="/VEKIN Resource all Product/VEKIN 1/IS_BG8.png"
-            alt="Background"
-            className="w-full h-full object-cover select-none pointer-events-none"
-          />
-        </div>
+        <motion.img
+          src="/VEKIN Resource all Product/VEKIN 1/Bubble.png"
+          alt=""
+          animate={{ y: [0, -18, 0], x: [0, -10, 0], scale: [1, 1.04, 1] }}
+          transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+          whileHover={{ scale: 1.08, rotate: 3 }}
+          className="pointer-events-auto absolute -right-16 top-2 z-0 w-44 opacity-55 sm:-right-20 sm:top-0 sm:w-64 md:right-[-72px] md:top-[-26px] md:w-[320px] lg:right-[-54px] lg:top-[-42px] lg:w-[420px]"
+        />
 
         {/* CONTENT CANVAS: Flows naturally on mobile to prevent layout clipping */}
         <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center text-white px-5 py-12 md:py-16 lg:py-24">
@@ -63,9 +64,6 @@ export default function Segment8() {
           </div>
 
         </div>
-
-        {/* MOBILE COMPLEMENTARY BACKGROUND BACKING: Ensures consistent dark mode styling on phone screens */}
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900 to-black z-0 md:hidden pointer-events-none" />
       </div>
     </BidirectionalScrollReveal>
   );
