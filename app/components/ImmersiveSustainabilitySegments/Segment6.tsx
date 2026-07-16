@@ -37,6 +37,8 @@ export default function Segment6() {
             className="h-full w-full object-cover select-none pointer-events-none"
           />
         </div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-black via-black/75 to-transparent sm:h-44" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-t from-black via-black/75 to-transparent sm:h-44" />
 
         {/* CONTENT CONTAINER: Locked back into your grid alignment system */}
         <div className="relative z-10 mx-auto flex h-full max-w-[1180px] flex-col justify-between gap-10 px-5 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
