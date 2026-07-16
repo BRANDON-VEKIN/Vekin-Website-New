@@ -17,7 +17,7 @@ const productLinks: ProductLinkItem[] = [
   {
     label: "One Click",
     href: "https://oneclick-dev.vekin.co.th/",
-    src: `${assetBase}/OC.png`,
+    src: `${assetBase}/OC2.png`,
     className:
       "left-[51%] top-[19.5%] w-[40%] max-w-[520px] -translate-x-1/2 sm:left-[52%] sm:top-[19.6%] sm:w-[36%]",
     external: true,
@@ -25,16 +25,16 @@ const productLinks: ProductLinkItem[] = [
   {
     label: "Immersive Sustainability",
     href: "/",
-    src: `${assetBase}/IS.png`,
+    src: `${assetBase}/IS2.png`,
     className:
       "left-[24%] top-[25%] w-[39%] max-w-[460px] -translate-x-1/2 sm:left-[25%] sm:top-[26%] sm:w-[34%]",
   },
   {
     label: "AI Energy Auditor",
     href: "/auditor",
-    src: `${assetBase}/EA.png`,
+    src: `${assetBase}/EA2.png`,
     className:
-      "left-[77%] top-[38.5%] w-[40%] max-w-[500px] -translate-x-1/2 sm:left-[73%] sm:top-[40%] sm:w-[35%]",
+      "left-[77%] top-[38.5%] w-[40%] max-w-[500px] -translate-x-1/2 sm:left-[80%] sm:top-[38%] sm:w-[35%]",
   },
   {
     label: "E-Carbon Receipt",
@@ -46,7 +46,7 @@ const productLinks: ProductLinkItem[] = [
   {
     label: "DAP Main",
     href: "/dap_new",
-    src: `${assetBase}/DM.png`,
+    src: `${assetBase}/DM2.png`,
     className:
       "left-[19%] top-[80.7%] w-[28%] max-w-[310px] -translate-x-1/2 sm:left-[18%] sm:top-[80.4%] sm:w-[24%]",
   },
@@ -215,6 +215,24 @@ export default function Vekin_Home_Full1() {
                 transform: translate(calc(-50% + 60px), -60px);
               }
             }
+
+            @keyframes vekinCalloutFloat {
+              0%, 100% {
+                transform: translate(-50%, 0) scale(1);
+              }
+              50% {
+                transform: translate(-50%, -10px) scale(1.04);
+              }
+            }
+
+            @keyframes vekinCalloutFloatAlt {
+              0%, 100% {
+                transform: translate(-50%, 0) scale(1);
+              }
+              50% {
+                transform: translate(-50%, 10px) scale(1.04);
+              }
+            }
           `}
         </style>
 
@@ -249,6 +267,22 @@ export default function Vekin_Home_Full1() {
         {storyBlocks.map((block, index) => (
           <StoryCopy key={block.title} block={block} index={index} />
         ))}
+
+        <img
+          src={`${assetBase}/CB1.png`}
+          alt=""
+          className="absolute left-[51%] top-[16.2%] z-30 w-[18%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[30%] sm:top-[17%] sm:w-[10%]"
+          style={{ animation: "vekinCalloutFloat 2.6s ease-in-out infinite" }}
+        />
+
+        <img
+          src={`${assetBase}/CB2.png`}
+          alt=""
+          className="absolute left-[19%] top-[85.2%] z-30 w-[16%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[18%] sm:top-[84.8%] sm:w-[8%]"
+          style={{
+            animation: "vekinCalloutFloatAlt 2.8s ease-in-out infinite",
+          }}
+        />
 
         <img
           src={`${assetBase}/Ship2.png`}
