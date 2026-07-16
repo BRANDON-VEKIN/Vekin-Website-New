@@ -37,7 +37,7 @@ export default function Segment8() {
           animate={{ y: [0, -18, 0], x: [0, -10, 0], scale: [1, 1.04, 1] }}
           transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
           whileHover={{ scale: 1.08, rotate: 3 }}
-          className="pointer-events-auto absolute -right-16 top-2 z-0 w-44 opacity-55 sm:-right-20 sm:top-0 sm:w-64 md:right-[-72px] md:top-[-26px] md:w-[320px] lg:right-[-54px] lg:top-[-42px] lg:w-[420px]"
+          className="pointer-events-auto absolute -right-16 top-12 z-0 w-44 opacity-55 sm:-right-20 sm:top-14 sm:w-64 md:right-[-72px] md:top-10 md:w-[320px] lg:right-[-54px] lg:top-8 lg:w-[420px]"
         />
 
         {/* CONTENT CANVAS: Flows naturally on mobile to prevent layout clipping */}

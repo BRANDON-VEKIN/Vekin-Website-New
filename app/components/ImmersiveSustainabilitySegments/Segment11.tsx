@@ -33,6 +33,7 @@ export default function Segment11() {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-black/10" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-black via-black/70 to-transparent sm:h-48 lg:h-56" />
 
       <div className="relative z-10 flex min-h-[560px] flex-col px-6 pb-[17%] pt-[8%] sm:min-h-[720px] sm:px-12 lg:min-h-[900px] lg:px-16">
         <h2 className="max-w-[620px] text-center text-[clamp(2rem,3vw,4.3rem)] font-black leading-[1.18] text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.45)]">

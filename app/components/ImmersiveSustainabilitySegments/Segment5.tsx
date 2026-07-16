@@ -58,42 +58,49 @@ export default function Segment5() {
         className="grid grid-cols-1 sm:grid-cols-3 min-h-0 h-auto sm:min-h-[720px] lg:min-h-[780px]"
       >
         {eventCards.map((card, index) => (
-          <motion.div
-            key={card.href}
-            variants={cardVariants}
-            className="relative overflow-hidden border-b border-white/10 last:border-b-0
-              /* Mobile Viewport Sizing */
-              min-h-[260px] w-full
-              /* Tablet & Desktop Viewport Reset */
-              sm:min-h-[720px] lg:min-h-[780px] sm:border-b-0 sm:border-x sm:border-white/10"
-          >
-            <Link
-              href={card.href}
-              className="group relative block h-full w-full overflow-hidden outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-emerald-400"
-              aria-label={`Open ${card.title[language]} page`}
+            <motion.div
+              key={card.href}
+              variants={cardVariants}
+              className="relative isolate overflow-hidden border-b border-white/10 last:border-b-0
+                /* Mobile Viewport Sizing */
+                min-h-[300px] w-full
+                /* Tablet & Desktop Viewport Reset */
+                sm:min-h-[720px] lg:min-h-[780px] sm:border-b-0 sm:border-x sm:border-white/10"
             >
-              {/* BACKGROUND CANVAS GRAPHIC */}
-              <img
-                src={images[index] || images[0]}
-                alt={`${card.title[language]} preview`}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 group-focus-visible:scale-105 select-none pointer-events-none"
-              />
+              <Link
+                href={card.href}
+                className="group relative block h-full w-full overflow-hidden outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-emerald-400"
+                aria-label={`Open ${card.title[language]} page`}
+              >
+                {/* BACKGROUND CANVAS GRAPHIC */}
+                <img
+                  src={card.image || images[index] || images[0]}
+                  alt={`${card.title[language]} preview`}
+                  className="absolute inset-0 h-full w-full object-cover transition duration-[1100ms] ease-out group-hover:scale-110 group-hover:brightness-110 group-focus-visible:scale-110 group-focus-visible:brightness-110 select-none pointer-events-none"
+                />
 
-              {/* HIGH-CONTRAST MASK LAYERS */}
-              <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/10" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 transition-opacity duration-500 group-hover:from-black/80" />
+                {/* HIGH-CONTRAST MASK LAYERS */}
+                <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/18" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/20 transition-opacity duration-500 group-hover:opacity-90" />
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
+                <div className="absolute inset-y-0 right-0 hidden w-px bg-gradient-to-b from-transparent via-white/25 to-transparent sm:block" />
+                <div className="absolute -left-32 top-0 h-full w-28 rotate-12 bg-white/15 blur-2xl transition-transform duration-1000 ease-out group-hover:translate-x-[520%]" />
 
-              {/* CONTAINER TITLE TEXT */}
-              <div className="absolute inset-x-0 px-5 text-center bottom-6 sm:bottom-14 z-20">
-                {/* Changed leading-none to leading-[1.1] to safe-guard multi-line wrapping strings */}
-                <h2 className="text-[clamp(1.85rem,6.5vw,2.5rem)] font-black leading-[1.1] text-white drop-shadow-md sm:text-[clamp(1.6rem,2.8vw,3rem)] tracking-tight">
-                  {card.title[language]}
-                </h2>
-              </div>
-            </Link>
-          </motion.div>
+                {/* CONTAINER TITLE TEXT */}
+                <div className="absolute inset-x-0 bottom-0 z-40 px-5 pb-8 pt-24 text-center sm:px-7 sm:pb-14">
+                  <div className="mx-auto max-w-[360px] transition-transform duration-500 ease-out group-hover:-translate-y-2">
+                    <h2 className="text-[clamp(2.1rem,7vw,3rem)] font-black leading-[1.02] tracking-normal text-white drop-shadow-[0_14px_35px_rgba(0,0,0,0.65)] sm:text-[clamp(2rem,3.4vw,3.5rem)]">
+                      {card.title[language]}
+                    </h2>
+                    <span className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-gradient-to-r from-emerald-300 via-cyan-200 to-white opacity-80 transition-all duration-500 group-hover:w-28 group-hover:opacity-100" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
         ))}
       </motion.div>
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-24 bg-gradient-to-b from-black via-black/70 to-transparent sm:h-36" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-24 bg-gradient-to-t from-black via-black/70 to-transparent sm:h-36" />
     </BidirectionalScrollReveal>
   );
 }
