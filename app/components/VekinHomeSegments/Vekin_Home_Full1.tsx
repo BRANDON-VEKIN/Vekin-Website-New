@@ -92,6 +92,18 @@ const storyBlocks = [
 
 type StoryBlock = (typeof storyBlocks)[number];
 
+const journeyPaths = [
+  "M 2667 3514 L 3375 4000 L 430 5605 L 3410 7343 L 1730 8420 L 3890 9554 L 2200 10770",
+  "M 1649 11195 L 510 12020 L 3590 13445 L 1968 14495",
+  "M 1368 14935 L 620 15350 L 3316 16875 L 1612 18086",
+] as const;
+
+type JourneyMarker = {
+  x: number;
+  y: number;
+  facing: "left" | "right";
+};
+
 function ProductLink({
   label,
   href,
@@ -184,9 +196,107 @@ function StoryCopy({ block, index }: { block: StoryBlock; index: number }) {
 }
 
 export default function Vekin_Home_Full1() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const journeyPathRefs = useRef<Array<SVGPathElement | null>>([]);
+  const [journeyMarker, setJourneyMarker] = useState<JourneyMarker>({
+    x: 2667,
+    y: 3514,
+    facing: "right",
+  });
+
+  useEffect(() => {
+    const updateJourneyMarker = () => {
+      const section = sectionRef.current;
+      const paths = journeyPathRefs.current.filter(
+        (path): path is SVGPathElement => path !== null,
+      );
+
+      if (!section || paths.length !== journeyPaths.length) {
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const viewportAnchor = window.innerHeight * 0.58;
+      const routeY = ((viewportAnchor - rect.top) / rect.height) * 20208;
+      const pathLengths = paths.map((path) => path.getTotalLength());
+      let activePathIndex = paths.length - 1;
+      let markerLength = pathLengths[activePathIndex];
+
+      for (let index = 0; index < paths.length; index += 1) {
+        const path = paths[index];
+        const pathLength = pathLengths[index];
+        const startY = path.getPointAtLength(0).y;
+        const endY = path.getPointAtLength(pathLength).y;
+
+        if (routeY < startY) {
+          activePathIndex = Math.max(0, index - 1);
+          markerLength = index === 0 ? 0 : pathLengths[index - 1];
+          break;
+        }
+
+        if (routeY <= endY) {
+          activePathIndex = index;
+
+          let low = 0;
+          let high = pathLength;
+
+          for (let iteration = 0; iteration < 14; iteration += 1) {
+            const midpoint = (low + high) / 2;
+
+            if (path.getPointAtLength(midpoint).y < routeY) {
+              low = midpoint;
+            } else {
+              high = midpoint;
+            }
+          }
+
+          markerLength = (low + high) / 2;
+          break;
+        }
+      }
+
+      const activePath = paths[activePathIndex];
+      const activePathLength = pathLengths[activePathIndex];
+      const markerPoint = activePath.getPointAtLength(markerLength);
+      const tangentSample = Math.min(28, activePathLength * 0.01);
+      const pointBefore = activePath.getPointAtLength(
+        Math.max(0, markerLength - tangentSample),
+      );
+      const pointAfter = activePath.getPointAtLength(
+        Math.min(activePathLength, markerLength + tangentSample),
+      );
+
+      setJourneyMarker({
+        x: markerPoint.x,
+        y: markerPoint.y,
+        facing: pointAfter.x >= pointBefore.x ? "right" : "left",
+      });
+    };
+
+    updateJourneyMarker();
+
+    let animationFrame = 0;
+    const requestUpdate = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(updateJourneyMarker);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
+  }, []);
+
   return (
     <section className="w-full bg-[#f4f7f5]">
-      <div className="relative w-full overflow-visible bg-[#f4f7f5] text-[#6d6e71]">
+      <div
+        ref={sectionRef}
+        className="relative w-full overflow-visible bg-[#f4f7f5] text-[#6d6e71]"
+      >
         <style>
           {`
             @keyframes vekinShipBob {
@@ -241,6 +351,50 @@ export default function Vekin_Home_Full1() {
           alt="Vekin carbon verifier journey background"
           className="block h-auto w-full object-contain"
         />
+
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 4041 20208"
+        >
+          {journeyPaths.map((path, index) => (
+            <path
+              key={path}
+              ref={(element) => {
+                journeyPathRefs.current[index] = element;
+              }}
+              d={path}
+              fill="none"
+              stroke="none"
+            />
+          ))}
+        </svg>
+
+        <div
+          aria-hidden="true"
+          hidden
+          className="pointer-events-none absolute z-[15] w-[8%] min-w-[42px] max-w-[104px] -translate-x-1/2 -translate-y-1/2 select-none transition-[left,top] duration-75 linear motion-reduce:transition-none"
+          style={{
+            left: `${(journeyMarker.x / 4041) * 100}%`,
+            top: `${(journeyMarker.y / 20208) * 100}%`,
+          }}
+        >
+          <img
+            src={`${assetBase}/Right_Point.png`}
+            alt=""
+            className={`block h-auto w-full transition-opacity duration-100 ${
+              journeyMarker.facing === "right" ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          <img
+            src={`${assetBase}/Left_Point.png`}
+            alt=""
+            className={`absolute inset-0 h-auto w-full transition-opacity duration-100 ${
+              journeyMarker.facing === "left" ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        </div>
 
         <div className="absolute left-1/2 top-[3.9%] z-20 w-[82%] -translate-x-1/2 text-center sm:top-[4.2%] sm:w-[68%]">
           <img
