@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "framer-motion";
 import { useRef } from "react";
 import { useSiteLanguage } from "../siteLanguage";
 
@@ -10,9 +15,66 @@ type ProtocolStep = {
   body: string;
   align: "left" | "right";
   y: string;
+  revealAt: number;
 };
 
 const backgroundImage = "/VEKIN Resource all Product/VEKIN 3/Slide_BG1.png";
+
+function ProtocolStepCard({
+  index,
+  scrollYProgress,
+  step,
+}: {
+  index: number;
+  scrollYProgress: MotionValue<number>;
+  step: ProtocolStep;
+}) {
+  const revealStart = Math.max(0, step.revealAt - 0.09);
+  const opacity = useTransform(
+    scrollYProgress,
+    [revealStart, step.revealAt, 1],
+    [0, 1, 1]
+  );
+  const yOffset = useTransform(
+    scrollYProgress,
+    [revealStart, step.revealAt, 1],
+    [28, 0, 0]
+  );
+  const scale = useTransform(
+    scrollYProgress,
+    [revealStart, step.revealAt, 1],
+    [0.96, 1, 1]
+  );
+
+  return (
+    <motion.article
+      key={step.label}
+      className={`absolute ${step.y} left-20 w-[calc(100%-5rem)] text-left sm:w-[min(46vw,380px)] lg:w-[420px] ${
+        step.align === "left"
+          ? "sm:left-auto sm:right-[calc(50%+42px)] sm:text-right"
+          : "sm:left-[calc(50%+42px)]"
+      }`}
+      style={{ opacity, scale, y: yOffset }}
+    >
+      <div
+        className="rounded-[8px] border border-white/18 bg-white/22 p-5 shadow-[0_22px_52px_rgba(0,0,0,0.32)] backdrop-blur-md ring-1 ring-white/10 sm:p-6"
+        style={{
+          animation: `protocolCardFloat ${4.6 + index * 0.5}s ease-in-out infinite`,
+        }}
+      >
+        <span className="inline-flex rounded-full bg-[#00A79B] px-4 py-1.5 text-[10px] font-black uppercase tracking-normal text-white shadow-[0_0_18px_rgba(0,167,155,0.38)] sm:text-[11px]">
+          {step.label}
+        </span>
+        <h3 className="mt-4 text-xl font-black leading-[1.02] tracking-normal text-white sm:text-2xl">
+          {step.title}
+        </h3>
+        <p className="mt-4 text-xs font-medium leading-relaxed text-white/68 sm:text-sm">
+          {step.body}
+        </p>
+      </div>
+    </motion.article>
+  );
+}
 
 export default function A_Segment4() {
   const { language } = useSiteLanguage();
@@ -38,6 +100,7 @@ export default function A_Segment4() {
           : "Establish a verified energy baseline from complete IoT data before every savings decision.",
       align: "right",
       y: "top-[16%]",
+      revealAt: 0.16,
     },
     {
       label: language === "th" ? "2nd step" : "2nd step",
@@ -51,6 +114,7 @@ export default function A_Segment4() {
           : "Compare efficient pathways, financing options, and support programs with AI-backed confidence.",
       align: "left",
       y: "top-[39%]",
+      revealAt: 0.39,
     },
     {
       label: language === "th" ? "3rd Final step" : "3rd Final step",
@@ -64,6 +128,7 @@ export default function A_Segment4() {
           : "Turn verified performance into credible savings, ROI, and climate-finance ready evidence.",
       align: "right",
       y: "top-[64%]",
+      revealAt: 0.64,
     },
   ];
 
@@ -136,29 +201,12 @@ export default function A_Segment4() {
           </div>
 
           {steps.map((step, index) => (
-            <article
+            <ProtocolStepCard
               key={step.label}
-              className={`absolute ${step.y} left-20 w-[calc(100%-5rem)] text-left sm:w-[min(42vw,320px)] lg:w-[340px] ${
-                step.align === "left"
-                  ? "sm:left-auto sm:right-[calc(50%+42px)] sm:text-right"
-                  : "sm:left-[calc(50%+42px)]"
-              }`}
-            >
-              <div
-                className="rounded-[8px] border border-white/18 bg-white/22 p-5 shadow-[0_22px_52px_rgba(0,0,0,0.32)] backdrop-blur-md ring-1 ring-white/10 sm:p-6"
-                style={{ animation: `protocolCardFloat ${4.6 + index * 0.5}s ease-in-out infinite` }}
-              >
-                <span className="inline-flex rounded-full bg-[#00A79B] px-4 py-1.5 text-[10px] font-black uppercase tracking-normal text-white shadow-[0_0_18px_rgba(0,167,155,0.38)] sm:text-[11px]">
-                  {step.label}
-                </span>
-                <h3 className="mt-4 text-xl font-black leading-[1.02] tracking-normal text-white sm:text-2xl">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-xs font-medium leading-relaxed text-white/68 sm:text-sm">
-                  {step.body}
-                </p>
-              </div>
-            </article>
+              index={index}
+              scrollYProgress={scrollYProgress}
+              step={step}
+            />
           ))}
 
           {steps.map((step) => (
