@@ -13,7 +13,7 @@ const methodLayers = [
   {
     titleTh: "ISO Knowledge Graph",
     titleEn: "ISO Knowledge Graph",
-    bodyTh: "แปลงกฎมาตรฐานเป็นตรรกะตรวจสอบ",
+    bodyTh: "แปลงกฎมาตรฐานเป็นตรรกะสำหรับการตรวจสอบ",
     bodyEn: "Rules mapped into logic",
   },
   {
@@ -45,7 +45,7 @@ export default function AuditorSegment12() {
       <div className="absolute inset-0 flex items-center justify-center px-4 py-10 sm:px-6 lg:justify-end lg:px-10">
         <div className="w-full max-w-3xl rounded-[8px] border border-white/15 bg-black/68 p-5 shadow-[0_28px_90px_rgba(0,0,0,0.42)] backdrop-blur-md sm:p-8 lg:p-10">
           <div className="mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
-            Verification Method
+            <LocalizedText th="วิธีการตรวจสอบ" en="Verification Method" />
           </div>
 
           <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr] lg:items-end">
@@ -59,7 +59,7 @@ export default function AuditorSegment12() {
 
               <LocalizedText
                 as="h3"
-                th="Our Methodology"
+                th="ระเบียบวิธีของเรา"
                 en="Our Methodology"
                 className="mt-2 text-2xl font-black uppercase leading-tight tracking-tight text-[#44e5d0] sm:text-4xl lg:text-5xl"
               />
@@ -67,7 +67,7 @@ export default function AuditorSegment12() {
 
             <div className="rounded-[8px] border border-[#44e5d0]/20 bg-[#44e5d0]/10 p-4">
               <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#73f3df]">
-                Confidence Target
+                <LocalizedText as="span" th="เป้าหมายความเชื่อมั่น" en="Confidence Target" />
               </p>
               <p className="mt-2 text-4xl font-black leading-none text-white">95%</p>
               <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10">
@@ -78,7 +78,7 @@ export default function AuditorSegment12() {
 
           <LocalizedText
             as="p"
-            th="VEKIN combines IoT, satellite data, ISO-aware Knowledge Graphs, and Neural Networks into one transparent audit-grade intelligence layer."
+            th="VEKIN ผสานข้อมูล IoT ข้อมูลดาวเทียม Knowledge Graph ที่เข้าใจมาตรฐาน ISO และ Neural Networks ให้เป็นชั้นข้อมูลอัจฉริยะสำหรับการตรวจสอบที่โปร่งใสและพร้อมใช้งานระดับ Audit-grade"
             en="VEKIN combines IoT, satellite data, ISO-aware Knowledge Graphs, and Neural Networks into one transparent audit-grade intelligence layer."
             className="mt-6 max-w-2xl text-sm font-medium leading-relaxed text-white/76 sm:text-base lg:text-lg"
           />
@@ -90,7 +90,7 @@ export default function AuditorSegment12() {
                 className="group rounded-[8px] border border-white/12 bg-white/[0.07] p-4 shadow-[0_14px_35px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-1 hover:border-[#44e5d0]/60 hover:bg-white/[0.11]"
               >
                 <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#44e5d0]">
-                  Layer 0{index + 1}
+                  <LocalizedText as="span" th={`ชั้นที่ 0${index + 1}`} en={`Layer 0${index + 1}`} />
                 </p>
                 <LocalizedText
                   as="p"

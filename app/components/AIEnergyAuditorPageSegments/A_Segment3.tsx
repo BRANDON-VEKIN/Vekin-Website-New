@@ -15,12 +15,12 @@ const detailPanels = {
     copyEn:
       "Traditional auditing depends on manual collection, estimates, and disconnected review cycles. It is slow, expensive, difficult to scale, and exposed to human error or greenwashing risk.",
     copyTh:
-      "การตรวจสอบแบบเดิมพึ่งพาการเก็บข้อมูลด้วยมือ การประมาณค่า และรอบการตรวจทานที่แยกส่วน ทำให้ช้า มีต้นทุนสูง ขยายผลยาก และเสี่ยงต่อข้อผิดพลาดหรือ Greenwashing",
+      "การตรวจสอบแบบเดิมพึ่งพาการเก็บข้อมูลด้วยมือ การประมาณค่า และรอบการตรวจทานที่แยกส่วน ทำให้กระบวนการช้า มีต้นทุนสูง ขยายผลได้ยาก และเสี่ยงต่อข้อผิดพลาดของมนุษย์หรือ Greenwashing",
     accent: "red",
     stats: [
-      { value: "MONTHS", label: "Audit Cycle" },
-      { value: "MANUAL", label: "Data Handling" },
-      { value: "HIGH", label: "Error Risk" },
+      { value: "MONTHS", labelEn: "Audit Cycle", labelTh: "รอบการตรวจสอบ" },
+      { value: "MANUAL", labelEn: "Data Handling", labelTh: "การจัดการข้อมูล" },
+      { value: "HIGH", labelEn: "Error Risk", labelTh: "ความเสี่ยงผิดพลาด" },
     ],
   },
   ai: {
@@ -33,12 +33,12 @@ const detailPanels = {
     copyEn:
       "VEKIN turns verification into a real-time AI workflow. It reduces operating cost, lowers greenwashing risk, and converts environmental performance into trusted digital assets for finance and carbon markets.",
     copyTh:
-      "VEKIN เปลี่ยนการตรวจสอบให้เป็นกระบวนการ AI แบบเรียลไทม์ ช่วยลดต้นทุน ลดความเสี่ยง Greenwashing และเปลี่ยนผลลัพธ์ด้านสิ่งแวดล้อมเป็นสินทรัพย์ดิจิทัลที่น่าเชื่อถือ",
+      "VEKIN เปลี่ยนการตรวจสอบให้เป็นกระบวนการ AI แบบเรียลไทม์ ช่วยลดต้นทุนการดำเนินงาน ลดความเสี่ยง Greenwashing และเปลี่ยนผลลัพธ์ด้านสิ่งแวดล้อมให้เป็นสินทรัพย์ดิจิทัลที่น่าเชื่อถือสำหรับการเงินและตลาดคาร์บอน",
     accent: "green",
     stats: [
-      { value: "REAL-TIME", label: "Verification" },
-      { value: "95%", label: "AI Accuracy" },
-      { value: "80%", label: "Lower Cost" },
+      { value: "REAL-TIME", labelEn: "Verification", labelTh: "การตรวจสอบ" },
+      { value: "95%", labelEn: "AI Accuracy", labelTh: "ความแม่นยำของ AI" },
+      { value: "80%", labelEn: "Lower Cost", labelTh: "ลดต้นทุน" },
     ],
   },
 } as const;
@@ -91,7 +91,7 @@ export default function A_Segment3() {
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.58),rgba(0,0,0,0.2)_70%,rgba(0,0,0,0.58))]" />
               <div className="absolute bottom-5 left-5 z-10 rounded-full border border-red-200/25 bg-black/35 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-red-100 backdrop-blur-md sm:bottom-8 sm:left-8">
-                Human Left
+                <LocalizedText th="มนุษย์" en="Human Left" />
               </div>
             </button>
 
@@ -108,7 +108,7 @@ export default function A_Segment3() {
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.58),rgba(0,0,0,0.2)_30%,rgba(0,0,0,0.58))]" />
               <div className="absolute bottom-5 right-5 z-10 rounded-full border border-[#44e5d0]/30 bg-black/35 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#73f3df] backdrop-blur-md sm:bottom-8 sm:right-8">
-                AI Right
+                <LocalizedText th="AI" en="AI Right" />
               </div>
             </button>
           </div>
@@ -125,7 +125,7 @@ export default function A_Segment3() {
           >
             <div className="max-w-4xl">
               <div className="mx-auto mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-black/40 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df] backdrop-blur-md">
-                Choose a side
+                <LocalizedText th="เลือกฝั่ง" en="Choose a side" />
               </div>
               <LocalizedText
                 as="h2"
@@ -135,7 +135,7 @@ export default function A_Segment3() {
               />
               <LocalizedText
                 as="p"
-                th="คลิกฝั่ง Human Left เพื่อดูข้อมูล Traditional หรือคลิกฝั่ง AI Right เพื่อดูข้อมูล AI"
+                th="คลิกฝั่งมนุษย์เพื่อดูข้อมูลการตรวจสอบแบบเดิม หรือคลิกฝั่ง AI เพื่อดูข้อมูลการตรวจสอบด้วย AI"
                 en="Click Human Left for the Traditional workflow, or AI Right for the AI verification story."
                 className="mx-auto mt-5 max-w-xl text-sm font-semibold leading-relaxed text-white/74 sm:text-base"
               />
@@ -165,7 +165,7 @@ export default function A_Segment3() {
                   onClick={() => setActivePanel(null)}
                   className="absolute right-5 top-5 z-30 rounded-full border border-white/15 bg-black/45 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/78 backdrop-blur-md transition hover:border-[#44e5d0]/60 hover:text-[#44e5d0]"
                 >
-                  Back
+                  <LocalizedText th="กลับ" en="Back" />
                 </button>
 
                 <div className="relative z-10 flex min-h-[720px] flex-col justify-end p-5 pt-24 sm:p-8 lg:p-10">
@@ -188,14 +188,14 @@ export default function A_Segment3() {
                   <div className="mt-7 grid max-w-2xl grid-cols-3 gap-3">
                     {panel.stats.map((item) => (
                       <div
-                        key={item.label}
+                        key={item.labelEn}
                         className="rounded-[8px] border border-white/12 bg-white/[0.08] px-3 py-4 backdrop-blur-sm"
                       >
                         <p className={`text-base font-black uppercase leading-none ${accent.stat} sm:text-xl`}>
                           {item.value}
                         </p>
                         <p className="mt-2 text-[9px] font-semibold uppercase tracking-[0.08em] text-white/58">
-                          {item.label}
+                          <LocalizedText as="span" th={item.labelTh} en={item.labelEn} />
                         </p>
                       </div>
                     ))}

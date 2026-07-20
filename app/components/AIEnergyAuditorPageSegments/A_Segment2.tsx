@@ -15,7 +15,7 @@ const featureRows = [
     copyEn:
       "AI-powered measurement turns complex building data into clear, audit-ready energy insight.",
     copyTh:
-      "การวัดผลด้วย AI เปลี่ยนข้อมูลอาคารที่ซับซ้อนให้เป็นข้อมูลพลังงานที่ชัดเจนและพร้อมตรวจสอบ",
+      "การวัดผลด้วย AI เปลี่ยนข้อมูลอาคารที่ซับซ้อนให้เป็นข้อมูลเชิงลึกด้านพลังงานที่ชัดเจนและพร้อมสำหรับการตรวจสอบ",
     layout: "imageFirst",
   },
   {
@@ -28,7 +28,7 @@ const featureRows = [
     copyEn:
       "VEKIN helps teams verify consumption, surface savings opportunities, and connect energy performance to trusted carbon decisions.",
     copyTh:
-      "VEKIN ช่วยตรวจสอบการใช้พลังงาน ค้นหาโอกาสในการประหยัด และเชื่อมโยงสมรรถนะพลังงานกับการตัดสินใจด้านคาร์บอนที่น่าเชื่อถือ",
+      "VEKIN ช่วยทีมตรวจสอบการใช้พลังงาน ค้นหาโอกาสในการประหยัด และเชื่อมโยงสมรรถนะด้านพลังงานกับการตัดสินใจด้านคาร์บอนที่น่าเชื่อถือ",
     layout: "textFirst",
   },
 ];

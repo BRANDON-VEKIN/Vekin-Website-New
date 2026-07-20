@@ -89,42 +89,42 @@ export default function A_Segment4() {
 
   const steps: ProtocolStep[] = [
     {
-      label: language === "th" ? "1st step" : "1st step",
+      label: language === "th" ? "ขั้นตอนที่ 1" : "1st step",
       title:
         language === "th"
-          ? "Accurate in Energy baseline"
+          ? "ประเมินฐานพลังงานอย่างแม่นยำ"
           : "Accurate in Energy baseline",
       body:
         language === "th"
-          ? "Establish a verified energy baseline from complete IoT data before every savings decision."
+          ? "สร้างฐานข้อมูลพลังงานที่ผ่านการตรวจสอบจากข้อมูล IoT ครบถ้วน ก่อนตัดสินใจด้านการประหยัดพลังงานทุกครั้ง"
           : "Establish a verified energy baseline from complete IoT data before every savings decision.",
       align: "right",
       y: "top-[16%]",
       revealAt: 0.16,
     },
     {
-      label: language === "th" ? "2nd step" : "2nd step",
+      label: language === "th" ? "ขั้นตอนที่ 2" : "2nd step",
       title:
         language === "th"
-          ? "Find best choice & deal from financial support"
+          ? "ค้นหาทางเลือกและข้อเสนอสนับสนุนทางการเงินที่เหมาะสม"
           : "Find best choice & deal from financial support",
       body:
         language === "th"
-          ? "Compare efficient pathways, financing options, and support programs with AI-backed confidence."
+          ? "เปรียบเทียบแนวทางเพิ่มประสิทธิภาพ ตัวเลือกทางการเงิน และโครงการสนับสนุนด้วยความมั่นใจจาก AI"
           : "Compare efficient pathways, financing options, and support programs with AI-backed confidence.",
       align: "left",
       y: "top-[39%]",
       revealAt: 0.39,
     },
     {
-      label: language === "th" ? "3rd Final step" : "3rd Final step",
+      label: language === "th" ? "ขั้นตอนสุดท้าย" : "3rd Final step",
       title:
         language === "th"
-          ? "Accurate ROI Through AI Energy Auditor (Saving)"
+          ? "คำนวณ ROI ที่แม่นยำผ่าน AI Energy Auditor"
           : "Accurate ROI Through AI Energy Auditor (Saving)",
       body:
         language === "th"
-          ? "Turn verified performance into credible savings, ROI, and climate-finance ready evidence."
+          ? "เปลี่ยนผลการดำเนินงานที่ตรวจสอบได้ให้เป็นหลักฐานด้านการประหยัด ROI และความพร้อมสำหรับการเข้าถึงเงินทุนด้านสภาพภูมิอากาศ"
           : "Turn verified performance into credible savings, ROI, and climate-finance ready evidence.",
       align: "right",
       y: "top-[64%]",
@@ -163,19 +163,29 @@ export default function A_Segment4() {
       <div className="relative z-10 mx-auto flex min-h-[920px] w-full max-w-7xl flex-col px-5 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-3xl pt-4 text-center">
           <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#8ff7ea]/80">
-            {language === "th" ? "Our Protocol" : "Our Protocol"}
+            {language === "th" ? "โปรโตคอลของเรา" : "Our Protocol"}
           </p>
           <h2
             id="auditor-protocol-timeline"
             className="mt-3 text-5xl font-black uppercase leading-[0.85] tracking-normal sm:text-7xl lg:text-8xl"
           >
-            Our
-            <br />
-            Protocol
+            {language === "th" ? (
+              <>
+                โปรโตคอล
+                <br />
+                ของเรา
+              </>
+            ) : (
+              <>
+                Our
+                <br />
+                Protocol
+              </>
+            )}
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-xs font-medium leading-relaxed text-white/68 sm:text-sm">
             {language === "th"
-              ? "A three-step verification path that turns raw energy data into finance-ready savings evidence."
+              ? "เส้นทางการตรวจสอบ 3 ขั้นตอนที่เปลี่ยนข้อมูลพลังงานดิบให้เป็นหลักฐานด้านการประหยัดที่พร้อมใช้สำหรับการเงิน"
               : "A three-step verification path that turns raw energy data into finance-ready savings evidence."}
           </p>
           <div className="mx-auto mt-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/80 bg-white/10 text-white shadow-[0_0_24px_rgba(255,255,255,0.24)] backdrop-blur-sm animate-[protocolArrowDrop_1.7s_ease-in-out_infinite]">

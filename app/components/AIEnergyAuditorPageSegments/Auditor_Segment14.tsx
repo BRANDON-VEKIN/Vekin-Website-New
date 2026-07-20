@@ -39,11 +39,11 @@ export default function ClientCarousel() {
       <div className="mx-auto mb-10 grid max-w-7xl gap-5 px-5 sm:px-6 md:mb-14 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <div>
           <div className="mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
-            Trusted Network
+            <LocalizedText th="เครือข่ายที่ไว้วางใจ" en="Trusted Network" />
           </div>
           <LocalizedText
             as="h2"
-            th="à¸¥à¸¹à¸à¸„à¹‰à¸²à¸‚à¸­à¸‡à¹€à¸£à¸²"
+            th="ลูกค้าและพันธมิตร"
             en="Clients & Partners"
             className="text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl md:text-7xl"
           />
@@ -51,7 +51,7 @@ export default function ClientCarousel() {
 
         <LocalizedText
           as="p"
-          th="à¸­à¸‡à¸„à¹Œà¸à¸£à¹à¸¥à¸°à¸žà¸±à¸™à¸˜à¸¡à¸´à¸•à¸£à¸—à¸µà¹ˆà¹€à¸Šà¸·à¹ˆà¸­à¸¡à¸±à¹ˆà¸™à¹ƒà¸™à¸à¸²à¸£à¸ªà¸£à¹‰à¸²à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸žà¸¥à¸±à¸‡à¸‡à¸²à¸™à¸—à¸µà¹ˆà¸•à¸£à¸§à¸ˆà¸ªà¸­à¸šà¹„à¸”à¹‰"
+          th="องค์กรและพันธมิตรที่ร่วมสร้างข้อมูลพลังงานและคาร์บอนที่ตรวจสอบได้กับ VEKIN"
           en="Organizations and partners building verified energy and carbon intelligence with VEKIN."
           className="max-w-2xl text-sm font-medium leading-relaxed text-white/68 sm:text-base lg:justify-self-end"
         />

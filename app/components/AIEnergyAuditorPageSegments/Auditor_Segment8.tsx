@@ -141,7 +141,7 @@ export default function AuditorSegment8() {
 
                   <div className="space-y-2 p-4 md:p-5">
                     <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#73f3df]">
-                      Story 0{index + 1}
+                      <LocalizedText as="span" th={`เรื่องที่ 0${index + 1}`} en={`Story 0${index + 1}`} />
                     </p>
                     <LocalizedText
                       as="h3"
