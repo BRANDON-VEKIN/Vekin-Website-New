@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { useSiteLanguage } from "../siteLanguage";
 
 const assetBase = "/VEKIN Resource all Product/VEKIN 5";
 
@@ -52,39 +53,101 @@ const productLinks: ProductLinkItem[] = [
   },
 ] as const;
 
+const heroCopy = {
+  th: {
+    eyebrow: "ความเชี่ยวชาญของเราในฐานะ",
+    titleLine1: "CARBON",
+    titleLine2: "VERIFIER",
+    leadLine1: "ช่วยให้เรารับมือกับความซับซ้อน",
+    leadLine2: "และส่งมอบผลลัพธ์ที่เชื่อถือได้",
+  },
+  en: {
+    eyebrow: "My expertise as a",
+    titleLine1: "CARBON",
+    titleLine2: "VERIFIER",
+    leadLine1: "allows me to navigate complexities",
+    leadLine2: "and deliver reliable results",
+  },
+} as const;
+
 const storyBlocks = [
   {
-    title: "WHEN YOUR BUSINESS BEGINS",
-    subtitle: "WHEN YOUR BUSINESS BEGINS",
-    body: "You don't have to wait until you're big to take carbon seriously. With one click, even the smallest business can generate verified carbon reports, laying a foundation for future funding, credibility, and long-term growth.",
+    title: {
+      th: "เมื่อธุรกิจของคุณเริ่มต้น",
+      en: "WHEN YOUR BUSINESS BEGINS",
+    },
+    subtitle: {
+      th: "เริ่มต้นวัดคาร์บอนได้ตั้งแต่วันแรก",
+      en: "WHEN YOUR BUSINESS BEGINS",
+    },
+    body: {
+      th: "คุณไม่จำเป็นต้องรอให้ธุรกิจเติบโตมากก่อนจึงเริ่มให้ความสำคัญกับคาร์บอน ด้วย One Click แม้แต่ธุรกิจขนาดเล็กก็สามารถสร้างรายงานคาร์บอนที่ตรวจสอบได้ เพื่อวางรากฐานด้านเงินทุน ความน่าเชื่อถือ และการเติบโตระยะยาว",
+      en: "You don't have to wait until you're big to take carbon seriously. With one click, even the smallest business can generate verified carbon reports, laying a foundation for future funding, credibility, and long-term growth.",
+    },
     className:
       "left-[70%] top-[13.1%] w-[60%] text-center sm:left-[69%] sm:top-[13.3%] sm:w-[52%] sm:text-left",
   },
   {
-    title: "WHEN YOUR BRAND STEPS INTO THE SPOTLIGHT",
-    subtitle: "START TO SHOW. MAKE YOUR IMPACT VISIBLE.",
-    body: "From pop-up booths to national events, carbon matters. Immersive Sustainability lets you track emissions before, during, and after every event, making your brand's actions measurable, visible, and unforgettable.",
+    title: {
+      th: "เมื่อแบรนด์ของคุณก้าวสู่สปอตไลต์",
+      en: "WHEN YOUR BRAND STEPS INTO THE SPOTLIGHT",
+    },
+    subtitle: {
+      th: "เริ่มแสดงผลกระทบให้ทุกคนเห็น",
+      en: "START TO SHOW. MAKE YOUR IMPACT VISIBLE.",
+    },
+    body: {
+      th: "ตั้งแต่บูธป๊อปอัปไปจนถึงงานระดับประเทศ คาร์บอนคือสิ่งสำคัญ Immersive Sustainability ช่วยติดตามการปล่อยคาร์บอนก่อน ระหว่าง และหลังงาน ทำให้การลงมือของแบรนด์วัดผลได้ มองเห็นได้ และน่าจดจำ",
+      en: "From pop-up booths to national events, carbon matters. Immersive Sustainability lets you track emissions before, during, and after every event, making your brand's actions measurable, visible, and unforgettable.",
+    },
     className:
       "left-[45%] top-[31.5%] w-[82%] text-left sm:left-[32%] sm:top-[31%] sm:w-[52%]",
   },
   {
-    title: "WHEN YOUR FACTORY RAMPS UP",
-    subtitle: "START TO OPTIMIZE. TURN ENERGY INTO ADVANTAGE.",
-    body: "As operations grow, costs follow. Our AI Energy Auditor reads electricity flows, detects energy leaks, and reveals carbon hotspots, so you can cut emissions and bills without cutting growth.",
+    title: {
+      th: "เมื่อโรงงานของคุณขยายกำลังการผลิต",
+      en: "WHEN YOUR FACTORY RAMPS UP",
+    },
+    subtitle: {
+      th: "เริ่มปรับพลังงานให้เป็นความได้เปรียบ",
+      en: "START TO OPTIMIZE. TURN ENERGY INTO ADVANTAGE.",
+    },
+    body: {
+      th: "เมื่อการดำเนินงานเติบโต ต้นทุนก็ตามมา AI Energy Auditor ของเราวิเคราะห์การใช้ไฟฟ้า ตรวจจับพลังงานรั่วไหล และชี้จุดคาร์บอนสูง เพื่อให้คุณลดทั้งการปล่อยคาร์บอนและค่าใช้จ่ายได้โดยไม่ลดการเติบโต",
+      en: "As operations grow, costs follow. Our AI Energy Auditor reads electricity flows, detects energy leaks, and reveals carbon hotspots, so you can cut emissions and bills without cutting growth.",
+    },
     className:
       "left-[57%] top-[53.5%] w-[82%] text-right sm:left-[58%] sm:top-[53.5%] sm:w-[50%]",
   },
   {
-    title: "WHEN YOUR LOGISTICS NETWORK SCALES",
-    subtitle: "START BUILDING TRUST. EVERY RECEIPT TELLS A STORY.",
-    body: "Each shipment carries more than goods, it carries emissions. E-Carbon Receipt tracks every fuel transaction and stores it on blockchain, giving you tamper-proof proof that builds trust across supply chains, regulators, and partners.",
+    title: {
+      th: "เมื่อเครือข่ายโลจิสติกส์ของคุณขยายตัว",
+      en: "WHEN YOUR LOGISTICS NETWORK SCALES",
+    },
+    subtitle: {
+      th: "เริ่มสร้างความเชื่อมั่น ทุกใบเสร็จมีเรื่องราว",
+      en: "START BUILDING TRUST. EVERY RECEIPT TELLS A STORY.",
+    },
+    body: {
+      th: "ทุกการขนส่งไม่ได้มีเพียงสินค้า แต่ยังมีการปล่อยคาร์บอนติดมาด้วย E-Carbon Receipt ติดตามธุรกรรมเชื้อเพลิงและบันทึกบนบล็อกเชน เพื่อสร้างหลักฐานที่แก้ไขไม่ได้และเพิ่มความเชื่อมั่นในซัพพลายเชน หน่วยงานกำกับดูแล และพันธมิตร",
+      en: "Each shipment carries more than goods, it carries emissions. E-Carbon Receipt tracks every fuel transaction and stores it on blockchain, giving you tamper-proof proof that builds trust across supply chains, regulators, and partners.",
+    },
     className:
       "left-[48%] top-[71.7%] w-[84%] text-left sm:left-[45%] sm:top-[72%] sm:w-[60%]",
   },
   {
-    title: "WHEN CARBON BECOMES CORE TO STRATEGY",
-    subtitle: "START TO LEAD. LET DATA DRIVE YOUR DECISIONS.",
-    body: "Growth brings complexity. DAP Main brings clarity. Unify all your carbon data into one dashboard, track progress, stay compliant, and turn every emission insight into competitive edge.",
+    title: {
+      th: "เมื่อคาร์บอนกลายเป็นแกนหลักของกลยุทธ์",
+      en: "WHEN CARBON BECOMES CORE TO STRATEGY",
+    },
+    subtitle: {
+      th: "เริ่มเป็นผู้นำ ให้ข้อมูลขับเคลื่อนการตัดสินใจ",
+      en: "START TO LEAD. LET DATA DRIVE YOUR DECISIONS.",
+    },
+    body: {
+      th: "การเติบโตมาพร้อมความซับซ้อน DAP Main ช่วยเปลี่ยนความซับซ้อนให้ชัดเจน รวมข้อมูลคาร์บอนทั้งหมดไว้ในแดชบอร์ดเดียว ติดตามความคืบหน้า รักษาการปฏิบัติตามมาตรฐาน และเปลี่ยนทุกอินไซต์ด้านการปล่อยคาร์บอนให้เป็นความได้เปรียบ",
+      en: "Growth brings complexity. DAP Main brings clarity. Unify all your carbon data into one dashboard, track progress, stay compliant, and turn every emission insight into competitive edge.",
+    },
     className:
       "left-[50%] top-[90%] w-[82%] text-center sm:left-[46%] sm:top-[90%] sm:w-[62%] sm:text-left",
   },
@@ -144,7 +207,15 @@ function ProductLink({
   );
 }
 
-function StoryCopy({ block, index }: { block: StoryBlock; index: number }) {
+function StoryCopy({
+  block,
+  index,
+  language,
+}: {
+  block: StoryBlock;
+  index: number;
+  language: "th" | "en";
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const slideFrom = index % 2 === 0 ? "translate-x-8" : "-translate-x-8";
@@ -182,13 +253,13 @@ function StoryCopy({ block, index }: { block: StoryBlock; index: number }) {
         }`}
       >
         <h2 className="text-[0.55rem] font-black leading-[0.92] sm:text-[clamp(0.8rem,2.7vw,3rem)]">
-          {block.title}
+          {block.title[language]}
         </h2>
         <p className="mt-[0.5%] text-[0.42rem] font-black uppercase leading-tight sm:text-[clamp(0.58rem,1.25vw,1.25rem)]">
-          {block.subtitle}
+          {block.subtitle[language]}
         </p>
         <p className="mt-[1.1%] text-[0.32rem] font-bold uppercase leading-snug tracking-[0.02em] text-[#55575a] sm:text-[clamp(0.45rem,0.72vw,0.8rem)]">
-          {block.body}
+          {block.body[language]}
         </p>
       </div>
     </div>
@@ -196,6 +267,8 @@ function StoryCopy({ block, index }: { block: StoryBlock; index: number }) {
 }
 
 export default function Vekin_Home_Full1() {
+  const { language } = useSiteLanguage();
+  const hero = heroCopy[language];
   const sectionRef = useRef<HTMLDivElement>(null);
   const journeyPathRefs = useRef<Array<SVGPathElement | null>>([]);
   const [journeyMarker, setJourneyMarker] = useState<JourneyMarker>({
@@ -403,23 +476,28 @@ export default function Vekin_Home_Full1() {
             className="mx-auto h-auto w-[22%] max-w-[150px] min-w-[80px] object-contain"
           />
           <p className="mt-[3%] text-[clamp(0.8rem,2vw,2.6rem)] font-black leading-none">
-            My expertise as a
+            {hero.eyebrow}
           </p>
           <h1 className="mt-[1%] text-[clamp(2.5rem,9.6vw,8.6rem)] font-black leading-[0.8]">
-            CARBON
+            {hero.titleLine1}
           </h1>
           <h1 className="text-[clamp(2.5rem,9.6vw,8.6rem)] font-black leading-[0.8]">
-            VERIFIER
+            {hero.titleLine2}
           </h1>
           <p className="mx-auto mt-[2%] max-w-[780px] text-[clamp(0.72rem,1.7vw,2.05rem)] font-black leading-tight">
-            allows me to navigate complexities
+            {hero.leadLine1}
             <br />
-            and deliver reliable results
+            {hero.leadLine2}
           </p>
         </div>
 
         {storyBlocks.map((block, index) => (
-          <StoryCopy key={block.title} block={block} index={index} />
+          <StoryCopy
+            key={block.title.en}
+            block={block}
+            index={index}
+            language={language}
+          />
         ))}
 
         <img
