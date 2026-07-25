@@ -89,7 +89,7 @@ export default function A_Segment2() {
                 as="p"
                 th={row.eyebrowTh}
                 en={row.eyebrowEn}
-                className="text-[clamp(4.2rem,10.4vw,7.8rem)] font-black uppercase leading-[0.78] tracking-normal text-[#62bd88]"
+                className="text-[clamp(2.6rem,10.4vw,7.8rem)] font-black uppercase leading-[0.78] tracking-normal text-[#62bd88]"
               />
               <LocalizedText
                 as="h2"

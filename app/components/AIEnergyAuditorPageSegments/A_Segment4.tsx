@@ -195,7 +195,7 @@ export default function A_Segment4() {
 
         <div
           ref={timelineRef}
-          className="relative mx-auto mt-10 min-h-[760px] w-full max-w-[820px] sm:mt-14 lg:min-h-[820px]"
+          className="relative mx-auto mt-10 min-h-[1180px] w-full max-w-[820px] sm:mt-14 sm:min-h-[760px] lg:min-h-[820px]"
         >
           <div className="absolute bottom-0 left-8 top-0 w-0 sm:left-1/2">
             <div className="absolute left-0 top-0 h-full w-px -translate-x-1/2 bg-white/38" />

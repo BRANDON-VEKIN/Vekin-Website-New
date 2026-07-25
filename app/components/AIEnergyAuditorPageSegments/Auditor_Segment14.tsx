@@ -58,14 +58,14 @@ export default function ClientCarousel() {
       </div>
 
       <div className="relative w-full select-none overflow-hidden">
-        <div className="absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-slate-950 to-transparent pointer-events-none sm:w-28" />
+        <div className="absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-slate-950 to-transparent pointer-events-none sm:w-28" />
 
         <div className="flex shrink-0 items-center gap-6 self-contained-marquee py-6 sm:gap-8">
           {duplicatedLogos.map((src, index) => (
             <div
               key={index}
-              className="group flex h-36 w-36 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.96] p-5 shadow-[0_18px_45px_rgba(0,0,0,0.24)] transition-all duration-300 hover:-translate-y-1 hover:border-[#44e5d0]/50 sm:h-44 sm:w-44 md:h-52 md:w-52"
+              className="group flex h-28 w-28 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.96] p-4 shadow-[0_18px_45px_rgba(0,0,0,0.24)] transition-all duration-300 hover:-translate-y-1 hover:border-[#44e5d0]/50 sm:h-44 sm:w-44 sm:p-5 md:h-52 md:w-52"
             >
               <img
                 src={src}
