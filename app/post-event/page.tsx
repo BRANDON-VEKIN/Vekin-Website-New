@@ -7,20 +7,20 @@ export default function PostEventPage() {
   const { language } = useSiteLanguage();
   const copy = {
     th: {
-      back: "à¸à¸¥à¸±à¸š",
+      back: "กลับ",
       phase: "Phase 03",
-      title: "à¸«à¸¥à¸±à¸‡à¸‡à¸²à¸™",
+      title: "หลังงาน",
       summary:
-        "Close the loop with verified reporting, carbon credit action, and certificate-ready documentation after the event is complete.",
+        "ปิดกระบวนการด้วยรายงานที่ผ่านการตรวจสอบ การดำเนินการคาร์บอนเครดิต และเอกสารที่พร้อมสำหรับการรับรองหลังจบงาน",
       steps: [
-        "Validate and certify the emissions report with clear event documentation.",
-        "Verify emissions figures across activity, travel, resources, and operations.",
-        "Purchase carbon credits to offset the event to net zero and prepare certificate submission.",
+        "ตรวจสอบและรับรองรายงานการปล่อยคาร์บอนพร้อมเอกสารประกอบงานที่ชัดเจน",
+        "ตรวจสอบตัวเลขการปล่อยคาร์บอนจากกิจกรรม การเดินทาง ทรัพยากร และการดำเนินงาน",
+        "ซื้อคาร์บอนเครดิตเพื่อชดเชยงานให้เป็นสุทธิเป็นศูนย์ และเตรียมยื่นขอใบรับรอง",
       ],
       stats: [
-        { label: "Report status", value: "100%" },
-        { label: "Offset path", value: "Net 0" },
-        { label: "Certificate", value: "TGO" },
+        { label: "สถานะรายงาน", value: "100%" },
+        { label: "แนวทางชดเชย", value: "Net 0" },
+        { label: "ใบรับรอง", value: "TGO" },
       ],
     },
     en: {

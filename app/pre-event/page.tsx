@@ -7,20 +7,20 @@ export default function PreEventPage() {
   const { language } = useSiteLanguage();
   const copy = {
     th: {
-      back: "à¸à¸¥à¸±à¸š",
+      back: "กลับ",
       phase: "Phase 01",
-      title: "à¸à¹ˆà¸­à¸™à¸‡à¸²à¸™",
+      title: "ก่อนงาน",
       summary:
-        "Plan the event footprint before doors open. Collect venue, attendee, travel, lodging, and operation details to forecast carbon impact early.",
+        "วางแผนคาร์บอนฟุตพรินต์ของงานก่อนเริ่มงาน รวบรวมข้อมูลสถานที่ ผู้เข้าร่วม การเดินทาง ที่พัก และการดำเนินงาน เพื่อคาดการณ์ผลกระทบด้านคาร์บอนตั้งแต่เนิ่น ๆ",
       steps: [
-        "Venue owner / organizer enters event details such as attendees, travel, lodging, and decorations.",
-        "Estimate the baseline carbon impact before the event begins.",
-        "Prepare IoT and display system integration between the venue and VEKIN platform.",
+        "เจ้าของสถานที่ / ผู้จัดงานกรอกรายละเอียดของงาน เช่น จำนวนผู้เข้าร่วม การเดินทาง ที่พัก และการตกแต่ง",
+        "ประเมินผลกระทบคาร์บอนพื้นฐานก่อนเริ่มงาน",
+        "เตรียมการเชื่อมต่อระบบ IoT และระบบแสดงผลระหว่างสถานที่จัดงานกับแพลตฟอร์ม VEKIN",
       ],
       stats: [
-        { label: "Readiness", value: "85%" },
-        { label: "Data points", value: "120+" },
-        { label: "Setup time", value: "1 day" },
+        { label: "ความพร้อม", value: "85%" },
+        { label: "จุดข้อมูล", value: "120+" },
+        { label: "เวลาติดตั้ง", value: "1 วัน" },
       ],
     },
     en: {

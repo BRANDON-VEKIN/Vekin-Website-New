@@ -56,13 +56,13 @@ export default function EventPhasePage({
 
         <Link
           href="/"
-          className="absolute left-4 top-4 z-30 inline-flex items-center rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-xs font-black uppercase tracking-[0.16em] text-white/85 backdrop-blur-lg transition hover:border-white/55 hover:text-white active:scale-95 sm:left-6 sm:top-6 sm:text-sm"
+          className="absolute left-4 top-[74px] z-30 inline-flex items-center rounded-full border border-white/20 bg-black/45 px-4 py-2.5 text-xs font-black uppercase tracking-[0.16em] text-white/85 backdrop-blur-lg transition hover:border-white/55 hover:text-white active:scale-95 sm:left-6 sm:top-[90px] sm:text-sm md:top-[104px]"
         >
           <span className="mr-2 text-lg leading-none">‹</span>
           {backLabel}
         </Link>
 
-        <div className="relative z-20 mx-auto grid min-h-[calc(100vh-56px)] max-w-[1180px] items-end gap-8 px-5 pb-12 pt-28 sm:px-8 md:min-h-[calc(100vh-80px)] lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center lg:px-10 lg:pb-16 lg:pt-16">
+        <div className="relative z-20 mx-auto grid min-h-[calc(100vh-56px)] max-w-[1180px] items-end gap-8 px-5 pb-12 pt-32 sm:px-8 md:min-h-[calc(100vh-80px)] lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center lg:px-10 lg:pb-16 lg:pt-32">
           <motion.div
             initial={{ opacity: 0, y: 42 }}
             animate={{ opacity: 1, y: 0 }}

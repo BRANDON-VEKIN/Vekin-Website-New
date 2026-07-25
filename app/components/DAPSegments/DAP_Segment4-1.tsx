@@ -74,13 +74,13 @@ function SliderContent() {
     return (
         <div className="relative z-10 flex h-full w-full flex-col justify-between p-4 md:p-0">
             
-            {/* Top Bar: Absolute Back Button */}
-            <div className="absolute top-4 left-4 md:top-8 md:left-8 z-30">
-                <button 
+            {/* Top Bar: Absolute Back Button (offset below the fixed header) */}
+            <div className="absolute top-[74px] left-4 md:top-[104px] md:left-8 z-30">
+                <button
                     onClick={() => router.back()}
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-xl text-xs md:text-sm font-semibold transition-all shadow-md active:scale-95"
                 >
-                    &larr; Back
+                    &larr; {language === "th" ? "กลับ" : "Back"}
                 </button>
             </div>
 
@@ -148,24 +148,23 @@ function SliderContent() {
                         />
                     </div>
 
-                    {/* --- DESKTOP SIDE NAVIGATION ARROWS --- */}
-                    {/* Left Arrow (Desktop Only) */}
-                    <button 
-                        onClick={handlePrev}
-                        className="hidden md:flex absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xl font-bold backdrop-blur-md rounded-full shadow-lg transition-all active:scale-90 z-30"
-                    >
-                        &#10094;
-                    </button>
-
-                    {/* Right Arrow (Desktop Only) */}
-                    <button 
-                        onClick={handleNext}
-                        className="hidden md:flex absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xl font-bold backdrop-blur-md rounded-full shadow-lg transition-all active:scale-90 z-30"
-                    >
-                        &#10095;
-                    </button>
-
                 </div>
+
+                {/* --- DESKTOP SIDE NAVIGATION ARROWS (siblings of the card so overflow-hidden can't clip them) --- */}
+                <button
+                    onClick={handlePrev}
+                    aria-label="Previous slide"
+                    className="hidden md:flex absolute left-2 lg:left-8 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xl font-bold backdrop-blur-md rounded-full shadow-lg transition-all active:scale-90 z-30"
+                >
+                    &#10094;
+                </button>
+                <button
+                    onClick={handleNext}
+                    aria-label="Next slide"
+                    className="hidden md:flex absolute right-2 lg:right-8 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xl font-bold backdrop-blur-md rounded-full shadow-lg transition-all active:scale-90 z-30"
+                >
+                    &#10095;
+                </button>
 
                 {/* --- MOBILE/TABLET NAVIGATION ARROWS --- */}
                 {/* Placed cleanly beneath the primary layout wrapper on small devices */}

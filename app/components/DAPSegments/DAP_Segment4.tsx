@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 import { useSiteLanguage } from "../siteLanguage";
 
@@ -54,6 +56,21 @@ export default function DAPSegment4() {
     const { language } = useSiteLanguage();
     const isThai = language === "th";
 
+    // Close on Escape + lock background scroll while a modal is open
+    useEffect(() => {
+        if (activeModal === null) return;
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setActiveModal(null);
+        };
+        document.addEventListener("keydown", onKey);
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.removeEventListener("keydown", onKey);
+            document.body.style.overflow = prevOverflow;
+        };
+    }, [activeModal]);
+
     return (
         <section className="relative min-h-screen md:h-[180vh] w-full flex flex-col overflow-hidden bg-white">
 
@@ -74,7 +91,14 @@ export default function DAPSegment4() {
             </div>
 
             {/* MAIN CORE CONTAINER */}
-            <div className="flex flex-col gap-12 px-4 py-8 md:p-0 md:block w-full h-full md:absolute md:inset-0 md:z-10">
+            <BidirectionalScrollReveal
+                as="div"
+                className="flex flex-col gap-12 px-4 py-8 md:p-0 md:block w-full h-full md:absolute md:inset-0 md:z-10"
+                amount={0.12}
+                duration={0.9}
+                exitDuration={0.2}
+                offset={36}
+            >
 
                 {/* LAYER 1: PHONE MOCKUP FRAME */}
                 <div className="w-full max-w-[550px] mx-auto md:absolute md:left-1/4 md:top-1/2 md:z-10 md:-translate-x-1/2 md:-translate-y-1/2">
@@ -146,7 +170,7 @@ export default function DAPSegment4() {
 
                                 {/* MOBILE VIEW ONLY: METHODOLOGY TEXT */}
                                 <div className="md:hidden mt-2 mb-6">
-                                    <h3 className="text-white font-black text-2xl tracking-tight mb-3">
+                                    <h3 className="mb-3 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-2xl font-black tracking-tight text-transparent drop-shadow-[0_12px_34px_rgba(59,185,123,0.28)]">
                                         {isThai ? "ระเบียบวิธีของเรา" : "OUR METHODOLOGY"}
                                     </h3>
                                     <p className="text-white/80 text-xs leading-relaxed font-medium max-w-xs">
@@ -249,7 +273,7 @@ export default function DAPSegment4() {
 
                     {/* DESKTOP VIEW ONLY: Methodology block aligned left directly underneath the cards */}
                     <div className="w-full max-w-md self-start pl-4 mt-2">
-                        <h3 className="text-white font-black text-3xl tracking-tight mb-3">
+                        <h3 className="mb-3 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-3xl font-black tracking-tight text-transparent drop-shadow-[0_12px_34px_rgba(59,185,123,0.28)]">
                             {isThai ? "ระเบียบวิธีของเรา" : "OUR METHODOLOGY"}
                         </h3>
                         <p className="text-white/90 text-sm leading-relaxed font-medium">
@@ -272,7 +296,7 @@ export default function DAPSegment4() {
                             <LocalizedText 
                                 th={icon.th} 
                                 en={icon.en} 
-                                className="text-black text-xs md:text-sm font-semibold tracking-wide mb-2 drop-shadow-md group-hover:text-teal-600 transition-colors line-clamp-2 min-h-[2rem]"
+                                className="mb-2 min-h-[2rem] bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-xs font-semibold tracking-wide text-transparent drop-shadow-md transition-opacity group-hover:opacity-80 md:text-sm line-clamp-2"
                             />
                             <img 
                                 src={icon.src} 
@@ -282,75 +306,126 @@ export default function DAPSegment4() {
                         </button>
                     ))}
                 </div>
-            </div>
+            </BidirectionalScrollReveal>
 
             {/* LAYER 4: DETAILED POPUP MODALS */}
-            {activeModal !== null && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fadeIn" onClick={() => setActiveModal(null)}>
-                    {(() => {
-                        const current = mockIcons[activeModal];
-                        const modalContainerClass = "relative w-full max-w-4xl bg-gradient-to-b from-emerald-900 to-teal-950 text-white rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 flex flex-col items-center max-h-[90vh] overflow-y-auto";
-                        const closeButton = <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-3xl font-normal text-gray-400 hover:text-white transition-colors z-10">&times;</button>;
+            <AnimatePresence>
+                {activeModal !== null && (() => {
+                    const current = mockIcons[activeModal];
+                    const sectionLabel =
+                        activeModal === 0
+                            ? (isThai ? "การรับรองมาตรฐาน" : "Certifications")
+                            : activeModal === 1
+                            ? (isThai ? "ไฮไลต์" : "Highlights")
+                            : (isThai ? "ขั้นตอนการทำงาน" : "Process");
 
-                        switch (activeModal) {
-                            case 0:
-                                return (
-                                    <div className={modalContainerClass} onClick={(e) => e.stopPropagation()}>
-                                        {closeButton}                                        
-                                        <LocalizedText th={current.th} en={current.en} className="mb-6 text-center text-3xl md:text-5xl font-extrabold tracking-tight text-white mt-4" />
-                                        <div className="mb-6 grid w-full grid-cols-2 sm:grid-cols-4 gap-4 rounded-2xl border border-slate-800 bg-slate-950 p-4">
-                                            {[current.cert1, current.cert2, current.cert3, current.cert4].map((cert, index) => cert && (
-                                                <div key={index} className="flex h-32 md:h-40 items-center justify-center rounded-lg border border-white/10 bg-white/5 p-2">
-                                                    <img src={cert} alt="" className="max-h-full max-w-full object-contain" />
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <LocalizedText th={current.descTh} en={current.descEn} className="max-w-2xl text-center text-xs md:text-sm leading-relaxed text-white" />
+                    return (
+                        <motion.div
+                            key="dap-modal"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
+                            onClick={() => setActiveModal(null)}
+                        >
+                            <motion.div
+                                role="dialog"
+                                aria-modal="true"
+                                aria-label={isThai ? current.th : current.en}
+                                initial={{ opacity: 0, scale: 0.94, y: 24 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.96, y: 12 }}
+                                transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
+                                onClick={(e) => e.stopPropagation()}
+                                className="relative flex max-h-[88vh] w-full max-w-2xl flex-col overflow-y-auto rounded-[1.75rem] border border-white/10 bg-gradient-to-b from-emerald-900 via-emerald-950 to-teal-950 p-6 shadow-[0_40px_120px_-24px_rgba(0,0,0,0.85)] md:p-9"
+                            >
+                                {/* Decorative accents */}
+                                <div className="pointer-events-none absolute -top-24 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-emerald-400/20 blur-3xl" />
+                                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent" />
+
+                                {/* Close */}
+                                <button
+                                    onClick={() => setActiveModal(null)}
+                                    aria-label="Close"
+                                    className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xl leading-none text-white/70 backdrop-blur-md transition hover:border-white/40 hover:bg-white/15 hover:text-white active:scale-90"
+                                >
+                                    &times;
+                                </button>
+
+                                {/* Header */}
+                                <div className="relative flex flex-col items-center text-center">
+                                    <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-inner md:h-20 md:w-20">
+                                        <img src={current.src} alt="" className="h-9 w-9 object-contain md:h-11 md:w-11" />
                                     </div>
-                                );
+                                    <LocalizedText
+                                        th={current.th}
+                                        en={current.en}
+                                        className="bg-gradient-to-r from-[#7dffc4] to-[#3BB97B] bg-clip-text text-2xl font-extrabold tracking-tight text-transparent drop-shadow-[0_12px_34px_rgba(59,185,123,0.28)] md:text-4xl"
+                                    />
+                                    <LocalizedText
+                                        th={current.descTh}
+                                        en={current.descEn}
+                                        className="mt-3 max-w-xl text-xs leading-relaxed text-white/75 md:text-sm"
+                                    />
+                                </div>
 
-                            case 1:
-                                return (
-                                    <div className={modalContainerClass} onClick={(e) => e.stopPropagation()}>
-                                        {closeButton}                                        
-                                        <LocalizedText th={current.th} en={current.en} className="text-2xl md:text-4xl font-black tracking-tight text-white mb-2 text-center mt-4" />
-                                        <LocalizedText th={current.descTh} en={current.descEn} className="text-white text-xs md:text-sm text-center mb-6 leading-relaxed max-w-xl" />
-                                        <div className="flex flex-row gap-3 w-full justify-start sm:justify-center bg-gray-50/10 p-3 rounded-2xl border border-white/10 overflow-x-auto">
-                                            {[current.isometric_img1, current.isometric_img2, current.isometric_img3].map((img, index) => img && (
-                                                <img key={index} src={img} className="h-16 w-16 md:h-20 md:w-20 shrink-0 object-contain bg-white rounded-xl shadow-sm p-1" alt="" />
-                                            ))}
-                                        </div>
+                                {/* Section divider label */}
+                                <div className="mt-7 flex items-center gap-3">
+                                    <span className="h-px flex-1 bg-white/10" />
+                                    <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-300/70">
+                                        {sectionLabel}
+                                    </span>
+                                    <span className="h-px flex-1 bg-white/10" />
+                                </div>
+
+                                {/* Media: Certifications */}
+                                {activeModal === 0 && (
+                                    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                                        {[current.cert1, current.cert2, current.cert3, current.cert4].map((cert, index) => cert && (
+                                            <div key={index} className="group flex h-28 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:border-emerald-300/40 hover:bg-white/[0.08] md:h-36">
+                                                <img src={cert} alt="" className="max-h-full max-w-full object-contain transition duration-300 group-hover:scale-105" />
+                                            </div>
+                                        ))}
                                     </div>
-                                );
+                                )}
 
-                            case 2:
-                            case 3:
-                                return (
-                                    <div className={modalContainerClass} onClick={(e) => e.stopPropagation()}>
-                                        {closeButton}                                        
-                                        <LocalizedText th={current.th} en={current.en} className="text-2xl md:text-4xl font-bold mb-2 tracking-tight text-center mt-4" />
-                                        <LocalizedText th={current.descTh} en={current.descEn} className="text-white text-xs md:text-sm text-center mb-6 leading-relaxed max-w-sm" />
-                                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full bg-black/20 p-4 rounded-xl border border-emerald-500/20">
-                                            {['isometric_img1', 'isometric_img2', 'isometric_img3', 'isometric_img4'].map((prop, idx) => {
-                                                const imgSrc = current[prop as keyof typeof current];
-                                                if (!imgSrc || typeof imgSrc !== "string") return null;
-                                                return (
-                                                    <div key={idx} className="flex flex-col items-center bg-white/5 p-2 rounded-lg">
-                                                        <img src={imgSrc} className="h-10 w-10 object-contain" alt="" />
-                                                        <span className="text-[10px] mt-1 opacity-60">Step {idx + 1}</span>
+                                {/* Media: Product & Service */}
+                                {activeModal === 1 && (
+                                    <div className="mt-5 flex flex-row flex-wrap justify-center gap-3">
+                                        {[current.isometric_img1, current.isometric_img2, current.isometric_img3].map((img, index) => img && (
+                                            <div key={index} className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white p-2.5 shadow-md transition hover:-translate-y-1 md:h-28 md:w-28">
+                                                <img src={img} alt="" className="max-h-full max-w-full object-contain" />
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {/* Media: Process steps */}
+                                {(activeModal === 2 || activeModal === 3) && (
+                                    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                                        {['isometric_img1', 'isometric_img2', 'isometric_img3', 'isometric_img4'].map((prop, idx) => {
+                                            const imgSrc = current[prop as keyof typeof current];
+                                            if (!imgSrc || typeof imgSrc !== "string") return null;
+                                            return (
+                                                <div key={idx} className="relative flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:border-emerald-300/40 hover:bg-white/[0.08]">
+                                                    <span className="absolute left-2 top-2 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white shadow">{idx + 1}</span>
+                                                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/90 p-2">
+                                                        <img src={imgSrc} alt="" className="h-full w-full object-contain" />
                                                     </div>
-                                                );
-                                            })}
-                                        </div>
+                                                    <span className="text-[11px] font-medium text-white/70">
+                                                        {isThai ? `ขั้นตอน ${idx + 1}` : `Step ${idx + 1}`}
+                                                    </span>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
-                                );
-
-                            default:
-                                return null;
-                        }
-                    })()}
-                </div>
-            )}
+                                )}
+                            </motion.div>
+                        </motion.div>
+                    );
+                })()}
+            </AnimatePresence>
 
         </section>
     );
