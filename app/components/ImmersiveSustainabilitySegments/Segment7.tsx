@@ -60,7 +60,7 @@ export default function Segment7() {
     >
       <h2 className="sr-only">{copy.srLabel}</h2>
 
-      <div className="relative mx-auto flex min-h-[980px] w-full max-w-[1440px] flex-col items-center px-4 pb-24 pt-16 sm:min-h-[1120px] sm:px-8 sm:pt-24 lg:min-h-[1260px] lg:pb-32">
+      <div className="relative mx-auto flex min-h-0 w-full max-w-[1440px] flex-col items-center px-4 pb-24 pt-16 sm:px-8 sm:pt-24 lg:min-h-[1260px] lg:pb-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(20,184,166,0.12),transparent_32%),radial-gradient(circle_at_50%_68%,rgba(56,189,248,0.1),transparent_28%)]" />
 
         <motion.img
@@ -94,7 +94,7 @@ export default function Segment7() {
 
         <div className="relative z-10 flex w-full flex-col items-center">
           <div className="mb-8 max-w-[860px] text-center sm:mb-12">
-            <p className="bg-gradient-to-r from-cyan-300 via-emerald-300 to-lime-300 bg-clip-text py-1 text-[clamp(2rem,5vw,4.2rem)] font-black leading-tight text-transparent">
+            <p className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text py-1 text-[clamp(2rem,5vw,4.2rem)] font-black leading-tight text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.24)]">
               {copy.headline}
             </p>
             <p className="mx-auto mt-3 max-w-[760px] text-[clamp(1rem,2vw,1.65rem)] font-medium leading-snug text-neutral-200 sm:mt-5">
@@ -120,16 +120,16 @@ export default function Segment7() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{ duration: 0.85, delay: 0.16 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative z-20 mx-auto mt-5 w-full max-w-[360px] overflow-hidden rounded-xl border border-cyan-100/20 bg-slate-950/55 p-5 text-left shadow-[0_24px_90px_rgba(0,0,0,0.48)] backdrop-blur-xl sm:absolute sm:mx-0 sm:mt-0 sm:max-w-[370px] lg:max-w-[400px] lg:p-6
-                  ${index === 0 ? "sm:left-[0%] sm:top-[19%]" : ""}
-                  ${index === 1 ? "sm:right-[0%] sm:top-[27%]" : ""}
-                  ${index === 2 ? "sm:left-[8%] sm:top-[48%]" : ""}
+                className={`relative z-20 mx-auto mt-6 w-full max-w-[420px] overflow-hidden rounded-xl border border-cyan-100/20 bg-slate-950/55 p-5 text-left shadow-[0_24px_90px_rgba(0,0,0,0.48)] backdrop-blur-xl lg:absolute lg:mx-0 lg:mt-0 lg:max-w-[400px] lg:p-6
+                  ${index === 0 ? "lg:left-[0%] lg:top-[19%]" : ""}
+                  ${index === 1 ? "lg:right-[0%] lg:top-[27%]" : ""}
+                  ${index === 2 ? "lg:left-[8%] lg:top-[48%]" : ""}
                 `}
               >
                 <div className="absolute inset-x-0 top-0 h-1" style={{ background: scope.accent }} />
                 <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-cyan-300/10 blur-2xl" />
 
-                <div className="relative flex items-start justify-between gap-5">
+                <div className="relative flex items-start justify-between gap-3 sm:gap-5">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.24em] text-cyan-100/75">
                       {scope.title}
