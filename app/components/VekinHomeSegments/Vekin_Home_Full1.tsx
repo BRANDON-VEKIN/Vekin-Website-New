@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { useSiteLanguage } from "../siteLanguage";
 
 const assetBase = "/VEKIN Resource all Product/VEKIN 5";
@@ -18,7 +19,7 @@ const productLinks: ProductLinkItem[] = [
   {
     label: "One Click",
     href: "https://oneclick-dev.vekin.co.th/",
-    src: `${assetBase}/OC2.png`,
+    src: `${assetBase}/OC3.png`,
     className:
       "left-[51%] top-[19.5%] w-[40%] max-w-[520px] -translate-x-1/2 sm:left-[52%] sm:top-[19.6%] sm:w-[36%]",
     external: true,
@@ -26,28 +27,28 @@ const productLinks: ProductLinkItem[] = [
   {
     label: "Immersive Sustainability",
     href: "/",
-    src: `${assetBase}/IS2.png`,
+    src: `${assetBase}/IS3.png`,
     className:
       "left-[24%] top-[25%] w-[39%] max-w-[460px] -translate-x-1/2 sm:left-[25%] sm:top-[26%] sm:w-[34%]",
   },
   {
     label: "AI Energy Auditor",
     href: "/auditor",
-    src: `${assetBase}/EA2.png`,
+    src: `${assetBase}/EA3.png`,
     className:
       "left-[77%] top-[38.5%] w-[40%] max-w-[500px] -translate-x-1/2 sm:left-[80%] sm:top-[38%] sm:w-[35%]",
   },
   {
     label: "E-Carbon Receipt",
     href: "/new_ec",
-    src: `${assetBase}/E_CARBON_RECEIPT.png`,
+    src: `${assetBase}/ECR2.png`,
     className:
-      "left-[42%] top-[65.8%] w-[30%] max-w-[500px] -translate-x-1/2 sm:left-[49%] sm:top-[65.5%] sm:w-[25%]",
+      "left-[42%] top-[65.8%] w-[30%] max-w-[500px] -translate-x-1/2 sm:left-[45%] sm:top-[65.5%] sm:w-[30%]",
   },
   {
     label: "DAP Main",
     href: "/dap_new",
-    src: `${assetBase}/DM2.png`,
+    src: `${assetBase}/DM3.png`,
     className:
       "left-[19%] top-[80.7%] w-[28%] max-w-[310px] -translate-x-1/2 sm:left-[18%] sm:top-[80.4%] sm:w-[24%]",
   },
@@ -56,17 +57,17 @@ const productLinks: ProductLinkItem[] = [
 const heroCopy = {
   th: {
     eyebrow: "ความเชี่ยวชาญของเราในฐานะ",
-    titleLine1: "CARBON",
-    titleLine2: "VERIFIER",
+    titleLine1: "Carbon",
+    titleLine2: "Verifier",
     leadLine1: "ช่วยให้เรารับมือกับความซับซ้อน",
     leadLine2: "และส่งมอบผลลัพธ์ที่เชื่อถือได้",
   },
   en: {
     eyebrow: "My expertise as a",
-    titleLine1: "CARBON",
-    titleLine2: "VERIFIER",
+    titleLine1: "Carbon",
+    titleLine2: "Verifier",
     leadLine1: "allows me to navigate complexities",
-    leadLine2: "and deliver reliable results",
+    leadLine2: "and deliver reliable results.",
   },
 } as const;
 
@@ -74,11 +75,11 @@ const storyBlocks = [
   {
     title: {
       th: "เมื่อธุรกิจของคุณเริ่มต้น",
-      en: "WHEN YOUR BUSINESS BEGINS",
+      en: "When your business begins.",
     },
     subtitle: {
       th: "เริ่มต้นวัดคาร์บอนได้ตั้งแต่วันแรก",
-      en: "WHEN YOUR BUSINESS BEGINS",
+      en: "Start measuring carbon from day one.",
     },
     body: {
       th: "คุณไม่จำเป็นต้องรอให้ธุรกิจเติบโตมากก่อนจึงเริ่มให้ความสำคัญกับคาร์บอน ด้วย One Click แม้แต่ธุรกิจขนาดเล็กก็สามารถสร้างรายงานคาร์บอนที่ตรวจสอบได้ เพื่อวางรากฐานด้านเงินทุน ความน่าเชื่อถือ และการเติบโตระยะยาว",
@@ -90,11 +91,11 @@ const storyBlocks = [
   {
     title: {
       th: "เมื่อแบรนด์ของคุณก้าวสู่สปอตไลต์",
-      en: "WHEN YOUR BRAND STEPS INTO THE SPOTLIGHT",
+      en: "When your brand steps into the spotlight.",
     },
     subtitle: {
       th: "เริ่มแสดงผลกระทบให้ทุกคนเห็น",
-      en: "START TO SHOW. MAKE YOUR IMPACT VISIBLE.",
+      en: "Start to show. Make your impact visible.",
     },
     body: {
       th: "ตั้งแต่บูธป๊อปอัปไปจนถึงงานระดับประเทศ คาร์บอนคือสิ่งสำคัญ Immersive Sustainability ช่วยติดตามการปล่อยคาร์บอนก่อน ระหว่าง และหลังงาน ทำให้การลงมือของแบรนด์วัดผลได้ มองเห็นได้ และน่าจดจำ",
@@ -106,11 +107,11 @@ const storyBlocks = [
   {
     title: {
       th: "เมื่อโรงงานของคุณขยายกำลังการผลิต",
-      en: "WHEN YOUR FACTORY RAMPS UP",
+      en: "When your factory ramps up.",
     },
     subtitle: {
       th: "เริ่มปรับพลังงานให้เป็นความได้เปรียบ",
-      en: "START TO OPTIMIZE. TURN ENERGY INTO ADVANTAGE.",
+      en: "Start to optimize. Turn energy into advantage.",
     },
     body: {
       th: "เมื่อการดำเนินงานเติบโต ต้นทุนก็ตามมา AI Energy Auditor ของเราวิเคราะห์การใช้ไฟฟ้า ตรวจจับพลังงานรั่วไหล และชี้จุดคาร์บอนสูง เพื่อให้คุณลดทั้งการปล่อยคาร์บอนและค่าใช้จ่ายได้โดยไม่ลดการเติบโต",
@@ -122,11 +123,11 @@ const storyBlocks = [
   {
     title: {
       th: "เมื่อเครือข่ายโลจิสติกส์ของคุณขยายตัว",
-      en: "WHEN YOUR LOGISTICS NETWORK SCALES",
+      en: "When your logistics network scales.",
     },
     subtitle: {
       th: "เริ่มสร้างความเชื่อมั่น ทุกใบเสร็จมีเรื่องราว",
-      en: "START BUILDING TRUST. EVERY RECEIPT TELLS A STORY.",
+      en: "Start building trust. Every receipt tells a story.",
     },
     body: {
       th: "ทุกการขนส่งไม่ได้มีเพียงสินค้า แต่ยังมีการปล่อยคาร์บอนติดมาด้วย E-Carbon Receipt ติดตามธุรกรรมเชื้อเพลิงและบันทึกบนบล็อกเชน เพื่อสร้างหลักฐานที่แก้ไขไม่ได้และเพิ่มความเชื่อมั่นในซัพพลายเชน หน่วยงานกำกับดูแล และพันธมิตร",
@@ -138,11 +139,11 @@ const storyBlocks = [
   {
     title: {
       th: "เมื่อคาร์บอนกลายเป็นแกนหลักของกลยุทธ์",
-      en: "WHEN CARBON BECOMES CORE TO STRATEGY",
+      en: "When carbon becomes core to strategy.",
     },
     subtitle: {
       th: "เริ่มเป็นผู้นำ ให้ข้อมูลขับเคลื่อนการตัดสินใจ",
-      en: "START TO LEAD. LET DATA DRIVE YOUR DECISIONS.",
+      en: "Start to lead. Let data drive your decisions.",
     },
     body: {
       th: "การเติบโตมาพร้อมความซับซ้อน DAP Main ช่วยเปลี่ยนความซับซ้อนให้ชัดเจน รวมข้อมูลคาร์บอนทั้งหมดไว้ในแดชบอร์ดเดียว ติดตามความคืบหน้า รักษาการปฏิบัติตามมาตรฐาน และเปลี่ยนทุกอินไซต์ด้านการปล่อยคาร์บอนให้เป็นความได้เปรียบ",
@@ -252,13 +253,13 @@ function StoryCopy({
           isVisible ? "translate-x-0 opacity-100" : `${slideFrom} opacity-0`
         }`}
       >
-        <h2 className="text-[0.55rem] font-black leading-[0.92] sm:text-[clamp(0.8rem,2.7vw,3rem)]">
+        <h2 className="text-[0.55rem] font-semibold tracking-[-0.015em] leading-[1] sm:text-[clamp(0.8rem,2.7vw,3rem)]">
           {block.title[language]}
         </h2>
-        <p className="mt-[0.5%] text-[0.42rem] font-black uppercase leading-tight sm:text-[clamp(0.58rem,1.25vw,1.25rem)]">
+        <p className="mt-[0.5%] text-[0.42rem] font-semibold tracking-[-0.01em] leading-tight sm:text-[clamp(0.58rem,1.25vw,1.25rem)]">
           {block.subtitle[language]}
         </p>
-        <p className="mt-[1.1%] text-[0.32rem] font-bold uppercase leading-snug tracking-[0.02em] text-[#55575a] sm:text-[clamp(0.45rem,0.72vw,0.8rem)]">
+        <p className="mt-[1.1%] text-[0.32rem] font-medium leading-snug text-[#55575a] sm:text-[clamp(0.45rem,0.72vw,0.8rem)]">
           {block.body[language]}
         </p>
       </div>
@@ -470,25 +471,48 @@ export default function Vekin_Home_Full1() {
         </div>
 
         <div className="absolute left-1/2 top-[3.9%] z-20 w-[82%] -translate-x-1/2 text-center sm:top-[4.2%] sm:w-[68%]">
-          <img
+          <motion.img
             src={`${assetBase}/Logo.png`}
             alt="VEKIN"
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto h-auto w-[22%] max-w-[150px] min-w-[80px] object-contain"
           />
-          <p className="mt-[3%] text-[clamp(0.8rem,2vw,2.6rem)] font-black leading-none">
+          <motion.p
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-[3%] text-[clamp(0.8rem,2vw,2.6rem)] font-semibold tracking-[-0.01em] leading-none"
+          >
             {hero.eyebrow}
-          </p>
-          <h1 className="mt-[1%] text-[clamp(2.5rem,9.6vw,8.6rem)] font-black leading-[0.8]">
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 34, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.95, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-[1%] text-[clamp(2.5rem,9.6vw,8.6rem)] font-semibold tracking-[-0.02em] leading-[0.86]"
+          >
             {hero.titleLine1}
-          </h1>
-          <h1 className="text-[clamp(2.5rem,9.6vw,8.6rem)] font-black leading-[0.8]">
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 34, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.95, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[clamp(2.5rem,9.6vw,8.6rem)] font-semibold tracking-[-0.02em] leading-[0.86]"
+          >
             {hero.titleLine2}
-          </h1>
-          <p className="mx-auto mt-[2%] max-w-[780px] text-[clamp(0.72rem,1.7vw,2.05rem)] font-black leading-tight">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 26 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.52, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto mt-[2%] max-w-[780px] text-[clamp(0.72rem,1.7vw,2.05rem)] font-medium leading-tight"
+          >
             {hero.leadLine1}
             <br />
             {hero.leadLine2}
-          </p>
+          </motion.p>
         </div>
 
         {storyBlocks.map((block, index) => (
@@ -503,14 +527,14 @@ export default function Vekin_Home_Full1() {
         <img
           src={`${assetBase}/CB1.png`}
           alt=""
-          className="absolute left-[51%] top-[16.2%] z-30 w-[18%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[30%] sm:top-[17%] sm:w-[10%]"
+          className="absolute left-[32%] top-[16.2%] z-30 w-[10%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[30%] sm:top-[17%] sm:w-[10%]"
           style={{ animation: "vekinCalloutFloat 2.6s ease-in-out infinite" }}
         />
 
         <img
           src={`${assetBase}/CB2.png`}
           alt=""
-          className="absolute left-[19%] top-[85.2%] z-30 w-[16%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[18%] sm:top-[84.8%] sm:w-[8%]"
+          className="absolute left-[25%] top-[85%] z-30 w-[8%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[18%] sm:top-[84.8%] sm:w-[8%]"
           style={{
             animation: "vekinCalloutFloatAlt 2.8s ease-in-out infinite",
           }}
