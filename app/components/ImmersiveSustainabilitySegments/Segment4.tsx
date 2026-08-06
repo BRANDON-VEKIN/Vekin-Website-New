@@ -55,7 +55,7 @@ export default function Segment4() {
           Smart Venue Control
         </p>
         <h2 className="text-[clamp(2.5rem,8.8vw,5.6rem)] font-black leading-[1.04] tracking-normal drop-shadow-[0_18px_50px_rgba(0,0,0,0.65)]">
-          <span className="block text-mint">{copy.title1}</span>
+          <span className="block bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-transparent drop-shadow-[0_18px_50px_rgba(59,185,123,0.28)]">{copy.title1}</span>
         </h2>
         <p className="mt-10 text-[clamp(3.2rem,10vw,6.6rem)] font-black uppercase leading-none text-white sm:mt-14">
           {copy.label}

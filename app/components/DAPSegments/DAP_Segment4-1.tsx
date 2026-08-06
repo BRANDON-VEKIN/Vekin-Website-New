@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 import { useSiteLanguage } from "../siteLanguage";
 
 
@@ -9,38 +10,38 @@ const slideData = [
     {
         id: "ocr",
         icon: "/VEKIN Resource all Product/VEKIN 4/icon1.png",
-        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon12.png", 
+        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon12.png",
         title: { en: "OCR-RPA", th: "ระบบ OCR-RPA" },
-        subtitle: { en: "Supports a variety of technologies", th: "รองรับเทคโนโลยีที่หลากหลาย" },
+        subtitle: { en: "Supports a variety of technologies.", th: "รองรับเทคโนโลยีที่หลากหลาย" },
         features: [
-            { en: "Facility Managers", th: "ผู้จัดการอาคาร" },
+            { en: "Facility managers", th: "ผู้จัดการอาคาร" },
             { en: "Vendors", th: "ผู้ขาย" },
-            { en: "Dealer", th: "ตัวแทนจำหน่าย" },
-            { en: "Project Customer", th: "ลูกค้าโครงการ" },
-            { en: "Supplier", th: "ซัพพลายเออร์" }
+            { en: "Dealers", th: "ตัวแทนจำหน่าย" },
+            { en: "Project customers", th: "ลูกค้าโครงการ" },
+            { en: "Suppliers", th: "ซัพพลายเออร์" }
         ]
     },
     {
         id: "dashboard",
         icon: "/VEKIN Resource all Product/VEKIN 4/icon1.png",
-        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon11.png", 
-        title: { en: "DYNAMIC DASHBOARD", th: "แดชบอร์ดอัจฉริยะ" },
-        subtitle: { en: "Able to customize data viewing", th: "สามารถปรับแต่งมุมมองข้อมูลได้" },
+        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon11.png",
+        title: { en: "Dynamic dashboard", th: "แดชบอร์ดอัจฉริยะ" },
+        subtitle: { en: "Customize how you view your data.", th: "สามารถปรับแต่งมุมมองข้อมูลได้" },
         features: [
-            { en: "BU Reps", th: "ตัวแทนหน่วยงานธุรกิจ" },
-            { en: "Project Managers", th: "ผู้จัดการโครงการ" },
-            { en: "Vendor", th: "ผู้ขาย" }
+            { en: "BU reps", th: "ตัวแทนหน่วยงานธุรกิจ" },
+            { en: "Project managers", th: "ผู้จัดการโครงการ" },
+            { en: "Vendors", th: "ผู้ขาย" }
         ]
     },
     {
         id: "ai",
         icon: "/VEKIN Resource all Product/VEKIN 4/icon1.png",
-        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon10.png", 
-        title: { en: "AI ALLOCATES DATA", th: "เอไอจัดสรรข้อมูล" },
-        subtitle: { en: "Data Source Management", th: "การจัดการแหล่งที่มาข้อมูล" },
+        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon10.png",
+        title: { en: "AI allocates data", th: "เอไอจัดสรรข้อมูล" },
+        subtitle: { en: "Data source management, handled for you.", th: "การจัดการแหล่งที่มาข้อมูล" },
         features: [
-            { en: "Sustainability Team", th: "ทีมงานความยั่งยืน" },
-            { en: "Data Team", th: "ทีมข้อมูล" }
+            { en: "Sustainability teams", th: "ทีมงานความยั่งยืน" },
+            { en: "Data teams", th: "ทีมข้อมูล" }
         ]
     }
 ];
@@ -69,117 +70,157 @@ function SliderContent() {
         setCurrentIdx((prev) => (prev === slideData.length - 1 ? 0 : prev + 1));
     };
 
+    // Keyboard navigation
+    useEffect(() => {
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "ArrowLeft") handlePrev();
+            if (e.key === "ArrowRight") handleNext();
+        };
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, []);
+
     const activeSlide = slideData[currentIdx];
 
     return (
         <div className="relative z-10 flex h-full w-full flex-col justify-between p-4 md:p-0">
-            
+
             {/* Top Bar: Absolute Back Button (offset below the fixed header) */}
             <div className="absolute top-[74px] left-4 md:top-[104px] md:left-8 z-30">
                 <button
                     onClick={() => router.back()}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-xl text-xs md:text-sm font-semibold transition-all shadow-md active:scale-95"
+                    className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition-all hover:bg-white/20 active:scale-95"
                 >
-                    &larr; {language === "th" ? "กลับ" : "Back"}
+                    ‹ {language === "th" ? "กลับ" : "Back"}
                 </button>
             </div>
 
             {/* Layout Wrapper: Centers content vertically AND horizontally */}
-            <div className="flex flex-col md:flex-row items-center justify-center w-full h-full flex-1 relative mt-14 md:mt-0">
-                
+            <div className="relative mt-14 flex h-full w-full flex-1 flex-col items-center justify-center md:mt-0 md:flex-row">
+
                 {/* TWO-COLUMN CONTAINER CARD */}
-                <div className="relative w-full sm:w-11/12 md:w-3/4 h-auto max-h-[75vh] md:h-[80vh] bg-black/25 backdrop-blur-2xl border border-white/10 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl grid grid-cols-1 md:grid-cols-2 overflow-hidden">
-                    
+                <div className="relative grid h-auto max-h-[75vh] w-full grid-cols-1 overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 shadow-[0_40px_100px_rgba(0,0,0,0.4)] backdrop-blur-2xl sm:w-11/12 md:h-[80vh] md:w-3/4 md:grid-cols-2 md:rounded-[2.5rem]">
+
                     {/* LEFT COLUMN: Icon + Core Content */}
-                    <div className="p-6 sm:p-10 md:p-14 flex flex-col justify-between text-left text-white border-b md:border-b-0 md:border-r border-white/5 bg-gradient-to-b from-white/5 to-transparent overflow-y-auto order-2 md:order-1">
-                        <div>
-                            {/* Icon above Title - Hidden or shrunken on micro screens if necessary */}
-                            <div className="mb-4 md:mb-6 hidden sm:block">
-                                <img 
-                                    src={activeSlide.icon} 
-                                    alt="Slide Icon" 
-                                    className="h-10 md:h-14 w-auto object-contain"
+                    <div className="order-2 flex flex-col justify-between overflow-y-auto border-b border-white/5 bg-gradient-to-b from-white/5 to-transparent p-6 text-left text-white sm:p-10 md:order-1 md:border-b-0 md:border-r md:p-14">
+                        <motion.div
+                            key={currentIdx}
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            {/* Icon above Title */}
+                            <div className="mb-4 hidden sm:block md:mb-6">
+                                <img
+                                    src={activeSlide.icon}
+                                    alt=""
+                                    className="h-10 w-auto object-contain md:h-14"
                                 />
                             </div>
 
+                            {/* Eyebrow: slide counter */}
+                            <p className="text-xs font-semibold tracking-[0.18em] text-emerald-300/80">
+                                {`${String(currentIdx + 1).padStart(2, "0")} — ${String(slideData.length).padStart(2, "0")}`}
+                            </p>
+
                             {/* Title */}
-                            <h1 className="text-xl sm:text-2xl md:text-4xl font-extrabold tracking-wide text-white drop-shadow-sm">
+                            <h1 className="mt-2 text-2xl font-semibold tracking-[-0.015em] leading-[1.08] text-white sm:text-3xl md:text-4xl">
                                 {activeSlide.title[language]}
                             </h1>
 
                             {/* Subtitle */}
-                            <p className="text-white/70 text-xs sm:text-sm md:text-base mt-1 md:mt-2 mb-4 md:mb-8">
+                            <p className="mt-2 mb-5 text-sm font-medium leading-relaxed text-white/65 md:mb-8 md:text-base">
                                 {activeSlide.subtitle[language]}
                             </p>
 
-                            {/* Aligned Checkbox List */}
-                            <div className="flex flex-col gap-2 sm:gap-4 mt-2 md:mt-4 items-start">
+                            {/* Feature list */}
+                            <p className="mb-3 text-xs font-semibold tracking-wide text-white/50">
+                                {language === "th" ? "เหมาะสำหรับ" : "Made for"}
+                            </p>
+                            <div className="flex flex-col items-start gap-2.5 sm:gap-3.5">
                                 {activeSlide.features.map((feat, index) => (
-                                    <div key={index} className="flex items-center gap-2 sm:gap-3">
-                                        <div className="flex h-4 w-4 sm:h-5 sm:w-5 shrink-0 items-center justify-center rounded border border-emerald-500 bg-emerald-500 text-white text-[10px] sm:text-xs font-bold shadow-sm">
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, x: -12 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.4, delay: 0.1 + index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+                                        className="flex items-center gap-3"
+                                    >
+                                        <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white shadow-[0_0_14px_rgba(16,185,129,0.4)]">
                                             ✓
                                         </div>
-                                        <span className="text-white/90 text-xs sm:text-sm md:text-base font-medium">
+                                        <span className="text-sm font-medium tracking-[-0.01em] text-white/90 md:text-base">
                                             {feat[language]}
                                         </span>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Slider Dot Controls */}
-                        <div className="flex flex-row gap-2 mt-6 md:mt-8 items-center justify-center md:justify-start">
-                            {slideData.map((_, index) => (
+                        <div className="mt-6 flex flex-row items-center justify-center gap-2 md:mt-8 md:justify-start">
+                            {slideData.map((slide, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentIdx(index)}
-                                    className={`h-2 rounded-full transition-all duration-300 ${index === currentIdx ? "w-6 md:w-8 bg-emerald-400" : "w-2 bg-white/20 hover:bg-white/40"}`}
+                                    aria-label={`Go to slide ${index + 1}`}
+                                    className={`h-2 rounded-full transition-all duration-300 ${index === currentIdx ? "w-7 bg-emerald-400" : "w-2 bg-white/20 hover:bg-white/40"}`}
                                 />
                             ))}
                         </div>
                     </div>
 
-                    {/* RIGHT COLUMN: Display Image */}
-                    <div className="relative bg-black/10 flex items-center justify-center overflow-hidden h-40 sm:h-52 md:h-full w-full order-1 md:order-2">
-                        <img 
-                            src={activeSlide.displayImage} 
-                            alt="Display Graphic" 
-                            className="h-full w-full object-cover"
-                        />
+                    {/* RIGHT COLUMN: Display Image (all slides stay mounted, crossfade) */}
+                    <div className="relative order-1 h-40 w-full overflow-hidden bg-black/10 sm:h-52 md:order-2 md:h-full">
+                        {slideData.map((slide, index) => (
+                            <motion.img
+                                key={slide.id}
+                                src={slide.displayImage}
+                                alt={slide.title.en}
+                                initial={false}
+                                animate={{
+                                    opacity: currentIdx === index ? 1 : 0,
+                                    scale: currentIdx === index ? 1 : 1.05,
+                                }}
+                                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute inset-0 h-full w-full object-cover"
+                            />
+                        ))}
                     </div>
 
                 </div>
 
-                {/* --- DESKTOP SIDE NAVIGATION ARROWS (siblings of the card so overflow-hidden can't clip them) --- */}
+                {/* --- DESKTOP SIDE NAVIGATION ARROWS --- */}
                 <button
                     onClick={handlePrev}
                     aria-label="Previous slide"
-                    className="hidden md:flex absolute left-2 lg:left-8 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xl font-bold backdrop-blur-md rounded-full shadow-lg transition-all active:scale-90 z-30"
+                    className="absolute left-2 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-xl text-white shadow-lg backdrop-blur-md transition-all hover:bg-white/25 active:scale-90 md:flex lg:left-8"
                 >
-                    &#10094;
+                    ‹
                 </button>
                 <button
                     onClick={handleNext}
                     aria-label="Next slide"
-                    className="hidden md:flex absolute right-2 lg:right-8 top-1/2 -translate-y-1/2 h-12 w-12 items-center justify-center bg-white/10 hover:bg-white/25 border border-white/20 text-white text-xl font-bold backdrop-blur-md rounded-full shadow-lg transition-all active:scale-90 z-30"
+                    className="absolute right-2 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-xl text-white shadow-lg backdrop-blur-md transition-all hover:bg-white/25 active:scale-90 md:flex lg:right-8"
                 >
-                    &#10095;
+                    ›
                 </button>
 
                 {/* --- MOBILE/TABLET NAVIGATION ARROWS --- */}
-                {/* Placed cleanly beneath the primary layout wrapper on small devices */}
-                <div className="flex md:hidden items-center justify-center gap-6 mt-4 z-30">
-                    <button 
+                <div className="z-30 mt-4 flex items-center justify-center gap-6 md:hidden">
+                    <button
                         onClick={handlePrev}
-                        className="h-10 w-10 flex items-center justify-center bg-white/10 active:bg-white/25 border border-white/20 text-white text-lg font-bold backdrop-blur-md rounded-full shadow-md transition-all"
+                        aria-label="Previous slide"
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg text-white shadow-md backdrop-blur-md transition-all active:bg-white/25"
                     >
-                        &#10094;
+                        ‹
                     </button>
-                    <button 
+                    <button
                         onClick={handleNext}
-                        className="h-10 w-10 flex items-center justify-center bg-white/10 active:bg-white/25 border border-white/20 text-white text-lg font-bold backdrop-blur-md rounded-full shadow-md transition-all"
+                        aria-label="Next slide"
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-lg text-white shadow-md backdrop-blur-md transition-all active:bg-white/25"
                     >
-                        &#10095;
+                        ›
                     </button>
                 </div>
 
@@ -200,9 +241,9 @@ export default function DAPSegment4_1() {
                 backgroundRepeat: "no-repeat",
             }}
         >
-            <div className="absolute inset-0 bg-slate-950/20 mix-blend-multiply z-0" />
+            <div className="absolute inset-0 z-0 bg-slate-950/25 mix-blend-multiply" />
 
-            <Suspense fallback={<div className="flex h-full w-full items-center justify-center text-white font-medium">Loading...</div>}>
+            <Suspense fallback={<div className="flex h-full w-full items-center justify-center font-medium text-white">Loading...</div>}>
                 <SliderContent />
             </Suspense>
         </section>

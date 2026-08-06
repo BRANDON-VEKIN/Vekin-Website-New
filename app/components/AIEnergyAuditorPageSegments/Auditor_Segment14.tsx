@@ -38,14 +38,17 @@ export default function ClientCarousel() {
 
       <div className="mx-auto mb-10 grid max-w-7xl gap-5 px-5 sm:px-6 md:mb-14 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <div>
-          <div className="mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
-            <LocalizedText th="เครือข่ายที่ไว้วางใจ" en="Trusted Network" />
-          </div>
+          <LocalizedText
+            as="p"
+            th="เครือข่ายที่ไว้วางใจ"
+            en="Trusted network"
+            className="mb-4 text-sm font-semibold tracking-wide text-[#73f3df]"
+          />
           <LocalizedText
             as="h2"
             th="ลูกค้าและพันธมิตร"
-            en="Clients & Partners"
-            className="text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl md:text-7xl"
+            en="Clients & partners."
+            className="text-4xl font-semibold tracking-[-0.015em] leading-[1.02] sm:text-5xl md:text-6xl"
           />
         </div>
 
@@ -53,7 +56,7 @@ export default function ClientCarousel() {
           as="p"
           th="องค์กรและพันธมิตรที่ร่วมสร้างข้อมูลพลังงานและคาร์บอนที่ตรวจสอบได้กับ VEKIN"
           en="Organizations and partners building verified energy and carbon intelligence with VEKIN."
-          className="max-w-2xl text-sm font-medium leading-relaxed text-white/68 sm:text-base lg:justify-self-end"
+          className="max-w-2xl text-base font-medium leading-relaxed text-white/70 sm:text-lg lg:justify-self-end"
         />
       </div>
 

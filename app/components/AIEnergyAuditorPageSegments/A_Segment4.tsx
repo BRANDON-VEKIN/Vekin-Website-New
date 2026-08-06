@@ -62,13 +62,13 @@ function ProtocolStepCard({
           animation: `protocolCardFloat ${4.6 + index * 0.5}s ease-in-out infinite`,
         }}
       >
-        <span className="inline-flex rounded-full bg-[#00A79B] px-4 py-1.5 text-[10px] font-black uppercase tracking-normal text-white shadow-[0_0_18px_rgba(0,167,155,0.38)] sm:text-[11px]">
+        <span className="inline-flex rounded-full bg-[#00A79B] px-4 py-1.5 text-[11px] font-semibold tracking-wide text-white shadow-[0_0_18px_rgba(0,167,155,0.3)] sm:text-xs">
           {step.label}
         </span>
-        <h3 className="mt-4 text-xl font-black leading-[1.02] tracking-normal text-white sm:text-2xl">
+        <h3 className="mt-4 text-xl font-semibold tracking-[-0.015em] leading-[1.1] text-white sm:text-2xl">
           {step.title}
         </h3>
-        <p className="mt-4 text-xs font-medium leading-relaxed text-white/68 sm:text-sm">
+        <p className="mt-3 text-sm font-medium leading-relaxed text-white/70 sm:text-[15px]">
           {step.body}
         </p>
       </div>
@@ -89,11 +89,11 @@ export default function A_Segment4() {
 
   const steps: ProtocolStep[] = [
     {
-      label: language === "th" ? "ขั้นตอนที่ 1" : "1st step",
+      label: language === "th" ? "ขั้นตอนที่ 1" : "Step 1",
       title:
         language === "th"
           ? "ประเมินฐานพลังงานอย่างแม่นยำ"
-          : "Accurate in Energy baseline",
+          : "An accurate energy baseline.",
       body:
         language === "th"
           ? "สร้างฐานข้อมูลพลังงานที่ผ่านการตรวจสอบจากข้อมูล IoT ครบถ้วน ก่อนตัดสินใจด้านการประหยัดพลังงานทุกครั้ง"
@@ -103,11 +103,11 @@ export default function A_Segment4() {
       revealAt: 0.16,
     },
     {
-      label: language === "th" ? "ขั้นตอนที่ 2" : "2nd step",
+      label: language === "th" ? "ขั้นตอนที่ 2" : "Step 2",
       title:
         language === "th"
           ? "ค้นหาทางเลือกและข้อเสนอสนับสนุนทางการเงินที่เหมาะสม"
-          : "Find best choice & deal from financial support",
+          : "Find the best choice and financing deal.",
       body:
         language === "th"
           ? "เปรียบเทียบแนวทางเพิ่มประสิทธิภาพ ตัวเลือกทางการเงิน และโครงการสนับสนุนด้วยความมั่นใจจาก AI"
@@ -117,11 +117,11 @@ export default function A_Segment4() {
       revealAt: 0.39,
     },
     {
-      label: language === "th" ? "ขั้นตอนสุดท้าย" : "3rd Final step",
+      label: language === "th" ? "ขั้นตอนสุดท้าย" : "Final step",
       title:
         language === "th"
           ? "คำนวณ ROI ที่แม่นยำผ่าน AI Energy Auditor"
-          : "Accurate ROI Through AI Energy Auditor (Saving)",
+          : "Accurate ROI through the AI Energy Auditor.",
       body:
         language === "th"
           ? "เปลี่ยนผลการดำเนินงานที่ตรวจสอบได้ให้เป็นหลักฐานด้านการประหยัด ROI และความพร้อมสำหรับการเข้าถึงเงินทุนด้านสภาพภูมิอากาศ"
@@ -162,28 +162,16 @@ export default function A_Segment4() {
 
       <div className="relative z-10 mx-auto flex min-h-[920px] w-full max-w-7xl flex-col px-5 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-3xl pt-4 text-center">
-          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#8ff7ea]/80">
-            {language === "th" ? "โปรโตคอลของเรา" : "Our Protocol"}
+          <p className="text-sm font-semibold tracking-wide text-[#8ff7ea]">
+            {language === "th" ? "โปรโตคอลของเรา" : "How it works"}
           </p>
           <h2
             id="auditor-protocol-timeline"
-            className="mt-3 text-5xl font-black uppercase leading-[0.85] tracking-normal sm:text-7xl lg:text-8xl"
+            className="mt-3 text-4xl font-semibold tracking-[-0.015em] leading-[1.05] sm:text-6xl lg:text-7xl"
           >
-            {language === "th" ? (
-              <>
-                โปรโตคอล
-                <br />
-                ของเรา
-              </>
-            ) : (
-              <>
-                Our
-                <br />
-                Protocol
-              </>
-            )}
+            {language === "th" ? "โปรโตคอลของเรา" : "Our protocol."}
           </h2>
-          <p className="mx-auto mt-5 max-w-lg text-xs font-medium leading-relaxed text-white/68 sm:text-sm">
+          <p className="mx-auto mt-5 max-w-lg text-base font-medium leading-relaxed text-white/70 sm:text-lg">
             {language === "th"
               ? "เส้นทางการตรวจสอบ 3 ขั้นตอนที่เปลี่ยนข้อมูลพลังงานดิบให้เป็นหลักฐานด้านการประหยัดที่พร้อมใช้สำหรับการเงิน"
               : "A three-step verification path that turns raw energy data into finance-ready savings evidence."}

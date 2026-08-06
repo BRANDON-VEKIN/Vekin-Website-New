@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import LocalizedText from "../LocalizedText";
 
 const items = [
   {
@@ -39,7 +40,7 @@ export default function ResponsivePhone() {
 
   return (
   <section
-    className="flex min-h-screen w-full items-center justify-center px-4"
+    className="flex min-h-screen w-full flex-col items-center justify-center gap-10 px-4 py-16"
     style={{
       backgroundImage: "url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG7.png')",
       backgroundSize: "cover",
@@ -47,6 +48,19 @@ export default function ResponsivePhone() {
       backgroundRepeat: "no-repeat",
     }}
   >
+
+      {/* Section header */}
+      <div className="max-w-2xl space-y-3 text-center">
+        <p className="text-sm font-semibold tracking-wide text-white/80 drop-shadow-sm">
+          <LocalizedText as="span" th="กรณีการใช้งานจริง" en="Real use cases" />
+        </p>
+        <LocalizedText
+          as="h2"
+          th="องค์กรที่ไว้วางใจ E-Carbon Receipt"
+          en="Organizations that trust E-Carbon Receipt."
+          className="text-3xl font-semibold tracking-[-0.015em] text-white drop-shadow-[0_10px_28px_rgba(0,0,0,0.35)] sm:text-4xl md:text-5xl"
+        />
+      </div>
 
       {/* =========================
           DESKTOP (HORIZONTAL PHONE)

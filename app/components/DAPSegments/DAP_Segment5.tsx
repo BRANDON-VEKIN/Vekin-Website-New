@@ -23,13 +23,13 @@ export default function DAPSegment2() {
     ];
 
     return (
-        <section 
+        <section
             className="min-h-screen md:h-[180vh] relative w-full font-sans overflow-hidden flex flex-col items-center justify-center p-4 sm:p-8 md:p-12 bg-cover bg-center bg-no-repeat bg-slate-900" 
             style={{ backgroundImage: "url('/VEKIN Resource all Product/VEKIN 4/DAP_BG5.png')" }}
         > 
             
             {/* 1. EVENT VIEW */}
-            <div 
+            <div
                 className={`w-full max-w-7xl mx-auto transition-all duration-500 transform ease-in-out flex flex-col lg:flex-row gap-8 md:gap-12 items-center justify-between ${
                     currentSlide === "event" ? "opacity-100 translate-x-0 relative z-10" : "opacity-0 translate-x-10 absolute pointer-events-none"
                 }`}
@@ -43,7 +43,7 @@ export default function DAPSegment2() {
                         as="h1" 
                         th="กิจกรรมประยุกต์" 
                         en="Events" 
-                        className="text-4xl sm:text-5xl md:text-6xl font-black text-[#808080] mb-4 md:mb-8 tracking-tight drop-shadow-md"
+                        className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"
                     />
                     <LocalizedText 
                         as="p" 
@@ -115,7 +115,7 @@ export default function DAPSegment2() {
             </div>
 
             {/* 2. DASHBOARD VIEW */}
-            <div 
+            <div
                 className={`w-full max-w-7xl mx-auto transition-all duration-500 transform ease-in-out flex flex-col lg:flex-row gap-8 md:gap-12 items-center justify-between ${
                     currentSlide === "dashboard" ? "opacity-100 translate-x-0 relative z-10" : "opacity-0 translate-x-10 absolute pointer-events-none"
                 }`}
@@ -129,7 +129,7 @@ export default function DAPSegment2() {
                         as="h1" 
                         th="แดชบอร์ดข้อมูล" 
                         en="Dashboard" 
-                        className="text-4xl sm:text-5xl md:text-6xl font-black text-[#808080] mb-4 md:mb-8 tracking-tight drop-shadow-md"
+                        className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"
                     />
                     <LocalizedText 
                         as="p" 
@@ -178,7 +178,7 @@ export default function DAPSegment2() {
             </div>
 
             {/* 3. REPORT VIEW */}
-            <div 
+            <div
                 className={`w-full max-w-7xl mx-auto transition-all duration-500 transform ease-in-out flex flex-col lg:flex-row gap-8 md:gap-12 items-center justify-between ${
                     currentSlide === "report" ? "opacity-100 translate-x-0 relative z-10" : "opacity-0 translate-x-10 absolute pointer-events-none"
                 }`}
@@ -192,7 +192,7 @@ export default function DAPSegment2() {
                         as="h1" 
                         th="รายงานสรุปผล" 
                         en="Reports" 
-                        className="text-4xl sm:text-5xl md:text-6xl font-black text-[#808080] mb-4 md:mb-8 tracking-tight drop-shadow-md"
+                        className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"
                     />
                     <LocalizedText 
                         as="p" 
@@ -241,7 +241,7 @@ export default function DAPSegment2() {
             </div>
 
             {/* 4. RECEIPTS VIEW */}
-            <div 
+            <div
                 className={`w-full max-w-7xl mx-auto transition-all duration-500 transform ease-in-out flex flex-col lg:flex-row gap-8 md:gap-12 items-center justify-between ${
                     currentSlide === "receipts" ? "opacity-100 translate-x-0 relative z-10" : "opacity-0 translate-x-10 absolute pointer-events-none"
                 }`}
@@ -255,7 +255,7 @@ export default function DAPSegment2() {
                         as="h1" 
                         th="ใบเสร็จรับเงิน" 
                         en="Receipts" 
-                        className="text-4xl sm:text-5xl md:text-6xl font-black text-[#808080] mb-4 md:mb-8 tracking-tight drop-shadow-md"
+                        className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"
                     />
                     <LocalizedText 
                         as="p" 

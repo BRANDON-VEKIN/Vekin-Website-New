@@ -42,7 +42,7 @@ export default function Segment10() {
         <p className="mx-auto mb-4 inline-flex rounded-[8px] border border-emerald-300/20 bg-white/[0.05] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-200">
           Impact Portfolio
         </p>
-        <h2 className="text-[clamp(2.6rem,7vw,4.8rem)] font-black tracking-normal leading-none drop-shadow-[0_18px_44px_rgba(0,0,0,0.55)]">
+        <h2 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2.6rem,7vw,4.8rem)] font-black leading-none tracking-normal text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.24)]">
           {language === "th" ? "ผลงานของเรา" : "Our Work"}
         </h2>
         <div className="mx-auto mt-5 h-px w-32 bg-gradient-to-r from-transparent via-emerald-300/80 to-transparent" />
@@ -82,7 +82,7 @@ export default function Segment10() {
               className="group relative flex w-full flex-col justify-between overflow-hidden rounded-[8px] border border-white/10 bg-slate-950 text-white shadow-[0_24px_70px_rgba(0,0,0,0.28)] transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-emerald-200/70 hover:shadow-[0_24px_70px_rgba(29,244,188,0.18)]"
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(16,185,129,0.2),transparent_38%),linear-gradient(145deg,rgba(255,255,255,0.08),transparent_48%)] opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-300 via-[#ffc04d] to-emerald-300" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#00464E] to-[#3BB97B]" />
 
               <div className="relative z-10 flex min-h-[170px] flex-col p-6 text-left">
                 <p className="mb-4 inline-flex w-fit rounded-[8px] border border-emerald-200/20 bg-emerald-300/10 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-100">

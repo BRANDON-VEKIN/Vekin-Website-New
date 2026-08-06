@@ -59,8 +59,8 @@ export default function Segment9() {
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
       className="text-[clamp(2.5rem,8vw,5.5rem)] font-black tracking-tight leading-[1.1] sm:leading-[1.04]"
     >
-      <span className="block text-ember">{copy.title1}</span>
-      <span className="mt-2 block text-white sm:mt-4">{copy.title2}</span>
+      <span className="block text-white">{copy.title1}</span>
+      <span className="mt-2 block bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.24)] sm:mt-4">{copy.title2}</span>
     </motion.h2>
 
     {/* Impact Metrics Grid */}
@@ -92,10 +92,10 @@ export default function Segment9() {
 
             {/* Metric Numbers */}
             <div className="mt-6 sm:mt-8">
-              <p className="text-[clamp(3.5rem,10vw,4.5rem)] font-black leading-none text-[#ffc04d] tracking-tight">
+              <p className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(3.5rem,10vw,4.5rem)] font-black leading-none tracking-tight text-transparent drop-shadow-[0_14px_38px_rgba(59,185,123,0.26)]">
                 {value}
               </p>
-              <p className="mt-1 text-[clamp(1.3rem,4vw,1.8rem)] font-bold uppercase tracking-wide text-[#ffc04d]/90">
+              <p className="mt-1 text-[clamp(1.3rem,4vw,1.8rem)] font-bold uppercase tracking-wide text-[#3BB97B]">
                 {unit}
               </p>
             </div>

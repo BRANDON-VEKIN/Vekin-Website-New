@@ -17,7 +17,7 @@ export default function Segment1() {
     },
     en: {
       eyebrow: "Immersive Sustainability",
-      title: "What is it?",
+      title: "What is Immersive Sustainability ?",
       lead: "Technology that blends sustainability data with on-site experiences, helping attendees understand the value of reducing carbon in a clear way.",
       detail: "Builds participatory awareness while turning complex data into something tangible and easy to understand."
     }
@@ -66,14 +66,14 @@ export default function Segment1() {
     <motion.div
       animate={{ y: [0, -12, 0], scale: [1, 1.04, 1] }}
       transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.25 }}
-      className="absolute left-1/2 -top-10 h-24 w-24 -translate-x-1/2 sm:left-[52%] sm:top-[-52px] sm:h-[170px] sm:w-[170px] sm:translate-x-0"
+      className="absolute left-1/2 top-4 h-24 w-24 -translate-x-1/2 sm:left-[52%] sm:top-0 sm:h-[170px] sm:w-[170px] sm:translate-x-0"
     >
       <Bubble className="inset-0 h-full w-full" />
     </motion.div>
     <motion.div
       animate={{ y: [0, 10, 0], x: [0, 6, 0], scale: [1, 0.96, 1] }}
       transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-      className="absolute -bottom-6 left-4 h-12 w-12 sm:-bottom-8 sm:left-12 sm:h-[78px] sm:w-[78px] md:left-24"
+      className="absolute bottom-8 left-4 h-12 w-12 sm:bottom-10 sm:left-12 sm:h-[78px] sm:w-[78px] md:left-24"
     >
       <Bubble className="inset-0 h-full w-full" />
     </motion.div>
@@ -86,13 +86,20 @@ export default function Segment1() {
       transition={{ duration: 1.15, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
       className="relative mx-auto max-w-[1180px] px-6 sm:px-8"
     >
-      <div className="relative mx-auto max-w-[820px] overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.04] px-4 py-8 shadow-[0_28px_100px_rgba(16,185,129,0.12)] backdrop-blur-sm sm:px-8 sm:py-10">
+      <div className="relative mx-auto max-w-[860px] overflow-hidden rounded-[8px] border border-emerald-200/15 bg-white/[0.055] px-4 py-8 shadow-[0_28px_120px_rgba(16,185,129,0.18)] backdrop-blur-md sm:px-8 sm:py-10">
+        <div className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-emerald-300/14 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 bottom-0 h-44 w-44 rounded-full bg-cyan-300/10 blur-3xl" />
         <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/75 to-transparent" />
-        <SectionCopy eyebrow={copy.eyebrow} title={copy.title}>
-          <p className="mx-auto max-w-3xl text-base font-semibold leading-relaxed text-white sm:text-lg md:text-2xl md:leading-10">
+        <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-200/45 to-transparent" />
+        <SectionCopy
+          eyebrow={language === "en" ? undefined : copy.eyebrow}
+          title={copy.title}
+          titleClass="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-transparent drop-shadow-[0_16px_44px_rgba(59,185,123,0.28)]"
+        >
+          <p className="mx-auto max-w-3xl text-base font-black leading-relaxed text-white sm:text-lg md:text-2xl md:leading-10">
             {copy.lead}
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-white/78 sm:mt-5 sm:text-base md:text-lg md:leading-8">
+          <p className="mx-auto mt-4 max-w-3xl text-sm font-medium leading-relaxed text-white/78 sm:mt-5 sm:text-base md:text-lg md:leading-8">
             {copy.detail}
           </p>
         </SectionCopy>

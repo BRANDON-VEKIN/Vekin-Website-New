@@ -92,7 +92,7 @@ export default function Segment5() {
                     <h2 className="text-[clamp(2.1rem,7vw,3rem)] font-black leading-[1.02] tracking-normal text-white drop-shadow-[0_14px_35px_rgba(0,0,0,0.65)] sm:text-[clamp(2rem,3.4vw,3.5rem)]">
                       {card.title[language]}
                     </h2>
-                    <span className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-gradient-to-r from-emerald-300 via-cyan-200 to-white opacity-80 transition-all duration-500 group-hover:w-28 group-hover:opacity-100" />
+                    <span className="mx-auto mt-5 block h-1.5 w-20 rounded-full bg-gradient-to-r from-[#00464E] to-[#3BB97B] opacity-90 transition-all duration-500 group-hover:w-28 group-hover:opacity-100" />
                   </div>
                 </div>
               </Link>

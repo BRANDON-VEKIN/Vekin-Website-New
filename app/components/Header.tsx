@@ -5,8 +5,8 @@ import { useSiteLanguage } from "./siteLanguage";
 
 const navItems = {
   th: [
-    { label: "โซลูชัน", href: "/vekin_home" },
-    { label: "แพ็กเกจ", href: "/package" },
+    { label: "โซลูชั่น", href: "/vekin_home" },
+    { label: "แพคเกจ", href: "/package" },
     { label: "ผลงานของเรา", href: "/vekin_home#work" },
     { label: "ติดต่อเรา", href: "/vekin_home#contact" },
   ],
@@ -17,6 +17,37 @@ const navItems = {
     { label: "Contact Us", href: "/vekin_home#contact" },
   ],
 } as const;
+
+function LanguageFlag({ country }: { country: "us" | "th" }) {
+  if (country === "us") {
+    return (
+      <span
+        aria-hidden="true"
+        className="relative h-3.5 w-3.5 shrink-0 overflow-hidden rounded-full ring-1 ring-black/15"
+      >
+        <span
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(to bottom, #b22234 0%, #b22234 7.69%, #ffffff 7.69%, #ffffff 15.38%)",
+          }}
+        />
+        <span className="absolute left-0 top-0 h-[54%] w-[56%] bg-[#3c3b6e]" />
+      </span>
+    );
+  }
+
+  return (
+    <span
+      aria-hidden="true"
+      className="h-3.5 w-3.5 shrink-0 rounded-full ring-1 ring-black/15"
+      style={{
+        backgroundImage:
+          "linear-gradient(to bottom, #a51931 0%, #a51931 16.67%, #ffffff 16.67%, #ffffff 33.33%, #2d2a4a 33.33%, #2d2a4a 66.67%, #ffffff 66.67%, #ffffff 83.33%, #a51931 83.33%, #a51931 100%)",
+      }}
+    />
+  );
+}
 
 export default function Header() {
   const { language, toggleLanguage } = useSiteLanguage();
@@ -29,34 +60,57 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur-xl">
-      <nav className="mx-auto flex h-[56px] max-w-[1180px] items-center justify-between px-4 sm:px-5 md:h-[80px] md:px-8">
-        <a href="/vekin_home" className="flex min-w-0 items-center gap-2 text-[12px] font-black tracking-tight">
-          <img src="/VEKIN Resource all Product/Vekin_logo.png" alt="VEKIN logo" className="h-6 w-auto md:h-7" />
-          <span className="sr-only">VEKIN</span>
+    <header className="fixed inset-x-0 top-0 z-50 px-2.5 py-2 sm:px-3 lg:px-4">
+      <nav className="relative mx-auto flex h-[58px] max-w-[1440px] items-center rounded-[22px] border border-white/40 bg-[linear-gradient(180deg,rgba(82,80,78,0.42)_0%,rgba(48,46,45,0.28)_100%)] px-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_12px_34px_rgba(0,0,0,0.2)] backdrop-blur-[22px] backdrop-saturate-150 sm:px-6 md:h-[76px] md:rounded-[26px] md:px-8">
+        <a
+          href="/vekin_home"
+          aria-label="VEKIN home"
+          className="flex shrink-0 items-center"
+        >
+          <img
+            src="/VEKIN Resource all Product/Vekin_logo.png"
+            alt="VEKIN"
+            className="h-[22px] w-auto sm:h-6 md:h-[27px]"
+          />
         </a>
 
-        <div className="hidden items-center gap-5 text-[15px] font-bold text-white/80 md:flex lg:gap-6 lg:text-[16px]">
+        <div className="absolute left-1/2 hidden w-[54%] max-w-[620px] min-w-[470px] -translate-x-1/2 items-center justify-between text-[16px] font-normal text-white/85 lg:flex">
           {currentNavItems.map((item) => (
-            <a key={item.label} href={item.href} className="whitespace-nowrap transition hover:text-mint">
+            <a
+              key={item.label}
+              href={item.href}
+              className="whitespace-nowrap rounded-full px-3 py-2 transition duration-200 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
               {item.label}
             </a>
           ))}
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="ml-auto flex items-center gap-2.5">
           <button
             type="button"
-            aria-label="Switch language"
+            aria-label={
+              language === "th" ? "Switch language to English" : "เปลี่ยนภาษาเป็นภาษาไทย"
+            }
             aria-pressed={language === "en"}
             onClick={handleLanguageToggle}
-            className="flex h-7 items-center rounded-full border border-white/20 bg-white/5 p-1 text-[9px] font-black uppercase tracking-[0.14em] text-white/70 transition hover:border-mint/70 hover:text-white sm:tracking-[0.18em]"
+            className="flex h-[28px] items-center overflow-hidden rounded-full bg-white p-[2px] text-[9px] font-bold uppercase text-[#707173] shadow-[0_2px_8px_rgba(0,0,0,0.14)] transition hover:shadow-[0_2px_12px_rgba(0,0,0,0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
           >
-            <span className={`rounded-full px-2 py-1 transition ${language === "th" ? "bg-mint text-black" : ""}`}>
-              TH
-            </span>
-            <span className={`rounded-full px-2 py-1 transition ${language === "en" ? "bg-mint text-black" : ""}`}>
+            <span
+              className={`flex h-6 items-center gap-1 rounded-full px-2 transition ${
+                language === "en" ? "bg-[#2d998e] text-white" : ""
+              }`}
+            >
+              <LanguageFlag country="us" />
               EN
+            </span>
+            <span
+              className={`flex h-6 items-center gap-1 rounded-full px-2 transition ${
+                language === "th" ? "bg-[#2d998e] text-white" : ""
+              }`}
+            >
+              <LanguageFlag country="th" />
+              TH
             </span>
           </button>
 
@@ -65,7 +119,7 @@ export default function Header() {
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:border-mint/70 hover:text-mint md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 lg:hidden"
           >
             <span className="relative h-3.5 w-4">
               <span
@@ -89,17 +143,19 @@ export default function Header() {
       </nav>
 
       <div
-        className={`overflow-hidden border-white/10 bg-black/95 transition-[max-height,opacity] duration-300 md:hidden ${
-          isMenuOpen ? "max-h-80 border-t opacity-100" : "max-h-0 opacity-0"
+        className={`mx-auto max-w-[1440px] overflow-hidden rounded-[20px] border-white/30 bg-[linear-gradient(180deg,rgba(70,68,67,0.52)_0%,rgba(42,40,39,0.36)_100%)] shadow-xl backdrop-blur-[22px] backdrop-saturate-150 transition-[max-height,opacity,margin,border-width] duration-300 lg:hidden ${
+          isMenuOpen
+            ? "mt-2 max-h-80 border opacity-100"
+            : "mt-0 max-h-0 border-0 opacity-0"
         }`}
       >
-        <div className="mx-auto flex max-w-[1180px] flex-col px-4 py-3">
+        <div className="flex flex-col p-2">
           {currentNavItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
-              className="rounded-lg px-3 py-3 text-sm font-bold text-white/85 transition hover:bg-white/10 hover:text-mint"
+              className="rounded-xl px-4 py-3 text-[15px] font-medium text-white/85 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
             >
               {item.label}
             </a>

@@ -97,12 +97,15 @@ export default function ECSegment1() {
     const leftTextOpacity = useTransform(scrollYProgress, [0, 0.82, 0.88, 1.0], [1, 1, 0, 0]);
     const leftTextVisibility = useTransform(scrollYProgress, (v) => v >= 0.88 ? "hidden" : "visible");
 
+    const scrollCueOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0]);
+    const scrollCueVisibility = useTransform(scrollYProgress, (v) => v >= 0.05 ? "hidden" : "visible");
+
     const headingText = useTransform(
         scrollYProgress,
         [0, 0.25, 0.26, 0.62, 0.63, 1],
         isThai 
           ? ["ขับเคลื่อนอนาคตของโลจิสติกส์และพลังงานด้วยโซลูชันที่ยั่งยืน", "ขับเคลื่อนอนาคตของโลจิสติกส์และพลังงานด้วยโซลูชันที่ยั่งยืน", "การจัดเตรียมระบบ AI ที่แข็งแั่ง", "การจัดเตรียมระบบ AI ที่แข็งแกร่ง", "โมเดล PUBLISH-SUBSCRIBE (PUB/SUB)", "โมเดล PUBLISH-SUBSCRIBE (PUB/SUB)"]
-          : ["DRIVING THE FUTURE OF LOGISTICS AND ENERGY WITH SUSTAINABLE SOLUTIONS", "DRIVING THE FUTURE OF LOGISTICS AND ENERGY WITH SUSTAINABLE SOLUTIONS", "STRONG ARRANGEMENT OF AI", "STRONG ARRANGEMENT OF AI", "THE PUBLISH-SUBSCRIBE (PUB/SUB) MODEL", "THE PUBLISH-SUBSCRIBE (PUB/SUB) MODEL"]
+          : ["Driving the future of logistics and energy with sustainable solutions.", "Driving the future of logistics and energy with sustainable solutions.", "A strong arrangement of AI.", "A strong arrangement of AI.", "The publish-subscribe (pub/sub) model.", "The publish-subscribe (pub/sub) model."]
     );
 
     const descText = useTransform(
@@ -110,7 +113,7 @@ export default function ECSegment1() {
         [0, 0.25, 0.26, 0.62, 0.63, 1],
         isThai
           ? ["บันทึกทุกธุรกรรมคาร์บอนเครดิตผ่านบันทึกที่ตรวจสอบด้วยบล็อกเชน เพื่อความโปร่งใสที่ตรวจสอบได้ และช่วยลดความยุ่งยากในรายงานด้านสิ่งแวดล้อมของคุณ", "บันทึกทุกธุรกรรมคาร์บอนเครดิตผ่านบันทึกที่ตรวจสอบด้วยบล็อกเชน เพื่อความโปร่งใสที่ตรวจสอบได้ และช่วยลดความยุ่งยากในรายงานด้านสิ่งแวดล้อมของคุณ", "เมื่อมีการรวบรวมข้อมูล > AI จะประมวลผลโดยใช้เกณฑ์มาตรฐานที่สามารถปรับเปลี่ยนตามภูมิภาคและอุตสาหกรรมได้", "เมื่อมีการรวบรวมข้อมูล > AI จะประมวลผลโดยใช้เกณฑ์มาตรฐานที่สามารถปรับเปลี่ยนตามภูมิภาคและอุตสาหกรรมได้", "เมื่อมีการรวบรวมข้อมูล > AI จะประมวลผลโดยใช้เกณฑ์มาตรฐานที่สามารถปรับเปลี่ยนตามภูมิภาคและอุตสาหกรรมได้", "เมื่อมีการรวบรวมข้อมูล > AI จะประมวลผลโดยใช้เกณฑ์มาตรฐานที่สามารถปรับเปลี่ยนตามภูมิภาคและอุตสาหกรรมได้"]
-          : ["DOCUMENT EVERY CARBON CREDIT TRANSACTION THROUGH A BLOCKCHAIN-VERIFIED RECORD, ENSURING TRACEABILITY AND SIMPLIFYING YOUR ENVIRONMENTAL REPORTING OBLIGATIONS.", "DOCUMENT EVERY CARBON CREDIT TRANSACTION THROUGH A BLOCKCHAIN-VERIFIED RECORD, ENSURING TRACEABILITY AND SIMPLIFYING YOUR ENVIRONMENTAL REPORTING OBLIGATIONS.", "WHEN DATA IS COLLECTED > AI PROCESSES IT USING BENCHMARKS THAT CAN BE ADJUSTED BY REGION AND INDUSTRY", "WHEN DATA IS COLLECTED > AI PROCESSES IT USING BENCHMARKS THAT CAN BE ADJUSTED BY REGION AND INDUSTRY", "WHEN DATA IS COLLECTED > AI PROCESSES IT USING BENCHMARKS THAT CAN BE ADJUSTED BY REGION AND INDUSTRY", "WHEN DATA IS COLLECTED > AI PROCESSES IT USING BENCHMARKS THAT CAN BE ADJUSTED BY REGION AND INDUSTRY"]
+          : ["Document every carbon credit transaction through a blockchain-verified record — ensuring traceability and simplifying your environmental reporting.", "Document every carbon credit transaction through a blockchain-verified record — ensuring traceability and simplifying your environmental reporting.", "When data is collected, AI processes it using benchmarks that can be adjusted by region and industry.", "When data is collected, AI processes it using benchmarks that can be adjusted by region and industry.", "When data is collected, AI processes it using benchmarks that can be adjusted by region and industry.", "When data is collected, AI processes it using benchmarks that can be adjusted by region and industry."]
     );
 
     return (
@@ -130,10 +133,10 @@ export default function ECSegment1() {
                     style={{ opacity: leftTextOpacity, visibility: leftTextVisibility }}
                     className="z-20 w-full max-w-sm space-y-2 sm:space-y-3 md:max-w-md lg:max-w-lg lg:absolute lg:top-12 lg:left-12 xl:top-16 xl:left-16"
                 >
-                    <motion.h1 className="text-base font-black tracking-wider sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase leading-tight bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
+                    <motion.h1 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-xl font-semibold tracking-[-0.015em] leading-[1.12] text-transparent sm:text-2xl md:text-3xl lg:text-4xl">
                         {headingText}
                     </motion.h1>
-                    <motion.p className="text-[10px] tracking-wide text-black sm:text-xs leading-relaxed uppercase font-semibold">
+                    <motion.p className="text-xs font-medium leading-relaxed text-[#1d1d1f]/70 sm:text-sm md:text-base">
                         {descText}
                     </motion.p>
                 </motion.div>
@@ -241,8 +244,8 @@ export default function ECSegment1() {
                                 }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                             >
-                                <h2 className="text-black text-2xl font-black tracking-widest uppercase leading-none sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-                                    START FOR FUTURE
+                                <h2 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-3xl font-semibold tracking-[-0.02em] leading-none text-transparent drop-shadow-[0_14px_36px_rgba(59,185,123,0.3)] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+                                    Start for future.
                                 </h2>
                             </motion.div>
                         </motion.div>
@@ -260,7 +263,7 @@ export default function ECSegment1() {
                     >
                         <motion.button
                             onClick={() => window.open("https://www.google.com", "_blank")}
-                            className="px-6 py-3 text-xl font-black tracking-widest text-white uppercase rounded-full select-none cursor-pointer focus:outline-none shadow-xl bg-gradient-to-r from-emerald-400 to-blue-500 sm:px-8 sm:py-4 sm:text-2xl md:text-3xl lg:text-4xl"
+                            className="cursor-pointer select-none rounded-full bg-gradient-to-r from-[#00464E] to-[#3BB97B] px-7 py-3 text-lg font-medium tracking-[-0.01em] text-white shadow-[0_18px_45px_rgba(0,70,79,0.3)] focus:outline-none sm:px-9 sm:py-4 sm:text-xl md:text-2xl"
                             whileHover={!isMobile ? { 
                                 scale: 1.06,
                                 filter: "brightness(1.1) drop-shadow(0 0 25px rgba(52, 211, 153, 0.45))"
@@ -268,11 +271,28 @@ export default function ECSegment1() {
                             whileTap={{ scale: 0.96 }}
                             transition={{ type: "spring", stiffness: 400, damping: 20 }}
                         >
-                            TRY NOW
+                            Try now
                         </motion.button>
                     </motion.div>
 
                 </div>
+
+                {/* SCROLL CUE: fades out as the story begins */}
+                <motion.div
+                    style={{ opacity: scrollCueOpacity, visibility: scrollCueVisibility }}
+                    className="pointer-events-none absolute bottom-6 left-1/2 z-40 flex -translate-x-1/2 flex-col items-center gap-2 text-[#00464E]"
+                >
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.14em]">
+                        {isThai ? "เลื่อนเพื่อดูเรื่องราว" : "Scroll to explore"}
+                    </span>
+                    <motion.span
+                        animate={{ y: [0, 7, 0] }}
+                        transition={{ duration: 1.7, repeat: Infinity, ease: "easeInOut" }}
+                        className="flex h-9 w-9 items-center justify-center rounded-full border border-[#00464E]/40 bg-white/60 backdrop-blur-sm"
+                    >
+                        <span className="relative -mt-1 h-3 w-3 rotate-45 border-b-2 border-r-2 border-[#00464E]" />
+                    </motion.span>
+                </motion.div>
             </section>
         </div>
     );

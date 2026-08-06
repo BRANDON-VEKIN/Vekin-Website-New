@@ -1,24 +1,36 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
+import { useSiteLanguage } from "../siteLanguage";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
-
-function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTextProps) {
-    const isThai =
-        typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th");
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
+const copy = {
+    th: {
+        title: "เพื่อช่วยให้คุณเข้าใจปริมาณคาร์บอนจากสิ่งที่คุณสร้างขึ้น",
+        description:
+            "ด้วยข้อมูลที่ชัดเจนและตรวจสอบได้ คุณจึงส่งมอบผลิตภัณฑ์ที่ยั่งยืนแก่ลูกค้าได้อย่างมั่นใจและแท้จริง",
+        cta: "รับบริการ",
+    },
+    en: {
+        title: "To help you understand the carbon footprint of what you create.",
+        description:
+            "With clear, verifiable data, you can confidently deliver a truly sustainable product to your customers.",
+        cta: "Get service",
+    },
+} as const;
 
 export default function CarbonSegment4() {
+    const { language } = useSiteLanguage();
+    const text = copy[language];
+
     return (
-        <section
+        <BidirectionalScrollReveal
             aria-label="Carbon Receipt"
-            className="relative flex items-center justify-center h-screen w-full overflow-hidden"
+            amount={0.3}
+            duration={1}
+            offset={44}
+            className="relative flex h-screen w-full items-center justify-center overflow-hidden"
             style={{
                 backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG2.png')`,
                 backgroundPosition: "center",
@@ -26,34 +38,29 @@ export default function CarbonSegment4() {
                 backgroundRepeat: "no-repeat",
             }}
         >
+            <div className="absolute inset-0 bg-black/30" />
 
-            <div className="relative z-10 flex flex-col items-center text-center px-6">
-                <LocalizedText
-                    as="h1"
-                    th="เพื่อช่วยให้คุณเข้าใจถึงปริมาณการปล่อยก๊าซคาร์บอนจากสิ่งที่คุณสร้างขึ้น"
-                    en="TO HELP YOU UNDERSTAND THE CARBON FOOTPRINT OF WHAT YOU CREATE"
-                    className=" text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight"
-                />
+            <div className="relative z-10 flex max-w-3xl flex-col items-center px-6 text-center">
+                <h1 className="text-3xl font-semibold tracking-[-0.015em] leading-[1.1] text-white sm:text-4xl md:text-6xl">
+                    {text.title}
+                </h1>
 
-                <a
+                <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
+                    {text.description}
+                </p>
+
+                <motion.a
                     href="https://www.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-20"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className="mt-10 inline-flex items-center rounded-full border border-white/60 bg-white/10 px-6 py-3 text-[15px] font-medium text-white backdrop-blur-md transition-colors duration-300 hover:border-white hover:bg-white hover:text-black"
                 >
-                    <button className="rounded-full border border-white px-8 py-3 text-white font-semibold shadow-lg transition hover:scale-105">
-                        GET SERVICE
-                    </button>
-                </a>
-
-                <LocalizedText
-                    as="h1"
-                    th="ด้วยการมอบข้อมูลที่ชัดเจนและตรวจสอบได้ เราจึงเสริมศักยภาพให้คุณส่งมอบผลิตภัณฑ์ที่ยั่งยืนแก่ลูกค้าได้อย่างมั่นใจและแท้จริง."
-                    en="BY GIVING YOU CLEAR, VERIFIABLE DATA, WE EMPOWER YOU TO CONFIDENTLY AND TRULY DELIEVER A SUSTAINABLE PRODUCT TO YOUR CUSTOMERS."
-                    className="mt-6 max-w-2xl text-white text-sm sm:text-base"
-                />
+                    {text.cta}
+                </motion.a>
             </div>
-        </section>
+        </BidirectionalScrollReveal>
     );
 }
-

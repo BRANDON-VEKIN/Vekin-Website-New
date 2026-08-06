@@ -52,7 +52,7 @@ export default function Segment6() {
             className="max-w-[720px] text-left"
           >
             <div className="mb-5 h-1 w-24 rounded-full bg-emerald-300 shadow-[0_0_24px_rgba(110,231,183,0.55)]" />
-            <h2 className="text-[clamp(2.35rem,7vw,4.75rem)] font-black leading-[0.98] tracking-tight text-white drop-shadow-[0_5px_22px_rgba(0,0,0,0.5)]">
+            <h2 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2.35rem,7vw,4.75rem)] font-black leading-[0.98] tracking-tight text-transparent drop-shadow-[0_5px_22px_rgba(59,185,123,0.32)]">
               {copy.slogan}
             </h2>
           </motion.div>
@@ -65,14 +65,14 @@ export default function Segment6() {
             transition={{ duration: 1.15, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
             className="relative w-full max-w-[700px] self-end overflow-hidden rounded-xl border border-emerald-200/80 bg-white p-6 text-slate-950 shadow-[0_28px_80px_rgba(0,0,0,0.32)] sm:p-8 lg:p-10"
           >
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-emerald-400 via-cyan-300 to-lime-300" />
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#00464E] to-[#3BB97B]" />
             <div className="absolute right-0 top-0 h-32 w-32 rounded-bl-full bg-emerald-100/80" />
 
             <div className="relative">
               <p className="mb-3 text-xs font-black uppercase tracking-[0.24em] text-emerald-700">
                 Net Zero Pathway
               </p>
-              <h3 className="mb-4 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+              <h3 className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-2xl font-black tracking-tight text-transparent sm:text-3xl">
                 {copy.title}
               </h3>
               <p className="max-w-[620px] text-base font-medium leading-relaxed text-slate-700 sm:text-lg">
@@ -81,15 +81,15 @@ export default function Segment6() {
 
               <div className="mt-7 grid grid-cols-3 gap-3 border-t border-slate-200 pt-5 text-left">
                 <div>
-                  <p className="text-lg font-black text-emerald-700 sm:text-2xl">Reduce</p>
+                  <p className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-lg font-black text-transparent sm:text-2xl">Reduce</p>
                   <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">Emissions</p>
                 </div>
                 <div>
-                  <p className="text-lg font-black text-cyan-700 sm:text-2xl">Capture</p>
+                  <p className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-lg font-black text-transparent sm:text-2xl">Capture</p>
                   <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">Carbon</p>
                 </div>
                 <div>
-                  <p className="text-lg font-black text-lime-700 sm:text-2xl">Offset</p>
+                  <p className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-lg font-black text-transparent sm:text-2xl">Offset</p>
                   <p className="mt-1 text-[11px] font-bold uppercase tracking-wide text-slate-500">Impact</p>
                 </div>
               </div>

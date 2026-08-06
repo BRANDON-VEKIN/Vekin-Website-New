@@ -1,5 +1,6 @@
 import React from "react";
 
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 
 
@@ -16,7 +17,14 @@ export default function DAPSegment1() {
             }}
         >
 
-            <div className="flex w-full">
+            <BidirectionalScrollReveal
+                as="div"
+                className="flex w-full"
+                amount={0.32}
+                duration={0.9}
+                exitDuration={0.2}
+                offset={36}
+            >
                 <div className="w-full md:w-1/2 px-6">
                     <LocalizedText
                         as="h1"
@@ -25,7 +33,7 @@ export default function DAPSegment1() {
                         className="text-white bg-clip-text text-transparent drop-shadow-[0_8px_30px_rgba(0,0,0,0.2)] text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight"
                     />
                 </div>
-            </div>
+            </BidirectionalScrollReveal>
         </section>
     );
 }

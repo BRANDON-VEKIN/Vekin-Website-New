@@ -33,24 +33,27 @@ export default function AuditorSegment13() {
 
       <div className="absolute inset-0 flex items-center justify-start px-4 py-10 sm:px-6 lg:px-10">
         <div className="w-full max-w-4xl rounded-[8px] border border-white/15 bg-black/68 p-5 text-white shadow-[0_28px_90px_rgba(0,0,0,0.42)] backdrop-blur-md sm:p-8 lg:p-10">
-          <div className="mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
-            <LocalizedText th="ความน่าเชื่อถือที่ผ่านการรับรอง" en="Verified Trust" />
-          </div>
+          <LocalizedText
+            as="p"
+            th="ความน่าเชื่อถือที่ผ่านการรับรอง"
+            en="Verified trust"
+            className="mb-4 text-sm font-semibold tracking-wide text-[#73f3df]"
+          />
 
           <div className="space-y-7">
             <div>
               <LocalizedText
                 as="h3"
                 th="AI Energy Auditor ได้รับการรับรองโดย"
-                en="AI Energy Auditor Verified By"
-                className="max-w-3xl text-[clamp(2rem,5vw,4rem)] font-black uppercase leading-[0.95] tracking-tight text-white"
+                en="AI Energy Auditor. Verified by the standards that matter."
+                className="max-w-3xl text-[clamp(1.9rem,4.2vw,3.4rem)] font-semibold tracking-[-0.015em] leading-[1.05] text-white"
               />
 
               <LocalizedText
                 as="p"
                 th="มาตรฐานการตรวจสอบที่อุตสาหกรรมยอมรับและเกณฑ์อ้างอิงจากสมรรถนะอาคารจริง ช่วยให้ทุกข้อมูลเชิงลึกมีความแม่นยำ น่าเชื่อถือ และพร้อมใช้สำหรับการตัดสินใจระดับงานตรวจประเมิน"
                 en="Industry-recognized validation protocols and real building-performance benchmarks help keep every insight accurate, reliable, and ready for audit-grade decisions."
-                className="mt-5 max-w-3xl text-sm font-medium leading-relaxed text-white/76 sm:text-base lg:text-lg"
+                className="mt-5 max-w-3xl text-base font-medium leading-relaxed text-white/75 lg:text-lg"
               />
             </div>
 
@@ -89,10 +92,10 @@ export default function AuditorSegment13() {
 
             <div className="relative mb-4 flex items-center justify-between gap-4 border-b border-white/10 pb-4">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
+                <p className="text-sm font-semibold tracking-wide text-[#73f3df]">
                   <LocalizedText th="ใบรับรอง" en="Certification" />
                 </p>
-                <p className="mt-1 text-sm font-semibold text-white/72">
+                <p className="mt-1 text-sm font-medium text-white/70">
                   <LocalizedText th="รายละเอียดการรับรองมาตรฐาน" en="Verified standard preview" />
                 </p>
               </div>
@@ -102,7 +105,7 @@ export default function AuditorSegment13() {
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/10 text-lg font-bold text-white transition hover:border-[#44e5d0]/60 hover:bg-[#44e5d0]/15 hover:text-[#73f3df]"
                 aria-label="Close certification preview"
               >
-                x
+                ×
               </button>
             </div>
 

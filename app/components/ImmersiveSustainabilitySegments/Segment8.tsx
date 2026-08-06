@@ -45,7 +45,7 @@ export default function Segment8() {
           
           {/* RESPONSIVE TYPOGRAPHY COMPONENT */}
           <div className="w-full max-w-4xl">
-            <p className="text-[clamp(2.2rem,6.5vw,3.5rem)] font-black tracking-tight leading-tight">
+            <p className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2.2rem,6.5vw,3.5rem)] font-black leading-tight tracking-tight text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.24)]">
               {copy.title}
             </p>
 

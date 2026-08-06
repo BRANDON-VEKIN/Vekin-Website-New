@@ -13,10 +13,11 @@ export default function AuditorSegment4() {
   return (
     <BidirectionalScrollReveal
       aria-labelledby="auditor-carbon-footprint"
-      className="relative w-full overflow-hidden bg-black text-white"
+      className="relative -mt-16 w-full overflow-hidden bg-[#020706] text-white sm:-mt-24"
       amount={0.2}
-      duration={1.1}
-      offset={68}
+      duration={1.25}
+      exitDuration={0.85}
+      offset={36}
     >
       <img
         src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG4.png"
@@ -26,6 +27,7 @@ export default function AuditorSegment4() {
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88),rgba(0,0,0,0.64)_44%,rgba(0,0,0,0.2)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_17%_30%,rgba(68,229,208,0.26),transparent_28%),radial-gradient(circle_at_72%_38%,rgba(14,165,233,0.16),transparent_32%)]" />
+      <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[#020706] via-[#020706]/90 to-transparent sm:h-80" />
       <div className="absolute inset-x-0 bottom-0 h-52 bg-gradient-to-t from-black to-transparent" />
 
       <div className="absolute inset-0 flex items-center justify-center px-4 py-8 lg:justify-start lg:px-10">

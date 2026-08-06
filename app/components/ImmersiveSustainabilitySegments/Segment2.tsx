@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function Segment2() {
@@ -10,7 +9,7 @@ export default function Segment2() {
   
   // Clean, modern frame class with subtle glassmorphism and smooth mobile-to-desktop padding
   const slideFrameClass =
-    "mx-auto mt-4 w-full max-w-[1120px] min-h-0 lg:min-h-[780px] xl:min-h-[820px] overflow-hidden rounded-[8px] border border-emerald-200/15 bg-[radial-gradient(circle_at_18%_18%,rgba(16,185,129,0.18),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.015))] px-4 py-6 shadow-[0_32px_120px_rgba(0,0,0,0.48)] backdrop-blur-sm relative sm:px-8 sm:py-12 lg:px-10";
+    "relative mx-auto mt-4 w-full max-w-none min-h-0 overflow-visible px-4 py-6 sm:px-8 sm:py-12 lg:min-h-[780px] lg:px-10 xl:min-h-[820px]";
 
   const slideSurfaceClass =
     "rounded-[8px] border border-white/20 bg-white/[0.96] p-5 text-slate-950 shadow-[0_20px_60px_rgba(0,0,0,0.22)] sm:p-6";
@@ -104,7 +103,7 @@ export default function Segment2() {
             <div className="relative z-20 mx-auto w-full max-w-[680px] text-left order-1 lg:order-2">
               <div className="text-center lg:text-left">
                 <span className={badgeClass}>Zoo AI Feature</span>
-                <h3 className="text-[clamp(2.2rem,6vw,3.65rem)] font-semibold tracking-normal text-white">
+                <h3 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2.2rem,6vw,3.65rem)] font-semibold tracking-normal text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.28)]">
                   {copy.slide1Title}
                 </h3>
               </div>
@@ -116,7 +115,7 @@ export default function Segment2() {
 
               <article className={`${darkPanelClass} mt-4`}>
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-[1fr_200px] sm:items-center">
-                  <h4 className="text-xl font-bold text-emerald-200 text-center sm:text-left">{copy.tigerTitle}</h4>
+                  <h4 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-center text-xl font-bold text-transparent sm:text-left">{copy.tigerTitle}</h4>
                   <div className="grid h-[86px] w-full max-w-[200px] mx-auto sm:mx-0 place-items-end bg-emerald-950/50 border border-emerald-300/20 p-3 rounded-[8px] backdrop-blur-sm">
                     <div className="h-12 w-full bg-[linear-gradient(150deg,transparent_0_12%,#10b981_13%_22%,transparent_23%_28%,#10b981_29%_100%)] opacity-80" />
                     <p className="-mt-9 place-self-center text-lg font-black text-emerald-200">45%</p>
@@ -158,7 +157,7 @@ export default function Segment2() {
             <div className="mx-auto w-full text-left order-1 lg:order-2">
               <div className="text-center lg:text-left">
                 <span className={badgeClass}>Live Eco Matrix</span>
-                <h3 className="text-[clamp(2rem,6vw,3.65rem)] font-semibold tracking-normal text-white leading-tight">
+                <h3 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2rem,6vw,3.65rem)] font-semibold leading-tight tracking-normal text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.28)]">
                   {copy.slide2Title1} <br className="hidden lg:inline" /> {copy.slide2Title2}
                 </h3>
               </div>
@@ -204,7 +203,7 @@ export default function Segment2() {
             <div className="relative z-20 mx-auto w-full max-w-[680px] text-left order-1 lg:order-2">
               <div className="text-center lg:text-left">
                 <span className={badgeClass}>Green Intelligence</span>
-                <h3 className="text-[clamp(2rem,6vw,3.65rem)] font-semibold tracking-normal text-white">
+                <h3 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2rem,6vw,3.65rem)] font-semibold tracking-normal text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.28)]">
                   {copy.slide3Title}
                 </h3>
               </div>
@@ -248,24 +247,13 @@ export default function Segment2() {
     if (isPaused) return;
     const interval = setInterval(() => {
       setIndex((i) => (i + 1) % slides.length);
-    }, 5000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [isPaused, slides.length]);
 
-  function prev() {
-    setIndex((i) => (i - 1 + slides.length) % slides.length);
-  }
-
-  function next() {
-    setIndex((i) => (i + 1) % slides.length);
-  }
-
   return (
-    <BidirectionalScrollReveal
-      amount={0.3}
-      duration={1.6}
-      offset={120}
-      className="relative mx-auto w-full max-w-[1180px] px-4 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24 lg:pt-28 overflow-visible transform-gpu"
+    <section
+      className="relative ml-[calc(50%-50vw)] mr-[calc(50%-50vw)] w-screen max-w-none px-4 pb-16 pt-12 text-center sm:px-8 sm:pb-20 sm:pt-20 lg:px-10 lg:pb-24 lg:pt-28 overflow-visible"
     >
       <div className="pointer-events-none absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-emerald-500/[0.08] blur-3xl" />
       <motion.div
@@ -273,12 +261,12 @@ export default function Segment2() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.45 }}
         transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10"
+        className="relative z-10 mx-auto max-w-[1180px]"
       >
         <p className="mx-auto mb-3 inline-flex rounded-[8px] border border-emerald-300/20 bg-white/[0.04] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-200">
           LINE OA Cero + Smart Dashboard
         </p>
-        <h2 className="text-[clamp(2.4rem,8vw,4.7rem)] font-semibold tracking-normal leading-tight text-white">
+        <h2 className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2.4rem,8vw,4.7rem)] font-semibold leading-tight tracking-normal text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.24)]">
           {copy.title}
         </h2>
         <div className="mx-auto mt-4 h-px w-28 bg-gradient-to-r from-transparent via-emerald-300/80 to-transparent" />
@@ -288,12 +276,8 @@ export default function Segment2() {
       </motion.div>
 
       {/* Slider view shell container */}
-      <motion.div 
-        initial={{ opacity: 0, y: 64 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.25 }}
-        transition={{ duration: 1.25, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-        className="relative mt-6 sm:mt-12 overflow-visible pb-12 sm:pb-0"
+      <div
+        className="relative mx-auto mt-6 w-full max-w-none overflow-visible pb-12 sm:mt-12 sm:pb-0"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
@@ -307,26 +291,6 @@ export default function Segment2() {
           </div>
         </div>
 
-        {/* Premium Frosted Glass Previous Button */}
-        <button 
-          onClick={prev} 
-          aria-label={language === "th" ? "ก่อนหน้า" : "Previous"} 
-          className="absolute left-1 top-[45%] z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-[0px] text-white shadow-xl backdrop-blur-md transition hover:border-emerald-200/40 hover:bg-emerald-300/15 active:scale-95 sm:top-1/2 sm:h-12 sm:w-12 md:-left-4 lg:-left-8 xl:-left-12"
-        >
-          <span className="text-2xl leading-none">&lt;</span>
-          ‹
-        </button>
-        
-        {/* Premium Frosted Glass Next Button */}
-        <button 
-          onClick={next} 
-          aria-label={language === "th" ? "ถัดไป" : "Next"} 
-          className="absolute right-1 top-[45%] z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-[0px] text-white shadow-xl backdrop-blur-md transition hover:border-emerald-200/40 hover:bg-emerald-300/15 active:scale-95 sm:top-1/2 sm:h-12 sm:w-12 md:-right-4 lg:-right-8 xl:-right-12"
-        >
-          <span className="text-2xl leading-none">&gt;</span>
-          ›
-        </button>
-
         {/* Dynamic Navigation Indicator Array */}
         <div className="absolute bottom-0 sm:bottom-4 left-1/2 z-30 flex -translate-x-1/2 gap-2.5">
           {slides.map((_, i) => (
@@ -338,7 +302,7 @@ export default function Segment2() {
             />
           ))}
         </div>
-      </motion.div>
-    </BidirectionalScrollReveal>
+      </div>
+    </section>
   );
 }

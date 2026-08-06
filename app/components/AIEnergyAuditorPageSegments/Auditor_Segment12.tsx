@@ -44,30 +44,33 @@ export default function AuditorSegment12() {
 
       <div className="absolute inset-0 flex items-center justify-center px-4 py-10 sm:px-6 lg:justify-end lg:px-10">
         <div className="w-full max-w-3xl rounded-[8px] border border-white/15 bg-black/68 p-5 shadow-[0_28px_90px_rgba(0,0,0,0.42)] backdrop-blur-md sm:p-8 lg:p-10">
-          <div className="mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
-            <LocalizedText th="วิธีการตรวจสอบ" en="Verification Method" />
-          </div>
+          <LocalizedText
+            as="p"
+            th="วิธีการตรวจสอบ"
+            en="Verification method"
+            className="mb-4 text-sm font-semibold tracking-wide text-[#73f3df]"
+          />
 
           <div className="grid gap-6 lg:grid-cols-[1fr_0.82fr] lg:items-end">
             <div>
               <LocalizedText
                 as="h3"
                 th="Big Data"
-                en="Big Data"
-                className="text-4xl font-black uppercase leading-[0.9] tracking-tight sm:text-6xl lg:text-7xl"
+                en="Big data."
+                className="text-4xl font-semibold tracking-[-0.015em] leading-[0.95] sm:text-5xl lg:text-6xl"
               />
 
               <LocalizedText
                 as="h3"
                 th="ระเบียบวิธีของเรา"
-                en="Our Methodology"
-                className="mt-2 text-2xl font-black uppercase leading-tight tracking-tight text-[#44e5d0] sm:text-4xl lg:text-5xl"
+                en="Our methodology."
+                className="mt-2 text-2xl font-semibold tracking-[-0.015em] leading-tight text-[#44e5d0] sm:text-3xl lg:text-4xl"
               />
             </div>
 
-            <div className="rounded-[8px] border border-[#44e5d0]/20 bg-[#44e5d0]/10 p-4">
-              <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#73f3df]">
-                <LocalizedText as="span" th="เป้าหมายความเชื่อมั่น" en="Confidence Target" />
+            <div className="rounded-[14px] border border-[#44e5d0]/20 bg-[#44e5d0]/10 p-4">
+              <p className="text-[11px] font-semibold tracking-wide text-[#73f3df]">
+                <LocalizedText as="span" th="เป้าหมายความเชื่อมั่น" en="Confidence target" />
               </p>
               <p className="mt-2 text-4xl font-black leading-none text-white">95%</p>
               <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10">
@@ -79,30 +82,30 @@ export default function AuditorSegment12() {
           <LocalizedText
             as="p"
             th="VEKIN ผสานข้อมูล IoT ข้อมูลดาวเทียม Knowledge Graph ที่เข้าใจมาตรฐาน ISO และ Neural Networks ให้เป็นชั้นข้อมูลอัจฉริยะสำหรับการตรวจสอบที่โปร่งใสและพร้อมใช้งานระดับ Audit-grade"
-            en="VEKIN combines IoT, satellite data, ISO-aware Knowledge Graphs, and Neural Networks into one transparent audit-grade intelligence layer."
-            className="mt-6 max-w-2xl text-sm font-medium leading-relaxed text-white/76 sm:text-base lg:text-lg"
+            en="VEKIN combines IoT, satellite data, ISO-aware knowledge graphs, and neural networks into one transparent, audit-grade intelligence layer."
+            className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-white/75 lg:text-lg"
           />
 
           <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {methodLayers.map((layer, index) => (
               <div
                 key={layer.titleEn}
-                className="group rounded-[8px] border border-white/12 bg-white/[0.07] p-4 shadow-[0_14px_35px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-1 hover:border-[#44e5d0]/60 hover:bg-white/[0.11]"
+                className="group rounded-[14px] border border-white/12 bg-white/[0.07] p-4 shadow-[0_14px_35px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-1 hover:border-[#44e5d0]/60 hover:bg-white/[0.11]"
               >
-                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#44e5d0]">
+                <p className="text-[11px] font-semibold tracking-wide text-[#44e5d0]">
                   <LocalizedText as="span" th={`ชั้นที่ 0${index + 1}`} en={`Layer 0${index + 1}`} />
                 </p>
                 <LocalizedText
                   as="p"
                   th={layer.titleTh}
                   en={layer.titleEn}
-                  className="mt-3 text-base font-black uppercase leading-tight text-white"
+                  className="mt-3 text-base font-semibold tracking-[-0.01em] leading-tight text-white"
                 />
                 <LocalizedText
                   as="p"
                   th={layer.bodyTh}
                   en={layer.bodyEn}
-                  className="mt-2 text-xs font-semibold leading-relaxed text-white/58"
+                  className="mt-2 text-[13px] font-medium leading-relaxed text-white/60"
                 />
               </div>
             ))}

@@ -12,10 +12,11 @@ export default function AuditorSegment3() {
   return (
     <BidirectionalScrollReveal
       aria-labelledby="auditor-hero-3"
-      className="relative w-full overflow-hidden bg-black text-white"
+      className="relative -mt-24 w-full overflow-hidden bg-[#020706] text-white sm:-mt-32"
       amount={0.2}
-      duration={1.1}
-      offset={68}
+      duration={1.25}
+      exitDuration={0.85}
+      offset={36}
     >
       <img
         src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG3.png"
@@ -25,7 +26,8 @@ export default function AuditorSegment3() {
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18),rgba(0,0,0,0.48)_42%,rgba(0,0,0,0.84)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_26%_24%,rgba(68,229,208,0.24),transparent_28%),radial-gradient(circle_at_78%_68%,rgba(22,163,74,0.18),transparent_30%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-[#020706] via-[#020706]/90 to-transparent sm:h-96" />
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#020706] via-[#020706]/85 to-transparent sm:h-80" />
 
       <div className="absolute inset-0 flex items-center justify-center px-4 py-8 lg:justify-end lg:px-10">
         <div

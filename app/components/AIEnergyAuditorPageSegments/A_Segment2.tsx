@@ -8,9 +8,9 @@ const featureRows = [
   {
     image: "/VEKIN Resource all Product/VEKIN 3/Auditor_BG3.png",
     imageAlt: "AI energy auditor monitoring city systems",
-    eyebrowEn: "ENERGY",
+    eyebrowEn: "Energy",
     eyebrowTh: "พลังงาน",
-    titleEn: "MEASURE ACCURACY",
+    titleEn: "Measure with accuracy.",
     titleTh: "วัดผลอย่างแม่นยำ",
     copyEn:
       "AI-powered measurement turns complex building data into clear, audit-ready energy insight.",
@@ -23,7 +23,7 @@ const featureRows = [
     imageAlt: "Carbon footprint city model with verified building data",
     eyebrowEn: "AI",
     eyebrowTh: "AI",
-    titleEn: "ENERGY AUDITOR",
+    titleEn: "The energy auditor.",
     titleTh: "ผู้ตรวจสอบพลังงาน",
     copyEn:
       "VEKIN helps teams verify consumption, surface savings opportunities, and connect energy performance to trusted carbon decisions.",
@@ -89,19 +89,19 @@ export default function A_Segment2() {
                 as="p"
                 th={row.eyebrowTh}
                 en={row.eyebrowEn}
-                className="text-[clamp(2.6rem,10.4vw,7.8rem)] font-black uppercase leading-[0.78] tracking-normal text-[#62bd88]"
+                className="text-sm font-semibold tracking-wide text-[#0aa06e]"
               />
               <LocalizedText
                 as="h2"
                 th={row.titleTh}
                 en={row.titleEn}
-                className="mt-2 text-[clamp(2rem,5.1vw,4.75rem)] font-black uppercase leading-[0.92] tracking-normal text-[#62bd88]"
+                className="mt-3 text-[clamp(1.9rem,4.2vw,3.6rem)] font-semibold tracking-[-0.015em] leading-[1.05] text-[#62bd88]"
               />
               <LocalizedText
                 as="p"
                 th={row.copyTh}
                 en={row.copyEn}
-                className="mx-auto mt-6 max-w-[460px] text-sm font-semibold leading-relaxed text-[#65706a] sm:text-base md:mx-0"
+                className="mx-auto mt-5 max-w-[460px] text-base font-medium leading-relaxed text-[#6e6e73] sm:text-lg md:mx-0"
               />
             </motion.div>
           </motion.div>

@@ -73,7 +73,7 @@ export default function Segment3() {
       <p className="relative mx-auto mb-4 inline-flex rounded-[8px] border border-emerald-300/20 bg-white/[0.05] px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-200">
         Sustainable Experiences
       </p>
-      <h2 className="relative text-[clamp(2.45rem,9vw,5.9rem)] font-black leading-[1.02] tracking-normal text-white drop-shadow-[0_18px_44px_rgba(0,0,0,0.55)]">
+      <h2 className="relative bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2.45rem,9vw,5.9rem)] font-black leading-[1.02] tracking-normal text-transparent drop-shadow-[0_18px_44px_rgba(59,185,123,0.24)]">
         {copy.title}
       </h2>
     </div>
@@ -81,7 +81,7 @@ export default function Segment3() {
     {/* HERO CALLOUT STAT */}
     <div className="pointer-events-none relative w-full">
       <div className="absolute left-1/2 top-1/2 h-28 w-[min(760px,80vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/12 blur-3xl" />
-      <p className="relative mx-auto inline-block text-[clamp(2.6rem,11vw,5.8rem)] font-black uppercase leading-none tracking-normal text-white drop-shadow-[0_18px_48px_rgba(0,0,0,0.65)]">
+      <p className="relative mx-auto inline-block bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-[clamp(2.6rem,11vw,5.8rem)] font-black uppercase leading-none tracking-normal text-transparent drop-shadow-[0_18px_48px_rgba(59,185,123,0.28)]">
         {copy.reduce}
       </p>
     </div>

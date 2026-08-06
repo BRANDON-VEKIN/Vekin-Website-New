@@ -73,9 +73,12 @@ export default function AuditorSegment8() {
 
       <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8">
         <div className="absolute inset-0 flex flex-col items-start justify-center p-4 pt-24 sm:p-6 md:p-8 lg:p-10">
-          <div className="mb-5 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
-            <LocalizedText th="แรงขับเคลื่อนที่พิสูจน์แล้ว" en="Proven Momentum" />
-          </div>
+          <LocalizedText
+            as="p"
+            th="แรงขับเคลื่อนที่พิสูจน์แล้ว"
+            en="Proven momentum"
+            className="mb-4 text-sm font-semibold tracking-wide text-[#73f3df]"
+          />
           <button
             type="button"
             onClick={() => setIsOpen(true)}
@@ -84,12 +87,12 @@ export default function AuditorSegment8() {
             <LocalizedText
               as="h2"
               th="ความสำเร็จของเรา"
-              en="OUR SUCCESS"
-              className="max-w-5xl text-5xl font-black uppercase leading-[0.86] tracking-tight text-white transition-colors duration-300 group-hover:text-[#73f3df] sm:text-6xl md:text-8xl lg:text-[10rem]"
+              en="Our success."
+              className="max-w-5xl bg-gradient-to-r from-[#3BB97B] to-[#8ff7ea] bg-clip-text text-5xl font-semibold tracking-[-0.02em] leading-[0.95] text-transparent drop-shadow-[0_18px_52px_rgba(59,185,123,0.32)] transition duration-300 group-hover:drop-shadow-[0_22px_64px_rgba(59,185,123,0.44)] sm:text-6xl md:text-7xl lg:text-8xl"
             />
-            <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/[0.08] px-5 py-3 text-xs font-black uppercase tracking-[0.12em] text-white/78 transition-colors duration-300 group-hover:border-[#44e5d0]/50 group-hover:text-[#73f3df]">
-              <LocalizedText as="span" th="ดูเรื่องราวความสำเร็จ" en="View Success Stories" />
-              <span className="transition-transform duration-300 group-hover:translate-x-1">-&gt;</span>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/[0.1] px-5 py-2.5 text-[15px] font-medium text-white/85 backdrop-blur-md transition-colors duration-300 group-hover:bg-white/[0.16] group-hover:text-white">
+              <LocalizedText as="span" th="ดูเรื่องราวความสำเร็จ" en="View success stories" />
+              <span className="transition-transform duration-300 group-hover:translate-x-0.5">›</span>
             </div>
           </button>
         </div>
@@ -110,18 +113,21 @@ export default function AuditorSegment8() {
               className="absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-sm text-white/70 transition-all hover:bg-white/20 hover:text-white md:right-6 md:top-6 md:h-10 md:w-10 md:text-base"
               aria-label="Close modal"
             >
-              x
+              ×
             </button>
 
             <div className="mb-8 max-w-3xl">
-              <div className="mb-4 inline-flex rounded-full border border-[#44e5d0]/35 bg-[#44e5d0]/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#73f3df]">
-                <LocalizedText th="หลักฐานความสำเร็จ" en="Success Evidence" />
-              </div>
+              <LocalizedText
+                as="p"
+                th="หลักฐานความสำเร็จ"
+                en="Success evidence"
+                className="mb-3 text-sm font-semibold tracking-wide text-[#73f3df]"
+              />
               <LocalizedText
                 as="h3"
                 th="ความสำเร็จที่สร้างความเชื่อมั่น"
-                en="Success That Builds Trust"
-                className="text-3xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl"
+                en="Success that builds trust."
+                className="bg-gradient-to-r from-[#3BB97B] to-[#8ff7ea] bg-clip-text text-3xl font-semibold tracking-[-0.015em] leading-[1.05] text-transparent sm:text-4xl"
               />
             </div>
 
@@ -140,20 +146,20 @@ export default function AuditorSegment8() {
                   </div>
 
                   <div className="space-y-2 p-4 md:p-5">
-                    <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#73f3df]">
+                    <p className="text-[11px] font-semibold tracking-wide text-[#73f3df]">
                       <LocalizedText as="span" th={`เรื่องที่ 0${index + 1}`} en={`Story 0${index + 1}`} />
                     </p>
                     <LocalizedText
                       as="h3"
                       th={story.titleTh}
                       en={story.titleEn}
-                      className="text-xl font-black uppercase leading-tight tracking-tight text-white md:text-lg lg:text-xl"
+                      className="text-lg font-semibold tracking-[-0.01em] leading-tight text-white lg:text-xl"
                     />
                     <LocalizedText
                       as="p"
                       th={story.descTh}
                       en={story.descEn}
-                      className="text-xs leading-relaxed text-white/62 sm:text-sm md:text-[13px] lg:text-sm"
+                      className="text-[13px] font-medium leading-relaxed text-white/65 lg:text-sm"
                     />
                   </div>
                 </div>

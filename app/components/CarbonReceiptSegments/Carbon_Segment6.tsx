@@ -1,27 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
-type LocalizedTextProps = {
-  as?: React.ElementType;
-  th?: string;
-  en?: string;
-  className?: string;
-};
-
-function LocalizedText({
-  as: Component = "div",
-  th,
-  en,
-  className,
-}: LocalizedTextProps) {
-  const isThai =
-    typeof navigator !== "undefined" &&
-    Boolean(navigator.language) &&
-    navigator.language.toLowerCase().startsWith("th");
-
-  return <Component className={className}>{isThai ? th ?? en : en ?? th}</Component>;
-}
+import LocalizedText from "../LocalizedText";
 
 export default function CarbonSegmentDoubleImage() {
   // Simple state to track which image is currently brought to the front
@@ -45,7 +25,7 @@ export default function CarbonSegmentDoubleImage() {
   return (
     <section
       aria-label="Carbon Receipt"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-zinc-200 py-12 md:py-0"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-white py-12 md:py-0"
     >
       {/* 10. Ambient Soft Glow Element (Optimized sizes) */}
       <div className="absolute top-1/4 left-1/4 h-[220px] w-[220px] md:h-[450px] md:w-[450px] rounded-full bg-emerald-500/5 blur-[80px] md:blur-[140px] pointer-events-none" />
@@ -64,14 +44,14 @@ export default function CarbonSegmentDoubleImage() {
                 <LocalizedText
                   as="h1"
                   th="การจัดเรียง AI ที่แข็งแกร่ง"
-                  en="STRONG ARRANGEMENT OF AI"
-                  className="text-slate-900 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1]"
+                  en="A strong arrangement of AI."
+                  className="text-[#1d1d1f] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-[1.08]"
                 />
                 <LocalizedText
                   as="p"
                   th="เมื่อรวบรวมข้อมูลแล้ว AI จะประมวลผลข้อมูลโดยใช้เกณฑ์มาตรฐานที่สามารถปรับเปลี่ยนได้ตามภูมิภาคและอุตสาหกรรม"
-                  en="WHEN DATA IS COLLECTED, AI PROCESSES IT USING BENCHMARKS THAT CAN BE ADJUSTED BY REGION AND INDUSTRY."
-                  className="mt-6 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-semibold uppercase tracking-wider opacity-90"
+                  en="When data is collected, AI processes it using benchmarks that can be adjusted by region and industry."
+                  className="mt-6 text-[#6e6e73] text-base md:text-lg leading-relaxed font-medium"
                 />
               </div>
             ) : (
@@ -81,14 +61,14 @@ export default function CarbonSegmentDoubleImage() {
                 <LocalizedText
                   as="h1"
                   th="รูปแบบการเผยแพร่แบบสมัครสมาชิก"
-                  en="THE PUBLISH-SUBSCRIBE PUB MODEL"
-                  className="text-slate-900 text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1]"
+                  en="The publish-subscribe model."
+                  className="text-[#1d1d1f] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-[1.08]"
                 />
                 <LocalizedText
                   as="p"
-                  th="สามารถรวบรวมข้อมูลจากแหล่งต่างๆ ได้อย่างราบรื่นเพื่อสร้างศูนย์ข้อมูลที่แข็งแกร่ง > DATA NEXUS"
-                  en="ABLE TO COLLECT DATA FROM VARIOUS SOURCES SMOOTHLY TO CREATE A STRONG DATA NEXUS"
-                  className="mt-6 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-semibold uppercase tracking-wider opacity-90"
+                  th="สามารถรวบรวมข้อมูลจากแหล่งต่างๆ ได้อย่างราบรื่นเพื่อสร้างศูนย์ข้อมูลที่แข็งแกร่ง — Data Nexus"
+                  en="Able to collect data from various sources smoothly, creating one strong data nexus."
+                  className="mt-6 text-[#6e6e73] text-base md:text-lg leading-relaxed font-medium"
                 />
               </div>
             )}
@@ -101,7 +81,11 @@ export default function CarbonSegmentDoubleImage() {
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               {/* 9. Hide helper text on mobile */}
               <span className="hidden sm:inline">
-                Click the workspace to toggle isometric stack
+                <LocalizedText
+                  as="span"
+                  th="คลิกที่หน้าจอเพื่อสลับมุมมองไอโซเมตริก"
+                  en="Click the workspace to toggle isometric stack"
+                />
               </span>
             </button>
           </div>

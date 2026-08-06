@@ -1,24 +1,36 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
+import { useSiteLanguage } from "../siteLanguage";
 
-type LocalizedTextProps = {
-    as?: React.ElementType;
-    th: string;
-    en: string;
-    className?: string;
-};
-
-function LocalizedText({ as: Component = "div", th, en, className }: LocalizedTextProps) {
-    const isThai =
-        typeof navigator !== "undefined" && navigator.language.toLowerCase().startsWith("th");
-
-    return <Component className={className}>{isThai ? th : en}</Component>;
-}
+const copy = {
+    th: {
+        eyebrow: "เริ่มต้นวันนี้",
+        title: "ผู้ช่วยที่เชื่อถือได้ ในการตัดสินใจเพื่ออนาคตที่ยั่งยืน",
+        cta: "ทดลองใช้เลย",
+        learnMore: "ดูระเบียบวิธีของเรา",
+    },
+    en: {
+        eyebrow: "Start today",
+        title: "A reliable helper in decision making, for a sustainable future.",
+        cta: "Try it now",
+        learnMore: "See our methodology",
+    },
+} as const;
 
 export default function CarbonSegment10() {
+    const { language } = useSiteLanguage();
+    const text = copy[language];
+
     return (
-        <section
+        <BidirectionalScrollReveal
             aria-label="Carbon Receipt"
-            className="relative flex items-center justify-center h-screen w-full overflow-hidden"
+            amount={0.3}
+            duration={1}
+            offset={44}
+            className="relative flex h-screen w-full items-center overflow-hidden"
             style={{
                 backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG6.png')`,
                 backgroundPosition: "right",
@@ -26,31 +38,44 @@ export default function CarbonSegment10() {
                 backgroundRepeat: "no-repeat",
             }}
         >
-
             <div className="flex w-full">
-                <div className="w-full md:w-1/2 px-6">
-                    <LocalizedText
-                        as="h1"
-                        th="ผู้ช่วยที่เชื่อถือได้ในการตัดสินใจเพื่ออนาคตที่ยั่งยืน"
-                        en="A RELIABLE HELPER IN DECESION MAKING FOR A SUSTAINABLE FUTURE"
-                        className=" text-[#258974] text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight leading-tight"
-                    />
+                <div className="w-full space-y-6 px-6 sm:px-10 md:w-1/2 md:px-16">
+                    <p className="text-sm font-semibold tracking-wide text-[#0aa06e]">
+                        {text.eyebrow}
+                    </p>
 
-                    <a
-                        href="https://www.google.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-8"
-                    >
-                        <button
-                        className="rounded-full bg-gradient-to-r from-[#00464F] to-[#53BC81] px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    <h1 className="bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-3xl font-semibold tracking-[-0.015em] leading-[1.1] text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
+                        {text.title}
+                    </h1>
+
+                    <div className="flex flex-col items-start gap-5 pt-2 sm:flex-row sm:items-center sm:gap-8">
+                        <motion.a
+                            href="https://www.google.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                            className="inline-flex items-center rounded-full bg-[#0aa06e] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition-colors duration-300 hover:bg-[#0b8f63]"
                         >
-                        TRY IT NOW
-                        </button>
-                    </a>
+                            {text.cta}
+                        </motion.a>
+
+                        <a
+                            href="#methodology"
+                            className="group inline-flex items-center gap-1.5 text-[15px] font-medium text-[#0aa06e] transition-colors hover:text-[#00464F]"
+                        >
+                            {text.learnMore}
+                            <span
+                                aria-hidden="true"
+                                className="transition-transform duration-300 group-hover:translate-x-0.5"
+                            >
+                                ›
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </BidirectionalScrollReveal>
     );
 }
-

@@ -67,10 +67,11 @@ const businessTypes = [
 export default function AuditorSegment2() {
   return (
     <BidirectionalScrollReveal
-      className="relative w-full overflow-hidden bg-black text-white"
+      className="relative -mt-16 w-full overflow-hidden bg-[#020706] text-white sm:-mt-24"
       amount={0.2}
-      duration={1.05}
-      offset={64}
+      duration={1.25}
+      exitDuration={0.85}
+      offset={36}
     >
       <img
         src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG2.png"
@@ -79,6 +80,7 @@ export default function AuditorSegment2() {
       />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(0,167,155,0.32),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.38),rgba(0,0,0,0.78))]" />
+      <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[#020706] via-[#020706]/90 to-transparent sm:h-80" />
       <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/55 to-transparent" />
 
       <div className="absolute inset-0 flex items-center justify-center px-4 py-12 sm:px-6 md:py-16">

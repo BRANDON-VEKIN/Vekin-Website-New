@@ -93,21 +93,15 @@ export default function A_Segment() {
         >
           <LocalizedText
             as="h1"
-            th="แม่นยำ"
-            en="Accurate"
-            className="text-[clamp(3.4rem,9vw,6rem)] font-black uppercase leading-[0.9] tracking-normal"
-          />
-          <LocalizedText
-            as="p"
-            th="ข้อมูลเชิงลึกด้านพลังงาน"
-            en="Energy Insights"
-            className="mt-3 text-[clamp(2rem,5.6vw,4rem)] font-black uppercase leading-none tracking-normal"
+            th="ข้อมูลเชิงลึกด้านพลังงานที่แม่นยำ"
+            en="Accurate energy insights."
+            className="text-[clamp(2.6rem,6.5vw,5rem)] font-semibold tracking-[-0.015em] leading-[1.02]"
           />
           <LocalizedText
             as="p"
             th="ส่งมอบได้ทันที"
             en="Delivered in an instant."
-            className="mt-4 text-[clamp(1.1rem,2.8vw,1.75rem)] font-black uppercase tracking-[0.02em]"
+            className="mt-3 text-[clamp(1.4rem,3.4vw,2.4rem)] font-semibold tracking-[-0.015em] leading-tight text-white/85"
           />
         </motion.div>
 
@@ -124,8 +118,8 @@ export default function A_Segment() {
           <LocalizedText
             as="h2"
             th="ธุรกิจที่เหมาะกับ VEKIN"
-            en="Suitable Business For VEKIN"
-            className="relative text-[clamp(2rem,4.6vw,3.15rem)] font-black uppercase leading-tight drop-shadow-[0_10px_28px_rgba(0,0,0,0.36)]"
+            en="Suitable business for VEKIN."
+            className="relative text-[clamp(1.8rem,4vw,2.8rem)] font-semibold tracking-[-0.015em] leading-tight drop-shadow-[0_10px_28px_rgba(0,0,0,0.3)]"
           />
 
           <div className="relative mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 lg:mt-10">
@@ -146,7 +140,7 @@ export default function A_Segment() {
                   as="p"
                   th={item.th}
                   en={item.en}
-                  className="relative mt-4 text-sm font-black leading-tight text-white/90 sm:text-base"
+                  className="relative mt-4 text-sm font-medium tracking-[-0.01em] leading-snug text-white/90 sm:text-base"
                 />
               </div>
             ))}
