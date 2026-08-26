@@ -25,7 +25,7 @@ export default function DAPSegment6() {
             />
 
             <div className="mt-12">
-                <Link href="/dap/segment2-1">
+                <Link href="/contact">
                     <button className="rounded-full bg-gradient-to-r from-[#00464E] to-[#3BB97B] px-8 py-3 font-semibold text-white shadow-lg transition hover:scale-105">
                         Try it now
                     </button>

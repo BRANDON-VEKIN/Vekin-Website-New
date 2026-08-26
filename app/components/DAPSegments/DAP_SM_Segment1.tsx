@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 import LocalizedText from "../LocalizedText";
 
@@ -15,6 +16,9 @@ interface WorkspaceCard {
     tag: string;
     linkUrl: string; // Dynamic path binding property
 }
+
+// Only off-site destinations open in a new tab; in-app routes navigate in place.
+const isExternal = (url: string) => /^https?:\/\//.test(url);
 
 export default function DAP_Segment3() {
     const workspaces: WorkspaceCard[] = [
@@ -56,7 +60,7 @@ export default function DAP_Segment3() {
             descTh: "ระบบออกใบเสร็จรับเงินดิจิทัลควบคู่ไปกับการบันทึกเครดิตคาร์บอน ตรวจสอบมูลค่าธุรกรรมไปพร้อมๆ กับรอยเท้าคาร์บอนในระบบบัญชีอย่างปลอดภัย",
             descEn: "Digital invoice issuance meets precise carbon credit indexing. Audit corporate transactional statement chains alongside explicit greenhouse gas calculations.",
             imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon4.png",
-            linkUrl: "/carbon_receipt",
+            linkUrl: "/new_ec",
         },
     ];
 
@@ -80,12 +84,15 @@ export default function DAP_Segment3() {
 
             {/* 4 Clickable Containers Grid Layout */}
             <div className="w-full max-w-[1600px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {workspaces.map((card) => (
-                    <a 
+                {workspaces.map((card) => {
+                    const external = isExternal(card.linkUrl);
+                    const CardTag = external ? "a" : Link;
+
+                    return (
+                    <CardTag
                         key={card.id}
                         href={card.linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         className="bg-slate-900/40 backdrop-blur-md rounded-2xl border border-slate-800/80 p-5 md:p-6 flex flex-col justify-between overflow-hidden shadow-xl transition-all duration-300 hover:border-emerald-500/30 hover:shadow-emerald-500/5 group cursor-pointer decoration-none outline-none"
                     >
                         {/* Upper Content Box */}
@@ -116,8 +123,9 @@ export default function DAP_Segment3() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
                         </div>
-                    </a>
-                ))}
+                    </CardTag>
+                    );
+                })}
             </div>
         </section>
     );

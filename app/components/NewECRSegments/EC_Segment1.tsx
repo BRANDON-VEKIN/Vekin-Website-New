@@ -2,12 +2,14 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useSiteLanguage } from "../siteLanguage";
 
 export default function ECSegment1() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMobile, setIsMobile] = useState(false);
     const { language } = useSiteLanguage();
+    const router = useRouter();
 
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 1024px)");
@@ -262,7 +264,7 @@ export default function ECSegment1() {
                         className="absolute inset-0 z-40 flex items-center justify-center pointer-events-auto"
                     >
                         <motion.button
-                            onClick={() => window.open("https://www.google.com", "_blank")}
+                            onClick={() => router.push("/contact")}
                             className="cursor-pointer select-none rounded-full bg-gradient-to-r from-[#00464E] to-[#3BB97B] px-7 py-3 text-lg font-medium tracking-[-0.01em] text-white shadow-[0_18px_45px_rgba(0,70,79,0.3)] focus:outline-none sm:px-9 sm:py-4 sm:text-xl md:text-2xl"
                             whileHover={!isMobile ? { 
                                 scale: 1.06,
