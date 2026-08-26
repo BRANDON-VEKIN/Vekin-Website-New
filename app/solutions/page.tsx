@@ -72,9 +72,8 @@ export default function SolutionsPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2 rounded-full border border-[#3BB97B]/30 bg-[#3BB97B]/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7BE4B4]"
+            className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7BE4B4]"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#3BB97B]" />
             VEKIN NEXUS
           </motion.span>
 
