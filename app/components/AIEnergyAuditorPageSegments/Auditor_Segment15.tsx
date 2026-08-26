@@ -1,9 +1,15 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
+import PackagesModal from "../PackagesModal";
+import { packageTiers, packagesEyebrow, packagesTitle } from "../packagesData";
 
 export default function AuditorSegment15() {
+  const [isPackagesOpen, setIsPackagesOpen] = useState(false);
+
   return (
     <BidirectionalScrollReveal
       className="relative w-full overflow-hidden bg-black text-white"
@@ -44,19 +50,24 @@ export default function AuditorSegment15() {
           />
 
           <div className="mx-auto mt-9 flex w-full max-w-xl flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
-            <a
-              href="/package"
-              className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3 text-[15px] font-medium text-[#1d1d1f] transition-colors duration-300 hover:bg-white/85 sm:w-auto"
+            <button
+              type="button"
+              onClick={() => setIsPackagesOpen(true)}
+              className="inline-flex w-full items-center justify-center rounded-full bg-[#10b981] px-6 py-3 text-[15px] font-medium text-white transition-colors duration-300 hover:bg-[#0ea371] sm:w-auto"
             >
-              <LocalizedText as="span" th="ดูแพ็กเกจ" en="View package" />
-            </a>
-
-            <button className="inline-flex w-full items-center justify-center rounded-full bg-[#10b981] px-6 py-3 text-[15px] font-medium text-white transition-colors duration-300 hover:bg-[#0ea371] sm:w-auto">
-              <LocalizedText as="span" th="เพิ่ม LINE ผ่าน QR Code" en="Add LINE via QR code" />
+              <LocalizedText as="span" th="ขอใบเสนอราคา" en="Get Quotation" />
             </button>
           </div>
         </div>
       </div>
+
+      <PackagesModal
+        open={isPackagesOpen}
+        onClose={() => setIsPackagesOpen(false)}
+        packages={packageTiers}
+        eyebrow={packagesEyebrow}
+        title={packagesTitle}
+      />
     </BidirectionalScrollReveal>
   );
 }
