@@ -72,7 +72,7 @@ export default function SolutionsPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7BE4B4]"
+            className="text-[clamp(1.15rem,2.6vw,1.9rem)] font-bold uppercase tracking-[0.14em] text-[#7BE4B4]"
           >
             VEKIN NEXUS
           </motion.span>
