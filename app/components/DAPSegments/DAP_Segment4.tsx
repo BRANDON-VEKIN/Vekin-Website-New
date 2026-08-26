@@ -8,47 +8,66 @@ import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import LocalizedText from "../LocalizedText";
 import { useSiteLanguage } from "../siteLanguage";
 
-const mockIcons = [
-    { 
-        src: "/VEKIN Resource all Product/VEKIN 4/icon4.png", 
-        cert1: "/VEKIN Resource all Product/VEKIN 4/cert1.png",
-        cert2: "/VEKIN Resource all Product/VEKIN 4/cert2.png",
-        cert3: "/VEKIN Resource all Product/VEKIN 4/cert3.png",
-        cert4: "/VEKIN Resource all Product/VEKIN 4/cert4.png",
-        en: "ISO Base", 
+type IconMedia = { src: string; label: string };
+
+type IconEntry = {
+    src: string;
+    en: string;
+    th: string;
+    descEn: string;
+    descTh: string;
+    media: IconMedia[];
+};
+
+const isoCertBase = "/ISO Cert";
+const solutionsBase = "/VEKIN Resource all Product/Vekin Solutions";
+
+const mockIcons: IconEntry[] = [
+    {
+        src: "/VEKIN Resource all Product/VEKIN 4/icon4.png",
+        en: "ISO Base",
         th: "ฐานไอเอสโอ",
-        descEn: "Detailed breakdown of the ISO standardization criteria and compliance metrics tailored for your organizational blueprint.",
-        descTh: "รายละเอียดเกณฑ์มาตรฐาน ISO และตัวชี้วัดการปฏิบัติตามข้อกำหนดที่ออกแบบมาสำหรับพิมพ์เขียวขององค์กรคุณ"
+        descEn: "VEKIN’s digital trust infrastructure aligns with international standards including ISO 14064-1, 14064-2, 14065, 14067, and 17029. Its Knowledge Graph codifies these standards into AI-driven, consistent audit rules. This enables audit-grade accuracy for international climate finance and carbon markets.",
+        descTh: "โครงสร้างพื้นฐานความน่าเชื่อถือดิจิทัลของ VEKIN สอดคล้องกับมาตรฐานสากล ได้แก่ ISO 14064-1, 14064-2, 14065, 14067 และ 17029 โดย Knowledge Graph จะแปลงมาตรฐานเหล่านี้เป็นกฎการตรวจสอบที่ขับเคลื่อนด้วย AI อย่างสม่ำเสมอ ทำให้ได้ความแม่นยำระดับการตรวจประเมินสำหรับเงินทุนด้านสภาพภูมิอากาศและตลาดคาร์บอนระหว่างประเทศ",
+        media: [
+            { src: isoCertBase + "/thumb-iso14065.jpg", label: "ISO 14065 / 17029" },
+            { src: isoCertBase + "/thumb-iso42001.jpg", label: "ISO/IEC 42001" },
+            { src: isoCertBase + "/thumb-iso27001.jpg", label: "ISO/IEC 27001" },
+            { src: isoCertBase + "/thumb-iso29110.jpg", label: "ISO/IEC 29110" },
+            { src: isoCertBase + "/thumb-iso9001.jpg", label: "ISO 9001" }
+        ]
     },
-    { 
-        src: "/VEKIN Resource all Product/VEKIN 4/icon5.png", 
-        isometric_img1: "/VEKIN Resource all Product/VEKIN 4/icon5.png",
-        isometric_img2: "/VEKIN Resource all Product/VEKIN 4/icon5.png",
-        isometric_img3: "/VEKIN Resource all Product/VEKIN 4/icon5.png",
-        en: "Product & Service", 
+    {
+        src: "/VEKIN Resource all Product/VEKIN 4/icon5.png",
+        en: "Product & Service",
         th: "สินค้าและบริการ",
-        descEn: "Explore our dynamic catalogue of green solutions, micro-services, and platform optimizations architecture.",
-        descTh: "สำรวจแคตตาล็อกโซลูชันสีเขียว ไมโครเซอร์วิส และสถาปัตยกรรมการเพิ่มประสิทธิภาพแพลตฟอร์มของเรา"
+        descEn: "VEKIN provides an ESG Data Hub Ecosystem that measures, analyzes, and automates Scope 1, 2, and 3 emissions reporting. Its solutions include the AI Carbon Auditor, CERO Immersive Sustainability platform, and blockchain-secured Carbon Receipts. Flexible subscription tiers from Lite to Enterprise support organizations of different scales.",
+        descTh: "VEKIN นำเสนอระบบนิเวศ ESG Data Hub ที่วัด วิเคราะห์ และจัดทำรายงานการปล่อยก๊าซ Scope 1, 2 และ 3 แบบอัตโนมัติ โซลูชันประกอบด้วย AI Carbon Auditor แพลตฟอร์ม CERO Immersive Sustainability และ Carbon Receipt ที่ปลอดภัยด้วยบล็อกเชน พร้อมแผนสมัครสมาชิกที่ยืดหยุ่นตั้งแต่ Lite ถึง Enterprise เพื่อรองรับองค์กรทุกขนาด",
+        media: [
+            { src: solutionsBase + "/AI Carbon Auditor.png", label: "AI Carbon Auditor" },
+            { src: solutionsBase + "/CERO.png", label: "CERO" },
+            { src: solutionsBase + "/Carbon Receipt.png", label: "Carbon Receipt" },
+            { src: solutionsBase + "/DAP.png", label: "DAP" },
+            { src: solutionsBase + "/DEMP.png", label: "DEMP" },
+            { src: solutionsBase + "/Validate and Verify Service.png", label: "Validate & Verify Service" }
+        ]
     },
-    { 
-        src: "/VEKIN Resource all Product/VEKIN 4/icon6.png", 
-        isometric_img1: "/VEKIN Resource all Product/VEKIN 4/icon6.png",
-        isometric_img2: "/VEKIN Resource all Product/VEKIN 4/icon6.png",
-        isometric_img3: "/VEKIN Resource all Product/VEKIN 4/icon6.png",
-        isometric_img4: "/VEKIN Resource all Product/VEKIN 4/icon6.png",
-        en: "Carbon Emission Reduction", 
+    {
+        src: "/VEKIN Resource all Product/VEKIN 4/icon6.png",
+        en: "Carbon Emission Reduction",
         th: "การลดการปล่อยก๊าซคาร์บอน",
-        descEn: "Real-time auditing engines detecting greenhouse gas outputs, automating offsets, and suggesting cleaner pipeline alternatives.",
-        descTh: "เครื่องมือตรวจสอบแบบเรียลไทม์ที่ตรวจจับการปล่อยก๊าซเรือนกระจก ชดเชยอัตโนมัติ และแนะนำทางเลือกท่อส่งที่สะอาดกว่า"
+        descEn: "VEKIN automates carbon verification in real time, replacing manual audits that can take months. Its AI analyzes IoT and satellite data with 95% probabilistic accuracy, while reducing operational costs by 80%. Real-time insights help organizations identify waste, improve efficiency, and plan carbon reduction strategies.",
+        descTh: "VEKIN ทำการทวนสอบคาร์บอนแบบอัตโนมัติในเวลาจริง แทนที่การตรวจสอบด้วยมือที่ใช้เวลาหลายเดือน AI วิเคราะห์ข้อมูล IoT และดาวเทียมด้วยความแม่นยำเชิงความน่าจะเป็น 95% พร้อมลดต้นทุนการดำเนินงานลง 80% ข้อมูลเชิงลึกแบบเรียลไทม์ช่วยให้องค์กรค้นหาการสูญเปล่า เพิ่มประสิทธิภาพ และวางแผนกลยุทธ์ลดคาร์บอน",
+        media: []
     },
-    { 
-        src: "/VEKIN Resource all Product/VEKIN 4/icon7.png", 
-        isometric_img1: "/VEKIN Resource all Product/VEKIN 4/icon7.png",
-        en: "Organization Product Carbon Neutrality", 
+    {
+        src: "/VEKIN Resource all Product/VEKIN 4/icon7.png",
+        en: "Organization Product Carbon Neutrality",
         th: "ความเป็นกลางทางคาร์บอนขององค์กรและผลิตภัณฑ์",
-        descEn: "Strategic milestones roadmap leading to verified scopes 1, 2, and 3 carbon-neutral certifications.",
-        descTh: "แผนงานความสำเร็จเชิงกลยุทธ์ที่นำไปสู่การรับรองความเป็นกลางทางคาร์บอนในขอบเขตที่ 1, 2 และ 3 ที่ได้รับการตรวจสอบแล้ว"
-    },
+        descEn: "VEKIN enables secure Carbon Neutrality through blockchain-backed records that reduce greenwashing and fraud risks. Through CERO, organizations engage attendees with footprint tracking, NFT rewards, and instant carbon offsets via PromptPay. This transforms environmental data into bankable digital assets, supporting green financing and premium carbon markets.",
+        descTh: "VEKIN ช่วยให้เกิดความเป็นกลางทางคาร์บอนอย่างปลอดภัยด้วยบันทึกที่รองรับด้วยบล็อกเชน ซึ่งลดความเสี่ยงจาก Greenwashing และการทุจริต ผ่าน CERO องค์กรสามารถสร้างการมีส่วนร่วมกับผู้เข้าร่วมงานด้วยการติดตามคาร์บอนฟุตพริ้นท์ รางวัล NFT และการชดเชยคาร์บอนทันทีผ่าน PromptPay สิ่งนี้เปลี่ยนข้อมูลสิ่งแวดล้อมให้เป็นสินทรัพย์ดิจิทัลที่ธนาคารยอมรับ สนับสนุนการเงินสีเขียวและตลาดคาร์บอนคุณภาพสูง",
+        media: []
+    }
 ];
 
 export default function DAPSegment4() {
@@ -312,12 +331,13 @@ export default function DAPSegment4() {
             <AnimatePresence>
                 {activeModal !== null && (() => {
                     const current = mockIcons[activeModal];
+                    // Null for the text-only modals, which render no media block
                     const sectionLabel =
                         activeModal === 0
                             ? (isThai ? "การรับรองมาตรฐาน" : "Certifications")
                             : activeModal === 1
-                            ? (isThai ? "ไฮไลต์" : "Highlights")
-                            : (isThai ? "ขั้นตอนการทำงาน" : "Process");
+                            ? (isThai ? "โซลูชันของเรา" : "Our Solutions")
+                            : null;
 
                     return (
                         <motion.div
@@ -371,20 +391,32 @@ export default function DAPSegment4() {
                                 </div>
 
                                 {/* Section divider label */}
-                                <div className="mt-7 flex items-center gap-3">
-                                    <span className="h-px flex-1 bg-white/10" />
-                                    <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-300/70">
-                                        {sectionLabel}
-                                    </span>
-                                    <span className="h-px flex-1 bg-white/10" />
-                                </div>
+                                {sectionLabel && (
+                                    <div className="mt-7 flex items-center gap-3">
+                                        <span className="h-px flex-1 bg-white/10" />
+                                        <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-300/70">
+                                            {sectionLabel}
+                                        </span>
+                                        <span className="h-px flex-1 bg-white/10" />
+                                    </div>
+                                )}
 
-                                {/* Media: Certifications */}
+                                {/* Media: ISO certificates */}
                                 {activeModal === 0 && (
-                                    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                                        {[current.cert1, current.cert2, current.cert3, current.cert4].map((cert, index) => cert && (
-                                            <div key={index} className="group flex h-28 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:border-emerald-300/40 hover:bg-white/[0.08] md:h-36">
-                                                <img src={cert} alt="" className="max-h-full max-w-full object-contain transition duration-300 group-hover:scale-105" />
+                                    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5">
+                                        {current.media.map((item) => (
+                                            <div key={item.label} className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-2.5 transition hover:border-emerald-300/40 hover:bg-white/[0.08]">
+                                                <div className="overflow-hidden rounded-lg border border-white/10 bg-white">
+                                                    <img
+                                                        src={item.src}
+                                                        alt={item.label}
+                                                        loading="lazy"
+                                                        className="block aspect-[3/4] w-full object-cover object-top transition duration-300 group-hover:scale-105"
+                                                    />
+                                                </div>
+                                                <span className="mt-2 text-center text-[10px] font-semibold leading-tight text-white/75">
+                                                    {item.label}
+                                                </span>
                                             </div>
                                         ))}
                                     </div>
@@ -392,35 +424,25 @@ export default function DAPSegment4() {
 
                                 {/* Media: Product & Service */}
                                 {activeModal === 1 && (
-                                    <div className="mt-5 flex flex-row flex-wrap justify-center gap-3">
-                                        {[current.isometric_img1, current.isometric_img2, current.isometric_img3].map((img, index) => img && (
-                                            <div key={index} className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white p-2.5 shadow-md transition hover:-translate-y-1 md:h-28 md:w-28">
-                                                <img src={img} alt="" className="max-h-full max-w-full object-contain" />
+                                    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                                        {current.media.map((item) => (
+                                            <div key={item.label} className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.08]">
+                                                <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-white p-2 shadow-md md:h-24 md:w-24">
+                                                    <img
+                                                        src={item.src}
+                                                        alt={item.label}
+                                                        loading="lazy"
+                                                        className="max-h-full max-w-full object-contain"
+                                                    />
+                                                </div>
+                                                <span className="text-center text-[11px] font-semibold leading-tight text-white/80">
+                                                    {item.label}
+                                                </span>
                                             </div>
                                         ))}
                                     </div>
                                 )}
 
-                                {/* Media: Process steps */}
-                                {(activeModal === 2 || activeModal === 3) && (
-                                    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                                        {['isometric_img1', 'isometric_img2', 'isometric_img3', 'isometric_img4'].map((prop, idx) => {
-                                            const imgSrc = current[prop as keyof typeof current];
-                                            if (!imgSrc || typeof imgSrc !== "string") return null;
-                                            return (
-                                                <div key={idx} className="relative flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-3 transition hover:border-emerald-300/40 hover:bg-white/[0.08]">
-                                                    <span className="absolute left-2 top-2 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-bold text-white shadow">{idx + 1}</span>
-                                                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/90 p-2">
-                                                        <img src={imgSrc} alt="" className="h-full w-full object-contain" />
-                                                    </div>
-                                                    <span className="text-[11px] font-medium text-white/70">
-                                                        {isThai ? `ขั้นตอน ${idx + 1}` : `Step ${idx + 1}`}
-                                                    </span>
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                )}
                             </motion.div>
                         </motion.div>
                     );
