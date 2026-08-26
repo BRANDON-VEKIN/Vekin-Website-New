@@ -93,9 +93,9 @@ export default function SolutionsPage() {
               </>
             ) : (
               <>
-                One ecosystem,{" "}
+                One Ecosystem,{" "}
                 <span className="bg-gradient-to-r from-[#3BB97B] via-[#43dcae] to-[#00b59f] bg-clip-text text-transparent">
-                  six solutions
+                  Endless Sustainability
                 </span>
               </>
             )}
