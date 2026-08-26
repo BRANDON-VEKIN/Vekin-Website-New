@@ -88,7 +88,7 @@ export default function SolutionsPage() {
               <>
                 ระบบนิเวศเดียว{" "}
                 <span className="bg-gradient-to-r from-[#3BB97B] via-[#43dcae] to-[#00b59f] bg-clip-text text-transparent">
-                  หกโซลูชัน
+                  ความยั่งยืนที่ไม่สิ้นสุด
                 </span>
               </>
             ) : (
