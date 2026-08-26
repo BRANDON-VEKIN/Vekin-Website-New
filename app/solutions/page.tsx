@@ -75,7 +75,7 @@ export default function SolutionsPage() {
             className="inline-flex items-center gap-2 rounded-full border border-[#3BB97B]/30 bg-[#3BB97B]/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7BE4B4]"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[#3BB97B]" />
-            {language === "th" ? "โซลูชันของเรา" : "Our Solutions"}
+            VEKIN NEXUS
           </motion.span>
 
           <motion.h1
