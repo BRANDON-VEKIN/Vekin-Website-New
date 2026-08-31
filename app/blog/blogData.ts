@@ -37,7 +37,7 @@ export const blogPosts: readonly BlogPost[] = [
       en: "A holistic framework that embeds IoT, AI and blockchain into everyday actions, delivering passive real-time digital MRV of greenhouse gas emissions.",
       th: "กรอบแนวคิดที่ผสาน IoT, AI และบล็อกเชนเข้ากับกิจกรรมประจำวัน พร้อมระบบ MRV ดิจิทัลแบบเรียลไทม์สำหรับก๊าซเรือนกระจก"
     },
-    image: null,
+    image: "/Blog Image/IS Blog Image.jpg",
     featured: true,
     body: [
       {
@@ -104,7 +104,7 @@ export const blogPosts: readonly BlogPost[] = [
       en: "Built with Chulalongkorn University, the Office of SME Promotion and major banks, One-Click consolidates scattered data and automates greenhouse gas reporting — opening the door to green financing.",
       th: "พัฒนาร่วมกับจุฬาลงกรณ์มหาวิทยาลัย สสว. และสถาบันการเงินชั้นนำ เพื่อรวบรวมข้อมูลที่กระจัดกระจายและจัดทำรายงานก๊าซเรือนกระจกอัตโนมัติ เปิดทางสู่แหล่งเงินทุนสีเขียว"
     },
-    image: null,
+    image: "/Blog Image/OC Blog Image.jpg",
     featured: false,
     body: [
       {
@@ -157,7 +157,7 @@ export const blogPosts: readonly BlogPost[] = [
       en: "An alliance of five organisations led by TCEB launches a carbon-trading platform for Thailand's MICE sector, routing offset revenue back into local community projects.",
       th: "พันธมิตรห้าองค์กรนำโดย TCEB เปิดตัวแพลตฟอร์มซื้อขายคาร์บอนสำหรับอุตสาหกรรมไมซ์ของไทย พร้อมส่งรายได้จากการชดเชยกลับสู่ชุมชน"
     },
-    image: null,
+    image: "/Blog Image/Carbon 4 All Blog Image.jpg",
     featured: false,
     body: [
       {
@@ -197,7 +197,7 @@ export const blogPosts: readonly BlogPost[] = [
       en: "The Mall Group becomes the first Thai retailer to measure carbon reduction in tangible terms, with carbon-labelled products at Quartier Avenue and Gourmet Market.",
       th: "เดอะมอลล์ กรุ๊ป เป็นผู้ค้าปลีกรายแรกของไทยที่วัดผลการลดคาร์บอนอย่างเป็นรูปธรรม พร้อมสินค้าติดฉลากคาร์บอนที่ Quartier Avenue และ Gourmet Market"
     },
-    image: null,
+    image: "/Blog Image/Cero Carbon Wallet Image.jpg",
     featured: false,
     body: [
       {
