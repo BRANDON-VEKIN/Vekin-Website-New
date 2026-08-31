@@ -25,6 +25,7 @@ const companyLinks = [
   { label: "AI Energy Auditor", href: "/auditor" },
   { label: "E-Carbon Receipt", href: "/new_ec" },
   { label: "DAP Main", href: "/dap_new" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const socialLinks = [

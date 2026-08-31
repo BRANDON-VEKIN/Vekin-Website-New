@@ -9,6 +9,7 @@ const navItems = {
     { label: "แพคเกจ", href: "/package" },
     { label: "เกี่ยวกับเรา", href: "/about" },
     { label: "ผลงานของเรา", href: "/vekin_home#work" },
+    { label: "บล็อก", href: "/blog" },
     { label: "ติดต่อเรา", href: "/contact" },
   ],
   en: [
@@ -16,6 +17,7 @@ const navItems = {
     { label: "Packages", href: "/package" },
     { label: "About", href: "/about" },
     { label: "Our Work", href: "/vekin_home#work" },
+    { label: "Blog", href: "/blog" },
     { label: "Contact Us", href: "/contact" },
   ],
 } as const;
