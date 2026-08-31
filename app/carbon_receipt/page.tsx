@@ -11,6 +11,15 @@ import CarbonSegment10 from "../components/CarbonReceiptSegments/Carbon_Segment1
 
 
 
+import { pageMetadata } from "../seo";
+
+export const metadata = pageMetadata({
+  title: "Carbon Receipt",
+  description:
+    "Carbon Receipt captures and verifies carbon footprints for individual transactions, giving organisations transparent, ISO 14064-1-compliant emission tracking and real-time, verifiable data.",
+  path: "/carbon_receipt"
+});
+
 export default function CarbonReceiptPage() {
   return (
     <>

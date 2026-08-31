@@ -11,6 +11,15 @@ import Segment9 from "./components/ImmersiveSustainabilitySegments/Segment9";
 import Segment10 from "./components/ImmersiveSustainabilitySegments/Segment10";
 import Segment11 from "./components/ImmersiveSustainabilitySegments/Segment11";
 
+import { pageMetadata } from "./seo";
+
+export const metadata = pageMetadata({
+  title: "Immersive Sustainability",
+  description:
+    "Technology that blends sustainability data with on-site experiences, helping attendees understand the value of reducing carbon in a clear way.",
+  path: "/"
+});
+
 export default function Home() {
   return (
     <>

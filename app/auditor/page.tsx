@@ -16,6 +16,15 @@ import A_Segment2 from "../components/AIEnergyAuditorPageSegments/A_Segment2";
 import A_Segment3 from "../components/AIEnergyAuditorPageSegments/A_Segment3";
 import A_Segment4 from "../components/AIEnergyAuditorPageSegments/A_Segment4";
 
+import { pageMetadata } from "../seo";
+
+export const metadata = pageMetadata({
+  title: "AI Energy Auditor",
+  description:
+    "An intelligent platform that optimises energy efficiency through real-time monitoring and predictive analytics, turning energy data into trusted proof for savings, green finance and carbon opportunities.",
+  path: "/auditor"
+});
+
 export default function AuditorPage() {
   return (
     <>
