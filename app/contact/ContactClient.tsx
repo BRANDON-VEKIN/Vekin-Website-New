@@ -48,14 +48,46 @@ const channels: {
   },
 ];
 
-const topicOptions: Localized[] = [
-  { th: "ทั่วไป", en: "General" },
-  { th: "อุทธรณ์ - ผลการทวนสอบ/ตรวจสอบก๊าซเรือนกระจก", en: "Appeal - GHG Validation/Verification Statement" },
-  { th: "อุทธรณ์ - ผลการตรวจพบ", en: "Appeal - Finding Statement" },
-  { th: "ร้องเรียน - การปฏิบัติงานของผู้ตรวจ", en: "Complain - Auditor Performance" },
-  { th: "ร้องเรียน - กระบวนการทำงาน", en: "Complain - Working Process" },
-  { th: "อื่น ๆ", en: "Others" },
+/** Each topic carries its own sub-topics; picking a topic filters the second select. */
+const topicGroups: { topic: Localized; subTopics: Localized[] }[] = [
+  {
+    topic: { th: "ทั่วไป", en: "General" },
+    subTopics: [
+      { th: "ขอข้อมูลเพิ่มเติม", en: "Request for Information" },
+      { th: "ความร่วมมือ", en: "Partnership" },
+      { th: "ร่วมงานกับเรา", en: "Career" },
+      { th: "อื่น ๆ", en: "Other" },
+    ],
+  },
+  {
+    topic: { th: "บริการของ VEKIN", en: "VEKIN Services" },
+    subTopics: [
+      { th: "One Click", en: "One Click" },
+      { th: "Nexus (การลดคาร์บอน)", en: "Nexus (Decarbonization)" },
+      { th: "Nexus (พลังงาน)", en: "Nexus (Energy)" },
+      { th: "Immersive Sustainability", en: "Immersive Sustainability" },
+      { th: "E-Carbon Receipt", en: "E-Carbon Receipt" },
+    ],
+  },
+  {
+    topic: { th: "ร้องเรียนและอุทธรณ์", en: "Complaint and Appeal" },
+    subTopics: [
+      { th: "ร้องเรียน : การปฏิบัติงานของผู้ตรวจ", en: "Complaint : Auditor Performance" },
+      { th: "ร้องเรียน : กระบวนการทำงาน", en: "Complaint : Working Process" },
+      {
+        th: "อุทธรณ์ : ผลการทวนสอบ/ตรวจสอบก๊าซเรือนกระจก",
+        en: "Appeal : GHG Validation/Verification Statement",
+      },
+      { th: "อุทธรณ์ : ผลการตรวจพบ", en: "Appeal : Finding Statement" },
+    ],
+  },
 ];
+
+const topicOptions: Localized[] = topicGroups.map((group) => group.topic);
+
+function subTopicsFor(topicEn: string): Localized[] {
+  return topicGroups.find((group) => group.topic.en === topicEn)?.subTopics ?? [];
+}
 
 const roleOptions: Localized[] = [
   { th: "ลูกค้าปัจจุบัน", en: "Current Customer" },
@@ -237,6 +269,7 @@ export default function ContactClient() {
 
   const [submitted, setSubmitted] = useState(false);
   const [topic, setTopic] = useState("");
+  const [subTopic, setSubTopic] = useState("");
   const [role, setRole] = useState("");
   const heroRef = useRef<HTMLDivElement>(null);
   const [pointer, setPointer] = useState({ x: 0.5, y: 0.3 });
@@ -261,7 +294,7 @@ export default function ContactClient() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!topic || !role) {
+    if (!topic || !subTopic || !role) {
       setShowErrors(true);
       return;
     }
@@ -399,6 +432,8 @@ export default function ContactClient() {
                         value={topic}
                         onChange={(value) => {
                           setTopic(value);
+                          // Sub-topics differ per topic, so clear a stale selection.
+                          setSubTopic("");
                           setShowErrors(false);
                         }}
                         placeholder={language === "th" ? "เลือกหัวข้อ" : "Select a topic"}
@@ -410,6 +445,33 @@ export default function ContactClient() {
                         </p>
                       )}
                     </div>
+
+                    {topic && (
+                      <div>
+                        <label className={labelClass}>
+                          {language === "th" ? "หัวข้อย่อย" : "Sub Topic"}
+                        </label>
+                        <CustomSelect
+                          options={subTopicsFor(topic)}
+                          value={subTopic}
+                          onChange={(value) => {
+                            setSubTopic(value);
+                            setShowErrors(false);
+                          }}
+                          placeholder={
+                            language === "th" ? "เลือกหัวข้อย่อย" : "Select a sub topic"
+                          }
+                          language={language}
+                        />
+                        {showErrors && !subTopic && (
+                          <p className="mt-1.5 text-xs text-[#ff8f7a]">
+                            {language === "th"
+                              ? "กรุณาเลือกหัวข้อย่อย"
+                              : "Please select a sub topic."}
+                          </p>
+                        )}
+                      </div>
+                    )}
 
                     <div>
                       <label className={labelClass}>
@@ -605,16 +667,11 @@ export default function ContactClient() {
           </Reveal>
 
           <Reveal delay={0.1} className="mt-10">
-            <figure className="overflow-hidden rounded-[28px] border border-white/10 bg-white p-3 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:p-5">
-              <img
-                src={`${contactAssetBase}/VEKIN_Complaint_Process.png`}
-                alt={t(process.caption)}
-                className="mx-auto block h-auto w-full max-w-3xl rounded-2xl"
-              />
-              <figcaption className="mt-3 pb-1 text-center text-xs text-[#04120f]/50">
-                {t(process.caption)}
-              </figcaption>
-            </figure>
+            <img
+              src={`${contactAssetBase}/VEKIN_Complaint_Process.png`}
+              alt={t(process.caption)}
+              className="mx-auto block h-auto w-full max-w-3xl rounded-2xl"
+            />
           </Reveal>
         </section>
 
