@@ -6,8 +6,9 @@ import { motion } from "framer-motion";
 
 import Header from "../components/Header";
 import { useSiteLanguage } from "../components/siteLanguage";
+import NewsletterForm from "./NewsletterForm";
 import PostImage from "./PostImage";
-import { blogCategories, blogPosts, readingMinutes } from "./blogData";
+import { blogCategories, blogPosts, formatPostDate, readingMinutes } from "./blogData";
 
 const copy = {
   th: {
@@ -137,6 +138,8 @@ export default function BlogIndex() {
                   src={featured.image}
                   alt={featured.title.en}
                   label={t.imageSoon}
+                  naturalWidth={featured.imageWidth ?? undefined}
+                  renderedWidth={600}
                   priority
                   className="transition-transform duration-700 group-hover:scale-[1.04]"
                 />
@@ -150,6 +153,11 @@ export default function BlogIndex() {
                   <span className="rounded-full bg-[#3BB97B]/15 px-3 py-1 text-[#7BE4B4]">
                     {featured.category[language]}
                   </span>
+                  {featured.datePublished && (
+                    <time dateTime={featured.datePublished} className="text-white/40">
+                      {formatPostDate(featured, language)}
+                    </time>
+                  )}
                   <span className="text-white/40">
                     {readingMinutes(featured)} {t.minRead}
                   </span>
@@ -220,6 +228,8 @@ export default function BlogIndex() {
                         src={post.image}
                         alt={post.title.en}
                         label={t.imageSoon}
+                        naturalWidth={post.imageWidth ?? undefined}
+                        renderedWidth={380}
                         className="transition-transform duration-700 group-hover:scale-[1.05]"
                       />
                     </div>
@@ -229,6 +239,11 @@ export default function BlogIndex() {
                         <span className="rounded-full bg-[#3BB97B]/15 px-2.5 py-1 text-[#7BE4B4]">
                           {post.category[language]}
                         </span>
+                        {post.datePublished && (
+                          <time dateTime={post.datePublished} className="text-white/35">
+                            {formatPostDate(post, language)}
+                          </time>
+                        )}
                         <span className="text-white/35">
                           {readingMinutes(post)} {t.minRead}
                         </span>
@@ -287,27 +302,7 @@ export default function BlogIndex() {
               <p className="mt-2 text-sm leading-relaxed text-white/55">{t.newsletterBody}</p>
             </div>
 
-            <form
-              className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
-              onSubmit={(event) => event.preventDefault()}
-            >
-              <label htmlFor="newsletter-email" className="sr-only">
-                {t.newsletterPlaceholder}
-              </label>
-              <input
-                id="newsletter-email"
-                type="email"
-                required
-                placeholder={t.newsletterPlaceholder}
-                className="w-full rounded-full border border-white/15 bg-[#04120f]/70 px-5 py-3 text-sm text-white placeholder:text-white/35 focus:border-[#3BB97B]/60 focus:outline-none"
-              />
-              <button
-                type="submit"
-                className="shrink-0 rounded-full bg-[#3BB97B] px-6 py-3 text-sm font-semibold text-[#04120f] transition-colors duration-300 hover:bg-[#43dcae]"
-              >
-                {t.newsletterButton}
-              </button>
-            </form>
+            <NewsletterForm language={language} />
           </div>
           <p className="mt-3 text-center text-[11px] text-white/30 lg:text-right">
             {t.newsletterNote}

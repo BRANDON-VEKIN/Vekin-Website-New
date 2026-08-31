@@ -69,9 +69,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       url: ORGANIZATION.url,
       logo: ORGANIZATION.logo
     },
-    ...(post.image ? { image: `${SITE_URL}${post.image}` } : {})
-    // datePublished is deliberately absent: the source stories carry no
-    // publication date, and inventing one would misdate real customer work.
+    ...(post.image ? { image: `${SITE_URL}${post.image}` } : {}),
+    // Emitted only when a real date exists; a guess would misdate real work.
+    ...(post.datePublished ? { datePublished: post.datePublished } : {})
   };
 
   return (

@@ -17,7 +17,10 @@ const staticRoutes: { path: string; priority: number }[] = [
   { path: "/dap_new", priority: 0.7 },
   { path: "/dap_more", priority: 0.6 },
   { path: "/vekin_home", priority: 0.6 },
-  { path: "/methodology", priority: 0.5 }
+  { path: "/methodology", priority: 0.5 },
+  { path: "/pre-event", priority: 0.6 },
+  { path: "/during-event", priority: 0.6 },
+  { path: "/post-event", priority: 0.6 }
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

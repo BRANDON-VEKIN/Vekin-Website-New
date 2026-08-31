@@ -9,6 +9,14 @@ type PostImageProps = {
   label: string;
   className?: string;
   priority?: boolean;
+  /**
+   * Natural pixel width of the source. When it is too small to fill the frame,
+   * the image is shown contained at a sane size over a blurred copy of itself
+   * rather than being stretched to a soft, obviously-upscaled crop.
+   */
+  naturalWidth?: number;
+  /** Frame width in CSS pixels this instance renders at, used with naturalWidth. */
+  renderedWidth?: number;
 };
 
 /**
@@ -16,8 +24,42 @@ type PostImageProps = {
  * without an image never shows a broken frame. Set `image` on the post to a
  * path under /public and the real picture takes over with no other changes.
  */
-export default function PostImage({ src, alt, label, className = "", priority }: PostImageProps) {
+export default function PostImage({
+  src,
+  alt,
+  label,
+  className = "",
+  priority,
+  naturalWidth,
+  renderedWidth
+}: PostImageProps) {
   if (src) {
+    // Upscaling past ~1.5x is where a low-resolution source starts to look soft.
+    const upscaled =
+      !!naturalWidth && !!renderedWidth && renderedWidth / naturalWidth > 1.5;
+
+    if (upscaled) {
+      return (
+        <div className="relative h-full w-full overflow-hidden bg-[#04120f]">
+          {/* blurred fill so the frame stays full-bleed without stretching the source */}
+          <img
+            src={src}
+            alt=""
+            aria-hidden="true"
+            loading={priority ? "eager" : "lazy"}
+            className="absolute inset-0 h-full w-full scale-110 object-cover opacity-40 blur-2xl"
+          />
+          <img
+            src={src}
+            alt={alt}
+            loading={priority ? "eager" : "lazy"}
+            style={{ maxWidth: naturalWidth }}
+            className="relative mx-auto h-full w-auto max-h-full object-contain"
+          />
+        </div>
+      );
+    }
+
     return (
       <img
         src={src}

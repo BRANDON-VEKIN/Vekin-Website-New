@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import Header from "../../components/Header";
 import { useSiteLanguage } from "../../components/siteLanguage";
 import PostImage from "../PostImage";
-import { blogPosts, getPost, readingMinutes } from "../blogData";
+import { blogPosts, formatPostDate, getPost, readingMinutes } from "../blogData";
 
 const copy = {
   th: {
@@ -71,6 +71,11 @@ export default function BlogArticle({ slug }: { slug: string }) {
               <span className="rounded-full bg-[#3BB97B]/15 px-3 py-1 text-[#7BE4B4]">
                 {post.category[language]}
               </span>
+              {post.datePublished && (
+                <time dateTime={post.datePublished} className="text-white/40">
+                  {formatPostDate(post, language)}
+                </time>
+              )}
               <span className="text-white/40">
                 {readingMinutes(post)} {t.minRead}
               </span>
@@ -88,7 +93,14 @@ export default function BlogArticle({ slug }: { slug: string }) {
           </motion.header>
 
           <div className="mt-10 h-56 w-full overflow-hidden rounded-2xl border border-white/10 sm:h-80">
-            <PostImage src={post.image} alt={post.title.en} label={t.imageSoon} priority />
+            <PostImage
+              src={post.image}
+              alt={post.title.en}
+              label={t.imageSoon}
+              naturalWidth={post.imageWidth ?? undefined}
+              renderedWidth={770}
+              priority
+            />
           </div>
 
           <div className="mt-12 flex flex-col gap-10 pb-4">
@@ -105,7 +117,7 @@ export default function BlogArticle({ slug }: { slug: string }) {
                     key={pIndex}
                     className="mb-5 text-[15px] leading-[1.85] text-white/70 last:mb-0 sm:text-base"
                   >
-                    {paragraph}
+                    {paragraph[language]}
                   </p>
                 ))}
 
@@ -120,7 +132,7 @@ export default function BlogArticle({ slug }: { slug: string }) {
                           aria-hidden="true"
                           className="mt-[11px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#3BB97B]"
                         />
-                        <span>{item}</span>
+                        <span>{item[language]}</span>
                       </li>
                     ))}
                   </ul>
@@ -131,7 +143,7 @@ export default function BlogArticle({ slug }: { slug: string }) {
 
           {post.notice && (
             <p className="mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-[12px] leading-relaxed text-white/40">
-              {post.notice}
+              {post.notice[language]}
             </p>
           )}
 
@@ -164,6 +176,8 @@ export default function BlogArticle({ slug }: { slug: string }) {
                     src={item.image}
                     alt={item.title.en}
                     label={t.imageSoon}
+                    naturalWidth={item.imageWidth ?? undefined}
+                    renderedWidth={380}
                     className="transition-transform duration-700 group-hover:scale-[1.05]"
                   />
                 </div>
