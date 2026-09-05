@@ -1,8 +1,12 @@
 import type { PackageTier } from "./PackagesModal";
 
+// NOTE: priceFrom values below are PLACEHOLDERS for layout purposes only.
+// Replace with real commercial pricing before this goes live.
+
 export const packageTiers: readonly PackageTier[] = [
   {
     id: "carbon-event-dashboard",
+    priceFrom: 45000,
     title: {
       en: "Carbon Event Dashboard",
       th: "แดชบอร์ดคาร์บอนสำหรับงานอีเวนต์"
@@ -19,6 +23,7 @@ export const packageTiers: readonly PackageTier[] = [
   },
   {
     id: "carbon-footprint-of-event",
+    priceFrom: 120000,
     title: {
       en: "Carbon Footprint of Event",
       th: "คาร์บอนฟุตพริ้นท์ของงานอีเวนต์"
@@ -40,6 +45,7 @@ export const packageTiers: readonly PackageTier[] = [
   },
   {
     id: "full-immersive-sustainability",
+    priceFrom: 250000,
     title: {
       en: "Full Immersive Sustainability",
       th: "ความยั่งยืนแบบเต็มรูปแบบ"

@@ -14,6 +14,11 @@ export type PackageTier = {
   /** Tier this one builds on, rendered as an "Everything in ..." chip. */
   inherits?: Localized | null;
   features: readonly Localized[];
+  /**
+   * Indicative starting price in THB, shown on /package as "from".
+   * PLACEHOLDER FIGURES — replace with real commercial pricing before launch.
+   */
+  priceFrom?: number;
 };
 
 type PackagesModalProps = {

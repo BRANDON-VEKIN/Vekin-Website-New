@@ -72,7 +72,10 @@ export default function Methodology_Segment1() {
         >
   
 
-            <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 md:px-16 py-10 justify-center">
+            {/* pt clears the fixed header; "safe" centring falls back to the top
+                edge when the content is taller than the viewport, so the title
+                never ends up underneath the nav on short windows. */}
+            <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col px-6 md:px-16 pb-10 pt-28 md:pt-32 [justify-content:safe_center]">
                 
                 {/* Fixed Header Title */}
                 <h1 className="text-3xl md:text-5xl font-semibold text-[#00A79B] mb-8 md:mb-12">

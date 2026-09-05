@@ -64,8 +64,10 @@ export default function DAP_Segment3() {
         },
     ];
 
+    // pt clears the fixed header, which sits out of flow and would otherwise
+    // cover the heading.
     return (
-        <section className="w-full font-sans py-20 px-4 sm:px-6 md:px-8 flex flex-col items-center bg-slate-950">
+        <section className="w-full font-sans pb-20 pt-32 md:pt-36 px-4 sm:px-6 md:px-8 flex flex-col items-center bg-slate-950">
             {/* Header Area */}
             <div className="w-full max-w-[1600px] text-center mb-12 md:mb-16">
                 <LocalizedText 
