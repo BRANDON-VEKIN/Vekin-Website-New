@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import React from "react";
 
 import { ORGANIZATION, SITE_NAME, SITE_URL } from "../../siteConfig";
@@ -11,6 +12,14 @@ type PageProps = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
   return solutions.map((solution) => ({ slug: solution.slug }));
 }
+
+/**
+ * The solution list is a local module fixed at build time, so any slug outside
+ * generateStaticParams is a genuine 404. Refusing it at the routing layer means
+ * the status is set before the response starts streaming — notFound() alone
+ * cannot, because the root loading.tsx lets the shell flush with a 200 first.
+ */
+export const dynamicParams = false;
 
 /** Trims a long description down to a usable meta description. */
 function toDescription(text: string): string {
@@ -56,6 +65,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function SolutionDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const solution = getSolution(slug);
+
+  // Unreachable while dynamicParams is false, but keeps the 404 correct rather
+  // than rendering an empty product page if that ever changes.
+  if (!solution) notFound();
 
   const jsonLd = solution
     ? {
