@@ -139,14 +139,6 @@ export default function SolutionDetailClient() {
                   >
                     {language === "th" ? "พูดคุยกับเรา" : "Talk to Us"}
                   </Link>
-                  {solution.productPath && (
-                    <Link
-                      href={solution.productPath}
-                      className="rounded-full border border-white/25 px-7 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-                    >
-                      {language === "th" ? "ดูหน้าผลิตภัณฑ์" : "See the product page"}
-                    </Link>
-                  )}
                 </div>
               </Reveal>
             </div>

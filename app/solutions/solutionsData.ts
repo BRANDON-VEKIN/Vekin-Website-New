@@ -17,12 +17,6 @@ export type Solution = {
   steps?: Localized[];
   highlights?: Localized[];
   benefits?: Localized[];
-  /**
-   * A dedicated product page for this solution, when one exists. Only set it
-   * where the page is unambiguously the same product — the detail page links
-   * straight to it.
-   */
-  productPath?: string;
 };
 
 const iconBase = "/VEKIN Resource all Product/Vekin Solutions";
@@ -275,9 +269,6 @@ export const solutions: Solution[] = [
       th: "ใบเสร็จคาร์บอน",
       en: "Carbon Receipt",
     },
-    // /carbon_receipt is the same product: its page description is this entry's
-    // description word for word. Nothing else on the site linked to it.
-    productPath: "/carbon_receipt",
     icon: `${iconBase}/Carbon Receipt.webp`,
     accent: "#34d399",
     tagline: {
