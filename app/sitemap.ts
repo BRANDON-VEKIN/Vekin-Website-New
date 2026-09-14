@@ -21,7 +21,9 @@ const staticRoutes: { path: string; priority: number }[] = [
   { path: "/methodology", priority: 0.5 },
   { path: "/pre-event", priority: 0.6 },
   { path: "/during-event", priority: 0.6 },
-  { path: "/post-event", priority: 0.6 }
+  { path: "/post-event", priority: 0.6 },
+  { path: "/privacy", priority: 0.3 },
+  { path: "/terms", priority: 0.3 }
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

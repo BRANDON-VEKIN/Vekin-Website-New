@@ -30,9 +30,9 @@ const companyLinks = [
 ];
 
 const socialLinks = [
-  { label: "LINE", src: "/Vekin_Footer/Line.png", href: "#" },
-  { label: "WhatsApp", src: "/Vekin_Footer/Whatsapp.png", href: "#" },
-  { label: "LinkedIn", src: "/Vekin_Footer/Linkedin.png", href: "#" },
+  { label: "LINE", src: "/Vekin_Footer/Line.png", href: "/contact" },
+  { label: "WhatsApp", src: "/Vekin_Footer/Whatsapp.png", href: "/contact" },
+  { label: "LinkedIn", src: "/Vekin_Footer/Linkedin.png", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -69,7 +69,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  aria-label={social.label}
+                  aria-label={`Contact us — ${social.label}`}
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 transition duration-300 hover:-translate-y-0.5 hover:border-white/45 hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   <img
@@ -134,10 +134,10 @@ export default function Footer() {
         <div className="mt-10 flex flex-col gap-4 border-t border-white/15 pt-5 text-xs text-white/62 md:flex-row md:items-center md:justify-between">
           <p>&copy; 2026 Vekin (Thailand) Co., Ltd. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <a href="#" className="transition hover:text-white">
+            <a href="/privacy" className="transition hover:text-white">
               Privacy Policy
             </a>
-            <a href="#" className="transition hover:text-white">
+            <a href="/terms" className="transition hover:text-white">
               Terms of Service
             </a>
           </div>

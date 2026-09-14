@@ -16,9 +16,10 @@ export default function Segment10() {
 
   return (
     <BidirectionalScrollReveal
+      id="work"
       amount={0.12}
       duration={1.35}
-      className="relative overflow-hidden bg-black px-5 py-20 text-center text-white transform-gpu sm:px-8 sm:py-32"
+      className="relative overflow-hidden bg-black px-5 py-20 text-center text-white transform-gpu scroll-mt-24 sm:px-8 sm:py-32"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(16,185,129,0.14),transparent_34%),radial-gradient(circle_at_88%_12%,rgba(255,192,77,0.12),transparent_30%)]" />
       <motion.img

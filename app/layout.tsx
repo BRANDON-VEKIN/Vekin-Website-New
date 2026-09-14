@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "./components/Footer";
+import HashScroll from "./components/HashScroll";
 import { SiteLanguageProvider } from "./components/siteLanguage";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="th">
       <body>
         <SiteLanguageProvider>
+          <HashScroll />
           {children}
           <Footer />
         </SiteLanguageProvider>

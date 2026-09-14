@@ -50,9 +50,7 @@ export default function CarbonSegment10() {
 
                     <div className="flex flex-col items-start gap-5 pt-2 sm:flex-row sm:items-center sm:gap-8">
                         <motion.a
-                            href="https://www.google.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/contact"
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             transition={{ type: "spring", stiffness: 400, damping: 25 }}
