@@ -19,6 +19,14 @@ export const CONTACT_EMAIL = "contact@vekin.co.th";
  */
 export const NEWSLETTER_ENDPOINT = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT ?? "";
 
+/**
+ * Where the contact form POSTs the enquiry as JSON: topic, subTopic, role,
+ * email, phone and message. Set NEXT_PUBLIC_CONTACT_ENDPOINT to your form
+ * handler's URL; while it is empty the form hands the enquiry to the visitor's
+ * mail client pre-filled, so an enquiry is never silently dropped.
+ */
+export const CONTACT_ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "";
+
 export const ORGANIZATION = {
   name: "VEKIN (Thailand) Co., Ltd.",
   url: SITE_URL,

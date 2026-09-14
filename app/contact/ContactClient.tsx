@@ -2,10 +2,19 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Header from "../components/Header";
 import { useSiteLanguage } from "../components/siteLanguage";
+import { CONTACT_EMAIL, CONTACT_ENDPOINT } from "../siteConfig";
 
 type Localized = { th: string; en: string };
+
+/**
+ * "handoff" means the enquiry went to the visitor's mail client rather than to
+ * a server, so the confirmation has to ask them to press send — telling them we
+ * received it would not be true.
+ */
+type Status = "idle" | "submitting" | "sent" | "handoff" | "error";
 
 const contactAssetBase = "/VEKIN Resource all Product/Vekin Contact Us";
 
@@ -267,7 +276,7 @@ export default function ContactClient() {
   const { language } = useSiteLanguage();
   const t = (value: Localized) => value[language];
 
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const [topic, setTopic] = useState("");
   const [subTopic, setSubTopic] = useState("");
   const [role, setRole] = useState("");
@@ -292,13 +301,71 @@ export default function ContactClient() {
 
   const [showErrors, setShowErrors] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "submitting") return;
     if (!topic || !subTopic || !role) {
       setShowErrors(true);
       return;
     }
-    setSubmitted(true);
+
+    // The three selects are controlled; the rest are plain inputs.
+    const fields = new FormData(event.currentTarget);
+    const enquiry = {
+      topic,
+      subTopic,
+      role,
+      email: String(fields.get("email") ?? "").trim(),
+      phone: String(fields.get("phone") ?? "").trim(),
+      message: String(fields.get("message") ?? "").trim(),
+    };
+
+    // Without a configured handler there is nowhere to POST, so hand the
+    // enquiry to the visitor's mail client rather than silently dropping it.
+    if (!CONTACT_ENDPOINT) {
+      const subject = encodeURIComponent(
+        `Website enquiry: ${enquiry.topic} — ${enquiry.subTopic}`
+      );
+      const body = encodeURIComponent(
+        [
+          `Topic: ${enquiry.topic}`,
+          `Sub-topic: ${enquiry.subTopic}`,
+          `Role: ${enquiry.role}`,
+          `Email: ${enquiry.email}`,
+          `Phone: ${enquiry.phone || "—"}`,
+          "",
+          enquiry.message,
+        ].join("\n")
+      );
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      setStatus("handoff");
+      return;
+    }
+
+    setStatus("submitting");
+
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(enquiry),
+      });
+
+      if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  /** Clears the selects too, so "send another" starts from a blank form. */
+  function resetForm() {
+    setStatus("idle");
+    setTopic("");
+    setSubTopic("");
+    setRole("");
+    setShowErrors(false);
   }
 
   return (
@@ -366,7 +433,7 @@ export default function ContactClient() {
                   aria-hidden="true"
                   className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-[#3BB97B]/15 blur-3xl"
                 />
-                {submitted ? (
+                {status === "sent" || status === "handoff" ? (
                   <div className="relative flex min-h-[420px] flex-col items-center justify-center text-center">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#3BB97B] to-[#00b59f] shadow-[0_12px_36px_rgba(59,185,123,0.4)]">
                       <svg viewBox="0 0 24 24" className="h-8 w-8 fill-white" aria-hidden="true">
@@ -374,16 +441,26 @@ export default function ContactClient() {
                       </svg>
                     </div>
                     <h3 className="mt-6 text-2xl font-semibold">
-                      {language === "th" ? "ขอบคุณค่ะ!" : "Thank you!"}
+                      {status === "handoff"
+                        ? language === "th"
+                          ? "เกือบเสร็จแล้ว"
+                          : "Almost there"
+                        : language === "th"
+                          ? "ขอบคุณค่ะ!"
+                          : "Thank you!"}
                     </h3>
                     <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/65">
-                      {language === "th"
-                        ? "เราได้รับข้อความของคุณเรียบร้อยแล้ว ทีมงานจะติดต่อกลับโดยเร็วที่สุด"
-                        : "Your submission has been received. Our team will get back to you shortly."}
+                      {status === "handoff"
+                        ? language === "th"
+                          ? `เราเปิดอีเมลพร้อมรายละเอียดของคุณไว้แล้ว กรุณากดส่งในแอปอีเมลเพื่อให้ข้อความถึงเรา หากอีเมลไม่เปิดขึ้น ส่งมาที่ ${CONTACT_EMAIL} ได้โดยตรง`
+                          : `We've opened an email with your details filled in — press send in your mail app and it will reach us. If nothing opened, write to ${CONTACT_EMAIL} directly.`
+                        : language === "th"
+                          ? "เราได้รับข้อความของคุณเรียบร้อยแล้ว ทีมงานจะติดต่อกลับโดยเร็วที่สุด"
+                          : "Your submission has been received. Our team will get back to you shortly."}
                     </p>
                     <button
                       type="button"
-                      onClick={() => setSubmitted(false)}
+                      onClick={resetForm}
                       className="mt-8 rounded-full border border-white/25 px-6 py-2.5 text-sm font-medium text-white transition hover:bg-white/10"
                     >
                       {language === "th" ? "ส่งอีกข้อความ" : "Send another message"}
@@ -519,21 +596,45 @@ export default function ContactClient() {
                         className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/30 bg-white/10 accent-[#3BB97B]"
                       />
                       <span>
-                        {language === "th"
-                          ? "ฉันยอมรับข้อกำหนดและเงื่อนไข"
-                          : "I accept the Terms."}
+                        {language === "th" ? "ฉันยอมรับ" : "I accept the "}
+                        <Link
+                          href="/terms"
+                          // Without this the click also toggles the checkbox it sits inside.
+                          onClick={(event) => event.stopPropagation()}
+                          className="text-[#7BE4B4] underline underline-offset-4 transition hover:text-white"
+                        >
+                          {language === "th" ? "ข้อกำหนดและเงื่อนไข" : "Terms"}
+                        </Link>
+                        {language === "th" ? "" : "."}
                       </span>
                     </label>
 
                     <button
                       type="submit"
-                      className="group mt-1 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#3BB97B] to-[#00b59f] px-8 py-[18px] text-base font-semibold text-[#04120f] shadow-[0_14px_34px_rgba(59,185,123,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(59,185,123,0.5)]"
+                      disabled={status === "submitting"}
+                      className="group mt-1 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#3BB97B] to-[#00b59f] px-8 py-[18px] text-base font-semibold text-[#04120f] shadow-[0_14px_34px_rgba(59,185,123,0.35)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(59,185,123,0.5)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
                     >
-                      {language === "th" ? "ส่งข้อความ" : "Send message"}
-                      <span className="transition group-hover:translate-x-1" aria-hidden="true">
-                        →
-                      </span>
+                      {status === "submitting"
+                        ? language === "th"
+                          ? "กำลังส่ง…"
+                          : "Sending…"
+                        : language === "th"
+                          ? "ส่งข้อความ"
+                          : "Send message"}
+                      {status !== "submitting" && (
+                        <span className="transition group-hover:translate-x-1" aria-hidden="true">
+                          →
+                        </span>
+                      )}
                     </button>
+
+                    {status === "error" && (
+                      <p role="alert" className="text-sm leading-relaxed text-[#ff8f7a]">
+                        {language === "th"
+                          ? `ขออภัย ส่งข้อความไม่สำเร็จ กรุณาลองใหม่อีกครั้ง หรือส่งอีเมลมาที่ ${CONTACT_EMAIL}`
+                          : `Sorry — that didn't send. Please try again, or email us at ${CONTACT_EMAIL}.`}
+                      </p>
+                    )}
                   </form>
                 )}
               </div>
