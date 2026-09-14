@@ -18,7 +18,7 @@ type ProtocolStep = {
   revealAt: number;
 };
 
-const backgroundImage = "/VEKIN Resource all Product/VEKIN 3/Slide_BG1.png";
+const backgroundImage = "/VEKIN Resource all Product/VEKIN 3/Slide_BG1.webp";
 
 function ProtocolStepCard({
   index,
@@ -157,6 +157,8 @@ export default function A_Segment4() {
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-82"
+        loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.36)_46%,rgba(0,25,26,0.82)),linear-gradient(90deg,rgba(0,0,0,0.7),rgba(0,35,40,0.2)_50%,rgba(0,0,0,0.66))]" />
 

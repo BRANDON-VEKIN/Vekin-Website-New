@@ -44,9 +44,13 @@ export default function AuditorSegment6() {
       offset={64}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/CentralWorld_BG.jpg"
+        src="/VEKIN Resource all Product/VEKIN 3/CentralWorld_BG.webp"
         alt="CentralWorld background"
         className="block w-full min-h-[820px] object-cover sm:min-h-[780px] md:min-h-[720px] lg:min-h-0"
+        width={2062}
+        height={1239}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.24),rgba(0,0,0,0.58)_48%,rgba(0,0,0,0.88)_100%)]" />

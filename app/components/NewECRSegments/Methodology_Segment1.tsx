@@ -120,10 +120,14 @@ export default function Methodology_Segment1() {
                     <div className="flex-1 flex justify-center lg:justify-end w-full order-1 lg:order-2">
                         <div className="relative w-[280px] sm:w-[340px] md:w-[400px] xl:w-[440px] aspect-[9/19.5] max-h-[75vh] drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300">
                             <img
-                                src="/VEKIN Resource all Product/VEKIN 6/E_Carbon_Phone2.png"
+                                src="/VEKIN Resource all Product/VEKIN 6/E_Carbon_Phone2.webp"
                                 alt="E-Carbon Phone Interface Framework"
                                 className="w-full h-full object-contain"
                                 draggable={false}
+                              width={270}
+                              height={532}
+                              fetchPriority="high"
+                              decoding="async"
                             />
                         </div>
                     </div>

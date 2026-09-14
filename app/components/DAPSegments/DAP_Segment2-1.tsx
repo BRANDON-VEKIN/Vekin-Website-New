@@ -6,7 +6,7 @@ import LocalizedText from "../LocalizedText";
 const sections = [
     {
         title: "Stage 1",
-        bg: "/VEKIN Resource all Product/VEKIN 4/Stage1_BG.png",
+        bg: "/VEKIN Resource all Product/VEKIN 4/Stage1_BG.webp",
         textEn: "DATA HUB FOR SEAMLESS AI AUTOMATION",
         textTh: "ศูนย์กลางข้อมูลเพื่อระบบอัตโนมัติ AI ที่ไร้รอยต่อ",
         extraEn: "Additional insight: This section provides deeper context about stage 1, focusing on operational efficiency, sustainability metrics, and system integration across the supply chain.",
@@ -14,7 +14,7 @@ const sections = [
     },
     {
         title: "Stage 2",
-        bg: "/VEKIN Resource all Product/VEKIN 4/Stage2_BG.png",
+        bg: "/VEKIN Resource all Product/VEKIN 4/Stage2_BG.webp",
         textEn: "COMPLIANT REPORTING AND DYNAMIC VISUALIZATION",
         textTh: "การรายงานที่เป็นไปตามมาตรฐานและการแสดงข้อมูลเชิงภาพแบบไดนามิก",
         extraEn: "Additional insight: This section provides deeper context about stage 2, focusing on operational efficiency, sustainability metrics, and system integration across the supply chain.",
@@ -22,7 +22,7 @@ const sections = [
     },
     {
         title: "Stage 3",
-        bg: "/VEKIN Resource all Product/VEKIN 4/Stage3_BG.png",
+        bg: "/VEKIN Resource all Product/VEKIN 4/Stage3_BG.webp",
         textEn: "ESG VALUE TRANSFER",
         textTh: "การส่งต่อคุณค่าและการเปลี่ยนผ่านมูลค่า ESG",
         extraEn: "Additional insight: This section provides deeper context about stage 3, focusing on operational efficiency, sustainability metrics, and system integration across the supply chain.",
@@ -86,7 +86,7 @@ export default function DAPSegment2_1() {
                     
                     {/* MAIN TITLE (e.g. Stage 1) */}
                     <LocalizedText
-                        as="h1"
+                        as="h2"
                         th={sections[active].title}
                         en={sections[active].title}
                         className="mb-4 text-2xl font-bold sm:text-3xl lg:mb-6 lg:text-4xl"

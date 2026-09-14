@@ -19,9 +19,13 @@ export default function AuditorSegment3() {
       offset={36}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG3.png"
+        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG3.webp"
         alt="AI Energy Auditor Background"
         className="block w-full min-h-[720px] object-cover sm:min-h-[700px] md:min-h-[680px] lg:min-h-0"
+        width={1808}
+        height={1215}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.18),rgba(0,0,0,0.48)_42%,rgba(0,0,0,0.84)_100%)]" />

@@ -10,7 +10,8 @@ export const metadata = pageMetadata({
   title: "E-Carbon Receipts",
   description:
     "Digital receipts that pair every transaction with verified carbon data, so emissions are recorded and auditable alongside the sale itself.",
-  path: "/new_ec"
+  path: "/new_ec",
+  image: "/VEKIN Resource all Product/VEKIN 6/EC_BG.png"
 });
 
 export default function ECPage() {

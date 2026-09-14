@@ -24,7 +24,7 @@ function LocalizedText({
 
 const successStories = [
   {
-    src: "/VEKIN Resource all Product/VEKIN 3/Event_1.png",
+    src: "/VEKIN Resource all Product/VEKIN 3/Event_1.webp",
     titleTh: "นวัตกรรมที่เปลี่ยนเกม",
     titleEn: "Disruptive Matter",
     descTh:
@@ -33,7 +33,7 @@ const successStories = [
       "VEKIN provides a disruptive process for sustainability through its AI Carbon Auditor, replacing slow manual audits with real-time automated verification.",
   },
   {
-    src: "/VEKIN Resource all Product/VEKIN 3/Event_2.png",
+    src: "/VEKIN Resource all Product/VEKIN 3/Event_2.webp",
     titleTh: "ผู้เชี่ยวชาญด้านการพัฒนาแอป",
     titleEn: "Expert App Devs",
     descTh:
@@ -42,7 +42,7 @@ const successStories = [
       "Expert App Devs hosted a month-long tech event in Dubai, showcasing mobile solutions and connecting with global partners at GITEX Global.",
   },
   {
-    src: "/VEKIN Resource all Product/VEKIN 3/Event_3.png",
+    src: "/VEKIN Resource all Product/VEKIN 3/Event_3.webp",
     titleTh: "EXPO 2030",
     titleEn: "EXPO 2030",
     descTh:
@@ -63,9 +63,13 @@ export default function AuditorSegment8() {
       offset={64}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG6.png"
+        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG6.webp"
         alt="Auditor background"
         className="block w-full min-h-[680px] object-cover sm:min-h-[700px] md:min-h-[660px] lg:min-h-0"
+        width={1872}
+        height={1215}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.78)),radial-gradient(circle_at_24%_28%,rgba(68,229,208,0.26),transparent_32%)]" />
@@ -142,6 +146,8 @@ export default function AuditorSegment8() {
                       src={story.src}
                       alt={`Story Visual ${index + 1}`}
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
 

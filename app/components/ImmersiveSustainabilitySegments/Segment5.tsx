@@ -3,6 +3,7 @@
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { eventCards } from "../homeData";
 import { useSiteLanguage } from "../siteLanguage";
@@ -38,9 +39,9 @@ export default function Segment5() {
   const { language } = useSiteLanguage();
 
   const images = [
-    "/VEKIN Resource all Product/VEKIN 1/pre_event.png",
-    "/VEKIN Resource all Product/VEKIN 1/during_event.png",
-    "/VEKIN Resource all Product/VEKIN 1/post_event.png",
+    "/VEKIN Resource all Product/VEKIN 1/pre_event.webp",
+    "/VEKIN Resource all Product/VEKIN 1/during_event.webp",
+    "/VEKIN Resource all Product/VEKIN 1/post_event.webp",
   ];
 
   return (
@@ -73,10 +74,12 @@ export default function Segment5() {
                 aria-label={`Open ${card.title[language]} page`}
               >
                 {/* BACKGROUND CANVAS GRAPHIC */}
-                <img
+                <Image
                   src={card.image || images[index] || images[0]}
                   alt={`${card.title[language]} preview`}
-                  className="absolute inset-0 h-full w-full object-cover transition duration-[1100ms] ease-out group-hover:scale-110 group-hover:brightness-110 group-focus-visible:scale-110 group-focus-visible:brightness-110 select-none pointer-events-none"
+                  fill
+                  sizes="(min-width: 640px) 34vw, 100vw"
+                  className="object-cover transition duration-[1100ms] ease-out group-hover:scale-110 group-hover:brightness-110 group-focus-visible:scale-110 group-focus-visible:brightness-110 select-none pointer-events-none"
                 />
 
                 {/* HIGH-CONTRAST MASK LAYERS */}

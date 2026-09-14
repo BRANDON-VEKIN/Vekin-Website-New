@@ -8,7 +8,8 @@ export const metadata = pageMetadata({
   title: "Our Methodology",
   description:
     "How VEKIN measures emissions across transport, production and distribution — optimising each stage to cut fuel use and carbon while keeping the supply chain efficient.",
-  path: "/methodology"
+  path: "/methodology",
+  image: "/VEKIN Resource all Product/VEKIN 6/EC_BG.png"
 });
 
 export default function MethodologyPage() {

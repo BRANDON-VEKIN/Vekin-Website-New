@@ -18,9 +18,13 @@ export default function AuditorSegment15() {
       offset={52}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/BKK_Park_2.jpg"
+        src="/VEKIN Resource all Product/VEKIN 3/BKK_Park_2.webp"
         alt="Bangkok Park background"
         className="block w-full min-h-[560px] object-cover object-center sm:min-h-[620px] md:min-h-0 md:h-auto"
+        width={1200}
+        height={675}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.26),rgba(0,0,0,0.72)),radial-gradient(circle_at_50%_28%,rgba(68,229,208,0.24),transparent_34%)]" />

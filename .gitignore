@@ -18,3 +18,7 @@ coverage
 /.pnp.js
 .turbo
 public/npm-debug.log
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+*.tsbuildinfo

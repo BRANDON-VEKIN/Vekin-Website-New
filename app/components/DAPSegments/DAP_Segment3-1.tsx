@@ -14,9 +14,13 @@ export default function DAPSegment3_1() {
     {/* BACKGROUND IMAGE CONTAINER */}
     <div className="absolute inset-0 z-0">
         <img 
-            src="/VEKIN Resource all Product/VEKIN 4/DAP_BG3.png" 
+            src="/VEKIN Resource all Product/VEKIN 4/DAP_BG3.webp" 
             alt="Background" 
             className="h-full w-full object-cover"
+          width={1440}
+          height={969}
+          fetchPriority="high"
+          decoding="async"
         />
     </div>
     
@@ -29,7 +33,7 @@ export default function DAPSegment3_1() {
             {/* LEFT COLUMN: CONCEPT TEXT (Takes up 2/5 or 40% space on desktop) */}
             <div className="md:col-span-2">
                 <LocalizedText 
-                    as="h2"
+                    as="h1"
                     en="Concept" 
                     th="แนวคิด" 
                     className="text-3xl md:text-6xl font-bold text-gray-900" 

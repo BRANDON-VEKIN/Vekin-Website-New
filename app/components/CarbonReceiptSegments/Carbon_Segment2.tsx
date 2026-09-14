@@ -37,9 +37,9 @@ export default function CarbonSegment2() {
                     {text.eyebrow}
                 </p>
 
-                <h1 className="mt-4 bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-4xl font-semibold tracking-[-0.015em] leading-[1.08] text-transparent sm:text-5xl md:text-6xl">
+                <h2 className="mt-4 bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-4xl font-semibold tracking-[-0.015em] leading-[1.08] text-transparent sm:text-5xl md:text-6xl">
                     {text.title}
-                </h1>
+                </h2>
 
                 <div className="mt-10 flex flex-col items-center gap-5 sm:flex-row sm:gap-8">
                     <motion.a

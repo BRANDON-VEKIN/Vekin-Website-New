@@ -57,6 +57,10 @@ export default function Footer() {
               src="/Vekin_Footer/Logo.png"
               alt="Vekin"
               className="h-11 w-auto object-contain"
+              width={178}
+              height={52}
+              loading="lazy"
+              decoding="async"
             />
             <p className="mt-5 max-w-md text-sm leading-6 text-white/75">
               Sustainable logistics, energy intelligence, and ESG data
@@ -76,6 +80,8 @@ export default function Footer() {
                     src={social.src}
                     alt=""
                     className="h-[18px] w-[18px] object-contain opacity-95"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </a>
               ))}

@@ -25,7 +25,7 @@ export default function DAPSegment2() {
     return (
         <section
             className="min-h-screen md:h-[180vh] relative w-full font-sans overflow-hidden flex flex-col items-center justify-center p-4 sm:p-8 md:p-12 bg-cover bg-center bg-no-repeat bg-slate-900" 
-            style={{ backgroundImage: "url('/VEKIN Resource all Product/VEKIN 4/DAP_BG5.png')" }}
+            style={{ backgroundImage: "url('/VEKIN Resource all Product/VEKIN 4/DAP_BG5.webp')" }}
         > 
             
             {/* 1. EVENT VIEW */}
@@ -40,7 +40,7 @@ export default function DAPSegment2() {
                         Workspace
                     </div>
                     <LocalizedText 
-                        as="h1" 
+                        as="h2" 
                         th="กิจกรรมประยุกต์" 
                         en="Events" 
                         className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"
@@ -94,12 +94,15 @@ export default function DAPSegment2() {
                             
                             <div className="flex-1 overflow-x-auto md:overflow-x-hidden overflow-y-hidden md:overflow-y-auto p-4 flex flex-row md:flex-col gap-4 md:space-y-[-24px] md:gap-0 hover:space-y-2 transition-all duration-300 pb-6 md:pb-12 scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:none">
                                 {[
-                                    { tag: "Conference", title: "True Digital Park", src: "/VEKIN Resource all Product/VEKIN 4/Event1.png" },
-                                    { tag: "Workshop", title: "One Bangkok", src: "/VEKIN Resource all Product/VEKIN 4/Event2.png" },
-                                    { tag: "Networking", title: "Siam Paragon", src: "/VEKIN Resource all Product/VEKIN 4/Event3.png" }
+                                    { tag: "Conference", title: "True Digital Park", src: "/VEKIN Resource all Product/VEKIN 4/Event1.webp" },
+                                    { tag: "Workshop", title: "One Bangkok", src: "/VEKIN Resource all Product/VEKIN 4/Event2.webp" },
+                                    { tag: "Networking", title: "Siam Paragon", src: "/VEKIN Resource all Product/VEKIN 4/Event3.webp" }
                                 ].map((card, i) => (
                                     <div key={i} className="w-48 sm:w-60 md:w-full h-32 md:h-44 shrink-0 rounded-xl md:rounded-2xl shadow-lg border border-white/10 relative overflow-hidden group transform hover:-translate-y-1 md:hover:-translate-y-2 transition duration-200 bg-slate-800 origin-bottom">
-                                        <img src={card.src} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+                                        <img src={card.src} alt={card.title} className="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105"
+                                          loading="lazy"
+                                          decoding="async"
+                                        />
                                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
                                         <div className="absolute bottom-3 left-3 right-3 z-10 text-white">
                                             <span className="text-[8px] font-bold tracking-wider uppercase text-emerald-400">{card.tag}</span>
@@ -126,7 +129,7 @@ export default function DAPSegment2() {
                         Workspace
                     </div>
                     <LocalizedText 
-                        as="h1" 
+                        as="h2" 
                         th="แดชบอร์ดข้อมูล" 
                         en="Dashboard" 
                         className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"
@@ -189,7 +192,7 @@ export default function DAPSegment2() {
                         Workspace
                     </div>
                     <LocalizedText 
-                        as="h1" 
+                        as="h2" 
                         th="รายงานสรุปผล" 
                         en="Reports" 
                         className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"
@@ -252,7 +255,7 @@ export default function DAPSegment2() {
                         Workspace
                     </div>
                     <LocalizedText 
-                        as="h1" 
+                        as="h2" 
                         th="ใบเสร็จรับเงิน" 
                         en="Receipts" 
                         className="mb-4 bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-black tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-5xl md:mb-8 md:text-6xl"

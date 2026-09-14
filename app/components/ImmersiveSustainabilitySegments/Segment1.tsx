@@ -92,6 +92,7 @@ export default function Segment1() {
         <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/75 to-transparent" />
         <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-200/45 to-transparent" />
         <SectionCopy
+          as="h1"
           eyebrow={language === "en" ? undefined : copy.eyebrow}
           title={copy.title}
           titleClass="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-transparent drop-shadow-[0_16px_44px_rgba(59,185,123,0.28)]"

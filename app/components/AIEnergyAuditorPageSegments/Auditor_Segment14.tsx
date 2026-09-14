@@ -13,8 +13,8 @@ export default function ClientCarousel() {
     "/VEKIN Resource all Product/VEKIN 3/Partner7.png",
     "/VEKIN Resource all Product/VEKIN 3/Partner8.png",
     "/VEKIN Resource all Product/VEKIN 3/Partner9.jpg",
-    "/VEKIN Resource all Product/VEKIN 3/Partner10.png",
-    "/VEKIN Resource all Product/VEKIN 3/Partner11.jpg",
+    "/VEKIN Resource all Product/VEKIN 3/Partner10.webp",
+    "/VEKIN Resource all Product/VEKIN 3/Partner11.webp",
   ];
 
   const duplicatedLogos = [...logos, ...logos, ...logos];
@@ -74,6 +74,8 @@ export default function ClientCarousel() {
                 src={src}
                 alt={`Client Logo ${index + 1}`}
                 className="h-full w-full rounded-full object-contain opacity-80 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           ))}

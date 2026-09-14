@@ -9,8 +9,8 @@ import { useSiteLanguage } from "../siteLanguage";
 const slideData = [
     {
         id: "ocr",
-        icon: "/VEKIN Resource all Product/VEKIN 4/icon1.png",
-        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon12.png",
+        icon: "/VEKIN Resource all Product/VEKIN 4/Icon1.png",
+        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon12.webp",
         title: { en: "OCR-RPA", th: "ระบบ OCR-RPA" },
         subtitle: { en: "Supports a variety of technologies.", th: "รองรับเทคโนโลยีที่หลากหลาย" },
         features: [
@@ -23,8 +23,8 @@ const slideData = [
     },
     {
         id: "dashboard",
-        icon: "/VEKIN Resource all Product/VEKIN 4/icon1.png",
-        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon11.png",
+        icon: "/VEKIN Resource all Product/VEKIN 4/Icon1.png",
+        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon11.webp",
         title: { en: "Dynamic dashboard", th: "แดชบอร์ดอัจฉริยะ" },
         subtitle: { en: "Customize how you view your data.", th: "สามารถปรับแต่งมุมมองข้อมูลได้" },
         features: [
@@ -35,8 +35,8 @@ const slideData = [
     },
     {
         id: "ai",
-        icon: "/VEKIN Resource all Product/VEKIN 4/icon1.png",
-        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon10.png",
+        icon: "/VEKIN Resource all Product/VEKIN 4/Icon1.png",
+        displayImage: "/VEKIN Resource all Product/VEKIN 4/Icon10.webp",
         title: { en: "AI allocates data", th: "เอไอจัดสรรข้อมูล" },
         subtitle: { en: "Data source management, handled for you.", th: "การจัดการแหล่งที่มาข้อมูล" },
         features: [
@@ -115,6 +115,8 @@ function SliderContent() {
                                     src={activeSlide.icon}
                                     alt=""
                                     className="h-10 w-auto object-contain md:h-14"
+                                  fetchPriority="high"
+                                  decoding="async"
                                 />
                             </div>
 
@@ -184,6 +186,8 @@ function SliderContent() {
                                 }}
                                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                                 className="absolute inset-0 h-full w-full object-cover"
+                              fetchPriority="high"
+                              decoding="async"
                             />
                         ))}
                     </div>
@@ -235,7 +239,7 @@ export default function DAPSegment4_1() {
             aria-label="DAP Segment 4 Details"
             className="relative h-screen w-full overflow-hidden"
             style={{
-                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 4/DAP_Slide1.png')`,
+                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 4/DAP_Slide1.webp')`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",

@@ -155,19 +155,38 @@ export default function ECSegment1() {
                             className="absolute inset-0 w-full h-full"
                         >
                             <img
-                                src="/VEKIN Resource all Product/VEKIN 6/E_Carbon_Phone.png"
+                                src="/VEKIN Resource all Product/VEKIN 6/E_Carbon_Phone.webp"
                                 alt="Carbon Credit Phone Frame 1"
                                 className="h-full w-full object-contain"
                                 draggable={false}
+                              width={537}
+                              height={597}
+                              fetchPriority="high"
+                              decoding="async"
                             />
                             <motion.div style={{ opacity: imgLayers1Opacity, y: imgLayers1Y, scale: imgLayers1Scale, visibility: imgLayers1Visibility }} className="absolute inset-0 pointer-events-none">
-                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_1.1.png" alt="Overlay 1.1" className="h-full w-full object-contain" draggable={false} />
+                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_1.1.png" alt="Overlay 1.1" className="h-full w-full object-contain" draggable={false}
+                                  width={715}
+                                  height={741}
+                                  fetchPriority="high"
+                                  decoding="async"
+                                />
                             </motion.div>
                             <motion.div style={{ opacity: imgLayers1Opacity, y: imgLayers1Y, scale: imgLayers1Scale, visibility: imgLayers1Visibility }} className="absolute inset-0 pointer-events-none">
-                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_1.2.png" alt="Overlay 1.2" className="h-full w-full object-contain" draggable={false} />
+                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_1.2.webp" alt="Overlay 1.2" className="h-full w-full object-contain" draggable={false}
+                                  width={715}
+                                  height={742}
+                                  fetchPriority="high"
+                                  decoding="async"
+                                />
                             </motion.div>
                             <motion.div style={{ opacity: imgLayer2Opacity, y: imgLayer2Y, scale: imgLayer2Scale, visibility: imgLayer2Visibility }} className="absolute inset-0 pointer-events-none">
-                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_2.png" alt="Overlay 2" className="h-full w-full object-contain" draggable={false} />
+                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_2.png" alt="Overlay 2" className="h-full w-full object-contain" draggable={false}
+                                  width={715}
+                                  height={741}
+                                  fetchPriority="high"
+                                  decoding="async"
+                                />
                             </motion.div>
                         </motion.div>
 
@@ -178,10 +197,14 @@ export default function ECSegment1() {
                             className="absolute inset-0 w-full h-full"
                         >
                             <img
-                                src="/VEKIN Resource all Product/VEKIN 6/E_Carbon_Phone2.png"
+                                src="/VEKIN Resource all Product/VEKIN 6/E_Carbon_Phone2.webp"
                                 alt="Carbon Credit Phone Frame 2"
                                 className="h-full w-full object-contain"
                                 draggable={false}
+                              width={270}
+                              height={532}
+                              fetchPriority="high"
+                              decoding="async"
                             />
 
                             {/* Card Layer 3 (Top Left - Spans further outside phone boundaries via negative coordinates) */}
@@ -189,7 +212,12 @@ export default function ECSegment1() {
                                 style={{ opacity: layer3Opacity, x: layer3X, y: layer3Y, scale: layer3Scale, visibility: seq2AnimationsVisibility }} 
                                 className="absolute top-2 left-[-15%] w-[50%] h-[45%] pointer-events-none"
                             >
-                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_3.png" alt="Overlay 3" className="h-full w-full object-contain object-left-top" draggable={false} />
+                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_3.webp" alt="Overlay 3" className="h-full w-full object-contain object-left-top" draggable={false}
+                                  width={330}
+                                  height={346}
+                                  fetchPriority="high"
+                                  decoding="async"
+                                />
                             </motion.div>
 
                             {/* Interactive Hotspot Layer 4 (Top Right) */}
@@ -212,7 +240,11 @@ export default function ECSegment1() {
                                         src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_4.png" 
                                         alt="Interactive Overlay Hotspot" 
                                         className="h-full w-full object-contain object-right-top" 
-                                        draggable={false} 
+                                        draggable={false}
+                                      width={325}
+                                      height={272}
+                                      fetchPriority="high"
+                                      decoding="async"
                                     />
                                 </motion.a>
                             </motion.div>
@@ -222,7 +254,12 @@ export default function ECSegment1() {
                                 style={{ opacity: layer5Opacity, x: layer5X, y: layer5Y, scale: layer5Scale, visibility: seq2AnimationsVisibility }} 
                                 className="absolute bottom-6 left-[-15%] w-[50%] h-[45%] pointer-events-none"
                             >
-                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_5.png" alt="Overlay 5" className="h-full w-full object-contain object-left-bottom" draggable={false} />
+                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_5.png" alt="Overlay 5" className="h-full w-full object-contain object-left-bottom" draggable={false}
+                                  width={279}
+                                  height={266}
+                                  fetchPriority="high"
+                                  decoding="async"
+                                />
                             </motion.div>
 
                             {/* Card Layer 6 (Bottom Right) */}
@@ -230,7 +267,12 @@ export default function ECSegment1() {
                                 style={{ opacity: layer6Opacity, x: layer6X, y: layer6Y, scale: layer6Scale, visibility: seq2AnimationsVisibility }} 
                                 className="absolute bottom-6 right-[-15%] w-[50%] h-[45%] pointer-events-none"
                             >
-                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_6.png" alt="Overlay 6" className="h-full w-full object-contain object-right-bottom" draggable={false} />
+                                <img src="/VEKIN Resource all Product/VEKIN 6/EC_Animation_6.png" alt="Overlay 6" className="h-full w-full object-contain object-right-bottom" draggable={false}
+                                  width={265}
+                                  height={302}
+                                  fetchPriority="high"
+                                  decoding="async"
+                                />
                             </motion.div>
 
                             {/* TEXT OVERLAY: "START FOR FUTURE" */}

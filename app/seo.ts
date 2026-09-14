@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { SITE_NAME, SITE_URL } from "./siteConfig";
+import { DEFAULT_SHARE_IMAGE, SITE_NAME, SITE_URL } from "./siteConfig";
 
 type PageMetaInput = {
   /** Page name only — the site name is appended automatically. */
@@ -20,7 +20,10 @@ type PageMetaInput = {
 export function pageMetadata({ title, description, path, image }: PageMetaInput): Metadata {
   const fullTitle = `${title} — ${SITE_NAME}`;
   const url = `${SITE_URL}${path}`;
-  const imageUrl = image ? `${SITE_URL}${image}` : undefined;
+  // Next replaces the whole openGraph block rather than merging it, so a page
+  // that names no image would otherwise drop the layout's default and share as
+  // a blank card. Fall back here instead.
+  const imageUrl = `${SITE_URL}${image ?? DEFAULT_SHARE_IMAGE}`;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -33,13 +36,13 @@ export function pageMetadata({ title, description, path, image }: PageMetaInput)
       siteName: SITE_NAME,
       title: fullTitle,
       description,
-      ...(imageUrl ? { images: [{ url: imageUrl, alt: title }] } : {})
+      images: [{ url: imageUrl, alt: title }]
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      ...(imageUrl ? { images: [imageUrl] } : {})
+      images: [imageUrl]
     }
   };
 }

@@ -23,38 +23,54 @@ export default function Segment3() {
   {/* VISUAL ASSET LAYERS */}
   <div className="pointer-events-none absolute left-[-18%] top-[24%] z-10 w-[56vw] max-w-[520px] opacity-80 sm:left-[-8%] sm:top-[22%] sm:w-[38vw] lg:left-[4%] lg:top-[30%] lg:w-[28vw]">
     <motion.img
-      src="/VEKIN Resource all Product/VEKIN 1/IS_BB1.png"
+      src="/VEKIN Resource all Product/VEKIN 1/IS_BB1.webp"
       alt=""
       animate={{ y: [0, -12, 0], rotate: [0, -1, 0] }}
       transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
       className="h-auto w-full"
+      width={456}
+      height={477}
+      loading="lazy"
+      decoding="async"
     />
   </div>
   <div className="pointer-events-none absolute left-1/2 top-[28%] z-10 w-[46vw] max-w-[440px] -translate-x-1/2 opacity-65 blur-[0.2px] sm:top-[24%] sm:w-[34vw] lg:top-[23%] lg:w-[24vw]">
     <motion.img
-      src="/VEKIN Resource all Product/VEKIN 1/IS_BB4.png"
+      src="/VEKIN Resource all Product/VEKIN 1/IS_BB4.webp"
       alt=""
       animate={{ y: [0, -24, 0], scale: [1, 1.035, 1] }}
       transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
       className="h-auto w-full"
+      width={447}
+      height={467}
+      loading="lazy"
+      decoding="async"
     />
   </div>
   <div className="pointer-events-none absolute left-1/2 top-[40%] z-20 w-[62vw] max-w-[620px] -translate-x-1/2 opacity-95 drop-shadow-[0_28px_70px_rgba(16,185,129,0.18)] sm:top-[36%] sm:w-[44vw] lg:top-[35%] lg:w-[34vw]">
     <motion.img
-      src="/VEKIN Resource all Product/VEKIN 1/IS_BB2.png"
+      src="/VEKIN Resource all Product/VEKIN 1/IS_BB2.webp"
       alt=""
       animate={{ y: [0, 10, 0], scale: [1, 1.015, 1] }}
       transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.15 }}
       className="h-auto w-full"
+      width={849}
+      height={888}
+      loading="lazy"
+      decoding="async"
     />
   </div>
   <div className="pointer-events-none absolute right-[-20%] top-[27%] z-10 w-[58vw] max-w-[540px] opacity-80 sm:right-[-8%] sm:top-[24%] sm:w-[40vw] lg:right-[3%] lg:top-[31%] lg:w-[29vw]">
     <motion.img
-      src="/VEKIN Resource all Product/VEKIN 1/IS_BB3.png"
+      src="/VEKIN Resource all Product/VEKIN 1/IS_BB3.webp"
       alt=""
       animate={{ y: [0, 12, 0], rotate: [0, 1, 0] }}
       transition={{ duration: 8.8, repeat: Infinity, ease: "easeInOut", delay: 0.55 }}
       className="h-auto w-full"
+      width={744}
+      height={778}
+      loading="lazy"
+      decoding="async"
     />
   </div>
 

@@ -72,13 +72,17 @@ export default function A_Segment() {
       className="relative overflow-hidden bg-[#c8eff1] transform-gpu"
     >
       <motion.img
-        src="/VEKIN Resource all Product/VEKIN 3/I1.png"
+        src="/VEKIN Resource all Product/VEKIN 3/I1.webp"
         alt="Bright sky with soft clouds"
         initial={{ opacity: 0, scale: 1.04 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: false, amount: 0.35 }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-0 z-0 block h-full w-full origin-top object-cover select-none pointer-events-none lg:static lg:h-auto"
+        width={1438}
+        height={1785}
+        fetchPriority="high"
+        decoding="async"
       />
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-[#d9f3f3]/20" />
@@ -134,6 +138,8 @@ export default function A_Segment() {
                     src={item.icon}
                     alt=""
                     className="h-full w-full object-contain brightness-0 invert"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 </div>
                 <LocalizedText
@@ -149,13 +155,17 @@ export default function A_Segment() {
       </div>
 
       <motion.img
-        src="/VEKIN Resource all Product/VEKIN 3/C4TNUp.tif.png"
+        src="/VEKIN Resource all Product/VEKIN 3/C4TNUp.tif.webp"
         alt="Green mountain landscape"
         initial={{ opacity: 0, y: 80, scale: 1.03 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1.05, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-x-0 bottom-0 z-30 h-auto w-full object-cover select-none pointer-events-none"
+        width={1440}
+        height={594}
+        fetchPriority="high"
+        decoding="async"
       />
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 bg-gradient-to-t from-[#f8fbf8] via-[#f8fbf8]/78 to-transparent sm:h-56" />

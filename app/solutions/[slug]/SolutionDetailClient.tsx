@@ -157,6 +157,8 @@ export default function SolutionDetailClient() {
                   src={solution.icon}
                   alt={solution.name}
                   className="relative h-24 w-24 object-contain sm:h-32 sm:w-32"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </Reveal>

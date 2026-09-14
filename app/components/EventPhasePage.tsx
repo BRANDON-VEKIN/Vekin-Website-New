@@ -41,6 +41,8 @@ export default function EventPhasePage({
           src={image}
           alt={imageAlt}
           className="absolute inset-0 h-full w-full object-cover opacity-90 select-none pointer-events-none"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-black/45 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/62 to-black/20 pointer-events-none" />

@@ -23,20 +23,28 @@ export default function Segment10() {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(16,185,129,0.14),transparent_34%),radial-gradient(circle_at_88%_12%,rgba(255,192,77,0.12),transparent_30%)]" />
       <motion.img
-        src="/VEKIN Resource all Product/VEKIN 1/Bubble.png"
+        src="/VEKIN Resource all Product/VEKIN 1/Bubble.webp"
         alt=""
         animate={{ y: [0, -18, 0], x: [0, 10, 0], scale: [1, 1.04, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         whileHover={{ scale: 1.08, rotate: -3 }}
         className="pointer-events-auto absolute -left-24 bottom-16 z-0 w-56 opacity-45 sm:-left-16 sm:w-72 lg:left-2 lg:bottom-24 lg:w-[360px]"
+        width={815}
+        height={806}
+        loading="lazy"
+        decoding="async"
       />
       <motion.img
-        src="/VEKIN Resource all Product/VEKIN 1/Bubble.png"
+        src="/VEKIN Resource all Product/VEKIN 1/Bubble.webp"
         alt=""
         animate={{ y: [0, 16, 0], x: [0, -8, 0], scale: [1, 0.97, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.45 }}
         whileHover={{ scale: 1.08, rotate: 3 }}
         className="pointer-events-auto absolute -right-16 top-6 z-0 w-44 opacity-55 sm:-right-14 sm:top-10 sm:w-64 lg:right-8 lg:top-12 lg:w-[300px]"
+        width={815}
+        height={806}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="relative z-10 mx-auto max-w-[1120px]">
@@ -65,6 +73,8 @@ export default function Segment10() {
                     src={card.image}
                     alt={`${card.title[language]} brand logo`}
                     className="h-full w-full object-contain brightness-110"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -103,6 +113,8 @@ export default function Segment10() {
                     src={card.image}
                     alt={`${card.title[language]} brand logo`}
                     className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>

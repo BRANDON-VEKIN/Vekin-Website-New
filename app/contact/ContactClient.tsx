@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Header from "../components/Header";
@@ -127,7 +127,7 @@ const offices: {
       th: "อาคาร 3 นอร์ธลอนดอน บิสิเนส พาร์ค ถนนโอ๊คลีย์เซาท์ ลอนดอน N11 1NP สหราชอาณาจักร",
       en: "Building 3, North London Business Park, Oakleigh Road South, London, N11 1NP, United Kingdom",
     },
-    image: `${contactAssetBase}/London.jpg`,
+    image: `${contactAssetBase}/London.webp`,
     maps: "https://www.google.com/maps/search/?api=1&query=North+London+Business+Park+Oakleigh+Road+South+London+N11+1NP",
   },
 ];
@@ -184,22 +184,37 @@ const fieldClass =
   "w-full rounded-2xl border border-white/12 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-white/35 outline-none transition focus:border-[#3BB97B]/60 focus:bg-white/[0.06] focus:ring-2 focus:ring-[#3BB97B]/20";
 const labelClass = "mb-2 block text-xs font-medium uppercase tracking-wide text-white/55";
 
+/**
+ * A select-only combobox (WAI-ARIA 1.2). Focus stays on the trigger and the
+ * highlighted option is named by aria-activedescendant, so a screen reader
+ * announces the list, the option and its position without the options
+ * themselves being focus stops.
+ */
 function CustomSelect({
   options,
   value,
   onChange,
   placeholder,
   language,
+  labelId,
 }: {
   options: Localized[];
   value: string;
   onChange: (value: string) => void;
   placeholder: string;
   language: "th" | "en";
+  labelId: string;
 }) {
   const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const selected = options.find((option) => option.en === value);
+
+  const baseId = useId();
+  const listboxId = `${baseId}-listbox`;
+  const optionId = (index: number) => `${baseId}-option-${index}`;
 
   useEffect(() => {
     if (!open) return;
@@ -214,12 +229,84 @@ function CustomSelect({
     return () => document.removeEventListener("mousedown", handleClick);
   }, [open]);
 
+  // Keep the highlighted option in view while arrowing through a long list.
+  useEffect(() => {
+    if (!open || activeIndex < 0) return;
+    listRef.current
+      ?.querySelector(`#${CSS.escape(optionId(activeIndex))}`)
+      ?.scrollIntoView({ block: "nearest" });
+  }, [open, activeIndex]);
+
+  function openList(index?: number) {
+    const selectedIndex = options.findIndex((option) => option.en === value);
+    setActiveIndex(index ?? (selectedIndex >= 0 ? selectedIndex : 0));
+    setOpen(true);
+  }
+
+  function commit(index: number) {
+    const option = options[index];
+    if (!option) return;
+    onChange(option.en);
+    setOpen(false);
+    buttonRef.current?.focus();
+  }
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLButtonElement>) {
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        if (open) setActiveIndex((index) => Math.min(options.length - 1, index + 1));
+        else openList();
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        if (open) setActiveIndex((index) => Math.max(0, index - 1));
+        else openList(options.length - 1);
+        break;
+      case "Home":
+        if (open) {
+          event.preventDefault();
+          setActiveIndex(0);
+        }
+        break;
+      case "End":
+        if (open) {
+          event.preventDefault();
+          setActiveIndex(options.length - 1);
+        }
+        break;
+      case "Enter":
+      case " ":
+        event.preventDefault();
+        if (open) commit(activeIndex);
+        else openList();
+        break;
+      case "Escape":
+        if (open) {
+          event.preventDefault();
+          setOpen(false);
+        }
+        break;
+      case "Tab":
+        setOpen(false);
+        break;
+    }
+  }
+
   return (
     <div ref={wrapRef} className="relative">
       <button
+        ref={buttonRef}
         type="button"
-        onClick={() => setOpen((prev) => !prev)}
-        className={`flex w-full items-center justify-between gap-2 rounded-2xl border px-4 py-3 text-left text-sm outline-none transition ${
+        role="combobox"
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-controls={open ? listboxId : undefined}
+        aria-labelledby={labelId}
+        aria-activedescendant={open && activeIndex >= 0 ? optionId(activeIndex) : undefined}
+        onClick={() => (open ? setOpen(false) : openList())}
+        onKeyDown={handleKeyDown}
+        className={`flex w-full items-center justify-between gap-2 rounded-2xl border px-4 py-3 text-left text-sm outline-none transition focus-visible:border-[#3BB97B]/60 focus-visible:ring-2 focus-visible:ring-[#3BB97B]/30 ${
           open
             ? "border-[#3BB97B]/60 bg-white/[0.06] ring-2 ring-[#3BB97B]/20"
             : "border-white/12 bg-white/[0.04] hover:border-white/25"
@@ -236,33 +323,42 @@ function CustomSelect({
       </button>
 
       {open && (
-        <div className="absolute z-30 mt-2 max-h-64 w-full overflow-auto rounded-2xl border border-white/12 bg-[#0a1f1a] p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
-          {options.map((option) => {
-            const isActive = option.en === value;
+        <ul
+          ref={listRef}
+          id={listboxId}
+          role="listbox"
+          aria-labelledby={labelId}
+          className="absolute z-30 mt-2 max-h-64 w-full overflow-auto rounded-2xl border border-white/12 bg-[#0a1f1a] p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md"
+        >
+          {options.map((option, index) => {
+            const isSelected = option.en === value;
+            const isHighlighted = index === activeIndex;
             return (
-              <button
+              <li
                 key={option.en}
-                type="button"
-                onClick={() => {
-                  onChange(option.en);
-                  setOpen(false);
-                }}
-                className={`flex w-full items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-left text-sm transition ${
-                  isActive
+                id={optionId(index)}
+                role="option"
+                aria-selected={isSelected}
+                onClick={() => commit(index)}
+                onMouseEnter={() => setActiveIndex(index)}
+                className={`flex w-full cursor-pointer items-center justify-between gap-2 rounded-xl px-3 py-2.5 text-left text-sm transition ${
+                  isSelected
                     ? "bg-[#3BB97B]/20 text-white"
-                    : "text-white/70 hover:bg-white/8 hover:text-white"
+                    : isHighlighted
+                      ? "bg-white/10 text-white"
+                      : "text-white/70"
                 }`}
               >
                 <span>{option[language]}</span>
-                {isActive && (
+                {isSelected && (
                   <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-[#7BE4B4]" aria-hidden="true">
                     <path d="M9.5 16.2L5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7z" />
                   </svg>
                 )}
-              </button>
+              </li>
             );
           })}
-        </div>
+        </ul>
       )}
     </div>
   );
@@ -501,10 +597,11 @@ export default function ContactClient() {
                     </div>
 
                     <div>
-                      <label className={labelClass}>
+                      <label id="topic-label" className={labelClass}>
                         {language === "th" ? "หัวข้อ" : "Topic"}
                       </label>
                       <CustomSelect
+                        labelId="topic-label"
                         options={topicOptions}
                         value={topic}
                         onChange={(value) => {
@@ -525,10 +622,11 @@ export default function ContactClient() {
 
                     {topic && (
                       <div>
-                        <label className={labelClass}>
+                        <label id="subtopic-label" className={labelClass}>
                           {language === "th" ? "หัวข้อย่อย" : "Sub Topic"}
                         </label>
                         <CustomSelect
+                          labelId="subtopic-label"
                           options={subTopicsFor(topic)}
                           value={subTopic}
                           onChange={(value) => {
@@ -551,10 +649,11 @@ export default function ContactClient() {
                     )}
 
                     <div>
-                      <label className={labelClass}>
+                      <label id="role-label" className={labelClass}>
                         {language === "th" ? "คุณคือ?" : "Which best describes you?"}
                       </label>
                       <CustomSelect
+                        labelId="role-label"
                         options={roleOptions}
                         value={role}
                         onChange={(value) => {
@@ -724,6 +823,8 @@ export default function ContactClient() {
                       src={office.image}
                       alt={t(office.city)}
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div
                       aria-hidden="true"
@@ -769,9 +870,13 @@ export default function ContactClient() {
 
           <Reveal delay={0.1} className="mt-10">
             <img
-              src={`${contactAssetBase}/VEKIN_Complaint_Process.png`}
+              src={`${contactAssetBase}/VEKIN_Complaint_Process.webp`}
               alt={t(process.caption)}
               className="mx-auto block h-auto w-full max-w-3xl rounded-2xl"
+              width={1424}
+              height={1871}
+              loading="lazy"
+              decoding="async"
             />
           </Reveal>
         </section>

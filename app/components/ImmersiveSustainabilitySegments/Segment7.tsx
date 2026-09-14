@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import { useSiteLanguage } from "../siteLanguage";
 
-const bubbleImage = "/VEKIN Resource all Product/VEKIN 1/billboard_BB.png";
+const bubbleImage = "/VEKIN Resource all Product/VEKIN 1/billboard_BB.webp";
 
 const esgScopes = [
   {
@@ -69,6 +69,8 @@ export default function Segment7() {
           animate={{ y: [0, -26, 0], x: [0, 16, 0], scale: [1, 1.05, 1] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="pointer-events-none absolute left-[3%] top-[14%] z-0 w-28 opacity-80 sm:w-44 lg:w-60"
+          loading="lazy"
+          decoding="async"
         />
         <motion.img
           src={bubbleImage}
@@ -76,6 +78,8 @@ export default function Segment7() {
           animate={{ y: [0, 30, 0], x: [0, -18, 0], scale: [1, 1.08, 1] }}
           transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut" }}
           className="pointer-events-none absolute -right-12 top-[9%] z-0 w-44 opacity-[0.85] sm:w-64 lg:right-[2%] lg:w-80"
+          loading="lazy"
+          decoding="async"
         />
         <motion.img
           src={bubbleImage}
@@ -83,6 +87,8 @@ export default function Segment7() {
           animate={{ y: [0, -18, 0], x: [0, -10, 0], scale: [1, 1.06, 1] }}
           transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
           className="pointer-events-none absolute left-[12%] top-[46%] z-0 w-16 opacity-75 sm:w-24 lg:w-32"
+          loading="lazy"
+          decoding="async"
         />
         <motion.img
           src={bubbleImage}
@@ -90,6 +96,8 @@ export default function Segment7() {
           animate={{ y: [0, -34, 0], x: [0, 20, 0], scale: [1, 1.04, 1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           className="pointer-events-none absolute -right-10 top-[54%] z-0 w-36 opacity-80 sm:w-56 lg:right-[7%] lg:w-72"
+          loading="lazy"
+          decoding="async"
         />
 
         <div className="relative z-10 flex w-full flex-col items-center">
@@ -104,13 +112,17 @@ export default function Segment7() {
 
           <div className="relative w-full max-w-[1120px]">
             <motion.img
-              src="/VEKIN Resource all Product/VEKIN 1/billboard.png"
+              src="/VEKIN Resource all Product/VEKIN 1/billboard.webp"
               alt="VEKIN digital billboard with blue wireframe building"
               initial={{ opacity: 0, y: 46, scale: 0.96 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, amount: 0.28 }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
               className="relative z-10 mx-auto w-full max-w-[520px] object-contain drop-shadow-[0_34px_90px_rgba(56,189,248,0.22)] sm:max-w-[620px] lg:max-w-[720px]"
+              width={768}
+              height={1587}
+              loading="lazy"
+              decoding="async"
             />
 
             {esgScopes.map((scope, index) => (
@@ -176,13 +188,17 @@ export default function Segment7() {
         <div className="relative left-1/2 z-10 mt-36 w-screen max-w-none -translate-x-1/2 sm:mt-48 lg:mt-64">
           <div className="pointer-events-none absolute inset-x-0 -top-36 h-44 bg-gradient-to-b from-transparent via-black/70 to-black sm:-top-48 sm:h-56" />
           <motion.img
-            src="/VEKIN Resource all Product/VEKIN 1/3_Build.png"
+            src="/VEKIN Resource all Product/VEKIN 1/3_Build.webp"
             alt="Blue wireframe city buildings"
             initial={{ opacity: 0, y: 96, scale: 0.98 }}
             whileInView={{ opacity: 0.95, y: 0, scale: 1 }}
             viewport={{ once: false, amount: 0.24 }}
             transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
             className="h-auto w-full object-cover object-center opacity-95"
+            width={1440}
+            height={673}
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

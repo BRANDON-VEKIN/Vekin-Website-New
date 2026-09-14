@@ -32,12 +32,16 @@ export default function Segment8() {
       <div className="relative w-full flex flex-col bg-black md:block">
         
         <motion.img
-          src="/VEKIN Resource all Product/VEKIN 1/Bubble.png"
+          src="/VEKIN Resource all Product/VEKIN 1/Bubble.webp"
           alt=""
           animate={{ y: [0, -18, 0], x: [0, -10, 0], scale: [1, 1.04, 1] }}
           transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
           whileHover={{ scale: 1.08, rotate: 3 }}
           className="pointer-events-auto absolute -right-16 top-12 z-0 w-44 opacity-55 sm:-right-20 sm:top-14 sm:w-64 md:right-[-72px] md:top-10 md:w-[320px] lg:right-[-54px] lg:top-8 lg:w-[420px]"
+          width={815}
+          height={806}
+          loading="lazy"
+          decoding="async"
         />
 
         {/* CONTENT CANVAS: Flows naturally on mobile to prevent layout clipping */}
@@ -57,9 +61,13 @@ export default function Segment8() {
           {/* INNER DASHBOARD GRAPHIC: Fluid width containment scales perfectly */}
           <div className="w-full max-w-4xl mt-8 md:mt-12 rounded-xl overflow-hidden shadow-2xl border border-white/5 bg-neutral-900/40 backdrop-blur-sm md:bg-transparent md:border-none p-1 md:p-0">
             <img
-              src="/VEKIN Resource all Product/VEKIN 1/IS_Dashboard.png"
+              src="/VEKIN Resource all Product/VEKIN 1/IS_Dashboard.webp"
               alt="Dashboard layout"
               className="w-full h-auto object-contain transition-transform duration-500 hover:scale-[1.01]"
+              width={2560}
+              height={1100}
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

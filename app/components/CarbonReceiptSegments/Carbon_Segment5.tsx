@@ -9,7 +9,7 @@ const items = [
     {
         titleEn: "Decentralized data storage",
         titleTh: "การจัดเก็บข้อมูลแบบกระจายศูนย์",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Button1.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Button1.webp",
         descriptionEn:
             "Every carbon record is distributed across the blockchain network instead of a single server, so your data stays tamper-proof, always available, and independently verifiable.",
         descriptionTh:
@@ -18,7 +18,7 @@ const items = [
     {
         titleEn: "Smart contract",
         titleTh: "สมาร์ทคอนแทรกต์",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Button2.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Button2.webp",
         descriptionEn:
             "Carbon receipts are issued automatically the moment transaction conditions are met — no manual paperwork, no delays, and no room for human error.",
         descriptionTh:
@@ -27,7 +27,7 @@ const items = [
     {
         titleEn: "Public key encryption",
         titleTh: "การเข้ารหัสกุญแจสาธารณะ",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Button3.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Button3.webp",
         descriptionEn:
             "Cryptographic key pairs secure every record and signature, so only authorized parties can issue receipts while anyone can verify their authenticity.",
         descriptionTh:
@@ -101,6 +101,8 @@ export default function CarbonSegment5() {
                                     src={item.image}
                                     alt={isThai ? item.titleTh : item.titleEn}
                                     className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                             </div>
 
@@ -161,6 +163,8 @@ export default function CarbonSegment5() {
                                 src={activeItem.image}
                                 alt={isThai ? activeItem.titleTh : activeItem.titleEn}
                                 className="h-full w-full object-contain"
+                              loading="lazy"
+                              decoding="async"
                             />
                         </div>
 

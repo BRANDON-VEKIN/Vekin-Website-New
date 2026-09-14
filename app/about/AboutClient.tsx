@@ -132,7 +132,7 @@ const leaders: { name: string; role: Localized; bio: Localized; photo: string }[
       th: "ประสบการณ์กว่า 20 ปีในการบริหาร SCG และอีกกว่าทศวรรษในตำแหน่งผู้นำระดับบริหาร",
       en: "Over 20 years of expertise in SCG administration and an additional decade in executive leadership.",
     },
-    photo: `${aboutAssetBase}/COO.png`,
+    photo: `${aboutAssetBase}/COO.webp`,
   },
   {
     name: "Dr. Ekasit Phermphoonphiphat",
@@ -141,7 +141,7 @@ const leaders: { name: string; role: Localized; bio: Localized; photo: string }[
       th: "ปริญญาเอกด้านปัญญาประดิษฐ์จากมหาวิทยาลัยโอซาก้า พร้อมประสบการณ์ AI และเทคโนโลยีเชิงลึกที่กว้างขวาง",
       en: "Holds a Ph.D in Artificial Intelligence from Osaka University with extensive AI and Deep Tech experience.",
     },
-    photo: `${aboutAssetBase}/CTO.png`,
+    photo: `${aboutAssetBase}/CTO.webp`,
   },
   {
     name: "Vasin Vongcharoenrat",
@@ -150,7 +150,7 @@ const leaders: { name: string; role: Localized; bio: Localized; photo: string }[
       th: "ปริญญาโทด้านการพัฒนาธุรกิจจากมหาวิทยาลัยแบรนไดส์ และประสบการณ์ 10 ปีในสายงานการค้า",
       en: "Holds a Master's Degree in Business Development from Brandeis University and 10 years in commercialization.",
     },
-    photo: `${aboutAssetBase}/CCO.png`,
+    photo: `${aboutAssetBase}/CCO.webp`,
   },
   {
     name: "Somkiet Siripattananun",
@@ -159,7 +159,7 @@ const leaders: { name: string; role: Localized; bio: Localized; photo: string }[
       th: "กรรมการบริษัท ผู้ร่วมกำกับทิศทางเชิงกลยุทธ์ของ VEKIN",
       en: "Company Director, helping steer VEKIN's strategic direction.",
     },
-    photo: `${aboutAssetBase}/Director.png`,
+    photo: `${aboutAssetBase}/Director.webp`,
   },
 ];
 
@@ -171,10 +171,10 @@ const committee = {
     en: "Four independent experts who ensure that all verification and auditing activities are conducted fairly, consistently, and without bias.",
   } as Localized,
   members: [
-    { name: "Natee Sithiprasasana", photo: `${aboutAssetBase}/Natee Sithiprasasana.png` },
-    { name: "Witsarut Duangchinda", photo: `${aboutAssetBase}/Witsarut Duangchinda.png` },
-    { name: "Pornarun Suwanplai", photo: `${aboutAssetBase}/Pornarun Suwanplai.png` },
-    { name: "Suvit Toraninpanich", photo: `${aboutAssetBase}/Suvit Toraninpanich.png` },
+    { name: "Natee Sithiprasasana", photo: `${aboutAssetBase}/Natee Sithiprasasana.webp` },
+    { name: "Witsarut Duangchinda", photo: `${aboutAssetBase}/Witsarut Duangchinda.webp` },
+    { name: "Pornarun Suwanplai", photo: `${aboutAssetBase}/Pornarun Suwanplai.webp` },
+    { name: "Suvit Toraninpanich", photo: `${aboutAssetBase}/Suvit Toraninpanich.webp` },
   ],
 };
 
@@ -343,9 +343,13 @@ export default function AboutClient() {
               <figcaption className="mt-8 flex items-center gap-4">
                 <span className="h-14 w-14 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-[#00464E] to-[#3BB97B] ring-1 ring-white/20">
                   <img
-                    src={`${aboutAssetBase}/CEO.png`}
+                    src={`${aboutAssetBase}/CEO.webp`}
                     alt={t(vision.attribution)}
                     className="h-full w-full object-cover"
+                    width={1238}
+                    height={1198}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </span>
                 <span className="text-sm font-medium text-[#7BE4B4]">
@@ -464,6 +468,8 @@ export default function AboutClient() {
                       src={leader.photo}
                       alt={leader.name}
                       className="h-full w-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <h3 className="mt-5 text-base font-semibold leading-snug text-white">
@@ -507,6 +513,8 @@ export default function AboutClient() {
                           src={member.photo}
                           alt={member.name}
                           className="h-full w-full object-cover"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </span>
                       <span className="text-sm font-medium leading-snug text-white/85">

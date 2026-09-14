@@ -33,9 +33,13 @@ export default function AuditorSegment12() {
       offset={64}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG8.png"
+        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG8.webp"
         alt="River City background"
         className="block w-full min-h-[820px] object-cover sm:min-h-[780px] md:min-h-[720px] lg:min-h-0"
+        width={2560}
+        height={1401}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.12),rgba(0,0,0,0.52)_42%,rgba(0,0,0,0.9)_100%)]" />

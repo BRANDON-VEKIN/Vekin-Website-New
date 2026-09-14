@@ -17,7 +17,8 @@ export const metadata = pageMetadata({
   title: "Carbon Receipt",
   description:
     "Carbon Receipt captures and verifies carbon footprints for individual transactions, giving organisations transparent, ISO 14064-1-compliant emission tracking and real-time, verifiable data.",
-  path: "/carbon_receipt"
+  path: "/carbon_receipt",
+  image: "/VEKIN Resource all Product/VEKIN 2/Carbon_BG1.webp"
 });
 
 export default function CarbonReceiptPage() {

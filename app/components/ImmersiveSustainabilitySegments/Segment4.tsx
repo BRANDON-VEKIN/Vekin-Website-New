@@ -23,11 +23,15 @@ export default function Segment4() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
       <motion.img
-        src="/VEKIN Resource all Product/VEKIN 1/Bubble.png"
+        src="/VEKIN Resource all Product/VEKIN 1/Bubble.webp"
         alt=""
         animate={{ y: [0, -24, 0], x: [0, 14, 0], scale: [1, 1.04, 1] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         className="pointer-events-none absolute -left-24 top-[22%] z-0 w-52 opacity-55 sm:left-[3%] sm:w-72 lg:w-80"
+        width={815}
+        height={806}
+        loading="lazy"
+        decoding="async"
       />
       <motion.img
         src="/VEKIN Resource all Product/VEKIN 1/Bubble O2.png"
@@ -35,6 +39,10 @@ export default function Segment4() {
         animate={{ y: [0, 18, 0], x: [0, -12, 0], rotate: [0, 4, 0] }}
         transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
         className="pointer-events-none absolute right-[4%] top-[18%] z-0 w-24 opacity-80 sm:w-36 lg:right-[12%]"
+        width={185}
+        height={182}
+        loading="lazy"
+        decoding="async"
       />
       <motion.img
         src="/VEKIN Resource all Product/VEKIN 1/Bubble O2.png"
@@ -42,6 +50,10 @@ export default function Segment4() {
         animate={{ y: [0, -16, 0], x: [0, 10, 0], rotate: [0, -5, 0] }}
         transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
         className="pointer-events-none absolute bottom-[24%] left-[8%] z-0 w-16 opacity-65 sm:w-24 lg:left-[18%]"
+        width={185}
+        height={182}
+        loading="lazy"
+        decoding="async"
       />
 
       <motion.div

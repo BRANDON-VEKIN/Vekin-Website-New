@@ -42,7 +42,7 @@ export default function CarbonSegmentDoubleImage() {
               <div className="animate-fade-in duration-300">
                 {/* 4. Headings (Responsive text sizes) */}
                 <LocalizedText
-                  as="h1"
+                  as="h2"
                   th="การจัดเรียง AI ที่แข็งแกร่ง"
                   en="A strong arrangement of AI."
                   className="text-[#1d1d1f] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-[1.08]"
@@ -59,7 +59,7 @@ export default function CarbonSegmentDoubleImage() {
               <div className="animate-fade-in duration-300">
                 {/* 4. Headings (Responsive text sizes) */}
                 <LocalizedText
-                  as="h1"
+                  as="h2"
                   th="รูปแบบการเผยแพร่แบบสมัครสมาชิก"
                   en="The publish-subscribe model."
                   className="text-[#1d1d1f] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.015em] leading-[1.08]"
@@ -142,7 +142,7 @@ export default function CarbonSegmentDoubleImage() {
               <div 
                 className="absolute inset-0.5 rounded-[40px] transition-all duration-700 ease-out border border-white/40 overflow-hidden"
                 style={{
-                  backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG4.png')`,
+                  backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG4.webp')`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
@@ -186,7 +186,7 @@ export default function CarbonSegmentDoubleImage() {
               <div 
                 className="absolute inset-0.5 rounded-[40px] transition-all duration-700 ease-out border border-white/40 overflow-hidden"
                 style={{
-                  backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG3.png')`,
+                  backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG3.webp')`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",

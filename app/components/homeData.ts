@@ -5,7 +5,7 @@ export const eventCards = [
       en: "Pre-Event"
     },
     href: "/pre-event",
-    image: "/VEKIN Resource all Product/VEKIN 1/pre_event.png"
+    image: "/VEKIN Resource all Product/VEKIN 1/pre_event.webp"
   },
   {
     title: {
@@ -13,7 +13,7 @@ export const eventCards = [
       en: "During-Event"
     },
     href: "/during-event",
-    image: "/VEKIN Resource all Product/VEKIN 1/during_event.png"
+    image: "/VEKIN Resource all Product/VEKIN 1/during_event.webp"
   },
   {
     title: {
@@ -21,7 +21,7 @@ export const eventCards = [
       en: "Post-Event"
     },
     href: "/post-event",
-    image: "/VEKIN Resource all Product/VEKIN 1/post_event.png"
+    image: "/VEKIN Resource all Product/VEKIN 1/post_event.webp"
   }
 ];
 

@@ -29,7 +29,7 @@ export default function DAP_Segment3() {
             titleEn: "Immersive Sustainability",
             descTh: "สัมผัสประสบการณ์การจัดการความยั่งยืนรูปแบบใหม่ ผ่านระบบจำลองพื้นที่เสมือนจริงที่ช่วยให้องค์กรเห็นภาพรวมการใช้ทรัพยากรได้อย่างลึกซึ้ง",
             descEn: "Experience next-generation sustainability management through rich virtual simulation environments, transforming environmental data into structural spatial awareness.",
-            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon1.png",
+            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon1.webp",
             linkUrl: "/",
         },
         {
@@ -39,7 +39,7 @@ export default function DAP_Segment3() {
             titleEn: "ONE CLICK (DAP LITE)",
             descTh: "แพลตฟอร์มบริหารจัดการข้อมูลคาร์บอนแบบสำเร็จรูป เข้าถึงแดชบอร์ดสรุปผลวิเคราะห์ และสถิติสำคัญขององค์กรได้ทันทีด้วยการคลิกเพียงครั้งเดียว",
             descEn: "Streamlined carbon data platform giving you instant access to essential compliance dashboards and corporate tracking tools with a single click.",
-            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon2.png", 
+            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon2.webp", 
             linkUrl: "https://oneclick-dev.vekin.co.th/",
         },
         {
@@ -49,7 +49,7 @@ export default function DAP_Segment3() {
             titleEn: "AI ENERGY AUDITOR",
             descTh: "ระบบตรวจสอบและประเมินการใช้พลังงานอัจฉริยะ ขับเคลื่อนด้วย AI เพื่อวิเคราะห์ ค้นหาจุดสูญเสีย และแนะนำแนวทางประหยัดพลังงานได้อย่างแม่นยำสูงสุด",
             descEn: "Intelligent energy auditing infrastructure powered by advanced AI models. Analyze performance load and pinpoint core operational inefficiencies instantly.",
-            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon3.png",
+            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon3.webp",
             linkUrl: "/auditor",
         },
         {
@@ -59,7 +59,7 @@ export default function DAP_Segment3() {
             titleEn: "E-CARBON RECEIPTS",
             descTh: "ระบบออกใบเสร็จรับเงินดิจิทัลควบคู่ไปกับการบันทึกเครดิตคาร์บอน ตรวจสอบมูลค่าธุรกรรมไปพร้อมๆ กับรอยเท้าคาร์บอนในระบบบัญชีอย่างปลอดภัย",
             descEn: "Digital invoice issuance meets precise carbon credit indexing. Audit corporate transactional statement chains alongside explicit greenhouse gas calculations.",
-            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon4.png",
+            imgSrc: "/VEKIN Resource all Product/VEKIN 4/SM_Icon4.webp",
             linkUrl: "/new_ec",
         },
     ];
@@ -71,7 +71,7 @@ export default function DAP_Segment3() {
             {/* Header Area */}
             <div className="w-full max-w-[1600px] text-center mb-12 md:mb-16">
                 <LocalizedText 
-                    as="h2" 
+                    as="h1" 
                     th="ภาพรวมผลิตภัณฑ์ทั้งหมด" 
                     en="Product Suite Overview" 
                     className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-100 tracking-tight drop-shadow-md mb-4"
@@ -122,6 +122,8 @@ export default function DAP_Segment3() {
                                 src={card.imgSrc} 
                                 alt={card.titleEn} 
                                 className="absolute inset-0 w-full h-full object-cover transform scale-100 transition-transform duration-500 group-hover:scale-105"
+                              fetchPriority="high"
+                              decoding="async"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
                         </div>

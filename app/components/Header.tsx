@@ -75,6 +75,10 @@ export default function Header() {
             src="/VEKIN Resource all Product/Vekin_logo.png"
             alt="VEKIN"
             className="h-[22px] w-auto sm:h-6 md:h-[27px]"
+            width={152}
+            height={30}
+            fetchPriority="high"
+            decoding="async"
           />
         </a>
 
