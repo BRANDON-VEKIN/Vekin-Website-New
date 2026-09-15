@@ -32,9 +32,13 @@ export default function Segment6() {
         {/* FULL-SCREEN IMMERSIVE CANVAS IMAGE */}
         <div className="absolute inset-0 z-0 w-full h-full">
           <img
-            src="/VEKIN Resource all Product/VEKIN 1/IS_BG6.png"
+            src="/VEKIN Resource all Product/VEKIN 1/IS_BG6.webp"
             alt="Carbon neutrality sky with CO2 bubbles"
             className="h-full w-full object-cover select-none pointer-events-none"
+            width={1672}
+            height={941}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-black via-black/75 to-transparent sm:h-44" />

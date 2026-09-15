@@ -7,19 +7,19 @@ import LocalizedText from "../LocalizedText";
 
 const cards = [
     {
-        icon: "/VEKIN Resource all Product/VEKIN 2/Carbon_Icon1.png",
+        icon: "/VEKIN Resource all Product/VEKIN 2/Carbon_Icon1.webp",
         labelEn: "Green activity, green product & service",
         labelTh: "กิจกรรมสีเขียว สินค้าและบริการสีเขียว",
         alt: "Green Activity",
     },
     {
-        icon: "/VEKIN Resource all Product/VEKIN 2/Carbon_Icon2.png",
+        icon: "/VEKIN Resource all Product/VEKIN 2/Carbon_Icon2.webp",
         labelEn: "CERO",
         labelTh: "CERO",
         alt: "CERO",
     },
     {
-        icon: "/VEKIN Resource all Product/VEKIN 2/Carbon_Icon3.png",
+        icon: "/VEKIN Resource all Product/VEKIN 2/Carbon_Icon3.webp",
         labelEn: "Verified carbon footprint — Fragment Carbon",
         labelTh: "คาร์บอนฟุตพริ้นท์ที่ผ่านการตรวจสอบ Fragment Carbon",
         alt: "Carbon Footprint",
@@ -40,7 +40,7 @@ export default function CarbonSegment8() {
                 className="absolute inset-0 bg-cover bg-center md:hidden"
                 style={{
                     backgroundImage:
-                        "url('/VEKIN Resource all Product/VEKIN 2/Carbon_Mobile_BG5.png')",
+                        "url('/VEKIN Resource all Product/VEKIN 2/Carbon_Mobile_BG5.webp')",
                 }}
             />
 
@@ -49,7 +49,7 @@ export default function CarbonSegment8() {
                 className="absolute inset-0 hidden bg-cover bg-center md:block"
                 style={{
                     backgroundImage:
-                        "url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG5.png')",
+                        "url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG5.webp')",
                 }}
             />
 
@@ -75,6 +75,8 @@ export default function CarbonSegment8() {
                                 src={card.icon}
                                 alt={card.alt}
                                 className="h-44 w-44 object-contain drop-shadow-[0_14px_30px_rgba(0,0,0,0.15)] transition-transform duration-700 ease-out group-hover:scale-[1.05] sm:h-52 sm:w-52 md:h-60 md:w-60"
+                              loading="lazy"
+                              decoding="async"
                             />
                             <div className="w-full rounded-full bg-white/85 px-6 py-3 text-center text-[15px] font-medium tracking-[-0.01em] text-[#1d1d1f] shadow-[0_8px_28px_rgba(0,0,0,0.1)] backdrop-blur-md transition-all duration-300 group-hover:bg-white group-hover:shadow-[0_14px_40px_rgba(0,0,0,0.16)]">
                                 <LocalizedText as="span" th={card.labelTh} en={card.labelEn} />

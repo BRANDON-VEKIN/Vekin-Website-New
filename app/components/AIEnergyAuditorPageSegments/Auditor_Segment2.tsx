@@ -74,9 +74,13 @@ export default function AuditorSegment2() {
       offset={36}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG2.png"
+        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG2.webp"
         alt="Auditor Background"
         className="block w-full min-h-[660px] object-cover sm:min-h-[640px] md:min-h-[600px] lg:min-h-0"
+        width={1599}
+        height={1159}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(0,167,155,0.32),transparent_34%),linear-gradient(180deg,rgba(0,0,0,0.38),rgba(0,0,0,0.78))]" />
@@ -119,6 +123,8 @@ export default function AuditorSegment2() {
                     src={item.icon}
                     alt={item.alt}
                     className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <LocalizedText

@@ -19,8 +19,8 @@ export default function AuditorSegment7() {
   const steps = useMemo<Step[]>(
     () => [
       {
-        bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG1.png",
-        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img1.png",
+        bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG1.webp",
+        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img1.webp",
         stepLabel: language === "th" ? "ขั้นตอนที่ 1" : "1st Step",
         title:
           language === "th"
@@ -30,8 +30,8 @@ export default function AuditorSegment7() {
         phoneGlow: "from-cyan-500/40 via-sky-500/30 to-blue-600/40",
       },
       {
-        bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG2.png",
-        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img2.png",
+        bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG2.webp",
+        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img2.webp",
         stepLabel: language === "th" ? "ขั้นตอนที่ 2" : "2nd Step",
         title:
           language === "th"
@@ -41,8 +41,8 @@ export default function AuditorSegment7() {
         phoneGlow: "from-emerald-500/40 via-teal-500/30 to-cyan-500/40",
       },
       {
-        bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG3.png",
-        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img3.png",
+        bg: "/VEKIN Resource all Product/VEKIN 3/Slide_BG3.webp",
+        phoneImage: "/VEKIN Resource all Product/VEKIN 3/Phone_Img3.webp",
         stepLabel: language === "th" ? "ขั้นตอนที่ 3" : "3rd Step",
         title:
           language === "th"
@@ -161,6 +161,8 @@ export default function AuditorSegment7() {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover pointer-events-none animate-[auditorBgFadeOut_700ms_ease-out_forwards]"
           onAnimationEnd={() => setPreviousBg(null)}
+          loading="lazy"
+          decoding="async"
         />
       )}
 
@@ -169,6 +171,8 @@ export default function AuditorSegment7() {
         src={activeStep.bg}
         alt="Future Bangkok background"
         className="absolute inset-0 h-full w-full object-cover pointer-events-none animate-[auditorBgFadeIn_700ms_ease-out_forwards]"
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.82),rgba(0,0,0,0.44)_46%,rgba(0,0,0,0.7)_100%)] pointer-events-none" />
@@ -236,6 +240,8 @@ export default function AuditorSegment7() {
                     src={activeStep.phoneImage}
                     alt="Application Dashboard Display Frame"
                     className="absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out"
+                    loading="lazy"
+                    decoding="async"
                   />
 
                   {/* Anti-Glare Soft Screen Reflection Polish Overlay */}

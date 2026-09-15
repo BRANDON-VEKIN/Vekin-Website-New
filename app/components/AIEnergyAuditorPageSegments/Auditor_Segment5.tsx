@@ -78,9 +78,13 @@ export default function AuditorSegment5() {
       offset={64}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/Scope_BG.jpg"
+        src="/VEKIN Resource all Product/VEKIN 3/Scope_BG.webp"
         alt="Scope background"
         className="block w-full min-h-[760px] object-cover sm:min-h-[720px] md:min-h-[680px] lg:min-h-0"
+        width={2560}
+        height={1704}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.38),rgba(0,0,0,0.78)),radial-gradient(circle_at_50%_28%,rgba(68,229,208,0.28),transparent_34%)]" />

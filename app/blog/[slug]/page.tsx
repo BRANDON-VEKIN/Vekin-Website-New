@@ -13,6 +13,14 @@ export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
+/**
+ * Posts come from a local module fixed at build time, so an unknown slug is a
+ * genuine 404. Refusing it at the routing layer sets the status before the
+ * response streams; the notFound() below cannot, because the root loading.tsx
+ * lets the shell flush with a 200 first.
+ */
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);

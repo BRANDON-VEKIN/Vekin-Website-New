@@ -12,8 +12,7 @@ const staticRoutes: { path: string; priority: number }[] = [
   { path: "/package", priority: 0.85 },
   { path: "/about", priority: 0.8 },
   { path: "/contact", priority: 0.8 },
-  { path: "/auditor", priority: 0.8 },
-  { path: "/carbon_receipt", priority: 0.7 },
+  { path: "/auditor", priority: 0.8 },
   { path: "/new_ec", priority: 0.7 },
   { path: "/dap_new", priority: 0.7 },
   { path: "/dap_more", priority: 0.6 },
@@ -21,7 +20,9 @@ const staticRoutes: { path: string; priority: number }[] = [
   { path: "/methodology", priority: 0.5 },
   { path: "/pre-event", priority: 0.6 },
   { path: "/during-event", priority: 0.6 },
-  { path: "/post-event", priority: 0.6 }
+  { path: "/post-event", priority: 0.6 },
+  { path: "/privacy", priority: 0.3 },
+  { path: "/terms", priority: 0.3 }
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

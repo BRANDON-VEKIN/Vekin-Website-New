@@ -39,7 +39,7 @@ export default function ScrollRevealPhones() {
       >
         {/* TOP PHONE (Left phone on desktop) */}
         <img
-          src="/VEKIN Resource all Product/VEKIN 1/Phone_Left.png"
+          src="/VEKIN Resource all Product/VEKIN 1/Phone_Left.webp"
           alt="Carbon receipt phone mockup"
           className="phone-slide-left origin-bottom-left transition-all duration-700 ease-out
             /* Mobile: Relative flow, safe bounded sizing */
@@ -48,11 +48,15 @@ export default function ScrollRevealPhones() {
             sm:absolute sm:max-w-none sm:left-[-120px] sm:w-[600px]
             /* Desktop (lg:) */
             lg:left-[-100px] lg:w-[720px]"
+          width={2000}
+          height={2000}
+          loading="lazy"
+          decoding="async"
         />
 
         {/* BOTTOM PHONE (Right phone on desktop) */}
         <img
-          src="/VEKIN Resource all Product/VEKIN 1/Phone_Right.png"
+          src="/VEKIN Resource all Product/VEKIN 1/Phone_Right.webp"
           alt="Organizer app phone mockup"
           className="phone-slide-right origin-bottom-right transition-all duration-700 ease-out
             /* Mobile: Relative flow beneath the first phone */
@@ -61,6 +65,10 @@ export default function ScrollRevealPhones() {
             sm:absolute sm:max-w-none sm:right-[-120px] sm:w-[600px]
             /* Desktop (lg:) */
             lg:right-[-100px] lg:w-[720px]"
+          width={2000}
+          height={2000}
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </div>

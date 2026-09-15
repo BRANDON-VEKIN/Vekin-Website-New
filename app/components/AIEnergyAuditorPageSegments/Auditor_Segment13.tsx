@@ -31,7 +31,7 @@ const certifications: readonly Certification[] = [
       en: "Valid 16 Jan 2026 – 15 Jan 2029",
       th: "มีผล 16 ม.ค. 2569 – 15 ม.ค. 2572"
     },
-    thumb: `${certBase}/thumb-iso42001.jpg`,
+    thumb: `${certBase}/thumb-iso42001.webp`,
     pdf: `${certBase}/SGS_ISO_IEC 42001.pdf`
   },
   {
@@ -44,7 +44,7 @@ const certifications: readonly Certification[] = [
     issuer: "Thai Industrial Standards Institute (TISI)",
     certificateNo: "24-CB0023 · Accreditation GHG 017",
     validity: { en: "Issued 26 Sep 2024", th: "ออกให้ 26 ก.ย. 2567" },
-    thumb: `${certBase}/thumb-iso14065.jpg`,
+    thumb: `${certBase}/thumb-iso14065.webp`,
     pdf: `${certBase}/ISO14065.pdf`
   },
   {
@@ -57,7 +57,7 @@ const certifications: readonly Certification[] = [
       en: "Valid 12 Jan 2024 – 12 Jan 2027",
       th: "มีผล 12 ม.ค. 2567 – 12 ม.ค. 2570"
     },
-    thumb: `${certBase}/thumb-iso27001.jpg`,
+    thumb: `${certBase}/thumb-iso27001.webp`,
     pdf: `${certBase}/ISO27001-ISO29110.pdf`
   },
   {
@@ -70,7 +70,7 @@ const certifications: readonly Certification[] = [
       en: "Valid 10 Jan 2024 – 10 Jan 2027",
       th: "มีผล 10 ม.ค. 2567 – 10 ม.ค. 2570"
     },
-    thumb: `${certBase}/thumb-iso29110.jpg`,
+    thumb: `${certBase}/thumb-iso29110.webp`,
     pdf: `${certBase}/ISO29110.pdf`
   },
   {
@@ -83,7 +83,7 @@ const certifications: readonly Certification[] = [
       en: "Valid 17 Jun 2019 – 17 Jun 2022",
       th: "มีผล 17 มิ.ย. 2562 – 17 มิ.ย. 2565"
     },
-    thumb: `${certBase}/thumb-iso9001.jpg`,
+    thumb: `${certBase}/thumb-iso9001.webp`,
     pdf: `${certBase}/ISO9001.pdf`
   }
 ];
@@ -196,6 +196,10 @@ export default function AuditorSegment13() {
         src="/VEKIN Resource all Product/VEKIN 3/BKK_Park_1.jpg"
         alt="Bangkok Park background"
         className="block w-full min-h-[780px] object-cover sm:min-h-[740px] md:min-h-[720px] lg:min-h-0"
+        width={1618}
+        height={1080}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88),rgba(0,0,0,0.52)_44%,rgba(0,0,0,0.2)_100%)]" />

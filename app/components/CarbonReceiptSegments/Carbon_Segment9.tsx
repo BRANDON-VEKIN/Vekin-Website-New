@@ -5,22 +5,22 @@ import LocalizedText from "../LocalizedText";
 
 const items = [
   {
-    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img1.png",
+    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img1.webp",
     title: "PORT AUTHORITY OF THAILAND",
     desc: "Responsible sourcing of verified sustainable materials with full traceability.",
   },
   {
-    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img2.png",
+    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img2.webp",
     title: "REVENUE DEPARTMENT",
     desc: "Optimized logistics system reducing emissions and improving efficiency.",
   },
   {
-    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img3.png",
+    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img3.webp",
     title: "INET",
     desc: "Energy-efficient production processes with minimal environmental impact.",
   },
   {
-    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img4.png",
+    img: "/VEKIN Resource all Product/VEKIN 2/UC_Img4.webp",
     title: "TRUE DIGITAL PARK",
     desc: "Smart distribution networks ensuring low-carbon delivery systems.",
   },
@@ -42,7 +42,7 @@ export default function ResponsivePhone() {
   <section
     className="flex min-h-screen w-full flex-col items-center justify-center gap-10 px-4 py-16"
     style={{
-      backgroundImage: "url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG7.png')",
+      backgroundImage: "url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG7.webp')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -113,6 +113,8 @@ export default function ResponsivePhone() {
                     src={item.img}
                     alt={item.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
 
                   {/* Middle Layer: Smooth Dark Gradient Overlay for optimal text legibility */}
@@ -169,7 +171,10 @@ export default function ResponsivePhone() {
     {/* IMAGE */}
     <img
       src={item.img}
+      alt={item.title}
       className="w-full h-full object-cover"
+      loading="lazy"
+      decoding="async"
     />
 
     {/* DARK OVERLAY */}
@@ -225,6 +230,8 @@ export default function ResponsivePhone() {
             src={items[active].img}
             alt={items[active].title}
             className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

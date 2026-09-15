@@ -6,7 +6,7 @@ import LocalizedText from "../LocalizedText";
 
 const featureRows = [
   {
-    image: "/VEKIN Resource all Product/VEKIN 3/Auditor_BG3.png",
+    image: "/VEKIN Resource all Product/VEKIN 3/Auditor_BG3.webp",
     imageAlt: "AI energy auditor monitoring city systems",
     eyebrowEn: "Energy",
     eyebrowTh: "พลังงาน",
@@ -19,7 +19,7 @@ const featureRows = [
     layout: "imageFirst",
   },
   {
-    image: "/VEKIN Resource all Product/VEKIN 3/Auditor_BG4.png",
+    image: "/VEKIN Resource all Product/VEKIN 3/Auditor_BG4.webp",
     imageAlt: "Carbon footprint city model with verified building data",
     eyebrowEn: "AI",
     eyebrowTh: "AI",
@@ -68,6 +68,8 @@ export default function A_Segment2() {
                 src={row.image}
                 alt={row.imageAlt}
                 className="aspect-[1.12/1] h-full w-full object-cover saturate-[1.05]"
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
 

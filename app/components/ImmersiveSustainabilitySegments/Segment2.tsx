@@ -93,9 +93,13 @@ export default function Segment2() {
             <div className="hidden lg:block relative mx-auto h-[650px] w-full max-w-[430px] lg:mx-0 order-2 lg:order-1">
               <div className="absolute bottom-10 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full border border-emerald-200/10 bg-emerald-300/10 blur-xl" />
               <img
-                src="/VEKIN Resource all Product/VEKIN 1/Tiger.png"
+                src="/VEKIN Resource all Product/VEKIN 1/Tiger.webp"
                 alt="Tiger emerging from phone"
                 className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain drop-shadow-[0_30px_55px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:scale-[1.03] lg:w-[500px] lg:max-w-none lg:left-[48%]"
+                width={646}
+                height={815}
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -148,9 +152,13 @@ export default function Segment2() {
             <div className="hidden lg:block relative mx-auto h-[650px] w-full max-w-[430px] lg:mx-0 order-2 lg:order-1">
               <div className="absolute bottom-10 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full border border-emerald-200/10 bg-emerald-300/10 blur-xl" />
               <img
-                src="/VEKIN Resource all Product/VEKIN 1/Deer.png"
+                src="/VEKIN Resource all Product/VEKIN 1/Deer.webp"
                 alt="Deer emerging from phone frame"
                 className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain drop-shadow-[0_30px_55px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:scale-[1.03] lg:w-[500px] lg:max-w-none lg:left-[48%]"
+                width={832}
+                height={830}
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -169,11 +177,21 @@ export default function Segment2() {
 
               <div className="mt-5 grid gap-4 grid-cols-1 sm:grid-cols-2 max-w-[840px]">
                 <div className="flex flex-col items-center justify-center p-3 bg-slate-950/62 rounded-[8px] border border-white/10 shadow-xl group">
-                  <img src="/VEKIN Resource all Product/VEKIN 1/electric.png" alt="Electrical energy" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-[8px] object-contain transition duration-300 group-hover:scale-[1.02]" />
+                  <img src="/VEKIN Resource all Product/VEKIN 1/Electric.webp" alt="Electrical energy" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-[8px] object-contain transition duration-300 group-hover:scale-[1.02]"
+                    width={460}
+                    height={391}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span className="text-[11px] font-medium tracking-wider text-slate-400 mt-2 uppercase">Zone Grid Power</span>
                 </div>
                 <div className="flex flex-col items-center justify-center p-3 bg-slate-950/62 rounded-[8px] border border-white/10 shadow-xl group">
-                  <img src="/VEKIN Resource all Product/VEKIN 1/transport.png" alt="Internal transport" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-[8px] object-contain transition duration-300 group-hover:scale-[1.02]" />
+                  <img src="/VEKIN Resource all Product/VEKIN 1/Transport.png" alt="Internal transport" className="h-auto max-h-[140px] sm:max-h-[200px] w-auto rounded-[8px] object-contain transition duration-300 group-hover:scale-[1.02]"
+                    width={411}
+                    height={389}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span className="text-[11px] font-medium tracking-wider text-slate-400 mt-2 uppercase">Internal Fleet Logistics</span>
                 </div>
               </div>
@@ -194,9 +212,13 @@ export default function Segment2() {
             <div className="hidden lg:block relative mx-auto h-[650px] w-full max-w-[430px] lg:mx-0 order-2 lg:order-1">
               <div className="absolute bottom-10 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full border border-emerald-200/10 bg-emerald-300/10 blur-xl" />
               <img
-                src="/VEKIN Resource all Product/VEKIN 1/Giraffe.png"
+                src="/VEKIN Resource all Product/VEKIN 1/Giraffe.webp"
                 alt="Giraffe"
                 className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 object-contain drop-shadow-[0_30px_55px_rgba(0,0,0,0.45)] transition-transform duration-500 hover:scale-[1.03] lg:w-[500px] lg:max-w-none lg:left-[48%]"
+                width={669}
+                height={826}
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

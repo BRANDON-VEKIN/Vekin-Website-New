@@ -32,7 +32,7 @@ export default function CarbonSegment4() {
             offset={44}
             className="relative flex h-screen w-full items-center justify-center overflow-hidden"
             style={{
-                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG2.png')`,
+                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG2.webp')`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
@@ -41,18 +41,16 @@ export default function CarbonSegment4() {
             <div className="absolute inset-0 bg-black/30" />
 
             <div className="relative z-10 flex max-w-3xl flex-col items-center px-6 text-center">
-                <h1 className="text-3xl font-semibold tracking-[-0.015em] leading-[1.1] text-white sm:text-4xl md:text-6xl">
+                <h2 className="text-3xl font-semibold tracking-[-0.015em] leading-[1.1] text-white sm:text-4xl md:text-6xl">
                     {text.title}
-                </h1>
+                </h2>
 
                 <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-white/75 sm:text-lg">
                     {text.description}
                 </p>
 
                 <motion.a
-                    href="https://www.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/contact"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}

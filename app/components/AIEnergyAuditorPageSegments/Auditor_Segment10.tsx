@@ -16,9 +16,13 @@ export default function AuditorSegment10() {
       offset={64}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/Human.png"
+        src="/VEKIN Resource all Product/VEKIN 3/Human.webp"
         alt="Human background"
         className="block w-full min-h-[720px] object-cover sm:min-h-[700px] md:min-h-[680px] lg:min-h-0"
+        width={1080}
+        height={584}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.2),rgba(0,0,0,0.54)_46%,rgba(0,0,0,0.9)_100%)]" />

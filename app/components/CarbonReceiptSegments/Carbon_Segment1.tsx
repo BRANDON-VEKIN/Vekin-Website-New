@@ -46,7 +46,7 @@ export default function CarbonSegment1() {
                 <motion.div
                     style={{
                         scale: bgScale,
-                        backgroundImage: "url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG1.png')",
+                        backgroundImage: "url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG1.webp')",
                         backgroundPosition: "center",
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",

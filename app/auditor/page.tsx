@@ -22,7 +22,8 @@ export const metadata = pageMetadata({
   title: "AI Energy Auditor",
   description:
     "An intelligent platform that optimises energy efficiency through real-time monitoring and predictive analytics, turning energy data into trusted proof for savings, green finance and carbon opportunities.",
-  path: "/auditor"
+  path: "/auditor",
+  image: "/VEKIN Resource all Product/VEKIN 3/Auditor_BG4.webp"
 });
 
 export default function AuditorPage() {

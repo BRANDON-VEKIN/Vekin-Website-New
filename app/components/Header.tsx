@@ -8,7 +8,7 @@ const navItems = {
     { label: "โซลูชั่น", href: "/solutions" },
     { label: "แพคเกจ", href: "/package" },
     { label: "เกี่ยวกับเรา", href: "/about" },
-    { label: "ผลงานของเรา", href: "/vekin_home#work" },
+    { label: "ผลงานของเรา", href: "/#work" },
     { label: "บล็อก", href: "/blog" },
     { label: "ติดต่อเรา", href: "/contact" },
   ],
@@ -16,7 +16,7 @@ const navItems = {
     { label: "Solutions", href: "/solutions" },
     { label: "Packages", href: "/package" },
     { label: "About", href: "/about" },
-    { label: "Our Work", href: "/vekin_home#work" },
+    { label: "Our Work", href: "/#work" },
     { label: "Blog", href: "/blog" },
     { label: "Contact Us", href: "/contact" },
   ],
@@ -75,6 +75,10 @@ export default function Header() {
             src="/VEKIN Resource all Product/Vekin_logo.png"
             alt="VEKIN"
             className="h-[22px] w-auto sm:h-6 md:h-[27px]"
+            width={152}
+            height={30}
+            fetchPriority="high"
+            decoding="async"
           />
         </a>
 

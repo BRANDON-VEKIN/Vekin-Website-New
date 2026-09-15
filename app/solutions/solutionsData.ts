@@ -17,6 +17,12 @@ export type Solution = {
   steps?: Localized[];
   highlights?: Localized[];
   benefits?: Localized[];
+  /**
+   * A dedicated product page for this solution, when one exists. Only set it
+   * where the page is unambiguously the same product — the detail page links
+   * straight to it.
+   */
+  productPath?: string;
 };
 
 const iconBase = "/VEKIN Resource all Product/Vekin Solutions";
@@ -30,7 +36,7 @@ export const solutions: Solution[] = [
       th: "แพลตฟอร์มบริหารจัดการพลังงานแบบไดนามิก",
       en: "Dynamic Energy Management Platform",
     },
-    icon: `${iconBase}/DEMP.png`,
+    icon: `${iconBase}/DEMP.webp`,
     accent: "#3BB97B",
     tagline: {
       th: "เพิ่มประสิทธิภาพการใช้พลังงานอย่างต่อเนื่อง ลดการปล่อยคาร์บอนในระดับปฏิบัติการ และเชื่อมโยงการใช้ทรัพยากรเข้ากับเป้าหมาย Net-Zero ของคุณ",
@@ -87,7 +93,7 @@ export const solutions: Solution[] = [
       th: "แพลตฟอร์มลดคาร์บอนและการรับรองมาตรฐาน",
       en: "Decarbonization and Accreditation Platform",
     },
-    icon: `${iconBase}/DAP.png`,
+    icon: `${iconBase}/DAP.webp`,
     accent: "#00b59f",
     tagline: {
       th: "เปลี่ยนข้อมูลเชิงลึกให้เป็นการลงมือทำ ด้วยการบริหารโครงการลดคาร์บอน ทวนสอบผลลัพธ์ และได้รับการรับรองมาตรฐานที่เป็นที่ยอมรับ",
@@ -144,7 +150,7 @@ export const solutions: Solution[] = [
       th: "กระเป๋าคาร์บอนส่วนบุคคล CERO",
       en: "CERO Personal Carbon Wallet",
     },
-    icon: `${iconBase}/CERO.png`,
+    icon: `${iconBase}/CERO.webp`,
     accent: "#2dd4bf",
     tagline: {
       th: "ยกระดับการบริหารสินทรัพย์คาร์บอน ด้วยการจัดเก็บ ซื้อขาย และควบคุมคาร์บอนเครดิตในกระเป๋าดิจิทัลที่ใช้งานง่ายและโปร่งใส",
@@ -201,7 +207,7 @@ export const solutions: Solution[] = [
       th: "ผู้ตรวจสอบคาร์บอนด้วย AI",
       en: "AI Carbon Auditor",
     },
-    icon: `${iconBase}/AI Carbon Auditor.png`,
+    icon: `${iconBase}/AI Carbon Auditor.webp`,
     accent: "#14b8a6",
     tagline: {
       th: "เปลี่ยนข้อมูลดิบให้เป็นข้อมูลเชิงลึกที่นำไปใช้ได้จริง ด้วยเครื่องมือตรวจสอบที่ขับเคลื่อนด้วย AI ซึ่งชี้จุดที่ลดคาร์บอนได้และเสริมกลยุทธ์ความยั่งยืนของคุณ",
@@ -269,7 +275,10 @@ export const solutions: Solution[] = [
       th: "ใบเสร็จคาร์บอน",
       en: "Carbon Receipt",
     },
-    icon: `${iconBase}/Carbon Receipt.png`,
+    // /new_ec is this product's own page: the scroll-through story of the
+    // E-Carbon receipt, opening on this entry's tagline word for word.
+    productPath: "/new_ec",
+    icon: `${iconBase}/Carbon Receipt.webp`,
     accent: "#34d399",
     tagline: {
       th: "บันทึกทุกธุรกรรมคาร์บอนเครดิตด้วยหลักฐานที่ตรวจสอบบนบล็อกเชน สร้างการตรวจสอบย้อนกลับได้ และทำให้การรายงานด้านสิ่งแวดล้อมง่ายขึ้น",
@@ -319,7 +328,7 @@ export const solutions: Solution[] = [
       th: "บริการทวนสอบและตรวจสอบ",
       en: "Validate and Verify Service",
     },
-    icon: `${iconBase}/Validate and Verify Service.png`,
+    icon: `${iconBase}/Validate and Verify Service.webp`,
     accent: "#10b981",
     tagline: {
       th: "เสริมความเชื่อมั่นและความโปร่งใส ด้วยการประเมินอย่างอิสระที่รับรองคาร์บอนเครดิตและข้อมูลการปล่อยคาร์บอนของคุณตามมาตรฐานสากล",

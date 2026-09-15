@@ -11,7 +11,8 @@ export const metadata = pageMetadata({
   title: "DAP — Decarbonization and Accreditation Platform",
   description:
     "DAP helps organisations navigate sustainability standards and achieve net-zero targets, integrating data analytics, rigorous verification protocols and recognised accreditation frameworks.",
-  path: "/dap_new"
+  path: "/dap_new",
+  image: "/VEKIN Resource all Product/VEKIN 4/DAP_BG1.webp"
 });
 
 export default function DapPage() {

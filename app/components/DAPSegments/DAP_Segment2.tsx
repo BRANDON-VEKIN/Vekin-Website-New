@@ -10,7 +10,7 @@ export default function DAPSegment2() {
     <section
         className="relative  h-[180vh] flex min-h-screen w-full items-center overflow-hidden py-24"
         style={{
-            backgroundImage: "url('/VEKIN Resource all Product/VEKIN 4/DAP_BG2.png')",
+            backgroundImage: "url('/VEKIN Resource all Product/VEKIN 4/DAP_BG2.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -29,7 +29,7 @@ export default function DAPSegment2() {
                 {/* TOP PART: OUR PROCESS */}
                 <div className="w-full">
                     <LocalizedText
-                        as="h1"
+                        as="h2"
                         th="กระบวนการของเรา"
                         en="OUR PROCESS"
                         className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-3xl md:text-8xl"
@@ -52,7 +52,7 @@ export default function DAPSegment2() {
                 {/* BOTTOM PART: CONCEPT & TIMELINE */}
                 <div className="w-full">
                     <LocalizedText
-                        as="h1"
+                        as="h2"
                         th="แนวคิด"
                         en="CONCEPT"
                         className="bg-gradient-to-r from-[#00464E] to-[#3BB97B] bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent drop-shadow-[0_12px_36px_rgba(59,185,123,0.24)] sm:text-3xl md:text-8xl"

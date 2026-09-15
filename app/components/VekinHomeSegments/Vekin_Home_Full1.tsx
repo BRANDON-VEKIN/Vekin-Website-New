@@ -19,7 +19,7 @@ const productLinks: ProductLinkItem[] = [
   {
     label: "One Click",
     href: "https://oneclick-dev.vekin.co.th/",
-    src: `${assetBase}/OC3.png`,
+    src: `${assetBase}/OC3.webp`,
     className:
       "left-[51%] top-[19.5%] w-[40%] max-w-[520px] -translate-x-1/2 sm:left-[52%] sm:top-[19.6%] sm:w-[36%]",
     external: true,
@@ -27,28 +27,28 @@ const productLinks: ProductLinkItem[] = [
   {
     label: "Immersive Sustainability",
     href: "/",
-    src: `${assetBase}/IS3.png`,
+    src: `${assetBase}/IS3.webp`,
     className:
       "left-[24%] top-[25%] w-[39%] max-w-[460px] -translate-x-1/2 sm:left-[25%] sm:top-[26%] sm:w-[34%]",
   },
   {
     label: "AI Energy Auditor",
     href: "/auditor",
-    src: `${assetBase}/EA3.png`,
+    src: `${assetBase}/EA3.webp`,
     className:
       "left-[77%] top-[38.5%] w-[40%] max-w-[500px] -translate-x-1/2 sm:left-[80%] sm:top-[38%] sm:w-[35%]",
   },
   {
     label: "E-Carbon Receipt",
     href: "/new_ec",
-    src: `${assetBase}/ECR2.png`,
+    src: `${assetBase}/ECR2.webp`,
     className:
       "left-[42%] top-[65.8%] w-[30%] max-w-[500px] -translate-x-1/2 sm:left-[45%] sm:top-[65.5%] sm:w-[30%]",
   },
   {
     label: "DAP Main",
     href: "/dap_new",
-    src: `${assetBase}/DM3.png`,
+    src: `${assetBase}/DM3.webp`,
     className:
       "left-[19%] top-[80.7%] w-[28%] max-w-[310px] -translate-x-1/2 sm:left-[18%] sm:top-[80.4%] sm:w-[24%]",
   },
@@ -180,6 +180,8 @@ function ProductLink({
       src={src}
       alt={label}
       className="h-auto w-full object-contain drop-shadow-[0_18px_22px_rgba(11,112,99,0.12)] transition duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:drop-shadow-[0_0_28px_rgba(0,181,159,0.55)]"
+      fetchPriority="high"
+      decoding="async"
     />
   );
 
@@ -421,9 +423,13 @@ export default function Vekin_Home_Full1() {
         </style>
 
         <img
-          src={`${assetBase}/HBG.png`}
+          src={`${assetBase}/HBG.webp`}
           alt="Vekin carbon verifier journey background"
           className="block h-auto w-full object-contain"
+          width={2560}
+          height={12802}
+          fetchPriority="high"
+          decoding="async"
         />
 
         <svg
@@ -460,6 +466,10 @@ export default function Vekin_Home_Full1() {
             className={`block h-auto w-full transition-opacity duration-100 ${
               journeyMarker.facing === "right" ? "opacity-100" : "opacity-0"
             }`}
+            width={72}
+            height={77}
+            fetchPriority="high"
+            decoding="async"
           />
           <img
             src={`${assetBase}/Left_Point.png`}
@@ -467,6 +477,10 @@ export default function Vekin_Home_Full1() {
             className={`absolute inset-0 h-auto w-full transition-opacity duration-100 ${
               journeyMarker.facing === "left" ? "opacity-100" : "opacity-0"
             }`}
+            width={72}
+            height={77}
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
 
@@ -478,6 +492,10 @@ export default function Vekin_Home_Full1() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto h-auto w-[22%] max-w-[150px] min-w-[80px] object-contain"
+            width={167}
+            height={31}
+            fetchPriority="high"
+            decoding="async"
           />
           <motion.p
             initial={{ opacity: 0, y: 26 }}
@@ -487,22 +505,26 @@ export default function Vekin_Home_Full1() {
           >
             {hero.eyebrow}
           </motion.p>
-          <motion.h1
+          {/* One heading over two lines: each line still animates in on its own
+              delay, but as spans inside a single h1 rather than two h1s. */}
+          <h1>
+          <motion.span
             initial={{ opacity: 0, y: 34, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.95, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-[1%] text-[clamp(2.5rem,9.6vw,8.6rem)] font-semibold tracking-[-0.02em] leading-[0.86]"
+            className="block mt-[1%] text-[clamp(2.5rem,9.6vw,8.6rem)] font-semibold tracking-[-0.02em] leading-[0.86]"
           >
             {hero.titleLine1}
-          </motion.h1>
-          <motion.h1
+          </motion.span>
+          <motion.span
             initial={{ opacity: 0, y: 34, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.95, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[clamp(2.5rem,9.6vw,8.6rem)] font-semibold tracking-[-0.02em] leading-[0.86]"
+            className="block text-[clamp(2.5rem,9.6vw,8.6rem)] font-semibold tracking-[-0.02em] leading-[0.86]"
           >
             {hero.titleLine2}
-          </motion.h1>
+          </motion.span>
+          </h1>
           <motion.p
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
@@ -525,40 +547,60 @@ export default function Vekin_Home_Full1() {
         ))}
 
         <img
-          src={`${assetBase}/CB1.png`}
+          src={`${assetBase}/CB1.webp`}
           alt=""
           className="absolute left-[32%] top-[16.2%] z-30 w-[10%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[30%] sm:top-[17%] sm:w-[10%]"
           style={{ animation: "vekinCalloutFloat 2.6s ease-in-out infinite" }}
+          width={620}
+          height={1258}
+          fetchPriority="high"
+          decoding="async"
         />
 
         <img
-          src={`${assetBase}/CB2.png`}
+          src={`${assetBase}/CB2.webp`}
           alt=""
           className="absolute left-[25%] top-[85%] z-30 w-[8%] max-w-[230px] -translate-x-1/2 object-contain sm:left-[18%] sm:top-[84.8%] sm:w-[8%]"
           style={{
             animation: "vekinCalloutFloatAlt 2.8s ease-in-out infinite",
           }}
+          width={497}
+          height={1208}
+          fetchPriority="high"
+          decoding="async"
         />
 
         <img
-          src={`${assetBase}/Ship2.png`}
+          src={`${assetBase}/Ship2.webp`}
           alt="Cargo ship"
           className="absolute left-[75%] top-[55.5%] z-20 w-[30%] max-w-[550px] object-contain sm:left-[76%] sm:top-[53.5%] sm:w-[70%]"
           style={{ animation: "vekinShipBob 3.2s ease-in-out infinite" }}
+          width={1019}
+          height={1019}
+          fetchPriority="high"
+          decoding="async"
         />
 
         <img
-          src={`${assetBase}/Drone.png`}
+          src={`${assetBase}/Drone.webp`}
           alt="Drone"
           className="absolute left-[15%] top-[48%] z-20 w-[30%] max-w-[550px] object-contain sm:left-[18%] sm:top-[50%] sm:w-[70%]"
           style={{ animation: "vekinDroneBob 2.8s ease-in-out infinite" }}
+          width={1039}
+          height={1039}
+          fetchPriority="high"
+          decoding="async"
         />
 
         <img
-          src={`${assetBase}/Drone2.png`}
+          src={`${assetBase}/Drone2.webp`}
           alt="Drone"
           className="absolute left-[74%] top-[45.6%] z-20 w-[28%] max-w-[500px] object-contain sm:left-[72%] sm:top-[44.5%] sm:w-[44%]"
           style={{ animation: "vekinDroneTwoBob 3s ease-in-out infinite" }}
+          width={841}
+          height={841}
+          fetchPriority="high"
+          decoding="async"
         />
 
         {productLinks.map((product) => (

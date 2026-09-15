@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 import { BidirectionalScrollReveal } from "../BidirectionalScrollReveal";
 import PackagesModal from "../PackagesModal";
@@ -31,10 +32,12 @@ export default function Segment11() {
       duration={1.35}
       className="relative min-h-[560px] overflow-hidden bg-black transform-gpu sm:min-h-[720px] lg:min-h-[900px]"
     >
-      <img
-        src="/VEKIN Resource all Product/VEKIN 1/IS_BG9.png"
+      <Image
+        src="/VEKIN Resource all Product/VEKIN 1/IS_BG9.webp"
         alt="Children creating a miniature sustainable environment together"
-        className="absolute inset-0 h-full w-full object-cover"
+        fill
+        sizes="100vw"
+        className="object-cover"
       />
       <div className="absolute inset-0 bg-black/10" />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-black via-black/70 to-transparent sm:h-48 lg:h-56" />

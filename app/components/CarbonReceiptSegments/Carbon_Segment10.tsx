@@ -32,7 +32,7 @@ export default function CarbonSegment10() {
             offset={44}
             className="relative flex h-screen w-full items-center overflow-hidden"
             style={{
-                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG6.png')`,
+                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG6.webp')`,
                 backgroundPosition: "right",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
@@ -44,15 +44,13 @@ export default function CarbonSegment10() {
                         {text.eyebrow}
                     </p>
 
-                    <h1 className="bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-3xl font-semibold tracking-[-0.015em] leading-[1.1] text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
+                    <h2 className="bg-gradient-to-r from-[#00464F] to-[#53BC81] bg-clip-text text-3xl font-semibold tracking-[-0.015em] leading-[1.1] text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
                         {text.title}
-                    </h1>
+                    </h2>
 
                     <div className="flex flex-col items-start gap-5 pt-2 sm:flex-row sm:items-center sm:gap-8">
                         <motion.a
-                            href="https://www.google.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="/contact"
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             transition={{ type: "spring", stiffness: 400, damping: 25 }}

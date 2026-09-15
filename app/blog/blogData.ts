@@ -46,7 +46,7 @@ export const blogPosts: readonly BlogPost[] = [
       th: "กรอบแนวคิดที่ผสาน IoT, AI และบล็อกเชนเข้ากับกิจกรรมประจำวัน พร้อมระบบ MRV ดิจิทัลแบบเรียลไทม์สำหรับก๊าซเรือนกระจก"
     },
     datePublished: null,
-    image: "/Blog Image/IS Blog Image.jpg",
+    image: "/Blog Image/IS Blog Image.webp",
     imageWidth: 2068,
     featured: true,
     body: [

@@ -20,7 +20,7 @@ export default function CarbonSegment7() {
   aria-label="Carbon Receipt"
   className="relative flex items-center justify-center h-screen w-full overflow-hidden"
   style={{
-    backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG4.png')`,
+    backgroundImage: `url('/VEKIN Resource all Product/VEKIN 2/Carbon_BG4.webp')`,
     backgroundPosition: "right",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

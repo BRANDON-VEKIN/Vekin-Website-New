@@ -6,7 +6,7 @@ import LocalizedText from "../LocalizedText";
 
 const detailPanels = {
   traditional: {
-    image: "/VEKIN Resource all Product/VEKIN 3/Human_Left.png",
+    image: "/VEKIN Resource all Product/VEKIN 3/Human_Left.webp",
     sideLabel: "Human Left",
     labelEn: "Legacy Workflow",
     labelTh: "กระบวนการแบบเดิม",
@@ -24,7 +24,7 @@ const detailPanels = {
     ],
   },
   ai: {
-    image: "/VEKIN Resource all Product/VEKIN 3/AI_Right.png",
+    image: "/VEKIN Resource all Product/VEKIN 3/AI_Right.webp",
     sideLabel: "AI Right",
     labelEn: "Intelligent Verification",
     labelTh: "การตรวจสอบอัจฉริยะ",
@@ -88,6 +88,8 @@ export default function A_Segment3() {
                 src={detailPanels.traditional.image}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover opacity-78 transition duration-700 group-hover:scale-105 group-hover:opacity-92"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.58),rgba(0,0,0,0.2)_70%,rgba(0,0,0,0.58))]" />
               <div className="absolute bottom-5 left-5 z-10 rounded-full border border-red-200/25 bg-black/35 px-4 py-2 text-xs font-medium tracking-wide text-red-100 backdrop-blur-md sm:bottom-8 sm:left-8">
@@ -105,6 +107,8 @@ export default function A_Segment3() {
                 src={detailPanels.ai.image}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover opacity-78 transition duration-700 group-hover:scale-105 group-hover:opacity-92"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.58),rgba(0,0,0,0.2)_30%,rgba(0,0,0,0.58))]" />
               <div className="absolute bottom-5 right-5 z-10 rounded-full border border-[#44e5d0]/30 bg-black/35 px-4 py-2 text-xs font-medium tracking-wide text-[#73f3df] backdrop-blur-md sm:bottom-8 sm:right-8">
@@ -159,6 +163,8 @@ export default function A_Segment3() {
                   src={panel.image}
                   alt=""
                   className="absolute inset-0 h-full w-full object-cover opacity-82"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.72)_56%,rgba(0,0,0,0.96))]" />
                 <div className={`absolute inset-0 ${accent.glow}`} />

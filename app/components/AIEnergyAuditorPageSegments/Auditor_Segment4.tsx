@@ -20,9 +20,13 @@ export default function AuditorSegment4() {
       offset={36}
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG4.png"
+        src="/VEKIN Resource all Product/VEKIN 3/Auditor_BG4.webp"
         alt="Isometric city background"
         className="block w-full min-h-[780px] object-cover sm:min-h-[740px] md:min-h-[720px] lg:min-h-0"
+        width={2560}
+        height={1762}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88),rgba(0,0,0,0.64)_44%,rgba(0,0,0,0.2)_100%)]" />

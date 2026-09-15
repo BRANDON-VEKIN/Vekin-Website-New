@@ -46,7 +46,7 @@ export default function PhaseClient() {
     <EventPhasePage
       accent="#67e8f9"
       backLabel={copy.back}
-      image="/VEKIN Resource all Product/VEKIN 1/during_event.png"
+      image="/VEKIN Resource all Product/VEKIN 1/during_event.webp"
       imageAlt="During-event interactive touch screen experience"
       phase={copy.phase}
       stats={copy.stats}

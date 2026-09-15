@@ -42,12 +42,16 @@ export default function Segment9() {
 >
   {/* Ambient background bubble */}
   <motion.img
-    src="/VEKIN Resource all Product/VEKIN 1/Group.png"
+    src="/VEKIN Resource all Product/VEKIN 1/Group.webp"
     alt=""
     animate={{ y: [0, -18, 0], x: [0, 10, 0], scale: [1, 1.04, 1] }}
     transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
     whileHover={{ scale: 1.08, rotate: -3 }}
     className="pointer-events-auto absolute -left-24 top-10 z-0 w-56 opacity-55 sm:-left-20 sm:top-8 sm:w-80 lg:-left-10 lg:top-14 lg:w-[380px]"
+    width={595}
+    height={592}
+    loading="lazy"
+    decoding="async"
   />
 
   <div className="relative z-10 mx-auto max-w-[1120px]">
@@ -124,9 +128,13 @@ export default function Segment9() {
       className="mx-auto mt-12 max-w-[1080px] overflow-hidden rounded-2xl border border-white/10 sm:mt-24 sm:rounded-[24px]"
     >
       <img
-        src="/VEKIN Resource all Product/VEKIN 1/island_img.png"
+        src="/VEKIN Resource all Product/VEKIN 1/island_img.webp"
         alt="Green island landscape representing carbon impact"
         className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+        width={1080}
+        height={498}
+        loading="lazy"
+        decoding="async"
       />
     </motion.div>
   </div>

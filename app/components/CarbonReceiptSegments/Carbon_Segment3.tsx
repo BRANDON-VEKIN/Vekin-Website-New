@@ -8,7 +8,7 @@ const sections = [
     {
         titleEn: "Material sourcing",
         titleTh: "การจัดหาวัตถุดิบ",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide1.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide1.webp",
         descriptionEn:
             "Raw materials are responsibly sourced from verified suppliers, ensuring transparency, sustainability, and compliance with environmental standards throughout the procurement process.",
         descriptionTh:
@@ -17,7 +17,7 @@ const sections = [
     {
         titleEn: "Logistics",
         titleTh: "โลจิสติกส์",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide2.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide2.webp",
         descriptionEn:
             "Transportation activities are optimized to reduce fuel consumption and emissions while maintaining efficient movement of goods across the supply chain.",
         descriptionTh:
@@ -26,7 +26,7 @@ const sections = [
     {
         titleEn: "Processing & manufacturing",
         titleTh: "การแปรรูปและการผลิต",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide3.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide3.webp",
         descriptionEn:
             "Production operations utilize energy-efficient processes and resource management practices to minimize environmental impact and improve operational performance.",
         descriptionTh:
@@ -35,7 +35,7 @@ const sections = [
     {
         titleEn: "Distribution",
         titleTh: "การกระจายสินค้า",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide4.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide4.webp",
         descriptionEn:
             "Products are distributed through strategically planned networks that reduce delivery distances, lower carbon emissions, and improve supply chain efficiency.",
         descriptionTh:
@@ -44,7 +44,7 @@ const sections = [
     {
         titleEn: "Usage",
         titleTh: "การใช้งาน",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide5.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide5.webp",
         descriptionEn:
             "During the product lifecycle, energy consumption and operational impacts are monitored to support sustainable use and informed decision-making.",
         descriptionTh:
@@ -53,7 +53,7 @@ const sections = [
     {
         titleEn: "Waste treatment",
         titleTh: "การจัดการของเสีย",
-        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide6.png",
+        image: "/VEKIN Resource all Product/VEKIN 2/Carbon_Slide6.webp",
         descriptionEn:
             "End-of-life materials are recovered, recycled, or disposed of through environmentally responsible treatment processes.",
         descriptionTh:
@@ -103,9 +103,9 @@ export default function CarbonSegment3() {
                     <p className="text-sm font-semibold tracking-wide text-[#7fe3ab]">
                         {isThai ? "วงจรชีวิตคาร์บอน" : "Carbon lifecycle"}
                     </p>
-                    <h1 className="mt-2 text-3xl font-semibold tracking-[-0.015em] text-white md:text-5xl">
+                    <h2 className="mt-2 text-3xl font-semibold tracking-[-0.015em] text-white md:text-5xl">
                         {isThai ? "ระเบียบวิธีของเรา" : "Our methodology."}
-                    </h1>
+                    </h2>
                 </div>
 
                 {/* Content area */}

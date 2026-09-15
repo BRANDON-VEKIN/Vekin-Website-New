@@ -8,7 +8,8 @@ export const metadata = pageMetadata({
   title: "Product Suite Overview",
   description:
     "Access and fully orchestrate specialised environmental data suites and smart energy automation utilities inside a unique ecosystem.",
-  path: "/dap_more"
+  path: "/dap_more",
+  image: "/VEKIN Resource all Product/VEKIN 4/DAP_BG1.webp"
 });
 
 export default function DapPage() {

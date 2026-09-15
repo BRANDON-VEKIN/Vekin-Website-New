@@ -250,7 +250,10 @@ export default function SolutionsClient() {
                   className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl"
                   style={{ background: `${solution.accent}1f` }}
                 >
-                  <img src={solution.icon} alt="" className="h-9 w-9 object-contain" />
+                  <img src={solution.icon} alt="" className="h-9 w-9 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </span>
                 <span className="min-w-0">
                   <span className="block text-sm font-semibold text-white">{solution.name}</span>
@@ -315,6 +318,8 @@ function SolutionCard({
             src={solution.icon}
             alt={solution.name}
             className="h-14 w-14 object-contain transition duration-500 group-hover:scale-110 sm:h-16 sm:w-16"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <h3 className="mt-6 text-lg font-semibold tracking-[-0.01em] text-white sm:text-xl">

@@ -10,7 +10,7 @@ export default function DAPSegment1() {
             aria-label="DAP Segment 1"
             className="relative flex items-center justify-center h-screen w-full overflow-hidden"
             style={{
-                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 4/DAP_BG1.png')`,
+                backgroundImage: `url('/VEKIN Resource all Product/VEKIN 4/DAP_BG1.webp')`,
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",

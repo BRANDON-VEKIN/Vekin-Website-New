@@ -17,7 +17,8 @@ export const metadata = pageMetadata({
   title: "Immersive Sustainability",
   description:
     "Technology that blends sustainability data with on-site experiences, helping attendees understand the value of reducing carbon in a clear way.",
-  path: "/"
+  path: "/",
+  image: "/VEKIN Resource all Product/VEKIN 1/IS_BG9.webp"
 });
 
 export default function Home() {

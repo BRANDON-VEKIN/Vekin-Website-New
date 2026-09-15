@@ -24,7 +24,7 @@ const solutionsBase = "/VEKIN Resource all Product/Vekin Solutions";
 
 const mockIcons: IconEntry[] = [
     {
-        src: "/VEKIN Resource all Product/VEKIN 4/icon4.png",
+        src: "/VEKIN Resource all Product/VEKIN 4/Icon4.png",
         en: "ISO Base",
         th: "ฐานไอเอสโอ",
         descEn: "VEKIN’s digital trust infrastructure aligns with international standards including ISO 14064-1, 14064-2, 14065, 14067, and 17029. Its Knowledge Graph codifies these standards into AI-driven, consistent audit rules. This enables audit-grade accuracy for international climate finance and carbon markets.",
@@ -38,7 +38,7 @@ const mockIcons: IconEntry[] = [
         ]
     },
     {
-        src: "/VEKIN Resource all Product/VEKIN 4/icon5.png",
+        src: "/VEKIN Resource all Product/VEKIN 4/Icon5.png",
         en: "Product & Service",
         th: "สินค้าและบริการ",
         descEn: "VEKIN provides an ESG Data Hub Ecosystem that measures, analyzes, and automates Scope 1, 2, and 3 emissions reporting. Its solutions include the AI Carbon Auditor, CERO Immersive Sustainability platform, and blockchain-secured Carbon Receipts. Flexible subscription tiers from Lite to Enterprise support organizations of different scales.",
@@ -53,7 +53,7 @@ const mockIcons: IconEntry[] = [
         ]
     },
     {
-        src: "/VEKIN Resource all Product/VEKIN 4/icon6.png",
+        src: "/VEKIN Resource all Product/VEKIN 4/Icon6.png",
         en: "Carbon Emission Reduction",
         th: "การลดการปล่อยก๊าซคาร์บอน",
         descEn: "VEKIN automates carbon verification in real time, replacing manual audits that can take months. Its AI analyzes IoT and satellite data with 95% probabilistic accuracy, while reducing operational costs by 80%. Real-time insights help organizations identify waste, improve efficiency, and plan carbon reduction strategies.",
@@ -61,7 +61,7 @@ const mockIcons: IconEntry[] = [
         media: []
     },
     {
-        src: "/VEKIN Resource all Product/VEKIN 4/icon7.png",
+        src: "/VEKIN Resource all Product/VEKIN 4/Icon7.png",
         en: "Organization Product Carbon Neutrality",
         th: "ความเป็นกลางทางคาร์บอนขององค์กรและผลิตภัณฑ์",
         descEn: "VEKIN enables secure Carbon Neutrality through blockchain-backed records that reduce greenwashing and fraud risks. Through CERO, organizations engage attendees with footprint tracking, NFT rewards, and instant carbon offsets via PromptPay. This transforms environmental data into bankable digital assets, supporting green financing and premium carbon markets.",
@@ -96,16 +96,24 @@ export default function DAPSegment4() {
             {/* BACKGROUND LAYERS (Desktop Only) */}
             <div className="hidden md:block h-1/2 w-full overflow-hidden">
                 <img
-                    src="/VEKIN Resource all Product/VEKIN 4/DAP_Slide1.png"
+                    src="/VEKIN Resource all Product/VEKIN 4/DAP_Slide1.webp"
                     className="h-full w-full object-cover object-bottom"
                     alt=""
+                  width={1438}
+                  height={899}
+                  loading="lazy"
+                  decoding="async"
                 />
             </div>
             <div className="hidden md:block h-1/2 w-full overflow-hidden relative">
                 <img
-                    src="/VEKIN Resource all Product/VEKIN 4/DAP_BG3.png"
+                    src="/VEKIN Resource all Product/VEKIN 4/DAP_BG3.webp"
                     className="h-full w-full object-cover object-top"
                     alt=""
+                  width={1440}
+                  height={969}
+                  loading="lazy"
+                  decoding="async"
                 />
             </div>
 
@@ -142,7 +150,12 @@ export default function DAPSegment4() {
                                         className="w-[85%] shrink-0 snap-center bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 flex flex-col justify-between text-center"
                                     >
                                         <div>
-                                            <img src="/VEKIN Resource all Product/VEKIN 4/icon1.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"/>
+                                            <img src="/VEKIN Resource all Product/VEKIN 4/Icon1.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"
+                                              width={210}
+                                              height={120}
+                                              loading="lazy"
+                                              decoding="async"
+                                            />
                                             <p className="text-white font-bold text-sm tracking-wide">{isThai ? "เอไอจัดสรรข้อมูล" : "AI ALLOCATES DATA"} &rarr;</p>
                                             <p className="text-white/70 text-[11px] mb-2">{isThai ? "การจัดการแหล่งที่มาข้อมูล" : "Data Source Management"}</p>
                                         </div>
@@ -158,7 +171,12 @@ export default function DAPSegment4() {
                                         className="w-[85%] shrink-0 snap-center bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 flex flex-col justify-between text-center"
                                     >
                                         <div>
-                                            <img src="/VEKIN Resource all Product/VEKIN 4/icon2.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"/>
+                                            <img src="/VEKIN Resource all Product/VEKIN 4/Icon2.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"
+                                              width={163}
+                                              height={120}
+                                              loading="lazy"
+                                              decoding="async"
+                                            />
                                             <p className="text-white font-bold text-sm tracking-wide">{isThai ? "แดชบอร์ดอัจฉริยะ" : "DYNAMIC DASHBOARD"} &rarr;</p>
                                             <p className="text-white/70 text-[11px] mb-2">{isThai ? "ปรับแต่งมุมมองข้อมูลได้" : "Customized data viewing"}</p>
                                         </div>
@@ -175,7 +193,12 @@ export default function DAPSegment4() {
                                         className="w-[85%] shrink-0 snap-center bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4 flex flex-col justify-between text-center"
                                     >
                                         <div>
-                                            <img src="/VEKIN Resource all Product/VEKIN 4/icon3.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"/>
+                                            <img src="/VEKIN Resource all Product/VEKIN 4/Icon3.png" alt="" className="h-16 w-auto object-contain mx-auto mb-2"
+                                              width={226}
+                                              height={121}
+                                              loading="lazy"
+                                              decoding="async"
+                                            />
                                             <p className="text-white font-bold text-sm tracking-wide">{isThai ? "ระบบ OCR-RPA" : "OCR-RPA"} &rarr;</p>
                                             <p className="text-white/70 text-[11px] mb-2">{isThai ? "รองรับเทคโนโลยีที่หลากหลาย" : "Multi-tech support"}</p>
                                         </div>
@@ -216,7 +239,12 @@ export default function DAPSegment4() {
                         >
                             <div className="flex flex-col items-center w-full">
                                 <div className="mb-3">
-                                    <img src="/VEKIN Resource all Product/VEKIN 4/icon1.png" alt="" className="h-24 w-auto object-contain mx-auto"/>
+                                    <img src="/VEKIN Resource all Product/VEKIN 4/Icon1.png" alt="" className="h-24 w-auto object-contain mx-auto"
+                                      width={210}
+                                      height={120}
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
                                 </div>
                                 <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">{isThai ? "เอไอจัดสรรข้อมูล" : "AI ALLOCATES DATA"} &rarr;</p>
                                 <p className="text-white/70 text-sm mt-1 mb-4">{isThai ? "การจัดการแหล่งที่มาข้อมูล" : "Data Source Management"}</p>
@@ -240,7 +268,12 @@ export default function DAPSegment4() {
                         >
                             <div className="flex flex-col items-center w-full">
                                 <div className="mb-3">
-                                    <img src="/VEKIN Resource all Product/VEKIN 4/icon2.png" alt="" className="h-24 w-auto object-contain mx-auto"/>
+                                    <img src="/VEKIN Resource all Product/VEKIN 4/Icon2.png" alt="" className="h-24 w-auto object-contain mx-auto"
+                                      width={163}
+                                      height={120}
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
                                 </div>
                                 <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">{isThai ? "แดชบอร์ดอัจฉริยะ" : "DYNAMIC DASHBOARD"} &rarr;</p>
                                 <p className="text-white/70 text-sm mt-1 mb-4">{isThai ? "สามารถปรับแต่งมุมมองข้อมูลได้" : "Able to customize data viewing"}</p>
@@ -268,7 +301,12 @@ export default function DAPSegment4() {
                         >
                             <div className="flex flex-col items-center w-full">
                                 <div className="mb-3">
-                                    <img src="/VEKIN Resource all Product/VEKIN 4/icon3.png" alt="" className="h-24 w-auto object-contain mx-auto"/>
+                                    <img src="/VEKIN Resource all Product/VEKIN 4/Icon3.png" alt="" className="h-24 w-auto object-contain mx-auto"
+                                      width={226}
+                                      height={121}
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
                                 </div>
                                 <p className="text-white font-bold text-lg group-hover:translate-x-1 transition-transform">{isThai ? "ระบบ OCR-RPA" : "OCR-RPA"} &rarr;</p>
                                 <p className="text-white/70 text-sm mt-1 mb-4">{isThai ? "รองรับเทคโนโลยีที่หลากหลาย" : "Supports a variety of technologies"}</p>
@@ -321,6 +359,8 @@ export default function DAPSegment4() {
                                 src={icon.src} 
                                 alt={`Grid Icon ${idx + 1}`} 
                                 className="h-24 w-24 md:h-30 md:w-30 object-contain drop-shadow-md"
+                              loading="lazy"
+                              decoding="async"
                             />
                         </button>
                     ))}
@@ -376,7 +416,10 @@ export default function DAPSegment4() {
                                 {/* Header */}
                                 <div className="relative flex flex-col items-center text-center">
                                     <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-inner md:h-20 md:w-20">
-                                        <img src={current.src} alt="" className="h-9 w-9 object-contain md:h-11 md:w-11" />
+                                        <img src={current.src} alt="" className="h-9 w-9 object-contain md:h-11 md:w-11"
+                                          loading="lazy"
+                                          decoding="async"
+                                        />
                                     </div>
                                     <LocalizedText
                                         th={current.th}

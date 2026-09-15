@@ -46,7 +46,7 @@ export default function PhaseClient() {
     <EventPhasePage
       accent="#6ee7b7"
       backLabel={copy.back}
-      image="/VEKIN Resource all Product/VEKIN 1/pre_event.png"
+      image="/VEKIN Resource all Product/VEKIN 1/pre_event.webp"
       imageAlt="Pre-event planning meeting with event data charts"
       phase={copy.phase}
       stats={copy.stats}
