@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "../components/Header";
 import { useSiteLanguage } from "../components/siteLanguage";
@@ -282,6 +282,120 @@ function RevealWords({
   );
 }
 
+const LANDSCAPE_FRAMES = 20;
+const RENDER_W = 1440;
+const RENDER_H = 810;
+
+/* The rotors are rendered apart from the landscape as a looping sprite: one
+   120-degree turn in 24 steps, since a three-blade rotor repeats after that,
+   laid out 4 x 6 and cropped to the corner of the render the turbines occupy.
+   x/y/w/h are that crop in render pixels. */
+const ROTOR = { cols: 4, rows: 6, steps: 24, fps: 18, x: 0, y: 0, w: 924, h: 318 };
+const ROTOR_SETS = ["day", "mid", "dusk"];
+
+/* Every layer below the current one stays opaque, so a layer that has not
+   downloaded yet falls back to the last one that has. */
+function fadeStack(layers: (HTMLElement | null)[], progress: number) {
+  const exact = Math.min(1, Math.max(0, progress)) * (layers.length - 1);
+  const index = Math.floor(exact);
+  const blend = exact - index;
+  layers.forEach((layer, i) => {
+    if (!layer) return;
+    layer.style.opacity = i <= index ? "1" : i === index + 1 ? String(blend) : "0";
+  });
+}
+
+/* A Cycles-rendered aerial of the site, scrubbed by scroll from midday to
+   dusk, with the turbine blades turning on their own clock on top. */
+function EnergyLandscape() {
+  const frames = useRef<(HTMLImageElement | null)[]>([]);
+  const rotors = useRef<(HTMLDivElement | null)[]>([]);
+  const { scrollYProgress } = useScroll();
+
+  const paint = useCallback((progress: number) => {
+    fadeStack(frames.current, progress);
+    fadeStack(rotors.current, progress);
+  }, []);
+
+  useEffect(() => {
+    paint(scrollYProgress.get());
+    return scrollYProgress.on("change", paint);
+  }, [scrollYProgress, paint]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    let shown = -1;
+    const tick = (now: number) => {
+      const step = Math.floor((now / 1000) * ROTOR.fps) % ROTOR.steps;
+      if (step !== shown) {
+        shown = step;
+        const col = step % ROTOR.cols;
+        const row = Math.floor(step / ROTOR.cols);
+        const position = `${(col / (ROTOR.cols - 1)) * 100}% ${(row / (ROTOR.rows - 1)) * 100}%`;
+        rotors.current.forEach((layer) => {
+          if (layer) layer.style.backgroundPosition = position;
+        });
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden [container-type:size]"
+    >
+      {/* one 16:9 box covering the viewport; the frames and the rotor overlay
+          share it, so they stay registered at any window size */}
+      <div className="absolute left-1/2 top-1/2 h-[max(100cqh,calc(100cqw*9/16))] w-[max(100cqw,calc(100cqh*16/9))] -translate-x-1/2 -translate-y-1/2">
+        {Array.from({ length: LANDSCAPE_FRAMES }, (_, i) => (
+          <img
+            key={i}
+            ref={(el) => {
+              frames.current[i] = el;
+            }}
+            src={`/landscape/frame${String(i).padStart(2, "0")}.jpg`}
+            alt=""
+            decoding="async"
+            className="absolute inset-0 h-full w-full"
+            style={{ opacity: i === 0 ? 1 : 0 }}
+          />
+        ))}
+        <div
+          className="absolute"
+          style={{
+            left: `${(ROTOR.x / RENDER_W) * 100}%`,
+            top: `${(ROTOR.y / RENDER_H) * 100}%`,
+            width: `${(ROTOR.w / RENDER_W) * 100}%`,
+            height: `${(ROTOR.h / RENDER_H) * 100}%`,
+          }}
+        >
+          {ROTOR_SETS.map((set, i) => (
+            <div
+              key={set}
+              ref={(el) => {
+                rotors.current[i] = el;
+              }}
+              className="absolute inset-0 bg-no-repeat"
+              style={{
+                backgroundImage: `url(/landscape/rotors-${set}.webp)`,
+                backgroundSize: `${ROTOR.cols * 100}% ${ROTOR.rows * 100}%`,
+                backgroundPosition: "0% 0%",
+                opacity: i === 0 ? 1 : 0,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+      {/* the page's text is white, and the scene is daylit at the top */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#04120f]/75 via-[#04120f]/55 to-[#04120f]/85" />
+    </div>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /*  Page                                                              */
 /* ------------------------------------------------------------------ */
@@ -330,6 +444,8 @@ export default function AboutClient() {
               "radial-gradient(1100px 620px at 12% -8%, rgba(59,185,123,0.22), transparent 60%), radial-gradient(900px 620px at 92% 4%, rgba(0,181,159,0.16), transparent 62%), radial-gradient(1200px 900px at 50% 108%, rgba(0,70,78,0.55), transparent 66%)",
           }}
         />
+
+        <EnergyLandscape />
 
         {/* ============================ HERO ============================ */}
         <section
