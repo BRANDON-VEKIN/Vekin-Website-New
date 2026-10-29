@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "../components/Header";
 import { useSiteLanguage } from "../components/siteLanguage";
 
@@ -204,7 +204,7 @@ function Reveal({
     <motion.div
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
+      viewport={{ margin: "0px 0px -12% 0px" }}
       transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
@@ -213,12 +213,186 @@ function Reveal({
   );
 }
 
-function SectionKicker({ children }: { children: React.ReactNode }) {
+function SectionKicker({
+  index,
+  children,
+  className = "",
+}: {
+  index?: number;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-[#3BB97B]/30 bg-[#3BB97B]/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7BE4B4]">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#3BB97B]" />
+    <span
+      className={`flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#7BE4B4] ${className}`}
+    >
+      {index !== undefined && (
+        <span className="tabular-nums text-white/35">{String(index).padStart(2, "0")}</span>
+      )}
+      <motion.span
+        aria-hidden="true"
+        className="h-px w-16 origin-left bg-gradient-to-r from-[#3BB97B] to-[#3BB97B]/10"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ margin: "0px 0px -8% 0px" }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      />
       {children}
     </span>
+  );
+}
+
+/* Headline words rise out of a clipping mask, one after the next. */
+function RevealWords({
+  text,
+  className = "",
+  wordClassName = "",
+  delay = 0,
+}: {
+  text: string;
+  className?: string;
+  wordClassName?: string;
+  delay?: number;
+}) {
+  return (
+    <motion.span
+      className={`flex flex-wrap gap-x-[0.26em] ${className}`}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ margin: "0px 0px -8% 0px" }}
+      variants={{ hidden: {}, show: { transition: { delayChildren: delay, staggerChildren: 0.06 } } }}
+    >
+      <span className="sr-only">{text}</span>
+      {text.split(" ").map((word, index) => (
+        <span
+          key={`${word}-${index}`}
+          aria-hidden="true"
+          className="-mb-[0.18em] overflow-hidden pb-[0.18em]"
+        >
+          <motion.span
+            className={`block ${wordClassName}`}
+            variants={{ hidden: { y: "130%" }, show: { y: 0 } }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </motion.span>
+  );
+}
+
+const LANDSCAPE_FRAMES = 20;
+const RENDER_W = 1440;
+const RENDER_H = 810;
+
+/* The rotors are rendered apart from the landscape as a looping sprite: one
+   120-degree turn in 24 steps, since a three-blade rotor repeats after that,
+   laid out 4 x 6 and cropped to the corner of the render the turbines occupy.
+   x/y/w/h are that crop in render pixels. */
+const ROTOR = { cols: 4, rows: 6, steps: 24, fps: 18, x: 0, y: 0, w: 924, h: 318 };
+const ROTOR_SETS = ["day", "mid", "dusk"];
+
+/* Every layer below the current one stays opaque, so a layer that has not
+   downloaded yet falls back to the last one that has. */
+function fadeStack(layers: (HTMLElement | null)[], progress: number) {
+  const exact = Math.min(1, Math.max(0, progress)) * (layers.length - 1);
+  const index = Math.floor(exact);
+  const blend = exact - index;
+  layers.forEach((layer, i) => {
+    if (!layer) return;
+    layer.style.opacity = i <= index ? "1" : i === index + 1 ? String(blend) : "0";
+  });
+}
+
+/* A Cycles-rendered aerial of the site, scrubbed by scroll from midday to
+   dusk, with the turbine blades turning on their own clock on top. */
+function EnergyLandscape() {
+  const frames = useRef<(HTMLImageElement | null)[]>([]);
+  const rotors = useRef<(HTMLDivElement | null)[]>([]);
+  const { scrollYProgress } = useScroll();
+
+  const paint = useCallback((progress: number) => {
+    fadeStack(frames.current, progress);
+    fadeStack(rotors.current, progress);
+  }, []);
+
+  useEffect(() => {
+    paint(scrollYProgress.get());
+    return scrollYProgress.on("change", paint);
+  }, [scrollYProgress, paint]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    let shown = -1;
+    const tick = (now: number) => {
+      const step = Math.floor((now / 1000) * ROTOR.fps) % ROTOR.steps;
+      if (step !== shown) {
+        shown = step;
+        const col = step % ROTOR.cols;
+        const row = Math.floor(step / ROTOR.cols);
+        const position = `${(col / (ROTOR.cols - 1)) * 100}% ${(row / (ROTOR.rows - 1)) * 100}%`;
+        rotors.current.forEach((layer) => {
+          if (layer) layer.style.backgroundPosition = position;
+        });
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden [container-type:size]"
+    >
+      {/* one 16:9 box covering the viewport; the frames and the rotor overlay
+          share it, so they stay registered at any window size */}
+      <div className="absolute left-1/2 top-1/2 h-[max(100cqh,calc(100cqw*9/16))] w-[max(100cqw,calc(100cqh*16/9))] -translate-x-1/2 -translate-y-1/2">
+        {Array.from({ length: LANDSCAPE_FRAMES }, (_, i) => (
+          <img
+            key={i}
+            ref={(el) => {
+              frames.current[i] = el;
+            }}
+            src={`/landscape/frame${String(i).padStart(2, "0")}.jpg`}
+            alt=""
+            decoding="async"
+            className="absolute inset-0 h-full w-full"
+            style={{ opacity: i === 0 ? 1 : 0 }}
+          />
+        ))}
+        <div
+          className="absolute"
+          style={{
+            left: `${(ROTOR.x / RENDER_W) * 100}%`,
+            top: `${(ROTOR.y / RENDER_H) * 100}%`,
+            width: `${(ROTOR.w / RENDER_W) * 100}%`,
+            height: `${(ROTOR.h / RENDER_H) * 100}%`,
+          }}
+        >
+          {ROTOR_SETS.map((set, i) => (
+            <div
+              key={set}
+              ref={(el) => {
+                rotors.current[i] = el;
+              }}
+              className="absolute inset-0 bg-no-repeat"
+              style={{
+                backgroundImage: `url(/landscape/rotors-${set}.webp)`,
+                backgroundSize: `${ROTOR.cols * 100}% ${ROTOR.rows * 100}%`,
+                backgroundPosition: "0% 0%",
+                opacity: i === 0 ? 1 : 0,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+      {/* the page's text is white, and the scene is daylit at the top */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#04120f]/75 via-[#04120f]/55 to-[#04120f]/85" />
+    </div>
   );
 }
 
@@ -232,6 +406,13 @@ export default function AboutClient() {
 
   const heroRef = useRef<HTMLDivElement>(null);
   const [pointer, setPointer] = useState({ x: 0.5, y: 0.3 });
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, -140]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
 
   useEffect(() => {
     const element = heroRef.current;
@@ -264,6 +445,8 @@ export default function AboutClient() {
           }}
         />
 
+        <EnergyLandscape />
+
         {/* ============================ HERO ============================ */}
         <section
           ref={heroRef}
@@ -279,21 +462,23 @@ export default function AboutClient() {
             }}
           />
 
+          <motion.div
+            style={{ y: heroY, opacity: heroOpacity }}
+            className="flex w-full flex-col items-center"
+          >
           <Reveal>
-            <SectionKicker>{t(hero.eyebrow)}</SectionKicker>
+            <SectionKicker className="justify-center">{hero.eyebrow.en}</SectionKicker>
           </Reveal>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 34 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 text-[clamp(2.7rem,8vw,6.2rem)] font-semibold leading-[0.95] tracking-[-0.03em]"
-          >
-            <span className="block">{t(hero.titleTop)}</span>
-            <span className="block bg-gradient-to-r from-[#3BB97B] via-[#43dcae] to-[#00b59f] bg-clip-text text-transparent">
-              {t(hero.titleBottom)}
-            </span>
-          </motion.h1>
+          <h1 className="mt-7 text-[clamp(2.7rem,8vw,6.2rem)] font-semibold leading-[0.95] tracking-[-0.03em]">
+            <RevealWords text={hero.titleTop.en} className="justify-center" delay={0.1} />
+            <RevealWords
+              text={hero.titleBottom.en}
+              className="justify-center"
+              wordClassName="bg-gradient-to-r from-[#3BB97B] via-[#43dcae] to-[#00b59f] bg-clip-text text-transparent"
+              delay={0.26}
+            />
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 26 }}
@@ -320,12 +505,15 @@ export default function AboutClient() {
               </div>
             ))}
           </Reveal>
+          </motion.div>
         </section>
 
         {/* ========================= FOUNDER VISION ========================= */}
         <section className="relative z-10 mx-auto max-w-[1000px] px-6 py-24">
           <Reveal className="text-center">
-            <SectionKicker>{t(vision.kicker)}</SectionKicker>
+            <SectionKicker index={1} className="justify-center">
+              {vision.kicker.en}
+            </SectionKicker>
           </Reveal>
 
           <Reveal delay={0.1} className="mt-10">
@@ -363,17 +551,15 @@ export default function AboutClient() {
         {/* ======================= DIFFERENTIATORS ======================= */}
         <section className="relative z-10 mx-auto max-w-[1180px] px-6 py-16">
           <Reveal className="max-w-2xl">
-            <SectionKicker>
-              {language === "th" ? "จุดเด่นของเรา" : "Why VEKIN"}
-            </SectionKicker>
+            <SectionKicker index={2}>Why VEKIN</SectionKicker>
             <h2 className="mt-6 text-[clamp(1.8rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em]">
-              {language === "th" ? "สิ่งที่ทำให้เราแตกต่าง" : "What makes us different"}
+              <RevealWords text="What makes us different" />
             </h2>
           </Reveal>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {differentiators.map((item, index) => (
-              <Reveal key={t(item.title)} delay={index * 0.08}>
+              <Reveal key={item.title.en} delay={index * 0.08}>
                 <div className="group h-full rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#3BB97B]/40 hover:bg-white/[0.06]">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#3BB97B] to-[#00b59f] shadow-[0_10px_30px_rgba(59,185,123,0.35)]">
                     <svg
@@ -385,7 +571,7 @@ export default function AboutClient() {
                     </svg>
                   </div>
                   <h3 className="mt-6 text-lg font-semibold leading-snug text-white">
-                    {t(item.title)}
+                    {item.title.en}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-white/60">
                     {t(item.body)}
@@ -399,11 +585,9 @@ export default function AboutClient() {
         {/* =========================== SOLUTIONS =========================== */}
         <section className="relative z-10 mx-auto max-w-[1180px] px-6 py-16">
           <Reveal className="max-w-2xl">
-            <SectionKicker>
-              {language === "th" ? "แพลตฟอร์ม" : "The Platform"}
-            </SectionKicker>
+            <SectionKicker index={3}>The Platform</SectionKicker>
             <h2 className="mt-6 text-[clamp(1.8rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em]">
-              {language === "th" ? "โซลูชันหลักของเรา" : "Our core solutions"}
+              <RevealWords text="Our core solutions" />
             </h2>
           </Reveal>
 
@@ -451,11 +635,9 @@ export default function AboutClient() {
         {/* ============================ LEADERSHIP ============================ */}
         <section className="relative z-10 mx-auto max-w-[1180px] px-6 py-16">
           <Reveal className="max-w-2xl">
-            <SectionKicker>
-              {language === "th" ? "ทีมของเรา" : "Our People"}
-            </SectionKicker>
+            <SectionKicker index={4}>Our People</SectionKicker>
             <h2 className="mt-6 text-[clamp(1.8rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em]">
-              {language === "th" ? "ทีมผู้บริหาร" : "Leadership team"}
+              <RevealWords text="Leadership team" />
             </h2>
           </Reveal>
 
@@ -493,9 +675,9 @@ export default function AboutClient() {
             <div className="overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-[#00464E]/40 to-white/[0.02] p-8 backdrop-blur-md sm:p-12">
               <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <div>
-                  <SectionKicker>{t(committee.kicker)}</SectionKicker>
+                  <SectionKicker index={5}>{committee.kicker.en}</SectionKicker>
                   <h2 className="mt-6 text-[clamp(1.6rem,3.4vw,2.6rem)] font-semibold leading-tight tracking-[-0.02em]">
-                    {t(committee.title)}
+                    <RevealWords text={committee.title.en} />
                   </h2>
                   <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60">
                     {t(committee.body)}
@@ -531,11 +713,11 @@ export default function AboutClient() {
         {/* ========================= CERTIFICATIONS ========================= */}
         <section className="relative z-10 mx-auto max-w-[1180px] px-6 py-16">
           <Reveal className="text-center">
-            <SectionKicker>
-              {language === "th" ? "มาตรฐานสากล" : "Global Standards"}
+            <SectionKicker index={6} className="justify-center">
+              Global Standards
             </SectionKicker>
             <h2 className="mx-auto mt-6 max-w-xl text-[clamp(1.8rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em]">
-              {language === "th" ? "การรับรองมาตรฐานที่เราถือครอง" : "Certifications we hold"}
+              <RevealWords text="Certifications we hold" className="justify-center" />
             </h2>
           </Reveal>
 
